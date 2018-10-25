@@ -1,6 +1,6 @@
 # Pagination
 
-<aside class="notice">The Trinity API uses pagination when there are more than 100 entries of a specific resource. Pagination information is provided in the headers rather than the response body, using the [RFC-8288](https://tools.ietf.org/html/rfc8288) standard.</aside>
+<aside class="notice">The Trinity API uses pagination when there are more than 100 entries of a specific resource. Pagination information is provided in the headers rather than the response body, using the <a href='https://tools.ietf.org/html/rfc8288'>RFC-8288</a> standard.</aside>
 
 Users can navigate through pages of results with the following parameters:
 

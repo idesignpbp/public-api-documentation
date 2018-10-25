@@ -1,4 +1,4 @@
-# Fabrics
+# Fabrics API
 
 ## Get All Collections
 

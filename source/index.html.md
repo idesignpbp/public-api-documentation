@@ -1,23 +1,21 @@
 ---
 title: Trinity API Documentation
 
-language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
 
 toc_footers:
   - Made by <a href='https://trinity-apparel.com'>Trinity Apparel</a>
 
 includes:
-  - fabrics
   - errors
   - pagination
+  - fabrics
 
 search: true
 ---
 
 # Introduction
 
-Welcome to the Trinity Apparel API! You can use our API to get information on **fabrics** and check the status of your **orders**.
+Welcome to the Trinity Apparel API! You can use our API to get information on all of our endpoints, such as the **Fabrics API** and the **Orders API**.
 
 # Authentication
 
