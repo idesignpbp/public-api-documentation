@@ -131,6 +131,8 @@ is_active | true | If set to true, the result will only include active fabrics
 - Permissions: All
 - Pagination: Yes
 
+
+
 ## Get All Fabrics
 
 ```shell
@@ -438,7 +440,7 @@ is_active | true | If set to true, the result will only include active fabrics
 ### Other
 
 - Permissions: All
-- Pagination: Yes
+- Pagination: No
 
 ## Get a Specific Fabric
 
@@ -509,13 +511,13 @@ Returns details on a specific fabric.
 
 ### HTTP Request
 
-`GET https://api.trinity-apparel.com/v1/fabrics/:fabric_id`
+`GET https://api.trinity-apparel.com/v1/fabrics/:id`
 
 ### Query Parameters
 
 Parameter | Default | Description
 --------- | ------- | -----------
-fabric_id | N/A | The specific fabric id you want to see
+id | N/A | The specific fabric id you want to see
 
 ### Other
 
