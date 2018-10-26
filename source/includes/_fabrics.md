@@ -131,7 +131,195 @@ is_active | true | If set to true, the result will only include active fabrics
 - Permissions: All
 - Pagination: Yes
 
+## Get a Specific Collection
 
+```shell
+curl "https://api.trinity-apparel.com/v1/collections/1854"
+  -H "AUTHENTICATION Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "id": 1854,
+    "name": "Outerwear V18082",
+    "description": "",
+    "fabrics": [
+        {
+            "id": 54875,
+            "active": false,
+            "in_stock": 1,
+            "restock_date": null,
+            "description": "Blue Navy Plaid",
+            "supplier_fabric_number": "BT65151-1",
+            "trinity_fabric_number": "C4-3754875",
+            "url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=C4-3754875",
+            "inventory_status": "In Stock"
+        },
+        {
+            "id": 54876,
+            "active": false,
+            "in_stock": 1,
+            "restock_date": null,
+            "description": "Charcoal Black Plaid",
+            "supplier_fabric_number": "BT65151-2",
+            "trinity_fabric_number": "C4-3754876",
+            "url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=C4-3754876",
+            "inventory_status": "In Stock"
+        },
+        {
+            "id": 54877,
+            "active": false,
+            "in_stock": 1,
+            "restock_date": null,
+            "description": "Black White Herringbone",
+            "supplier_fabric_number": "BT65139-1",
+            "trinity_fabric_number": "C4-3754877",
+            "url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=C4-3754877",
+            "inventory_status": "In Stock"
+        },
+        {
+            "id": 54878,
+            "active": false,
+            "in_stock": 1,
+            "restock_date": null,
+            "description": "Blue Navy Herringbone",
+            "supplier_fabric_number": "BT65139-3",
+            "trinity_fabric_number": "C4-3754878",
+            "url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=C4-3754878",
+            "inventory_status": "In Stock"
+        },
+        {
+            "id": 54879,
+            "active": false,
+            "in_stock": 1,
+            "restock_date": null,
+            "description": "Grey Charcoal Herringbone",
+            "supplier_fabric_number": "BT65139-5",
+            "trinity_fabric_number": "C4-3754879",
+            "url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=C4-3754879",
+            "inventory_status": "In Stock"
+        },
+        {
+            "id": 54880,
+            "active": false,
+            "in_stock": 1,
+            "restock_date": null,
+            "description": "Grey Charcoal Twill",
+            "supplier_fabric_number": "BT65153-7",
+            "trinity_fabric_number": "C4-3754880",
+            "url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=C4-3754880",
+            "inventory_status": "In Stock"
+        },
+        {
+            "id": 54881,
+            "active": false,
+            "in_stock": 1,
+            "restock_date": null,
+            "description": "Brown Black Twill",
+            "supplier_fabric_number": "BT65153-10",
+            "trinity_fabric_number": "C4-3754881",
+            "url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=C4-3754881",
+            "inventory_status": "In Stock"
+        },
+        {
+            "id": 54882,
+            "active": false,
+            "in_stock": 1,
+            "restock_date": null,
+            "description": "Blue Navy Twill",
+            "supplier_fabric_number": "BT65153-11",
+            "trinity_fabric_number": "C4-3754882",
+            "url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=C4-3754882",
+            "inventory_status": "In Stock"
+        },
+        {
+            "id": 54883,
+            "active": false,
+            "in_stock": 1,
+            "restock_date": null,
+            "description": "Charcoal Grey Expanded Plaid",
+            "supplier_fabric_number": "340028",
+            "trinity_fabric_number": "Z6-3754883",
+            "url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z6-3754883",
+            "inventory_status": "In Stock"
+        },
+        {
+            "id": 54884,
+            "active": false,
+            "in_stock": 1,
+            "restock_date": null,
+            "description": "Navy  Expanded Herringbone",
+            "supplier_fabric_number": "340032",
+            "trinity_fabric_number": "Z6-3754884",
+            "url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z6-3754884",
+            "inventory_status": "In Stock"
+        },
+        {
+            "id": 54885,
+            "active": false,
+            "in_stock": 1,
+            "restock_date": null,
+            "description": "Grey Expanded Herringbone",
+            "supplier_fabric_number": "340031",
+            "trinity_fabric_number": "Z6-3754885",
+            "url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z6-3754885",
+            "inventory_status": "In Stock"
+        },
+        {
+            "id": 54886,
+            "active": false,
+            "in_stock": 1,
+            "restock_date": null,
+            "description": "Navy Blue Basket",
+            "supplier_fabric_number": "601 574 900",
+            "trinity_fabric_number": "Z4-3754886",
+            "url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z4-3754886",
+            "inventory_status": "In Stock"
+        },
+        {
+            "id": 54887,
+            "active": false,
+            "in_stock": 1,
+            "restock_date": null,
+            "description": "Red Charcoal Check",
+            "supplier_fabric_number": "665 102 1500",
+            "trinity_fabric_number": "Z6-3754887",
+            "url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z6-3754887",
+            "inventory_status": "In Stock"
+        },
+        {
+            "id": 54888,
+            "active": false,
+            "in_stock": 1,
+            "restock_date": null,
+            "description": "Blue Diamond",
+            "supplier_fabric_number": "665 104 1500",
+            "trinity_fabric_number": "Z6-3754888",
+            "url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z6-3754888",
+            "inventory_status": "In Stock"
+        }
+    ]
+}
+```
+
+Returns details on a fabric collection and a list of all fabrics in that collection.
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/collections/:id`
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+id | N/A | The specific collection id you want to see
+
+### Other
+
+- Permissions: All
+- Pagination: N/A
 
 ## Get All Fabrics
 
