@@ -9,6 +9,7 @@ includes:
   - errors
   - pagination
   - fabrics
+  - orders
 
 search: true
 ---
