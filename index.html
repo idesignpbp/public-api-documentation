@@ -248,6 +248,12 @@
             <a href="#orders-api" class="toc-h1 toc-link" data-title="Orders API">Orders API</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#order-statuses" class="toc-h2 toc-link" data-title="Order Statuses">Order Statuses</a>
+                  </li>
+                  <li>
+                    <a href="#delay-statuses" class="toc-h2 toc-link" data-title="Delay Statuses">Delay Statuses</a>
+                  </li>
+                  <li>
                     <a href="#get-all-orders-dos" class="toc-h2 toc-link" data-title="Get All Orders (DOs)">Get All Orders (DOs)</a>
                   </li>
                   <li>
@@ -258,6 +264,18 @@
                   </li>
                   <li>
                     <a href="#get-a-specific-garment" class="toc-h2 toc-link" data-title="Get a Specific Garment">Get a Specific Garment</a>
+                  </li>
+                  <li>
+                    <a href="#get-order-statuses" class="toc-h2 toc-link" data-title="Get Order Statuses">Get Order Statuses</a>
+                  </li>
+                  <li>
+                    <a href="#get-an-order-status" class="toc-h2 toc-link" data-title="Get an Order Status">Get an Order Status</a>
+                  </li>
+                  <li>
+                    <a href="#get-delay-statuses" class="toc-h2 toc-link" data-title="Get Delay Statuses">Get Delay Statuses</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-delay-status" class="toc-h2 toc-link" data-title="Get a Delay Status">Get a Delay Status</a>
                   </li>
               </ul>
           </li>
@@ -1082,7 +1100,135 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <li>Permissions: All</li>
 <li>Pagination: N/A</li>
 </ul>
-<h1 id='orders-api'>Orders API</h1><h2 id='get-all-orders-dos'>Get All Orders (DOs)</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/orders"</span>
+<h1 id='orders-api'>Orders API</h1><h2 id='order-statuses'>Order Statuses</h2>
+<p>All garments are in a particular order statuses.  While a garment is being produced it flows through a number of different statuses. Here is a list of all possible status codes:</p>
+
+<table><thead>
+<tr>
+<th>Status Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>INCOMPLETE</td>
+<td>Incomplete</td>
+</tr>
+<tr>
+<td>SUBMITTED</td>
+<td>Ready</td>
+</tr>
+<tr>
+<td>PENDING</td>
+<td>Blue Pencil</td>
+</tr>
+<tr>
+<td>PRODUCTION</td>
+<td>Production</td>
+</tr>
+<tr>
+<td>MADE</td>
+<td>Production Complete</td>
+</tr>
+<tr>
+<td>SHIPDC</td>
+<td>International Transit</td>
+</tr>
+<tr>
+<td>INSPECTDC</td>
+<td>Final Inspection</td>
+</tr>
+<tr>
+<td>SHIPCUST</td>
+<td>Delivery</td>
+</tr>
+<tr>
+<td>FABHOLD</td>
+<td>Fabric Hold</td>
+</tr>
+<tr>
+<td>PACKDC</td>
+<td>Shipment Processing</td>
+</tr>
+<tr>
+<td>SHIPDIRECT</td>
+<td>Direct Ship</td>
+</tr>
+<tr>
+<td>CANCEL</td>
+<td>Canceled</td>
+</tr>
+<tr>
+<td>CMTHOLD</td>
+<td>CMT Fabric Hold</td>
+</tr>
+</tbody></table>
+<h2 id='delay-statuses'>Delay Statuses</h2>
+<p>Sometimes a garment gets delayed during production. We categorize the reason for the delay in an effort to speed up the process. Here is a list of all possible delay codes:</p>
+
+<table><thead>
+<tr>
+<th>Delay Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>OK</td>
+<td>Not Delayed</td>
+</tr>
+<tr>
+<td>FABRIC_OUT</td>
+<td>Fabric Out</td>
+</tr>
+<tr>
+<td>FABRIC_RECEIPT</td>
+<td>Fabric Receipt Delay</td>
+</tr>
+<tr>
+<td>FABRIC_DAMAGED</td>
+<td>Fabric Flawed/Damaged</td>
+</tr>
+<tr>
+<td>FABRIC_SHORT</td>
+<td>Fabric Short</td>
+</tr>
+<tr>
+<td>DEALER_INSTRUCT</td>
+<td>Dealer Instruction Required</td>
+</tr>
+<tr>
+<td>GARMENT_DAMAGED</td>
+<td>Garment Damaged Delay</td>
+</tr>
+<tr>
+<td>TRINITY_REVIEW</td>
+<td>Trinity Review</td>
+</tr>
+<tr>
+<td>DEALER_HOLD</td>
+<td>Dealer Hold</td>
+</tr>
+<tr>
+<td>CMT_SHELL</td>
+<td>CMT Shell Fabric Delay</td>
+</tr>
+<tr>
+<td>CMT_LINING</td>
+<td>CMT Lining Fabric Delay</td>
+</tr>
+<tr>
+<td>CMT_TRIM</td>
+<td>CMT Trim Fabric Delay</td>
+</tr>
+<tr>
+<td>PATTERN_REVIEW</td>
+<td>Pattern Review</td>
+</tr>
+<tr>
+<td>FACTORY_REVIEW</td>
+<td>ID Review</td>
+</tr>
+</tbody></table>
+<h2 id='get-all-orders-dos'>Get All Orders (DOs)</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/orders"</span>
   -H <span class="s2">"AUTHENTICATION Bearer: swaledale"</span>
 </code></pre>
 <blockquote>
@@ -3004,6 +3150,16 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <td>N/A</td>
 <td>Show garments that are part of a specific dealer order</td>
 </tr>
+<tr>
+<td>order_status_code</td>
+<td>N/A</td>
+<td>Show garments that are in a specific order status</td>
+</tr>
+<tr>
+<td>delay_status_code</td>
+<td>N/A</td>
+<td>Show garments that are in a specific delay status</td>
+</tr>
 </tbody></table>
 <h3 id='other-3'>Other</h3>
 <ul>
@@ -3100,6 +3256,236 @@ You must replace <code>swaledale</code> with your personal JWT token.
 </tr>
 </tbody></table>
 <h3 id='other-4'>Other</h3>
+<ul>
+<li>Permissions: All</li>
+<li>Pagination: N/A</li>
+</ul>
+<h2 id='get-order-statuses'>Get Order Statuses</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/order_statuses"</span>
+  -H <span class="s2">"AUTHENTICATION Bearer: swaledale"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INCOMPLETE"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Incomplete"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Incomplete"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CMTHOLD"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CMT Fabric Hold"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FABHOLD"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Restocking"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fabric Hold"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUBMITTED"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Submitted"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ready"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PENDING"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pending"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blue Pencil"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PRODUCTION"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Production"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Production"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MADE"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Production Complete"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SHIPDC"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"International Transit"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INSPECTDC"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Final Inspection"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PACKDC"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shipment Processing"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SHIPCUST"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Delivery"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Delivery"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SHIPDIRECT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Direct Ship"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CANCEL"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Canceled"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>Returns a list of all order statuses</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>GET https://api.trinity-apparel.com/v1/order_statuses</code></p>
+<h3 id='query-parameters-5'>Query Parameters</h3>
+<p>None</p>
+<h3 id='other-5'>Other</h3>
+<ul>
+<li>Permissions: All</li>
+<li>Pagination: N/A</li>
+</ul>
+<h2 id='get-an-order-status'>Get an Order Status</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/order_statuses/FABHOLD"</span>
+  -H <span class="s2">"AUTHENTICATION Bearer: swaledale"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FABHOLD"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Restocking"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fabric Hold"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"max_delay_days"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"max_delay_days_shirts"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"max_delay_days_suits"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Returns details on an order status</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>GET https://api.trinity-apparel.com/v1/order_statuses/:code</code></p>
+<h3 id='query-parameters-6'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>code</td>
+<td>N/A</td>
+<td>The specific order status code</td>
+</tr>
+</tbody></table>
+<h3 id='other-6'>Other</h3>
+<ul>
+<li>Permissions: All</li>
+<li>Pagination: N/A</li>
+</ul>
+<h2 id='get-delay-statuses'>Get Delay Statuses</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/delay_statuses"</span>
+  -H <span class="s2">"AUTHENTICATION Bearer: swaledale"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OK"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Not Delayed"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FABRIC_OUT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fabric Out"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FABRIC_RECEIPT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fabric Receipt Delay"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FABRIC_DAMAGED"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fabric Flawed/Damaged"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FABRIC_SHORT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fabric Short"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEALER_INSTRUCT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dealer Instruction Required"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GARMENT_DAMAGED"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Garment Damaged Delay"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRINITY_REVIEW"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Trinity Review"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEALER_HOLD"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dealer Hold"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CMT_SHELL"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CMT Shell Fabric Delay"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CMT_LINING"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CMT Lining Fabric Delay"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CMT_TRIM"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CMT Trim Fabric Delay"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PATTERN_REVIEW"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pattern Review"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FACTORY_REVIEW"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID Review"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>Returns a list of all delay statuses</p>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>GET https://api.trinity-apparel.com/v1/delay_statuses</code></p>
+<h3 id='query-parameters-7'>Query Parameters</h3>
+<p>None</p>
+<h3 id='other-7'>Other</h3>
+<ul>
+<li>Permissions: All</li>
+<li>Pagination: N/A</li>
+</ul>
+<h2 id='get-a-delay-status'>Get a Delay Status</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/delay_statuses/FABRIC_OUT"</span>
+  -H <span class="s2">"AUTHENTICATION Bearer: swaledale"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FABRIC_OUT"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fabric Out"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Returns details on a delay status. It doesn&#39;t provide that much information, as you can see.</p>
+<h3 id='http-request-8'>HTTP Request</h3>
+<p><code>GET https://api.trinity-apparel.com/v1/delay_statuses/:code</code></p>
+<h3 id='query-parameters-8'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>code</td>
+<td>N/A</td>
+<td>The specific delay status code</td>
+</tr>
+</tbody></table>
+<h3 id='other-8'>Other</h3>
 <ul>
 <li>Permissions: All</li>
 <li>Pagination: N/A</li>
