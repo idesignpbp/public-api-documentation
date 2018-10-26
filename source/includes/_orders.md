@@ -1,5 +1,48 @@
 # Orders API
 
+## Order Statuses
+
+All garments are in a particular order statuses.  While a garment is being produced it flows through a number of different statuses. Here is a list of all possible status codes:
+
+Status Code | Description
+---------- | -------
+INCOMPLETE | Incomplete
+SUBMITTED | Ready
+PENDING | Blue Pencil
+PRODUCTION | Production
+MADE | Production Complete
+SHIPDC | International Transit
+INSPECTDC | Final Inspection
+SHIPCUST | Delivery
+FABHOLD | Fabric Hold
+PACKDC | Shipment Processing
+SHIPDIRECT | Direct Ship
+CANCEL | Canceled
+CMTHOLD | CMT Fabric Hold
+
+
+## Delay Statuses
+
+Sometimes a garment gets delayed during production. We categorize the reason for the delay in an effort to speed up the process. Here is a list of all possible delay codes:
+
+Delay Code | Description
+---------- | -------
+OK | Not Delayed
+FABRIC_OUT | Fabric Out
+FABRIC_RECEIPT | Fabric Receipt Delay
+FABRIC_DAMAGED | Fabric Flawed/Damaged
+FABRIC_SHORT | Fabric Short
+DEALER_INSTRUCT | Dealer Instruction Required
+GARMENT_DAMAGED | Garment Damaged Delay
+TRINITY_REVIEW | Trinity Review
+DEALER_HOLD | Dealer Hold
+CMT_SHELL | CMT Shell Fabric Delay
+CMT_LINING | CMT Lining Fabric Delay
+CMT_TRIM | CMT Trim Fabric Delay
+PATTERN_REVIEW | Pattern Review
+FACTORY_REVIEW | ID Review
+
+
 ## Get All Orders (DOs)
 
 ```shell
@@ -1922,6 +1965,8 @@ Returns an array of garments.  Each garment will have pricing information and or
 Parameter | Default | Description
 --------- | ------- | -----------
 order_id | N/A | Show garments that are part of a specific dealer order
+order_status_code | N/A | Show garments that are in a specific order status
+delay_status_code | N/A | Show garments that are in a specific delay status
 
 ### Other
 
@@ -2016,6 +2061,256 @@ Returns details on a specific garment.
 Parameter | Default | Description
 --------- | ------- | -----------
 id | N/A | The specific garment id you want to see
+
+### Other
+
+- Permissions: All
+- Pagination: N/A
+
+## Get Order Statuses
+
+```shell
+curl "https://api.trinity-apparel.com/v1/order_statuses"
+  -H "AUTHENTICATION Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+        "code": "INCOMPLETE",
+        "name": "Incomplete",
+        "description": "Incomplete"
+    },
+    {
+        "code": "CMTHOLD",
+        "name": null,
+        "description": "CMT Fabric Hold"
+    },
+    {
+        "code": "FABHOLD",
+        "name": "Restocking",
+        "description": "Fabric Hold"
+    },
+    {
+        "code": "SUBMITTED",
+        "name": "Submitted",
+        "description": "Ready"
+    },
+    {
+        "code": "PENDING",
+        "name": "Pending",
+        "description": "Blue Pencil"
+    },
+    {
+        "code": "PRODUCTION",
+        "name": "Production",
+        "description": "Production"
+    },
+    {
+        "code": "MADE",
+        "name": null,
+        "description": "Production Complete"
+    },
+    {
+        "code": "SHIPDC",
+        "name": null,
+        "description": "International Transit"
+    },
+    {
+        "code": "INSPECTDC",
+        "name": null,
+        "description": "Final Inspection"
+    },
+    {
+        "code": "PACKDC",
+        "name": null,
+        "description": "Shipment Processing"
+    },
+    {
+        "code": "SHIPCUST",
+        "name": "Delivery",
+        "description": "Delivery"
+    },
+    {
+        "code": "SHIPDIRECT",
+        "name": null,
+        "description": "Direct Ship"
+    },
+    {
+        "code": "CANCEL",
+        "name": null,
+        "description": "Canceled"
+    }
+]
+```
+
+Returns a list of all order statuses
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/order_statuses`
+
+### Query Parameters
+
+None
+
+### Other
+
+- Permissions: All
+- Pagination: N/A
+
+## Get an Order Status
+
+```shell
+curl "https://api.trinity-apparel.com/v1/order_statuses/FABHOLD"
+  -H "AUTHENTICATION Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "code": "FABHOLD",
+    "name": "Restocking",
+    "description": "Fabric Hold",
+    "max_delay_days": 9,
+    "max_delay_days_shirts": 9,
+    "max_delay_days_suits": 9,
+    "is_active": true
+}
+```
+
+Returns details on an order status
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/order_statuses/:code`
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+code | N/A | The specific order status code
+
+### Other
+
+- Permissions: All
+- Pagination: N/A
+
+## Get Delay Statuses
+
+```shell
+curl "https://api.trinity-apparel.com/v1/delay_statuses"
+  -H "AUTHENTICATION Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+        "code": "OK",
+        "description": "Not Delayed"
+    },
+    {
+        "code": "FABRIC_OUT",
+        "description": "Fabric Out"
+    },
+    {
+        "code": "FABRIC_RECEIPT",
+        "description": "Fabric Receipt Delay"
+    },
+    {
+        "code": "FABRIC_DAMAGED",
+        "description": "Fabric Flawed/Damaged"
+    },
+    {
+        "code": "FABRIC_SHORT",
+        "description": "Fabric Short"
+    },
+    {
+        "code": "DEALER_INSTRUCT",
+        "description": "Dealer Instruction Required"
+    },
+    {
+        "code": "GARMENT_DAMAGED",
+        "description": "Garment Damaged Delay"
+    },
+    {
+        "code": "TRINITY_REVIEW",
+        "description": "Trinity Review"
+    },
+    {
+        "code": "DEALER_HOLD",
+        "description": "Dealer Hold"
+    },
+    {
+        "code": "CMT_SHELL",
+        "description": "CMT Shell Fabric Delay"
+    },
+    {
+        "code": "CMT_LINING",
+        "description": "CMT Lining Fabric Delay"
+    },
+    {
+        "code": "CMT_TRIM",
+        "description": "CMT Trim Fabric Delay"
+    },
+    {
+        "code": "PATTERN_REVIEW",
+        "description": "Pattern Review"
+    },
+    {
+        "code": "FACTORY_REVIEW",
+        "description": "ID Review"
+    }
+]
+```
+
+Returns a list of all delay statuses
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/delay_statuses`
+
+### Query Parameters
+
+None
+
+### Other
+
+- Permissions: All
+- Pagination: N/A
+
+## Get a Delay Status
+
+```shell
+curl "https://api.trinity-apparel.com/v1/delay_statuses/FABRIC_OUT"
+  -H "AUTHENTICATION Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "code": "FABRIC_OUT",
+    "description": "Fabric Out"
+}
+```
+
+Returns details on a delay status. It doesn't provide that much information, as you can see.
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/delay_statuses/:code`
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+code | N/A | The specific delay status code
 
 ### Other
 
