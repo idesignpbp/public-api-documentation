@@ -1,5 +1,48 @@
 # Orders API
 
+## Order Statuses
+
+All garments are in a particular order statuses.  While a garment is being produced it flows through a number of different statuses. Here is a list of all possible status codes:
+
+Status Code | Description
+---------- | -------
+INCOMPLETE | Incomplete
+SUBMITTED | Ready
+PENDING | Blue Pencil
+PRODUCTION | Production
+MADE | Production Complete
+SHIPDC | International Transit
+INSPECTDC | Final Inspection
+SHIPCUST | Delivery
+FABHOLD | Fabric Hold
+PACKDC | Shipment Processing
+SHIPDIRECT | Direct Ship
+CANCEL | Canceled
+CMTHOLD | CMT Fabric Hold
+
+
+## Delay Statuses
+
+Sometimes a garment gets delayed during production. We categorize the reason for the delay in an effort to speed up the process. Here is a list of all possible delay codes:
+
+Delay Code | Description
+---------- | -------
+OK | Not Delayed
+FABRIC_OUT | Fabric Out
+FABRIC_RECEIPT | Fabric Receipt Delay
+FABRIC_DAMAGED | Fabric Flawed/Damaged
+FABRIC_SHORT | Fabric Short
+DEALER_INSTRUCT | Dealer Instruction Required
+GARMENT_DAMAGED | Garment Damaged Delay
+TRINITY_REVIEW | Trinity Review
+DEALER_HOLD | Dealer Hold
+CMT_SHELL | CMT Shell Fabric Delay
+CMT_LINING | CMT Lining Fabric Delay
+CMT_TRIM | CMT Trim Fabric Delay
+PATTERN_REVIEW | Pattern Review
+FACTORY_REVIEW | ID Review
+
+
 ## Get All Orders (DOs)
 
 ```shell
@@ -1922,6 +1965,8 @@ Returns an array of garments.  Each garment will have pricing information and or
 Parameter | Default | Description
 --------- | ------- | -----------
 order_id | N/A | Show garments that are part of a specific dealer order
+order_status_code | N/A | Show garments that are in a specific order status
+delay_status_code | N/A | Show garments that are in a specific delay status
 
 ### Other
 
