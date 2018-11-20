@@ -612,6 +612,8 @@ curl "https://api.trinity-apparel.com/v1/fabrics"
 
 Returns an array of fabrics.
 
+Use this API call to lookup a fabric by trinity fabric number or supplier fabric number. We recommend using the **fabric_number** parameter to do a lookup, then pulling the first result from the array.
+
 ### HTTP Request
 
 `GET https://api.trinity-apparel.com/v1/fabrics`
@@ -621,6 +623,8 @@ Returns an array of fabrics.
 Parameter | Default | Description
 --------- | ------- | -----------
 collection_id | N/A | Only return fabrics from a specific collection
+q | N/A | Wildcard matching search by trinity fabric number, supplier fabric number, and fabric description
+fabric_number | N/A | Show fabrics that match a supplier fabric number or a trinity fabric number. The trinity fabric number is an exact match, whereas the supplier number is a wildcard match
 trinity_fabric_num | N/A | Show fabrics that match a specific Trinity fabric number
 supplier_fabric_num | N/A | Show fabrics that match a specific Supplier fabric number
 is_active | true | If set to true, the result will only include active fabrics
@@ -628,7 +632,7 @@ is_active | true | If set to true, the result will only include active fabrics
 ### Other
 
 - Permissions: All
-- Pagination: No
+- Pagination: Yes
 
 ## Get a Specific Fabric
 
