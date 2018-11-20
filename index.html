@@ -982,6 +982,8 @@ You must replace <code>swaledale</code> with your personal JWT token.
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>Returns an array of fabrics.</p>
+
+<p>Use this API call to lookup a fabric by trinity fabric number or supplier fabric number. We recommend using the <strong>fabric_number</strong> parameter to do a lookup, then pulling the first result from the array.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET https://api.trinity-apparel.com/v1/fabrics</code></p>
 <h3 id='query-parameters-3'>Query Parameters</h3>
@@ -996,6 +998,16 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <td>collection_id</td>
 <td>N/A</td>
 <td>Only return fabrics from a specific collection</td>
+</tr>
+<tr>
+<td>q</td>
+<td>N/A</td>
+<td>Wildcard matching search by trinity fabric number, supplier fabric number, and fabric description</td>
+</tr>
+<tr>
+<td>fabric_number</td>
+<td>N/A</td>
+<td>Show fabrics that match a supplier fabric number or a trinity fabric number. The trinity fabric number is an exact match, whereas the supplier number is a wildcard match</td>
 </tr>
 <tr>
 <td>trinity_fabric_num</td>
@@ -1016,7 +1028,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <h3 id='other-3'>Other</h3>
 <ul>
 <li>Permissions: All</li>
-<li>Pagination: No</li>
+<li>Pagination: Yes</li>
 </ul>
 <h2 id='get-a-specific-fabric'>Get a Specific Fabric</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/fabrics/39001"</span>
   -H <span class="s2">"AUTHENTICATION Bearer: swaledale"</span>
