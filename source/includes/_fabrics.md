@@ -653,6 +653,8 @@ fabric_number | N/A | Show fabrics that match a supplier fabric number or a trin
 trinity_fabric_num | N/A | Show fabrics that match a specific Trinity fabric number
 supplier_fabric_num | N/A | Show fabrics that match a specific Supplier fabric number
 is_active | true | If set to true, the result will only include active fabrics
+show_archived | false | By default archived fabrics (not active, not in stock or temp out) are not returned.  Set this to true in order to show all fabrics.
+reverse_sort | N/A | If this parameter is sort, fabrics will be sorted descending by fabric_id
 
 ### Other
 
@@ -741,3 +743,418 @@ id | N/A | The specific fabric id you want to see
 
 - Permissions: All
 - Pagination: N/A
+
+## Get Related Fabrics
+
+```shell
+curl "https://api.trinity-apparel.com/v1/fabrics/39001/related"
+  -H "AUTHENTICATION Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+        "id": 36467,
+        "active": true,
+        "in_stock": 1,
+        "restock_date": null,
+        "description": "Navy Windowpane",
+        "supplier_fabric_number": "2258 18 540",
+        "trinity_fabric_number": "Z3-3536467",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z3-3536467",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z3-3536467&res=300",
+        "inventory_status": "In Stock"
+    },
+    {
+        "id": 44970,
+        "active": true,
+        "in_stock": 1,
+        "restock_date": null,
+        "description": "Navy Windowpane",
+        "supplier_fabric_number": "2261 28 660",
+        "trinity_fabric_number": "Z3-3744970",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z3-3744970",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z3-3744970&res=300",
+        "inventory_status": "In Stock"
+    },
+    {
+        "id": 45315,
+        "active": true,
+        "in_stock": 1,
+        "restock_date": null,
+        "description": "Navy Windowpane",
+        "supplier_fabric_number": "801 719 760",
+        "trinity_fabric_number": "Z3-3745315",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z3-3745315",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z3-3745315&res=300",
+        "inventory_status": "In Stock"
+    },
+    {
+        "id": 45460,
+        "active": true,
+        "in_stock": 1,
+        "restock_date": null,
+        "description": "Navy Windowpane",
+        "supplier_fabric_number": "26712-195",
+        "trinity_fabric_number": "K5-3745460",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/K5-3745460",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=K5-3745460&res=300",
+        "inventory_status": "In Stock"
+    },
+    {
+        "id": 45355,
+        "active": true,
+        "in_stock": 1,
+        "restock_date": null,
+        "description": "Navy Windowpane",
+        "supplier_fabric_number": "108184",
+        "trinity_fabric_number": "K1-3745355",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/K1-3745355",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=K1-3745355&res=300",
+        "inventory_status": "In Stock"
+    },
+    {
+        "id": 40837,
+        "active": true,
+        "in_stock": 1,
+        "restock_date": "null",
+        "description": "Navy Windowpane",
+        "supplier_fabric_number": "835022",
+        "trinity_fabric_number": "Y4-3540837",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Y4-3540837",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Y4-3540837&res=300",
+        "inventory_status": "In Stock"
+    },
+    {
+        "id": 47366,
+        "active": true,
+        "in_stock": 1,
+        "restock_date": null,
+        "description": "NAVY WINDOWPANE",
+        "supplier_fabric_number": "510277",
+        "trinity_fabric_number": "XB-3747366",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/XB-3747366",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=XB-3747366&res=300",
+        "inventory_status": "In Stock"
+    },
+    {
+        "id": 47607,
+        "active": true,
+        "in_stock": 1,
+        "restock_date": null,
+        "description": "NAVY WINDOWPANE",
+        "supplier_fabric_number": "510058",
+        "trinity_fabric_number": "XC-3747607",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/XC-3747607",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=XC-3747607&res=300",
+        "inventory_status": "In Stock"
+    },
+    {
+        "id": 56761,
+        "active": true,
+        "in_stock": 1,
+        "restock_date": null,
+        "description": "Navy Windowpane",
+        "supplier_fabric_number": "CM0161NVY",
+        "trinity_fabric_number": "TR-3756761",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/TR-3756761",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=TR-3756761&res=300",
+        "inventory_status": "In Stock"
+    },
+    {
+        "id": 53161,
+        "active": true,
+        "in_stock": 1,
+        "restock_date": null,
+        "description": "Navy Windowpane",
+        "supplier_fabric_number": "CH0134RYB",
+        "trinity_fabric_number": "N4-3753161",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/N4-3753161",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=N4-3753161&res=300",
+        "inventory_status": "In Stock"
+    },
+    {
+        "id": 32278,
+        "active": true,
+        "in_stock": 1,
+        "restock_date": null,
+        "description": "Navy Windowpane",
+        "supplier_fabric_number": "2251 11 660",
+        "trinity_fabric_number": "Z3-3332278",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z3-3332278",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z3-3332278&res=300",
+        "inventory_status": "In Stock"
+    },
+    {
+        "id": 56480,
+        "active": true,
+        "in_stock": 1,
+        "restock_date": null,
+        "description": "Navy Windowpane",
+        "supplier_fabric_number": "#34C Navy",
+        "trinity_fabric_number": "TR-3756480",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/TR-3756480",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=TR-3756480&res=300",
+        "inventory_status": "In Stock"
+    },
+    {
+        "id": 53434,
+        "active": true,
+        "in_stock": 1,
+        "restock_date": null,
+        "description": "Navy Windowpane",
+        "supplier_fabric_number": "CM0161NVY",
+        "trinity_fabric_number": "N1-3653434",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/N1-3653434",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=N1-3653434&res=300",
+        "inventory_status": "In Stock"
+    },
+    {
+        "id": 53153,
+        "active": true,
+        "in_stock": 1,
+        "restock_date": null,
+        "description": "Navy Windowpane",
+        "supplier_fabric_number": "#34C Navy",
+        "trinity_fabric_number": "N4-3753153",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/N4-3753153",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=N4-3753153&res=300",
+        "inventory_status": "In Stock"
+    },
+    {
+        "id": 26402,
+        "active": true,
+        "in_stock": 1,
+        "restock_date": null,
+        "description": "Navy Windowpane",
+        "supplier_fabric_number": "2238 15 540",
+        "trinity_fabric_number": "K3-3026402",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/K3-3026402",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=K3-3026402&res=300",
+        "inventory_status": "In Stock"
+    },
+    {
+        "id": 44979,
+        "active": true,
+        "in_stock": 1,
+        "restock_date": null,
+        "description": "Navy bold Check",
+        "supplier_fabric_number": "2261 30 660",
+        "trinity_fabric_number": "Z3-3744979",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z3-3744979",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z3-3744979&res=300",
+        "inventory_status": "In Stock"
+    },
+    {
+        "id": 45006,
+        "active": true,
+        "in_stock": 1,
+        "restock_date": null,
+        "description": "Royal Blue Micro Check",
+        "supplier_fabric_number": "2261 51 660",
+        "trinity_fabric_number": "Z3-3745006",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z3-3745006",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z3-3745006&res=300",
+        "inventory_status": "In Stock"
+    },
+    {
+        "id": 45007,
+        "active": true,
+        "in_stock": 1,
+        "restock_date": null,
+        "description": "Navy Micro Check",
+        "supplier_fabric_number": "2261 52 660",
+        "trinity_fabric_number": "Z3-3745007",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z3-3745007",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z3-3745007&res=300",
+        "inventory_status": "In Stock"
+    },
+    {
+        "id": 41121,
+        "active": true,
+        "in_stock": 1,
+        "restock_date": null,
+        "description": "Navy Windowpane",
+        "supplier_fabric_number": "YGC-185-B",
+        "trinity_fabric_number": "A4-3541121",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/A4-3541121",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=A4-3541121&res=300",
+        "inventory_status": "In Stock"
+    },
+    {
+        "id": 36463,
+        "active": true,
+        "in_stock": 1,
+        "restock_date": null,
+        "description": "Admiral Blue Bold Check",
+        "supplier_fabric_number": "2258 14 540",
+        "trinity_fabric_number": "Z3-3536463",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z3-3536463",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z3-3536463&res=300",
+        "inventory_status": "In Stock"
+    },
+    {
+        "id": 36470,
+        "active": true,
+        "in_stock": 1,
+        "restock_date": null,
+        "description": "Lt Blue Mini Houndstooth",
+        "supplier_fabric_number": "2258 06 540",
+        "trinity_fabric_number": "Z3-3536470",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z3-3536470",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z3-3536470&res=300",
+        "inventory_status": "In Stock"
+    },
+    {
+        "id": 36477,
+        "active": true,
+        "in_stock": 1,
+        "restock_date": null,
+        "description": "Navy Fancy Check",
+        "supplier_fabric_number": "2258 16 540",
+        "trinity_fabric_number": "Z3-3536477",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z3-3536477",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z3-3536477&res=300",
+        "inventory_status": "In Stock"
+    },
+    {
+        "id": 36469,
+        "active": true,
+        "in_stock": 1,
+        "restock_date": null,
+        "description": "Navy Mini Check",
+        "supplier_fabric_number": "2258 67 540",
+        "trinity_fabric_number": "Z3-3536469",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z3-3536469",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z3-3536469&res=300",
+        "inventory_status": "In Stock"
+    },
+    {
+        "id": 36481,
+        "active": true,
+        "in_stock": 1,
+        "restock_date": null,
+        "description": "Navy Tic Check",
+        "supplier_fabric_number": "2258 69 540",
+        "trinity_fabric_number": "Z3-3536481",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z3-3536481",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z3-3536481&res=300",
+        "inventory_status": "In Stock"
+    },
+    {
+        "id": 36483,
+        "active": true,
+        "in_stock": 1,
+        "restock_date": null,
+        "description": "Navy Lt Blue Beaded Windowpane",
+        "supplier_fabric_number": "2258 65 540",
+        "trinity_fabric_number": "Z3-3536483",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z3-3536483",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z3-3536483&res=300",
+        "inventory_status": "In Stock"
+    },
+    {
+        "id": 40264,
+        "active": true,
+        "in_stock": 1,
+        "restock_date": null,
+        "description": "Navy Windowpane",
+        "supplier_fabric_number": "183490/6",
+        "trinity_fabric_number": "Z2-3340264",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z2-3340264",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z2-3340264&res=300",
+        "inventory_status": "In Stock"
+    },
+    {
+        "id": 42316,
+        "active": true,
+        "in_stock": 1,
+        "restock_date": null,
+        "description": "Blue Lt Blue Windowpane",
+        "supplier_fabric_number": "8016 11 700",
+        "trinity_fabric_number": "Z3-3642316",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z3-3642316",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z3-3642316&res=300",
+        "inventory_status": "In Stock"
+    },
+    {
+        "id": 42324,
+        "active": true,
+        "in_stock": 1,
+        "restock_date": null,
+        "description": "Navy Blue Muted Check",
+        "supplier_fabric_number": "8016 20 700",
+        "trinity_fabric_number": "Z3-3642324",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z3-3642324",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z3-3642324&res=300",
+        "inventory_status": "In Stock"
+    },
+    {
+        "id": 42327,
+        "active": true,
+        "in_stock": 1,
+        "restock_date": null,
+        "description": "Navy Mini Check",
+        "supplier_fabric_number": "8016 23 700",
+        "trinity_fabric_number": "Z3-3642327",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z3-3642327",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z3-3642327&res=300",
+        "inventory_status": "In Stock"
+    },
+    {
+        "id": 42347,
+        "active": true,
+        "in_stock": 1,
+        "restock_date": null,
+        "description": "Navy Self Check",
+        "supplier_fabric_number": "8016 17 700",
+        "trinity_fabric_number": "Z3-3642347",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z3-3642347",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z3-3642347&res=300",
+        "inventory_status": "In Stock"
+    },
+    {
+        "id": 45080,
+        "active": true,
+        "in_stock": 1,
+        "restock_date": null,
+        "description": "Navy Blue Windowpane",
+        "supplier_fabric_number": "6019 12 600",
+        "trinity_fabric_number": "Z3-3745080",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z3-3745080",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z3-3745080&res=300",
+        "inventory_status": "In Stock"
+    },
+    {
+        "id": 36498,
+        "active": true,
+        "in_stock": 1,
+        "restock_date": null,
+        "description": "Navy Hairline Windowpane",
+        "supplier_fabric_number": "6004 78 520",
+        "trinity_fabric_number": "Z3-3536498",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z3-3536498",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z3-3536498&res=300",
+        "inventory_status": "In Stock"
+    }
+]
+```
+
+Returns a list of related fabrics
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/fabrics/:id/related`
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+id | N/A | The specific fabric id you want to see related fabrics for
+
+### Other
+
+- Permissions: All
+- Pagination: N/A - Limited to 32 results
