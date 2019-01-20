@@ -1,5 +1,111 @@
 # Fabrics API
 
+## Resources
+
+The Trinity Fabrics API provides detailed information on fabrics and collections.  Collections are groups of fabrics.  Here is a detailed list of attributes in those resources:
+
+### Fabric
+
+```json
+# Standard Object - Used in a resource collection
+{
+    "id": 42701,
+    "active": true,
+    "in_stock": 1,
+    "restock_date": null,
+    "description": "Teal Basket Weave",
+    "supplier_fabric_number": "602 275 800",
+    "trinity_fabric_number": "Z4-3642701",
+    "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z4-3642701",
+    "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z4-3642701&res=300",
+    "inventory_status": "In Stock"
+}
+```
+
+Standard Attributes
+
+Attribute | Type | Description
+---------- | ------- | -------
+id | string | Unique identifier for the object
+active | boolean | A fabric can be either active or inactive.  Inactive fabrics are discontinued an will not appear in search results.  *Note: Historical orders made with a discontinued order will still show information about that fabric.*
+in_stock | integer | A lookup value for fabric status.  `0 = Out of Stock` / Sold Out and not reordered, `1 = In Stock`, `2 = Temp Out` / Temporarily Out of Stock / Fabric is being reordered.
+restock_date | date | The date a temporarily out of stock fabric will be restocked and available for orders.  Most of the time this field is empty.
+description | string | A description of the fabric - E.g., Blue Herringbone
+supplier_fabric_number | string | A unique identifier / SKU according to the fabric supplier
+trinity_fabric_number | string | A unique identifier / SKU according to Trinity
+url | string | The url for a repeatable image of the fabric
+swatch_url | string | The url for a swatch image of the fabric. This image contains serrated edges. Users can also configure the zoom of the image by changing the `res=` parameter in the url to a different number.
+inventory_status | string | a human readable version of the in_stock attribute
+
+```json
+# Expanded Object
+{
+    "id": 39001,
+    "active": true,
+    "supplier_fabric_num": "54557-18",
+    "trinity_fabric_num": "Z8-3339001",
+    "country_origin": "Italy",
+    "fabric_weight_grams_meter": 105,
+    "fabric_grouping": "blue",
+    "pattern": "Foulards/Neats",
+    "in_stock": 2,
+    "restock_date": null,
+    "last_stock_edit_date": "2017-02-27T16:43:46.000Z",
+    "fabric_year": 2016,
+    "created_at": "2017-02-27T16:43:46.000Z",
+    "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z8-3339001",
+    "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z8-3339001&res=300",
+    "inventory_status": "Temp Out",
+    "collection": ...
+}
+```
+
+Expanded attributes (in addition to standard attributes)
+
+Attribute | Type | Description
+---------- | ------- | -------
+country_origin | string | Where the fabric was milled
+fabric_weight_grams_meter | integer | weight in grams / square meter
+fabric_grouping | string | Fabrics are typically grouped by dominant color
+pattern | string | Type of pattern. Common values are stripe, check, and solid.
+last_stock_edit_date  | datetime | The last time the fabric inventory level was changed
+collection | subresource | The collection is embedded within the fabric resource
+
+### Collection
+
+```json
+# Standard Object - Used in a resource collection
+{
+    "id": 1309,
+    "name": "Derby Performance Cornerstone Suitings V17011"
+}
+```
+
+Standard Attributes
+
+Attribute | Type | Description
+---------- | ------- | -------
+id | string | Unique identifier for the object
+name | string | The title of the collection
+
+```json
+# Expanded Object
+{
+    "id": 1309,
+    "name": "Derby Performance Cornerstone Suitings V17011",
+    "description": "",
+    "fabrics": ...
+}
+```
+
+Expanded attributes (in addition to standard attributes)
+
+Attribute | Type | Description
+---------- | ------- | -------
+description | string | A one to two paragraph descripton of the collection
+fabrics | subresource | a list of all fabrics that are a part of the collection. *NOTE: Inactive fabrics may be shown*
+
+
 ## Get All Collections
 
 ```shell
