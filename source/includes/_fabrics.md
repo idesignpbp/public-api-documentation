@@ -1,6 +1,6 @@
 # Fabrics API
 
-## Resources
+## Fabric Resources
 
 The Trinity Fabrics API provides detailed information on fabrics and collections.  Collections are groups of fabrics.  Here is a detailed list of attributes in those resources:
 
@@ -38,7 +38,7 @@ swatch_url | string | The url for a swatch image of the fabric. This image conta
 inventory_status | string | a human readable version of the in_stock attribute
 
 ```json
-# Expanded Object
+# Extended Object
 {
     "id": 40985,
     "active": true,
@@ -59,7 +59,7 @@ inventory_status | string | a human readable version of the in_stock attribute
 }
 ```
 
-Expanded attributes (in addition to standard attributes)
+Extended attributes (in addition to standard attributes)
 
 Attribute | Type | Description
 ---------- | ------- | -------
@@ -88,7 +88,7 @@ id | string | Unique identifier for the object
 name | string | The title of the collection
 
 ```json
-# Expanded Object
+# Extended Object
 ```json
 {
     "id": 1854,
@@ -98,7 +98,7 @@ name | string | The title of the collection
 }
 ```
 
-Expanded attributes (in addition to standard attributes)
+Extended attributes (in addition to standard attributes)
 
 Attribute | Type | Description
 ---------- | ------- | -------
