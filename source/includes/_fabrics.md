@@ -40,22 +40,21 @@ inventory_status | string | a human readable version of the in_stock attribute
 ```json
 # Expanded Object
 {
-    "id": 39001,
+    "id": 40985,
     "active": true,
-    "supplier_fabric_num": "54557-18",
-    "trinity_fabric_num": "Z8-3339001",
-    "country_origin": "Italy",
-    "fabric_weight_grams_meter": 105,
-    "fabric_grouping": "blue",
-    "pattern": "Foulards/Neats",
-    "in_stock": 2,
+    "in_stock": 1,
     "restock_date": null,
-    "last_stock_edit_date": "2017-02-27T16:43:46.000Z",
-    "fabric_year": 2016,
-    "created_at": "2017-02-27T16:43:46.000Z",
-    "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z8-3339001",
-    "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z8-3339001&res=300",
-    "inventory_status": "Temp Out",
+    "description": "Lavender Dobby",
+    "supplier_fabric_number": "P39315/02",
+    "trinity_fabric_number": "S2-3540985",
+    "url": "https://s7d4.scene7.com/is/image/trinityapparel/S2-3540985",
+    "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=S2-3540985&res=300",
+    "inventory_status": "In Stock",
+    "country_origin": "International",
+    "fabric_weight_grams_meter": 125,
+    "fabric_grouping": "shirts",
+    "pattern": "solid",
+    "last_stock_edit_date": "2018-01-19T18:36:51.000Z",
     "collection": ...
 }
 ```
@@ -90,11 +89,12 @@ name | string | The title of the collection
 
 ```json
 # Expanded Object
+```json
 {
-    "id": 1309,
-    "name": "Derby Performance Cornerstone Suitings V17011",
+    "id": 1854,
+    "name": "Outerwear V18082",
     "description": "",
-    "fabrics": ...
+    "fabrics": [...]
 }
 ```
 
@@ -770,7 +770,7 @@ reverse_sort | N/A | If this parameter is sort, fabrics will be sorted descendin
 ## Get a Specific Fabric
 
 ```shell
-curl "https://api.trinity-apparel.com/v1/fabrics/39001"
+curl "https://api.trinity-apparel.com/v1/fabrics/40985"
   -H "AUTHENTICATION Bearer: swaledale"
 ```
 
@@ -778,57 +778,24 @@ curl "https://api.trinity-apparel.com/v1/fabrics/39001"
 
 ```json
 {
-    "id": 39001,
+    "id": 40985,
     "active": true,
-    "supplier_id": 49,
-    "fabric_mill_id": 60,
-    "label_id": 19,
-    "supplier_fabric_num": "54557-18",
-    "trinity_fabric_num": "Z8-3339001",
-    "country_origin": "Italy",
-    "fabric_weight_grams_meter": 105,
-    "fabric_grouping": "blue",
-    "secondary_fabric_grouping": null,
-    "pattern": "Foulards/Neats",
-    "fabric_width": "58.0",
-    "cuttable_width": "58.0",
-    "grain_repeat": null,
-    "crosswise_repeat": null,
-    "one_way_nap": false,
-    "horiz_pattern": false,
-    "non_iron": false,
-    "supplier_price_dollars_meter": "33.54",
-    "supplier_price_dollars_yard": "30.67",
-    "in_stock": 2,
+    "in_stock": 1,
     "restock_date": null,
-    "sub_supplier_id": null,
-    "sub_fabric_num": null,
-    "rapid_replenishment": false,
-    "last_stock_edit_date": "2017-02-27T16:43:46.000Z",
-    "fabric_price_code_id": 142,
-    "fabric_composition_id": 13,
-    "fabric_garment_type": 8,
-    "trim_garment_type": 0,
-    "fabric_usage": 1,
-    "premium_id": 1,
-    "fabric_season": 33,
-    "fabric_year": 2016,
-    "luxury_level_id": 24,
-    "material_type_id": 12,
-    "base_color": null,
-    "deco_color_1": null,
-    "deco_color_2": null,
-    "panel": 1,
-    "panel_row": 1,
-    "panel_column": 1,
-    "description": "Midnight Pin Dot",
-    "created_at": "2017-02-27T16:43:46.000Z",
-    "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z8-3339001",
-    "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z8-3339001&res=300",
-    "inventory_status": "Temp Out",
+    "description": "Lavender Dobby",
+    "supplier_fabric_number": "P39315/02",
+    "trinity_fabric_number": "S2-3540985",
+    "url": "https://s7d4.scene7.com/is/image/trinityapparel/S2-3540985",
+    "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=S2-3540985&res=300",
+    "inventory_status": "In Stock",
+    "country_origin": "International",
+    "fabric_weight_grams_meter": 125,
+    "fabric_grouping": "shirts",
+    "pattern": "solid",
+    "last_stock_edit_date": "2018-01-19T18:36:51.000Z",
     "collection": {
-        "id": 1338,
-        "name": "Thomas Mason Seasonal V17031"
+        "id": 1520,
+        "name": "Soktas Bespoke V17082"
     }
 }
 ```
