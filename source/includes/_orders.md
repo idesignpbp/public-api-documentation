@@ -78,7 +78,7 @@ Standard Attributes
 Attribute | Type | Description
 ---------- | ------- | -------
 id | string | Unique identifier for the object
-title | string | Our SKU field which includes the order id number and information about where the factory will send the garment
+title | string | Our SKU field for orders
 custom_order_number | string | Dealers can set this field to whatever they want.  It is typically the dealer's SKU or a summary of the order
 garment_count | integer | How many garments are in the order. multi-piece garments (e.g., Suit) are counted as 1.
 ship_type | string | How is the garment shipped to the final destination
@@ -99,6 +99,7 @@ currency | subresource | currency used in the order
 
 
 ```json
+# Extended Object
 {
     "id": 399780,
     "title": "DO-399780",
@@ -140,6 +141,79 @@ factory_address | subresource | address where it was made
 dealer | subresource | dealer who placed the order
 customer | subresource | person who will wear the clothes
 garments | array | array of garments included in the order
+
+### Garment
+
+```json
+# Standard Object - Used in a resource collection
+{
+    "id": 872909,
+    "title": "ID-872909",
+    "copied_garment_id": 872898,
+    "price": "274.0",
+    "option_cost": "65.0",
+    "last_status_change_date": "2018-08-08T15:24:19.000Z",
+    "last_delay_change_date": null,
+    "suit_complete": false,
+    "garment_type": ...,
+    "created_at": "2018-06-29T10:02:12.000Z",
+    "updated_at": "2018-07-27T03:35:22.000Z",
+    "manufacturer": ...,
+    "fabric": ...,
+    "order_status": ...,
+    "dealer_order": ...
+}
+```
+
+Standard Attributes
+
+Attribute | Type | Description
+---------- | ------- | -------
+id | string | Unique identifier for the object
+title | string | Our SKU field which includes the garment id number and information about where the factory will send the garment
+order_id | integer | each garment must be a part of a specific order
+copied_garment_id | integer | garment id if this was copied from a previous order
+price | decimal | wholesale cost of the garment
+option_cost | decimal | dollar cost of the premium options used in this garment
+garment_type | resource | garment type (E.g., Shirt, Pant, Suit)
+created_at | datetime | when the garment was first created (but not ordered)
+updated_at | datetime | when the garment was last modified
+
+
+
+
+```json
+# Extended Object
+{
+    "id": 872909,
+    "title": "ID-872909",
+    "order_id": 399780,
+    "copied_garment_id": 872898,
+    "garment_price": "274.0",
+    "option_cost": "65.0",
+    "garment_type": ...,
+    "prefix": "ID",
+    "index": "2/7",
+    "created_at": "2018-06-29T10:02:12.000Z",
+    "updated_at": "2018-07-27T03:35:22.000Z",
+    "last_status_change_date": "2018-08-08T15:24:19.000Z",
+    "last_delay_change_date": null,
+    "order_status": ...,
+    "delay_status": ...,
+    "dealer_order": ...,
+    "manufacturer": ...,
+    "fabric": ...
+}
+```
+
+Extended Attributes
+
+Attribute | Type | Description
+---------- | ------- | -------
+prefix | string | First part of the title. This indicates where the order was made or where the factory will send the garment
+index | string | Sequence number (1/7, 2/7, 3/7 ...) for each garment in an order. Each item has a different index
+last_status_change_date | datetime | when did the order status last change to a new state
+last_delay_change_date | datetime | when did the delay status last change to a new state
 
 
 ## Get All Orders (DOs)
