@@ -42,6 +42,179 @@ CMT_TRIM | CMT Trim Fabric Delay
 PATTERN_REVIEW | Pattern Review
 FACTORY_REVIEW | ID Review
 
+## Order Resources
+
+The Orders API returns order, garment, order status, and delay status objects.  These objects can also return these subresources: dealer, customer, currency, address, etc
+
+### Order
+
+```json
+# Standard Object - Used in a resource collection
+{
+    "id": 399780,
+    "title": "DO-399780",
+    "custom_order_number": null,
+    "garment_count": 7,
+    "ship_type": "In-Store Pick-Up",
+    "ship_cost": "0.0",
+    "subtotal": "2554.0",
+    "dealer_discount": "0.0",
+    "total_discount": "0.0",
+    "tax": "0.0",
+    "grand_total": "2554.0",
+    "deposit_percentage": 50,
+    "current_balance": "2554.0",
+    "measurement_units": "uscust",
+    "payment_status": "offline",
+    "ordered_at": "2018-06-29T10:55:15.000Z",
+    "created_at": "2018-06-29T09:42:51.000Z",
+    "invoiced_at": null,
+    "currency": ...,
+}
+```
+
+Standard Attributes
+
+Attribute | Type | Description
+---------- | ------- | -------
+id | string | Unique identifier for the object
+title | string | Our SKU field for orders
+custom_order_number | string | Dealers can set this field to whatever they want.  It is typically the dealer's SKU or a summary of the order
+garment_count | integer | How many garments are in the order. multi-piece garments (e.g., Suit) are counted as 1.
+ship_type | string | How is the garment shipped to the final destination
+ship_cost | decimal | How much did it cost to ship the whole order
+subtotal | decimal | Order amount before tax and discounts are included
+dealer_discount | decimal | *Description TBD*
+total_discount | decimal | Dollar total of all discounts applied to the order
+tax | decimal | Dollar total for taxes on the order
+grand_total | decimal | Dollar total for the whole order. Used as a basis for credit card charges and invoices.
+deposit_percentage | integer | The percentage of the grand total that must be paid before the order enters production. A number between 0 and 100. The final amount is typically paid after it is made and before it ships to the final destination.
+current_balance | decimal | The dollar amount remaining to be paid on the order
+measurement_units | string | Units can be `uscust` for US customary units (in) or `si` for metric units (cm)
+payment_status | string | an indication if the order has been paid for
+ordered_at | datetime | Time that the dealer completed the checkout process and officially placed the order
+created_at | datetime | Time when the dealer first began adding garments to the order
+invoiced_at | datetime | Time of the first invoice
+currency | subresource | currency used in the order
+
+
+```json
+# Extended Object
+{
+    "id": 399780,
+    "title": "DO-399780",
+    "custom_order_number": null,
+    "garment_count": 7,
+    "ship_type": "In-Store Pick-Up",
+    "ship_cost": "0.0",
+    "subtotal": "2554.0",
+    "dealer_discount": "0.0",
+    "total_discount": "0.0",
+    "tax": "0.0",
+    "grand_total": "2554.0",
+    "deposit_percentage": 50,
+    "current_balance": "2554.0",
+    "measurement_units": "uscust",
+    "payment_status": "offline",
+    "ordered_at": "2018-06-29T10:55:15.000Z",
+    "created_at": "2018-06-29T09:42:51.000Z",
+    "invoiced_at": null,
+    "order_type": "MTM",
+    "order_source": "workflo",
+    "currency": ...,
+    "shipping_address": ...,
+    "factory_address": ...,
+    "dealer": ...,
+    "customer": ...,
+    "garments": [ ... ]
+}
+```
+
+Extended Attributes
+
+Attribute | Type | Description
+---------- | ------- | -------
+order_type | string | `MTM`, `Inventory`, or `MTO` (future)
+order_source | string | What system was used to place the order? `workflo` or `studio`
+shipping_address | subresource | address of the final destination
+factory_address | subresource | address where it was made
+dealer | subresource | dealer who placed the order
+customer | subresource | person who will wear the clothes
+garments | array | array of garments included in the order
+
+### Garment
+
+```json
+# Standard Object - Used in a resource collection
+{
+    "id": 872909,
+    "title": "ID-872909",
+    "copied_garment_id": 872898,
+    "price": "274.0",
+    "option_cost": "65.0",
+    "last_status_change_date": "2018-08-08T15:24:19.000Z",
+    "last_delay_change_date": null,
+    "suit_complete": false,
+    "garment_type": ...,
+    "created_at": "2018-06-29T10:02:12.000Z",
+    "updated_at": "2018-07-27T03:35:22.000Z",
+    "manufacturer": ...,
+    "fabric": ...,
+    "order_status": ...,
+    "dealer_order": ...
+}
+```
+
+Standard Attributes
+
+Attribute | Type | Description
+---------- | ------- | -------
+id | string | Unique identifier for the object
+title | string | Our SKU field which includes the garment id number and information about where the factory will send the garment
+order_id | integer | each garment must be a part of a specific order
+copied_garment_id | integer | garment id if this was copied from a previous order
+price | decimal | wholesale cost of the garment
+option_cost | decimal | dollar cost of the premium options used in this garment
+garment_type | resource | garment type (E.g., Shirt, Pant, Suit)
+created_at | datetime | when the garment was first created (but not ordered)
+updated_at | datetime | when the garment was last modified
+
+
+
+
+```json
+# Extended Object
+{
+    "id": 872909,
+    "title": "ID-872909",
+    "order_id": 399780,
+    "copied_garment_id": 872898,
+    "garment_price": "274.0",
+    "option_cost": "65.0",
+    "garment_type": ...,
+    "prefix": "ID",
+    "index": "2/7",
+    "created_at": "2018-06-29T10:02:12.000Z",
+    "updated_at": "2018-07-27T03:35:22.000Z",
+    "last_status_change_date": "2018-08-08T15:24:19.000Z",
+    "last_delay_change_date": null,
+    "order_status": ...,
+    "delay_status": ...,
+    "dealer_order": ...,
+    "manufacturer": ...,
+    "fabric": ...
+}
+```
+
+Extended Attributes
+
+Attribute | Type | Description
+---------- | ------- | -------
+prefix | string | First part of the title. This indicates where the order was made or where the factory will send the garment
+index | string | Sequence number (1/7, 2/7, 3/7 ...) for each garment in an order. Each item has a different index
+last_status_change_date | datetime | when did the order status last change to a new state
+last_delay_change_date | datetime | when did the delay status last change to a new state
+
 
 ## Get All Orders (DOs)
 
@@ -55,23 +228,23 @@ curl "https://api.trinity-apparel.com/v1/orders"
 ```json
 [
     {
-        "id": 330485,
-        "title": "DO-330485",
-        "custom_order_num": null,
+        "id": 299151,
+        "title": "DO-299151",
+        "custom_order_number": null,
         "garment_count": 1,
         "ship_type": "Ground",
-        "ship_cost": "11.0",
-        "subtotal": "173.0",
+        "ship_cost": "9.0",
+        "subtotal": "40.0",
         "dealer_discount": "0.0",
-        "total_discount": "86.5",
+        "total_discount": "0.0",
         "tax": "0.0",
-        "grand_total": "97.5",
-        "deposit_pct": 50,
+        "grand_total": "49.0",
+        "deposit_percentage": 100,
         "current_balance": "0.0",
-        "msmt_units": "uscust",
+        "measurement_units": "uscust",
         "payment_status": "paid",
-        "ordered_at": "2017-07-01T16:56:56.000Z",
-        "created_at": "2017-07-01T16:48:54.000Z",
+        "ordered_at": "2017-01-19T20:12:47.000Z",
+        "created_at": "2017-01-19T20:09:41.000Z",
         "invoiced_at": null,
         "currency": {
             "name": "USD",
@@ -80,9 +253,234 @@ curl "https://api.trinity-apparel.com/v1/orders"
         }
     },
     {
-        "id": 330486,
-        "title": "DO-330486",
-        "custom_order_num": "Gilberg-1",
+        "id": 299152,
+        "title": "DO-299152",
+        "custom_order_number": "RD-01",
+        "garment_count": 2,
+        "ship_type": "Ground",
+        "ship_cost": "22.0",
+        "subtotal": "1076.0",
+        "dealer_discount": "0.0",
+        "total_discount": "0.0",
+        "tax": "0.0",
+        "grand_total": "1098.0",
+        "deposit_percentage": 50,
+        "current_balance": "0.0",
+        "measurement_units": "uscust",
+        "payment_status": "paid",
+        "ordered_at": "2017-01-23T15:29:46.000Z",
+        "created_at": "2017-01-19T20:20:00.000Z",
+        "invoiced_at": "2017-03-15T12:46:50.000Z",
+        "currency": {
+            "name": "USD",
+            "symbol": "$",
+            "rate": "1.0"
+        }
+    },
+    {
+        "id": 299153,
+        "title": "DO-299153",
+        "custom_order_number": null,
+        "garment_count": 1,
+        "ship_type": "Ground",
+        "ship_cost": "9.0",
+        "subtotal": "44.5",
+        "dealer_discount": "0.0",
+        "total_discount": "0.0",
+        "tax": "0.0",
+        "grand_total": "53.5",
+        "deposit_percentage": 50,
+        "current_balance": "0.0",
+        "measurement_units": "uscust",
+        "payment_status": "paid",
+        "ordered_at": "2017-01-19T20:46:22.000Z",
+        "created_at": "2017-01-19T20:38:30.000Z",
+        "invoiced_at": null,
+        "currency": {
+            "name": "USD",
+            "symbol": "$",
+            "rate": "1.0"
+        }
+    },
+    {
+        "id": 299154,
+        "title": "DO-299154",
+        "custom_order_number": null,
+        "garment_count": 9,
+        "ship_type": "Ground",
+        "ship_cost": "33.0",
+        "subtotal": "1492.0",
+        "dealer_discount": "0.0",
+        "total_discount": "0.0",
+        "tax": "0.0",
+        "grand_total": "1525.0",
+        "deposit_percentage": 50,
+        "current_balance": "0.0",
+        "measurement_units": "uscust",
+        "payment_status": "paid",
+        "ordered_at": "2017-01-19T21:17:47.000Z",
+        "created_at": "2017-01-19T20:38:56.000Z",
+        "invoiced_at": "2017-02-23T13:10:05.000Z",
+        "currency": {
+            "name": "USD",
+            "symbol": "$",
+            "rate": "1.0"
+        }
+    },
+    {
+        "id": 299155,
+        "title": "DO-299155",
+        "custom_order_number": null,
+        "garment_count": 2,
+        "ship_type": "Ground",
+        "ship_cost": "14.0",
+        "subtotal": "634.4",
+        "dealer_discount": "34.2",
+        "total_discount": "34.2",
+        "tax": "122.84",
+        "grand_total": "737.04",
+        "deposit_percentage": 0,
+        "current_balance": "0.0",
+        "measurement_units": "uscust",
+        "payment_status": "paid",
+        "ordered_at": "2017-01-19T22:21:46.000Z",
+        "created_at": "2017-01-19T21:26:00.000Z",
+        "invoiced_at": null,
+        "currency": {
+            "name": "GBP",
+            "symbol": "£",
+            "rate": "0.625"
+        }
+    },
+    {
+        "id": 299156,
+        "title": "DO-299156",
+        "custom_order_number": null,
+        "garment_count": 2,
+        "ship_type": "Ground",
+        "ship_cost": "22.0",
+        "subtotal": "633.0",
+        "dealer_discount": "0.0",
+        "total_discount": "0.0",
+        "tax": "0.0",
+        "grand_total": "655.0",
+        "deposit_percentage": 100,
+        "current_balance": "0.0",
+        "measurement_units": "uscust",
+        "payment_status": "paid",
+        "ordered_at": "2017-01-19T22:39:03.000Z",
+        "created_at": "2017-01-19T22:15:27.000Z",
+        "invoiced_at": null,
+        "currency": {
+            "name": "USD",
+            "symbol": "$",
+            "rate": "1.0"
+        }
+    },
+    {
+        "id": 299157,
+        "title": "DO-299157",
+        "custom_order_number": null,
+        "garment_count": 1,
+        "ship_type": "Ground",
+        "ship_cost": "11.0",
+        "subtotal": "449.0",
+        "dealer_discount": "0.0",
+        "total_discount": "0.0",
+        "tax": "0.0",
+        "grand_total": "460.0",
+        "deposit_percentage": 50,
+        "current_balance": "0.0",
+        "measurement_units": "uscust",
+        "payment_status": "paid",
+        "ordered_at": "2017-01-27T01:51:46.000Z",
+        "created_at": "2017-01-20T01:13:25.000Z",
+        "invoiced_at": "2017-02-28T11:35:25.000Z",
+        "currency": {
+            "name": "USD",
+            "symbol": "$",
+            "rate": "1.0"
+        }
+    },
+    {
+        "id": 299158,
+        "title": "DO-299158",
+        "custom_order_number": "2262rm",
+        "garment_count": 2,
+        "ship_type": "Ground",
+        "ship_cost": "6.0",
+        "subtotal": "80.0",
+        "dealer_discount": "4.0",
+        "total_discount": "4.0",
+        "tax": "16.4",
+        "grand_total": "98.4",
+        "deposit_percentage": 0,
+        "current_balance": "0.0",
+        "measurement_units": "uscust",
+        "payment_status": "paid",
+        "ordered_at": "2017-01-20T07:03:09.000Z",
+        "created_at": "2017-01-20T07:00:53.000Z",
+        "invoiced_at": "2017-02-15T08:54:48.000Z",
+        "currency": {
+            "name": "GBP",
+            "symbol": "£",
+            "rate": "0.625"
+        }
+    },
+    {
+        "id": 299160,
+        "title": "DO-299160",
+        "custom_order_number": "Cousin Order",
+        "garment_count": 2,
+        "ship_type": "Ground",
+        "ship_cost": "33.0",
+        "subtotal": "1678.0",
+        "dealer_discount": "0.0",
+        "total_discount": "0.0",
+        "tax": "0.0",
+        "grand_total": "1711.0",
+        "deposit_percentage": 100,
+        "current_balance": "0.0",
+        "measurement_units": "uscust",
+        "payment_status": "paid",
+        "ordered_at": "2017-03-01T13:13:07.000Z",
+        "created_at": "2017-01-20T07:27:04.000Z",
+        "invoiced_at": null,
+        "currency": {
+            "name": "USD",
+            "symbol": "$",
+            "rate": "1.0"
+        }
+    },
+    {
+        "id": 299164,
+        "title": "DO-299164",
+        "custom_order_number": null,
+        "garment_count": 1,
+        "ship_type": "Ground",
+        "ship_cost": "11.0",
+        "subtotal": "519.0",
+        "dealer_discount": "0.0",
+        "total_discount": "0.0",
+        "tax": "0.0",
+        "grand_total": "530.0",
+        "deposit_percentage": 50,
+        "current_balance": "0.0",
+        "measurement_units": "uscust",
+        "payment_status": "paid",
+        "ordered_at": "2017-01-20T07:58:40.000Z",
+        "created_at": "2017-01-20T07:51:25.000Z",
+        "invoiced_at": "2017-02-15T13:37:10.000Z",
+        "currency": {
+            "name": "USD",
+            "symbol": "$",
+            "rate": "1.0"
+        }
+    },
+    {
+        "id": 299165,
+        "title": "DO-299165",
+        "custom_order_number": null,
         "garment_count": 1,
         "ship_type": "Ground",
         "ship_cost": "9.0",
@@ -91,12 +489,12 @@ curl "https://api.trinity-apparel.com/v1/orders"
         "total_discount": "0.0",
         "tax": "0.0",
         "grand_total": "84.0",
-        "deposit_pct": 100,
+        "deposit_percentage": 50,
         "current_balance": "0.0",
-        "msmt_units": "uscust",
+        "measurement_units": "uscust",
         "payment_status": "paid",
-        "ordered_at": "2017-07-01T16:56:00.000Z",
-        "created_at": "2017-07-01T16:49:02.000Z",
+        "ordered_at": "2017-01-20T08:03:29.000Z",
+        "created_at": "2017-01-20T07:59:46.000Z",
         "invoiced_at": null,
         "currency": {
             "name": "USD",
@@ -105,199 +503,24 @@ curl "https://api.trinity-apparel.com/v1/orders"
         }
     },
     {
-        "id": 330487,
-        "title": "DO-330487",
-        "custom_order_num": null,
-        "garment_count": 1,
-        "ship_type": "Ground",
-        "ship_cost": "0.0",
-        "subtotal": "514.0",
-        "dealer_discount": "77.1",
-        "total_discount": "77.1",
-        "tax": "0.0",
-        "grand_total": "436.9",
-        "deposit_pct": 50,
-        "current_balance": "0.0",
-        "msmt_units": "uscust",
-        "payment_status": "paid",
-        "ordered_at": "2017-07-01T17:29:01.000Z",
-        "created_at": "2017-07-01T17:08:23.000Z",
-        "invoiced_at": "2017-08-03T09:06:33.000Z",
-        "currency": {
-            "name": "USD",
-            "symbol": "$",
-            "rate": "1.0"
-        }
-    },
-    {
-        "id": 330488,
-        "title": "DO-330488",
-        "custom_order_num": null,
-        "garment_count": 7,
-        "ship_type": "Ground",
-        "ship_cost": "22.0",
-        "subtotal": "507.0",
-        "dealer_discount": "0.0",
-        "total_discount": "0.0",
-        "tax": "0.0",
-        "grand_total": "529.0",
-        "deposit_pct": 50,
-        "current_balance": "0.0",
-        "msmt_units": "uscust",
-        "payment_status": "paid",
-        "ordered_at": "2017-07-01T17:39:14.000Z",
-        "created_at": "2017-07-01T17:14:43.000Z",
-        "invoiced_at": "2017-07-19T10:30:46.000Z",
-        "currency": {
-            "name": "USD",
-            "symbol": "$",
-            "rate": "1.0"
-        }
-    },
-    {
-        "id": 330489,
-        "title": "DO-330489",
-        "custom_order_num": "GDAMIANI.CP.V.S.1",
-        "garment_count": 3,
-        "ship_type": "Ground",
-        "ship_cost": "22.0",
-        "subtotal": "633.5",
-        "dealer_discount": "0.0",
-        "total_discount": "0.0",
-        "tax": "0.0",
-        "grand_total": "655.5",
-        "deposit_pct": 50,
-        "current_balance": "0.0",
-        "msmt_units": "uscust",
-        "payment_status": "paid",
-        "ordered_at": "2017-07-01T19:39:11.000Z",
-        "created_at": "2017-07-01T17:19:52.000Z",
-        "invoiced_at": "2017-08-17T11:05:04.000Z",
-        "currency": {
-            "name": "USD",
-            "symbol": "$",
-            "rate": "1.0"
-        }
-    },
-    {
-        "id": 330491,
-        "title": "DO-330491",
-        "custom_order_num": null,
-        "garment_count": 1,
-        "ship_type": "Ground",
-        "ship_cost": "11.0",
-        "subtotal": "392.0",
-        "dealer_discount": "0.0",
-        "total_discount": "0.0",
-        "tax": "0.0",
-        "grand_total": "403.0",
-        "deposit_pct": 50,
-        "current_balance": "0.0",
-        "msmt_units": "uscust",
-        "payment_status": "paid",
-        "ordered_at": "2017-07-01T18:33:20.000Z",
-        "created_at": "2017-07-01T17:23:09.000Z",
-        "invoiced_at": "2017-08-07T13:34:20.000Z",
-        "currency": {
-            "name": "USD",
-            "symbol": "$",
-            "rate": "1.0"
-        }
-    },
-    {
-        "id": 330492,
-        "title": "DO-330492",
-        "custom_order_num": null,
-        "garment_count": 1,
-        "ship_type": "Ground",
-        "ship_cost": "11.0",
-        "subtotal": "345.0",
-        "dealer_discount": "0.0",
-        "total_discount": "0.0",
-        "tax": "0.0",
-        "grand_total": "356.0",
-        "deposit_pct": 50,
-        "current_balance": "0.0",
-        "msmt_units": "uscust",
-        "payment_status": "paid",
-        "ordered_at": "2017-07-01T18:27:50.000Z",
-        "created_at": "2017-07-01T17:39:10.000Z",
-        "invoiced_at": "2017-07-28T10:23:48.000Z",
-        "currency": {
-            "name": "USD",
-            "symbol": "$",
-            "rate": "1.0"
-        }
-    },
-    {
-        "id": 330493,
-        "title": "DO-330493",
-        "custom_order_num": null,
-        "garment_count": 4,
-        "ship_type": "Ground",
-        "ship_cost": "11.0",
-        "subtotal": "258.0",
-        "dealer_discount": "0.0",
-        "total_discount": "0.0",
-        "tax": "0.0",
-        "grand_total": "269.0",
-        "deposit_pct": 50,
-        "current_balance": "0.0",
-        "msmt_units": "uscust",
-        "payment_status": "paid",
-        "ordered_at": "2017-07-01T17:54:51.000Z",
-        "created_at": "2017-07-01T17:46:41.000Z",
-        "invoiced_at": "2017-07-13T10:54:55.000Z",
-        "currency": {
-            "name": "USD",
-            "symbol": "$",
-            "rate": "1.0"
-        }
-    },
-    {
-        "id": 330494,
-        "title": "DO-330494",
-        "custom_order_num": "Mike Barone",
-        "garment_count": 1,
-        "ship_type": "Ground",
-        "ship_cost": "9.0",
-        "subtotal": "110.0",
-        "dealer_discount": "0.0",
-        "total_discount": "0.0",
-        "tax": "0.0",
-        "grand_total": "119.0",
-        "deposit_pct": 100,
-        "current_balance": "0.0",
-        "msmt_units": "uscust",
-        "payment_status": "paid",
-        "ordered_at": "2017-07-06T15:30:20.000Z",
-        "created_at": "2017-07-01T17:47:46.000Z",
-        "invoiced_at": null,
-        "currency": {
-            "name": "USD",
-            "symbol": "$",
-            "rate": "1.0"
-        }
-    },
-    {
-        "id": 330495,
-        "title": "DO-330495",
-        "custom_order_num": null,
+        "id": 299166,
+        "title": "DO-299166",
+        "custom_order_number": null,
         "garment_count": 4,
         "ship_type": "Ground",
         "ship_cost": "22.0",
-        "subtotal": "650.0",
+        "subtotal": "493.0",
         "dealer_discount": "0.0",
         "total_discount": "0.0",
         "tax": "0.0",
-        "grand_total": "672.0",
-        "deposit_pct": 50,
+        "grand_total": "515.0",
+        "deposit_percentage": 50,
         "current_balance": "0.0",
-        "msmt_units": "uscust",
+        "measurement_units": "uscust",
         "payment_status": "paid",
-        "ordered_at": "2017-07-01T18:34:13.000Z",
-        "created_at": "2017-07-01T17:56:28.000Z",
-        "invoiced_at": "2017-07-24T10:58:45.000Z",
+        "ordered_at": "2017-01-20T08:40:46.000Z",
+        "created_at": "2017-01-20T08:11:03.000Z",
+        "invoiced_at": "2017-02-20T10:46:29.000Z",
         "currency": {
             "name": "USD",
             "symbol": "$",
@@ -305,24 +528,24 @@ curl "https://api.trinity-apparel.com/v1/orders"
         }
     },
     {
-        "id": 330497,
-        "title": "DO-330497",
-        "custom_order_num": null,
+        "id": 299167,
+        "title": "DO-299167",
+        "custom_order_number": "3898 Rothfeldt",
         "garment_count": 1,
         "ship_type": "Ground",
-        "ship_cost": "11.0",
-        "subtotal": "293.0",
+        "ship_cost": "9.0",
+        "subtotal": "59.0",
         "dealer_discount": "0.0",
         "total_discount": "0.0",
         "tax": "0.0",
-        "grand_total": "304.0",
-        "deposit_pct": 50,
+        "grand_total": "68.0",
+        "deposit_percentage": 100,
         "current_balance": "0.0",
-        "msmt_units": "uscust",
+        "measurement_units": "uscust",
         "payment_status": "paid",
-        "ordered_at": "2017-07-01T18:15:24.000Z",
-        "created_at": "2017-07-01T18:03:43.000Z",
-        "invoiced_at": "2017-07-24T10:55:06.000Z",
+        "ordered_at": "2017-01-20T08:33:36.000Z",
+        "created_at": "2017-01-20T08:28:17.000Z",
+        "invoiced_at": null,
         "currency": {
             "name": "USD",
             "symbol": "$",
@@ -330,24 +553,49 @@ curl "https://api.trinity-apparel.com/v1/orders"
         }
     },
     {
-        "id": 330498,
-        "title": "DO-330498",
-        "custom_order_num": null,
-        "garment_count": 8,
+        "id": 299168,
+        "title": "DO-299168",
+        "custom_order_number": null,
+        "garment_count": 1,
         "ship_type": "Ground",
-        "ship_cost": "22.0",
-        "subtotal": "786.0",
+        "ship_cost": "6.0",
+        "subtotal": "43.25",
+        "dealer_discount": "2.16",
+        "total_discount": "2.16",
+        "tax": "9.42",
+        "grand_total": "56.51",
+        "deposit_percentage": 0,
+        "current_balance": "0.0",
+        "measurement_units": "uscust",
+        "payment_status": "paid",
+        "ordered_at": "2017-01-20T11:28:44.000Z",
+        "created_at": "2017-01-20T08:46:28.000Z",
+        "invoiced_at": "2017-02-15T08:54:49.000Z",
+        "currency": {
+            "name": "GBP",
+            "symbol": "£",
+            "rate": "0.625"
+        }
+    },
+    {
+        "id": 299169,
+        "title": "DO-299169",
+        "custom_order_number": null,
+        "garment_count": 1,
+        "ship_type": "Ground",
+        "ship_cost": "9.0",
+        "subtotal": "344.0",
         "dealer_discount": "0.0",
         "total_discount": "0.0",
         "tax": "0.0",
-        "grand_total": "808.0",
-        "deposit_pct": 50,
+        "grand_total": "353.0",
+        "deposit_percentage": 100,
         "current_balance": "0.0",
-        "msmt_units": "uscust",
+        "measurement_units": "uscust",
         "payment_status": "paid",
-        "ordered_at": "2017-07-12T19:18:50.000Z",
-        "created_at": "2017-07-01T18:10:51.000Z",
-        "invoiced_at": "2017-08-07T13:24:54.000Z",
+        "ordered_at": "2017-01-20T08:53:36.000Z",
+        "created_at": "2017-01-20T08:50:18.000Z",
+        "invoiced_at": null,
         "currency": {
             "name": "USD",
             "symbol": "$",
@@ -355,24 +603,24 @@ curl "https://api.trinity-apparel.com/v1/orders"
         }
     },
     {
-        "id": 330499,
-        "title": "DO-330499",
-        "custom_order_num": null,
+        "id": 299170,
+        "title": "DO-299170",
+        "custom_order_number": "Q2656",
         "garment_count": 6,
         "ship_type": "Ground",
         "ship_cost": "22.0",
-        "subtotal": "1057.0",
-        "dealer_discount": "0.0",
-        "total_discount": "0.0",
+        "subtotal": "354.0",
+        "dealer_discount": "28.32",
+        "total_discount": "28.32",
         "tax": "0.0",
-        "grand_total": "1079.0",
-        "deposit_pct": 50,
+        "grand_total": "347.68",
+        "deposit_percentage": 50,
         "current_balance": "0.0",
-        "msmt_units": "uscust",
+        "measurement_units": "uscust",
         "payment_status": "paid",
-        "ordered_at": "2017-07-03T08:36:11.000Z",
-        "created_at": "2017-07-01T18:34:05.000Z",
-        "invoiced_at": "2017-07-26T10:47:56.000Z",
+        "ordered_at": "2017-01-20T09:28:35.000Z",
+        "created_at": "2017-01-20T08:58:54.000Z",
+        "invoiced_at": "2017-02-22T10:00:28.000Z",
         "currency": {
             "name": "USD",
             "symbol": "$",
@@ -380,73 +628,23 @@ curl "https://api.trinity-apparel.com/v1/orders"
         }
     },
     {
-        "id": 330500,
-        "title": "DO-330500",
-        "custom_order_num": null,
-        "garment_count": 1,
-        "ship_type": "Ground",
-        "ship_cost": "9.0",
-        "subtotal": "69.0",
-        "dealer_discount": "0.0",
-        "total_discount": "0.0",
-        "tax": "0.0",
-        "grand_total": "78.0",
-        "deposit_pct": 50,
-        "current_balance": "0.0",
-        "msmt_units": "uscust",
-        "payment_status": "paid",
-        "ordered_at": "2017-07-01T19:47:57.000Z",
-        "created_at": "2017-07-01T19:44:16.000Z",
-        "invoiced_at": null,
-        "currency": {
-            "name": "USD",
-            "symbol": "$",
-            "rate": "1.0"
-        }
-    },
-    {
-        "id": 330501,
-        "title": "DO-330501",
-        "custom_order_num": "ZSHAPIRO.CVP.S.1",
+        "id": 299172,
+        "title": "DO-299172",
+        "custom_order_number": "1181517/Daub/LA",
         "garment_count": 2,
         "ship_type": "Ground",
         "ship_cost": "22.0",
-        "subtotal": "636.5",
+        "subtotal": "499.0",
         "dealer_discount": "0.0",
         "total_discount": "0.0",
         "tax": "0.0",
-        "grand_total": "658.5",
-        "deposit_pct": 50,
-        "current_balance": "0.0",
-        "msmt_units": "uscust",
-        "payment_status": "paid",
-        "ordered_at": "2017-07-01T20:07:59.000Z",
-        "created_at": "2017-07-01T19:49:13.000Z",
-        "invoiced_at": "2017-08-03T09:03:33.000Z",
-        "currency": {
-            "name": "USD",
-            "symbol": "$",
-            "rate": "1.0"
-        }
-    },
-    {
-        "id": 330502,
-        "title": "DO-330502",
-        "custom_order_num": null,
-        "garment_count": 1,
-        "ship_type": "Ground",
-        "ship_cost": "9.0",
-        "subtotal": "75.0",
-        "dealer_discount": "0.0",
-        "total_discount": "0.0",
-        "tax": "0.0",
-        "grand_total": "84.0",
-        "deposit_pct": 100,
-        "current_balance": "0.0",
-        "msmt_units": "uscust",
-        "payment_status": "paid",
-        "ordered_at": "2017-07-11T11:43:23.000Z",
-        "created_at": "2017-07-01T22:51:47.000Z",
+        "grand_total": "521.0",
+        "deposit_percentage": 50,
+        "current_balance": "521.0",
+        "measurement_units": "uscust",
+        "payment_status": "offline",
+        "ordered_at": "2017-01-20T09:36:22.000Z",
+        "created_at": "2017-01-20T09:05:57.000Z",
         "invoiced_at": null,
         "currency": {
             "name": "USD",
@@ -455,148 +653,23 @@ curl "https://api.trinity-apparel.com/v1/orders"
         }
     },
     {
-        "id": 330503,
-        "title": "DO-330503",
-        "custom_order_num": null,
-        "garment_count": 1,
-        "ship_type": "Ground",
-        "ship_cost": "11.0",
-        "subtotal": "308.0",
-        "dealer_discount": "0.0",
-        "total_discount": "0.0",
-        "tax": "0.0",
-        "grand_total": "319.0",
-        "deposit_pct": 50,
-        "current_balance": "0.0",
-        "msmt_units": "uscust",
-        "payment_status": "paid",
-        "ordered_at": "2017-07-02T00:05:08.000Z",
-        "created_at": "2017-07-01T22:57:35.000Z",
-        "invoiced_at": "2017-07-26T10:43:39.000Z",
-        "currency": {
-            "name": "USD",
-            "symbol": "$",
-            "rate": "1.0"
-        }
-    },
-    {
-        "id": 330506,
-        "title": "DO-330506",
-        "custom_order_num": "Devin Miller",
-        "garment_count": 1,
-        "ship_type": "Ground",
-        "ship_cost": "9.0",
-        "subtotal": "79.0",
-        "dealer_discount": "0.0",
-        "total_discount": "0.0",
-        "tax": "0.0",
-        "grand_total": "88.0",
-        "deposit_pct": 100,
-        "current_balance": "0.0",
-        "msmt_units": "uscust",
-        "payment_status": "paid",
-        "ordered_at": "2017-07-02T07:24:55.000Z",
-        "created_at": "2017-07-02T07:12:13.000Z",
-        "invoiced_at": null,
-        "currency": {
-            "name": "USD",
-            "symbol": "$",
-            "rate": "1.0"
-        }
-    },
-    {
-        "id": 330507,
-        "title": "DO-330507",
-        "custom_order_num": null,
-        "garment_count": 2,
-        "ship_type": "Ground",
-        "ship_cost": "11.0",
-        "subtotal": "303.0",
-        "dealer_discount": "0.0",
-        "total_discount": "0.0",
-        "tax": "0.0",
-        "grand_total": "314.0",
-        "deposit_pct": 50,
-        "current_balance": "0.0",
-        "msmt_units": "uscust",
-        "payment_status": "paid",
-        "ordered_at": "2017-07-02T09:24:33.000Z",
-        "created_at": "2017-07-02T08:41:22.000Z",
-        "invoiced_at": "2017-07-26T10:53:56.000Z",
-        "currency": {
-            "name": "USD",
-            "symbol": "$",
-            "rate": "1.0"
-        }
-    },
-    {
-        "id": 330510,
-        "title": "DO-330510",
-        "custom_order_num": null,
-        "garment_count": 1,
-        "ship_type": "Ground",
-        "ship_cost": "11.0",
-        "subtotal": "198.0",
-        "dealer_discount": "0.0",
-        "total_discount": "0.0",
-        "tax": "0.0",
-        "grand_total": "209.0",
-        "deposit_pct": 50,
-        "current_balance": "0.0",
-        "msmt_units": "uscust",
-        "payment_status": "paid",
-        "ordered_at": "2017-07-02T11:14:51.000Z",
-        "created_at": "2017-07-02T11:00:43.000Z",
-        "invoiced_at": "2017-07-26T10:49:14.000Z",
-        "currency": {
-            "name": "USD",
-            "symbol": "$",
-            "rate": "1.0"
-        }
-    },
-    {
-        "id": 330514,
-        "title": "DO-330514",
-        "custom_order_num": null,
-        "garment_count": 1,
-        "ship_type": "Ground",
-        "ship_cost": "9.0",
-        "subtotal": "159.0",
-        "dealer_discount": "0.0",
-        "total_discount": "0.0",
-        "tax": "0.0",
-        "grand_total": "168.0",
-        "deposit_pct": 50,
-        "current_balance": "0.0",
-        "msmt_units": "uscust",
-        "payment_status": "paid",
-        "ordered_at": "2017-07-02T12:16:33.000Z",
-        "created_at": "2017-07-02T11:41:24.000Z",
-        "invoiced_at": "2017-07-14T09:33:20.000Z",
-        "currency": {
-            "name": "USD",
-            "symbol": "$",
-            "rate": "1.0"
-        }
-    },
-    {
-        "id": 330515,
-        "title": "DO-330515",
-        "custom_order_num": "Matt Churchill",
+        "id": 299173,
+        "title": "DO-299173",
+        "custom_order_number": "3899 Mayberry",
         "garment_count": 2,
         "ship_type": "Ground",
         "ship_cost": "22.0",
-        "subtotal": "480.0",
+        "subtotal": "419.0",
         "dealer_discount": "0.0",
         "total_discount": "0.0",
         "tax": "0.0",
-        "grand_total": "502.0",
-        "deposit_pct": 100,
+        "grand_total": "441.0",
+        "deposit_percentage": 100,
         "current_balance": "0.0",
-        "msmt_units": "uscust",
+        "measurement_units": "uscust",
         "payment_status": "paid",
-        "ordered_at": "2017-07-08T13:49:59.000Z",
-        "created_at": "2017-07-02T12:11:51.000Z",
+        "ordered_at": "2017-01-20T09:35:31.000Z",
+        "created_at": "2017-01-20T09:06:19.000Z",
         "invoiced_at": null,
         "currency": {
             "name": "USD",
@@ -605,74 +678,174 @@ curl "https://api.trinity-apparel.com/v1/orders"
         }
     },
     {
-        "id": 330516,
-        "title": "DO-330516",
-        "custom_order_num": null,
-        "garment_count": 2,
+        "id": 299174,
+        "title": "DO-299174",
+        "custom_order_number": "2370",
+        "garment_count": 1,
         "ship_type": "Ground",
-        "ship_cost": "22.0",
-        "subtotal": "1275.0",
-        "dealer_discount": "0.0",
-        "total_discount": "990.0",
-        "tax": "0.0",
-        "grand_total": "307.0",
-        "deposit_pct": 50,
+        "ship_cost": "7.0",
+        "subtotal": "266.0",
+        "dealer_discount": "13.3",
+        "total_discount": "114.38",
+        "tax": "31.72",
+        "grand_total": "190.34",
+        "deposit_percentage": 0,
         "current_balance": "0.0",
-        "msmt_units": "uscust",
+        "measurement_units": "uscust",
         "payment_status": "paid",
-        "ordered_at": "2017-07-07T09:13:29.000Z",
-        "created_at": "2017-07-02T12:41:02.000Z",
-        "invoiced_at": "2017-08-03T09:11:36.000Z",
+        "ordered_at": "2017-01-20T09:20:58.000Z",
+        "created_at": "2017-01-20T09:14:48.000Z",
+        "invoiced_at": "2017-03-01T08:56:14.000Z",
         "currency": {
-            "name": "USD",
-            "symbol": "$",
-            "rate": "1.0"
+            "name": "GBP",
+            "symbol": "£",
+            "rate": "0.625"
         }
     },
     {
-        "id": 330517,
-        "title": "DO-330517",
-        "custom_order_num": "Tony McDowell",
-        "garment_count": 6,
-        "ship_type": "Ground",
-        "ship_cost": "22.0",
-        "subtotal": "330.0",
-        "dealer_discount": "0.0",
-        "total_discount": "0.0",
-        "tax": "0.0",
-        "grand_total": "352.0",
-        "deposit_pct": 100,
-        "current_balance": "0.0",
-        "msmt_units": "uscust",
-        "payment_status": "paid",
-        "ordered_at": "2017-07-02T13:10:07.000Z",
-        "created_at": "2017-07-02T12:52:15.000Z",
-        "invoiced_at": null,
-        "currency": {
-            "name": "USD",
-            "symbol": "$",
-            "rate": "1.0"
-        }
-    },
-    {
-        "id": 330519,
-        "title": "DO-330519",
-        "custom_order_num": "NZWEIBAUM.CVP.S.S.1",
+        "id": 299175,
+        "title": "DO-299175",
+        "custom_order_number": null,
         "garment_count": 3,
         "ship_type": "Ground",
-        "ship_cost": "22.0",
-        "subtotal": "704.0",
+        "ship_cost": "11.0",
+        "subtotal": "242.0",
         "dealer_discount": "0.0",
         "total_discount": "0.0",
         "tax": "0.0",
-        "grand_total": "726.0",
-        "deposit_pct": 50,
+        "grand_total": "253.0",
+        "deposit_percentage": 100,
         "current_balance": "0.0",
-        "msmt_units": "uscust",
+        "measurement_units": "uscust",
         "payment_status": "paid",
-        "ordered_at": "2017-07-02T15:36:58.000Z",
-        "created_at": "2017-07-02T14:13:05.000Z",
-        "invoiced_at": "2017-07-26T10:44:20.000Z",
+        "ordered_at": "2017-01-20T09:39:03.000Z",
+        "created_at": "2017-01-20T09:16:31.000Z",
+        "invoiced_at": null,
+        "currency": {
+            "name": "USD",
+            "symbol": "$",
+            "rate": "1.0"
+        }
+    },
+    {
+        "id": 299176,
+        "title": "DO-299176",
+        "custom_order_number": "1181147/Nianick/HP",
+        "garment_count": 4,
+        "ship_type": "Ground",
+        "ship_cost": "11.0",
+        "subtotal": "274.0",
+        "dealer_discount": "0.0",
+        "total_discount": "0.0",
+        "tax": "0.0",
+        "grand_total": "285.0",
+        "deposit_percentage": 50,
+        "current_balance": "285.0",
+        "measurement_units": "uscust",
+        "payment_status": "offline",
+        "ordered_at": "2017-01-20T09:57:49.000Z",
+        "created_at": "2017-01-20T09:17:31.000Z",
+        "invoiced_at": null,
+        "currency": {
+            "name": "USD",
+            "symbol": "$",
+            "rate": "1.0"
+        }
+    },
+    {
+        "id": 299177,
+        "title": "DO-299177",
+        "custom_order_number": "2369",
+        "garment_count": 2,
+        "ship_type": "Ground",
+        "ship_cost": "14.0",
+        "subtotal": "570.15",
+        "dealer_discount": "28.51",
+        "total_discount": "28.51",
+        "tax": "111.13",
+        "grand_total": "666.77",
+        "deposit_percentage": 0,
+        "current_balance": "0.0",
+        "measurement_units": "uscust",
+        "payment_status": "paid",
+        "ordered_at": "2017-01-20T09:37:29.000Z",
+        "created_at": "2017-01-20T09:23:16.000Z",
+        "invoiced_at": "2017-03-08T10:26:26.000Z",
+        "currency": {
+            "name": "GBP",
+            "symbol": "£",
+            "rate": "0.625"
+        }
+    },
+    {
+        "id": 299178,
+        "title": "DO-299178",
+        "custom_order_number": "0000008",
+        "garment_count": 4,
+        "ship_type": "Ground",
+        "ship_cost": "22.0",
+        "subtotal": "424.5",
+        "dealer_discount": "0.0",
+        "total_discount": "0.0",
+        "tax": "0.0",
+        "grand_total": "446.5",
+        "deposit_percentage": 50,
+        "current_balance": "0.0",
+        "measurement_units": "uscust",
+        "payment_status": "paid",
+        "ordered_at": "2017-01-27T14:55:00.000Z",
+        "created_at": "2017-01-20T09:25:54.000Z",
+        "invoiced_at": "2017-03-23T16:08:40.000Z",
+        "currency": {
+            "name": "USD",
+            "symbol": "$",
+            "rate": "1.0"
+        }
+    },
+    {
+        "id": 299180,
+        "title": "DO-299180",
+        "custom_order_number": "1181502/Moramarco/DC",
+        "garment_count": 1,
+        "ship_type": "Ground",
+        "ship_cost": "11.0",
+        "subtotal": "494.0",
+        "dealer_discount": "0.0",
+        "total_discount": "0.0",
+        "tax": "0.0",
+        "grand_total": "505.0",
+        "deposit_percentage": 50,
+        "current_balance": "505.0",
+        "measurement_units": "uscust",
+        "payment_status": "offline",
+        "ordered_at": "2017-01-20T09:40:38.000Z",
+        "created_at": "2017-01-20T09:33:01.000Z",
+        "invoiced_at": null,
+        "currency": {
+            "name": "USD",
+            "symbol": "$",
+            "rate": "1.0"
+        }
+    },
+    {
+        "id": 299181,
+        "title": "DO-299181",
+        "custom_order_number": null,
+        "garment_count": 1,
+        "ship_type": "Ground",
+        "ship_cost": "11.0",
+        "subtotal": "379.0",
+        "dealer_discount": "0.0",
+        "total_discount": "0.0",
+        "tax": "0.0",
+        "grand_total": "390.0",
+        "deposit_percentage": 50,
+        "current_balance": "0.0",
+        "measurement_units": "uscust",
+        "payment_status": "paid",
+        "ordered_at": "2017-03-22T10:08:45.000Z",
+        "created_at": "2017-01-20T09:33:08.000Z",
+        "invoiced_at": "2017-04-14T13:37:27.000Z",
         "currency": {
             "name": "USD",
             "symbol": "$",
@@ -712,7 +885,7 @@ curl "https://api.trinity-apparel.com/v1/orders/399780"
 {
     "id": 399780,
     "title": "DO-399780",
-    "custom_order_num": null,
+    "custom_order_number": null,
     "garment_count": 7,
     "ship_type": "In-Store Pick-Up",
     "ship_cost": "0.0",
@@ -721,15 +894,15 @@ curl "https://api.trinity-apparel.com/v1/orders/399780"
     "total_discount": "0.0",
     "tax": "0.0",
     "grand_total": "2554.0",
-    "deposit_pct": 50,
+    "deposit_percentage": 50,
     "current_balance": "2554.0",
-    "msmt_units": "uscust",
-    "order_type": "MTM",
-    "order_source": "workflo",
+    "measurement_units": "uscust",
     "payment_status": "offline",
     "ordered_at": "2018-06-29T10:55:15.000Z",
     "created_at": "2018-06-29T09:42:51.000Z",
     "invoiced_at": null,
+    "order_type": "MTM",
+    "order_source": "workflo",
     "currency": {
         "name": "USD",
         "symbol": "$",
@@ -781,8 +954,8 @@ curl "https://api.trinity-apparel.com/v1/orders/399780"
         {
             "id": 872898,
             "title": "ID-872898",
-            "dealer_order_id": 399780,
-            "copied_suit_id": null,
+            "order_id": 399780,
+            "copied_garment_id": null,
             "garment_price": "274.0",
             "option_cost": "65.0",
             "garment_type": "CSC",
@@ -794,8 +967,8 @@ curl "https://api.trinity-apparel.com/v1/orders/399780"
         {
             "id": 872909,
             "title": "ID-872909",
-            "dealer_order_id": 399780,
-            "copied_suit_id": 872898,
+            "order_id": 399780,
+            "copied_garment_id": 872898,
             "garment_price": "274.0",
             "option_cost": "65.0",
             "garment_type": "CSC",
@@ -807,8 +980,8 @@ curl "https://api.trinity-apparel.com/v1/orders/399780"
         {
             "id": 872918,
             "title": "ID-872918",
-            "dealer_order_id": 399780,
-            "copied_suit_id": 872909,
+            "order_id": 399780,
+            "copied_garment_id": 872909,
             "garment_price": "274.0",
             "option_cost": "65.0",
             "garment_type": "CSC",
@@ -820,8 +993,8 @@ curl "https://api.trinity-apparel.com/v1/orders/399780"
         {
             "id": 872919,
             "title": "ID-872919",
-            "dealer_order_id": 399780,
-            "copied_suit_id": 872898,
+            "order_id": 399780,
+            "copied_garment_id": 872898,
             "garment_price": "274.0",
             "option_cost": "65.0",
             "garment_type": "CSC",
@@ -833,8 +1006,8 @@ curl "https://api.trinity-apparel.com/v1/orders/399780"
         {
             "id": 872920,
             "title": "ID-872920",
-            "dealer_order_id": 399780,
-            "copied_suit_id": 872918,
+            "order_id": 399780,
+            "copied_garment_id": 872918,
             "garment_price": "460.0",
             "option_cost": "60.0",
             "garment_type": "CSC",
@@ -846,8 +1019,8 @@ curl "https://api.trinity-apparel.com/v1/orders/399780"
         {
             "id": 872932,
             "title": "ID-872932",
-            "dealer_order_id": 399780,
-            "copied_suit_id": 872920,
+            "order_id": 399780,
+            "copied_garment_id": 872920,
             "garment_price": "274.0",
             "option_cost": "65.0",
             "garment_type": "CSC",
@@ -859,8 +1032,8 @@ curl "https://api.trinity-apparel.com/v1/orders/399780"
         {
             "id": 872933,
             "title": "ID-872933",
-            "dealer_order_id": 399780,
-            "copied_suit_id": 872932,
+            "order_id": 399780,
+            "copied_garment_id": 872932,
             "garment_price": "274.0",
             "option_cost": "65.0",
             "garment_type": "CSC",

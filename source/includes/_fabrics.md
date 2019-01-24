@@ -1,5 +1,111 @@
 # Fabrics API
 
+## Fabric Resources
+
+The Trinity Fabrics API provides detailed information on fabrics and collections.  Collections are groups of fabrics.  Here is a detailed list of attributes in those resources:
+
+### Fabric
+
+```json
+# Standard Object - Used in a resource collection
+{
+    "id": 42701,
+    "active": true,
+    "in_stock": 1,
+    "restock_date": null,
+    "description": "Teal Basket Weave",
+    "supplier_fabric_number": "602 275 800",
+    "trinity_fabric_number": "Z4-3642701",
+    "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z4-3642701",
+    "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z4-3642701&res=300",
+    "inventory_status": "In Stock"
+}
+```
+
+Standard Attributes
+
+Attribute | Type | Description
+---------- | ------- | -------
+id | string | Unique identifier for the object
+active | boolean | A fabric can be either active or inactive.  Inactive fabrics are discontinued an will not appear in search results.  *Note: Historical orders made with a discontinued order will still show information about that fabric.*
+in_stock | integer | A lookup value for fabric status.  `0 = Out of Stock` / Sold Out and not reordered, `1 = In Stock`, `2 = Temp Out` / Temporarily Out of Stock / Fabric is being reordered.
+restock_date | date | The date a temporarily out of stock fabric will be restocked and available for orders.  Most of the time this field is empty.
+description | string | A description of the fabric - E.g., Blue Herringbone
+supplier_fabric_number | string | A unique identifier / SKU according to the fabric supplier
+trinity_fabric_number | string | A unique identifier / SKU according to Trinity
+url | string | The url for a repeatable image of the fabric
+swatch_url | string | The url for a swatch image of the fabric. This image contains serrated edges. Users can also configure the zoom of the image by changing the `res=` parameter in the url to a different number.
+inventory_status | string | a human readable version of the in_stock attribute
+
+```json
+# Extended Object
+{
+    "id": 40985,
+    "active": true,
+    "in_stock": 1,
+    "restock_date": null,
+    "description": "Lavender Dobby",
+    "supplier_fabric_number": "P39315/02",
+    "trinity_fabric_number": "S2-3540985",
+    "url": "https://s7d4.scene7.com/is/image/trinityapparel/S2-3540985",
+    "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=S2-3540985&res=300",
+    "inventory_status": "In Stock",
+    "country_origin": "International",
+    "fabric_weight_grams_meter": 125,
+    "fabric_grouping": "shirts",
+    "pattern": "solid",
+    "last_stock_edit_date": "2018-01-19T18:36:51.000Z",
+    "collection": ...
+}
+```
+
+Extended attributes (in addition to standard attributes)
+
+Attribute | Type | Description
+---------- | ------- | -------
+country_origin | string | Where the fabric was milled
+fabric_weight_grams_meter | integer | weight in grams / square meter
+fabric_grouping | string | Fabrics are typically grouped by dominant color
+pattern | string | Type of pattern. Common values are stripe, check, and solid.
+last_stock_edit_date  | datetime | The last time the fabric inventory level was changed
+collection | subresource | The collection is embedded within the fabric resource
+
+### Collection
+
+```json
+# Standard Object - Used in a resource collection
+{
+    "id": 1309,
+    "name": "Derby Performance Cornerstone Suitings V17011"
+}
+```
+
+Standard Attributes
+
+Attribute | Type | Description
+---------- | ------- | -------
+id | string | Unique identifier for the object
+name | string | The title of the collection
+
+```json
+# Extended Object
+```json
+{
+    "id": 1854,
+    "name": "Outerwear V18082",
+    "description": "",
+    "fabrics": [...]
+}
+```
+
+Extended attributes (in addition to standard attributes)
+
+Attribute | Type | Description
+---------- | ------- | -------
+description | string | A one to two paragraph descripton of the collection
+fabrics | subresource | a list of all fabrics that are a part of the collection. *NOTE: Inactive fabrics may be shown*
+
+
 ## Get All Collections
 
 ```shell
@@ -664,7 +770,7 @@ reverse_sort | N/A | If this parameter is sort, fabrics will be sorted descendin
 ## Get a Specific Fabric
 
 ```shell
-curl "https://api.trinity-apparel.com/v1/fabrics/39001"
+curl "https://api.trinity-apparel.com/v1/fabrics/40985"
   -H "AUTHENTICATION Bearer: swaledale"
 ```
 
@@ -672,57 +778,24 @@ curl "https://api.trinity-apparel.com/v1/fabrics/39001"
 
 ```json
 {
-    "id": 39001,
+    "id": 40985,
     "active": true,
-    "supplier_id": 49,
-    "fabric_mill_id": 60,
-    "label_id": 19,
-    "supplier_fabric_num": "54557-18",
-    "trinity_fabric_num": "Z8-3339001",
-    "country_origin": "Italy",
-    "fabric_weight_grams_meter": 105,
-    "fabric_grouping": "blue",
-    "secondary_fabric_grouping": null,
-    "pattern": "Foulards/Neats",
-    "fabric_width": "58.0",
-    "cuttable_width": "58.0",
-    "grain_repeat": null,
-    "crosswise_repeat": null,
-    "one_way_nap": false,
-    "horiz_pattern": false,
-    "non_iron": false,
-    "supplier_price_dollars_meter": "33.54",
-    "supplier_price_dollars_yard": "30.67",
-    "in_stock": 2,
+    "in_stock": 1,
     "restock_date": null,
-    "sub_supplier_id": null,
-    "sub_fabric_num": null,
-    "rapid_replenishment": false,
-    "last_stock_edit_date": "2017-02-27T16:43:46.000Z",
-    "fabric_price_code_id": 142,
-    "fabric_composition_id": 13,
-    "fabric_garment_type": 8,
-    "trim_garment_type": 0,
-    "fabric_usage": 1,
-    "premium_id": 1,
-    "fabric_season": 33,
-    "fabric_year": 2016,
-    "luxury_level_id": 24,
-    "material_type_id": 12,
-    "base_color": null,
-    "deco_color_1": null,
-    "deco_color_2": null,
-    "panel": 1,
-    "panel_row": 1,
-    "panel_column": 1,
-    "description": "Midnight Pin Dot",
-    "created_at": "2017-02-27T16:43:46.000Z",
-    "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z8-3339001",
-    "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z8-3339001&res=300",
-    "inventory_status": "Temp Out",
+    "description": "Lavender Dobby",
+    "supplier_fabric_number": "P39315/02",
+    "trinity_fabric_number": "S2-3540985",
+    "url": "https://s7d4.scene7.com/is/image/trinityapparel/S2-3540985",
+    "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=S2-3540985&res=300",
+    "inventory_status": "In Stock",
+    "country_origin": "International",
+    "fabric_weight_grams_meter": 125,
+    "fabric_grouping": "shirts",
+    "pattern": "solid",
+    "last_stock_edit_date": "2018-01-19T18:36:51.000Z",
     "collection": {
-        "id": 1338,
-        "name": "Thomas Mason Seasonal V17031"
+        "id": 1520,
+        "name": "Soktas Bespoke V17082"
     }
 }
 ```
