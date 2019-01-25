@@ -34,7 +34,7 @@ Standard Attributes
 | supplier_fabric_number <br> <span>string</span> | A unique identifier / SKU according to the fabric supplier                                                                                                                                                                   |
 | trinity_fabric_number <br> <span>string</span>  | A unique identifier / SKU according to Trinity                                                                                                                                                                               |
 | url <br> <span>string</span>                    | The url for a repeatable image of the fabric                                                                                                                                                                                 |
-| swatch_url <br> <span>string</span>             | The url for a swatch image of the fabric. This image contains serrated edges. Users can also configure the zoom of the image by changing the `res=` parameter in the url to a different number.                              |
+| swatch_url <br> <span>string</span>             | The url for a swatch image of the fabric. This image contains serrated edges. Users can configure the zoom of the image by changing the `res=` parameter in the url to a different number.                                   |
 | inventory_status <br> <span>string</span>       | A human readable version of the in_stock attribute                                                                                                                                                                           |
 
 ```json
@@ -61,19 +61,19 @@ Standard Attributes
 }
 ```
 
-Extended attributes (in addition to standard attributes)
+Extended attributes
 
-| Attribute                                           | Description                                                  |
-| --------------------------------------------------- | ------------------------------------------------------------ |
-| country_origin <br> <span>string</span>             | Where the fabric was milled                                  |
-| fabric_weight_grams_meter <br> <span>integer</span> | Weight in grams / square meter                               |
-| fabric_grouping <br> <span>string</span>            | Fabrics are typically grouped by dominant color              |
-| pattern <br> <span>string</span>                    | Type of pattern. Common values are stripe, check, and solid. |
-| last_stock_edit_date <br> <span>datetime</span>     | The last time the fabric inventory level was changed         |
-| fabric_year <br> <span>year</span>                  | The year the fabric was released                             |
-| collection <br> <span>subresource</span>            | The collection is embedded within the fabric resource        |
-| composition <br> <span>subresource</span>           | The composition is embedded within the fabric resource       |
-| mill <br> <span>subresource</span>                  | The mill is embedded within the fabric resource              |
+| Attribute                                           | Description                                                        |
+| --------------------------------------------------- | ------------------------------------------------------------------ |
+| country_origin <br> <span>string</span>             | Where the fabric was milled                                        |
+| fabric_weight_grams_meter <br> <span>integer</span> | Weight in grams per square meter                                   |
+| fabric_grouping <br> <span>string</span>            | Fabrics are typically grouped by dominant color                    |
+| pattern <br> <span>string</span>                    | Type of pattern. Common values are `stripe`, `check`, and `solid`. |
+| last_stock_edit_date <br> <span>datetime</span>     | The last time the fabric inventory level was changed               |
+| fabric_year <br> <span>year</span>                  | The year the fabric was released                                   |
+| collection <br> <span>subresource</span>            | The collection in which the fabric was released                    |
+| composition <br> <span>subresource</span>           | The material composition of the fabric                             |
+| mill <br> <span>subresource</span>                  | *Description TBD*                                                  |
 
 ### Collection
 
