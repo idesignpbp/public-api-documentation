@@ -664,6 +664,14 @@ body {
 ////////////////////////////////////////////////////////////////////////////////
 // These are the custom styles not shipped with default Slate config
 
-.attribute-type {
-  color: grey;
+table {
+  th,
+  td:first-child {
+    text-align: right;
+    font-weight: 500;
+    span {
+      color: grey;
+      font-weight: normal;
+    }
+  }
 }
