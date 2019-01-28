@@ -4,43 +4,63 @@
 
 All garments are in a particular order statuses.  While a garment is being produced it flows through a number of different statuses. Here is a list of all possible status codes:
 
-Status Code | Description
----------- | -------
-INCOMPLETE | Incomplete
-SUBMITTED | Ready
-PENDING | Blue Pencil
-PRODUCTION | Production
-MADE | Production Complete
-SHIPDC | International Transit
-INSPECTDC | Final Inspection
-SHIPCUST | Delivery
-FABHOLD | Fabric Hold
-PACKDC | Shipment Processing
-SHIPDIRECT | Direct Ship
-CANCEL | Canceled
-CMTHOLD | CMT Fabric Hold
+| Status Code | Description           |
+| ----------- | --------------------- |
+| INCOMPLETE  | Incomplete            |
+| SUBMITTED   | Ready                 |
+| PENDING     | Blue Pencil           |
+| PRODUCTION  | Production            |
+| MADE        | Production Complete   |
+| SHIPDC      | International Transit |
+| INSPECTDC   | Final Inspection      |
+| SHIPCUST    | Delivery              |
+| FABHOLD     | Fabric Hold           |
+| PACKDC      | Shipment Processing   |
+| SHIPDIRECT  | Direct Ship           |
+| CANCEL      | Canceled              |
+| CMTHOLD     | CMT Fabric Hold       |
 
 
 ## Delay Statuses
 
 Sometimes a garment gets delayed during production. We categorize the reason for the delay in an effort to speed up the process. Here is a list of all possible delay codes:
 
-Delay Code | Description
----------- | -------
-OK | Not Delayed
-FABRIC_OUT | Fabric Out
-FABRIC_RECEIPT | Fabric Receipt Delay
-FABRIC_DAMAGED | Fabric Flawed/Damaged
-FABRIC_SHORT | Fabric Short
-DEALER_INSTRUCT | Dealer Instruction Required
-GARMENT_DAMAGED | Garment Damaged Delay
-TRINITY_REVIEW | Trinity Review
-DEALER_HOLD | Dealer Hold
-CMT_SHELL | CMT Shell Fabric Delay
-CMT_LINING | CMT Lining Fabric Delay
-CMT_TRIM | CMT Trim Fabric Delay
-PATTERN_REVIEW | Pattern Review
-FACTORY_REVIEW | ID Review
+| Delay Code      | Description                 |
+| --------------- | --------------------------- |
+| OK              | Not Delayed                 |
+| FABRIC_OUT      | Fabric Out                  |
+| FABRIC_RECEIPT  | Fabric Receipt Delay        |
+| FABRIC_DAMAGED  | Fabric Flawed/Damaged       |
+| FABRIC_SHORT    | Fabric Short                |
+| DEALER_INSTRUCT | Dealer Instruction Required |
+| GARMENT_DAMAGED | Garment Damaged Delay       |
+| TRINITY_REVIEW  | Trinity Review              |
+| DEALER_HOLD     | Dealer Hold                 |
+| CMT_SHELL       | CMT Shell Fabric Delay      |
+| CMT_LINING      | CMT Lining Fabric Delay     |
+| CMT_TRIM        | CMT Trim Fabric Delay       |
+| PATTERN_REVIEW  | Pattern Review              |
+| FACTORY_REVIEW  | ID Review                   |
+
+## Garment Types
+
+Description of what the different garment type codes mean:
+
+| Garment Type | Description             |
+| ------------ | ----------------------- |
+| CSC          | Coat                    |
+| CV           | Vest                    |
+| CT           | Pant                    |
+| CCP          | Coat & Pant             |
+| CCVP         | Coat, Vest & Pant       |
+| CSHT         | Shirt                   |
+| CCPP         | Coat, Pant, & Pant      |
+| CCVPP        | Coat, Vest, Pant & Pant |
+| CTOPC        | Topcoat                 |
+| CSHO         | Short                   |
+| CBK          | Breek                   |
+| TIE          | Tie                     |
+| SWK          | Swacket                 |
 
 ## Order Resources
 
@@ -75,27 +95,27 @@ The Orders API returns order, garment, order status, and delay status objects.  
 
 Standard Attributes
 
-Attribute | Type | Description
----------- | ------- | -------
-id | string | Unique identifier for the object
-title | string | Our SKU field for orders
-custom_order_number | string | Dealers can set this field to whatever they want.  It is typically the dealer's SKU or a summary of the order
-garment_count | integer | How many garments are in the order. multi-piece garments (e.g., Suit) are counted as 1.
-ship_type | string | How is the garment shipped to the final destination
-ship_cost | decimal | How much did it cost to ship the whole order
-subtotal | decimal | Order amount before tax and discounts are included
-dealer_discount | decimal | *Description TBD*
-total_discount | decimal | Dollar total of all discounts applied to the order
-tax | decimal | Dollar total for taxes on the order
-grand_total | decimal | Dollar total for the whole order. Used as a basis for credit card charges and invoices.
-deposit_percentage | integer | The percentage of the grand total that must be paid before the order enters production. A number between 0 and 100. The final amount is typically paid after it is made and before it ships to the final destination.
-current_balance | decimal | The dollar amount remaining to be paid on the order
-measurement_units | string | Units can be `uscust` for US customary units (in) or `si` for metric units (cm)
-payment_status | string | an indication if the order has been paid for
-ordered_at | datetime | Time that the dealer completed the checkout process and officially placed the order
-created_at | datetime | Time when the dealer first began adding garments to the order
-invoiced_at | datetime | Time of the first invoice
-currency | subresource | currency used in the order
+| Attribute                                    | Description                                                                                                                                                                                                           |
+| -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| id <br> <span>string</span>                  | Unique identifier for the object                                                                                                                                                                                      |
+| title <br> <span>string</span>               | Our SKU field for orders                                                                                                                                                                                              |
+| custom_order_number <br> <span>string</span> | Dealers can set this field to whatever they want.  It is typically the dealer's SKU or a summary of the order                                                                                                         |
+| garment_count <br> <span>integer</span>      | How many garments are in the order. multi-piece garments (e.g., Suit) are counted as 1.                                                                                                                               |
+| ship_type <br> <span>string</span>           | How is the garment shipped to the final destination                                                                                                                                                                   |
+| ship_cost <br> <span>decimal</span>          | How much did it cost to ship the whole order                                                                                                                                                                          |
+| subtotal <br> <span>decimal</span>           | Order amount before tax and discounts are included                                                                                                                                                                    |
+| dealer_discount <br> <span>decimal</span>    | Dealer discount is the amount of dealer's permanent discounts                                                                                                                                                         |
+| total_discount <br> <span>decimal</span>     | Dollar total of all discounts applied to the order                                                                                                                                                                    |
+| tax <br> <span>decimal</span>                | Dollar total for taxes on the order                                                                                                                                                                                   |
+| grand_total <br> <span>decimal</span>        | Dollar total for the whole order. Used as a basis for credit card charges and invoices.                                                                                                                               |
+| deposit_percentage <br> <span>integer</span> | The percentage of the grand total that must be paid before the order enters production. A number between 0 and 100. The final amount is typically paid after it is made and before it ships to the final destination. |
+| current_balance <br> <span>decimal</span>    | The dollar amount remaining to be paid on the order                                                                                                                                                                   |
+| measurement_units <br> <span>string</span>   | Units can be `uscust` for US customary units (in) or `si` for metric units (cm)                                                                                                                                       |
+| payment_status <br> <span>string</span>      | An indication if the order has been paid for                                                                                                                                                                          |
+| ordered_at <br> <span>datetime</span>        | Time that the dealer completed the checkout process and officially placed the order                                                                                                                                   |
+| created_at <br> <span>datetime</span>        | Time when the dealer first began adding garments to the order                                                                                                                                                         |
+| invoiced_at <br> <span>datetime</span>       | Time of the first invoice                                                                                                                                                                                             |
+| currency <br> <span>subresource</span>       | Currency used in the order                                                                                                                                                                                            |
 
 
 ```json
@@ -132,71 +152,207 @@ currency | subresource | currency used in the order
 
 Extended Attributes
 
-Attribute | Type | Description
----------- | ------- | -------
-order_type | string | `MTM`, `Inventory`, or `MTO` (future)
-order_source | string | What system was used to place the order? `workflo` or `studio`
-shipping_address | subresource | address of the final destination
-factory_address | subresource | address where it was made
-dealer | subresource | dealer who placed the order
-customer | subresource | person who will wear the clothes
-garments | array | array of garments included in the order
+| Attribute                                      | Description                                                    |
+| ---------------------------------------------- | -------------------------------------------------------------- |
+| order_type <br> <span>string</span>            | `MTM`, `Inventory`, or `MTO` (future)                          |
+| order_source <br> <span>string</span>          | What system was used to place the order? `workflo` or `studio` |
+| shipping_address <br> <span>subresource</span> | Address of the final destination                               |
+| factory_address <br> <span>subresource</span>  | Address where it was made                                      |
+| dealer <br> <span>subresource</span>           | Dealer who placed the order                                    |
+| customer <br> <span>subresource</span>         | Person who will wear the garments                              |
+| garments <br> <span>array</span>               | Array of garments included in the order                        |
+
+### Currency
+
+```json
+# Standard Object - Used in a resource collection
+{
+    "name": "USD",
+    "symbol": "$",
+    "rate": "1.0"
+}
+```
+
+Standard Attributes
+
+| Attribute                       | Description             |
+| ------------------------------- | ----------------------- |
+| name <br> <span>string</span>   | Type of currency used   |
+| symbol <br> <span>string</span> | Symbol of currency used |
+| rate <br> <span>string</span>   | *Description TBD*       |
+
+### Shipping Address
+
+```json
+# Standard Object - Used in a resource collection
+{
+    "id": 1477,
+    "description": "Trinity",
+    "street1": "193 Business Park Dr",
+    "street2": null,
+    "street3": null,
+    "city": "Ridgeland",
+    "state": "MS",
+    "zip": "39157",
+    "country": "USA",
+    "phone": null
+}
+```
+
+Standard Attributes
+
+| Attribute                            | Description                      |
+| ------------------------------------ | -------------------------------- |
+| id <br> <span>integer</span>         | Unique identifier for the object |
+| description <br> <span>string</span> | Brief description of address     |
+| street1 <br> <span>string</span>     | First street line of address     |
+| street2 <br> <span>string</span>     | Second street line of address    |
+| street3 <br> <span>string</span>     | Third street line of address     |
+| city <br> <span>string</span>        | City for the address             |
+| state <br> <span>string</span>       | State for the address            |
+| zip <br> <span>string</span>         | Zip Code for the address         |
+| country <br> <span>string</span>     | Country for the address          |
+| phone <br> <span>string</span>       | Phone number for the address     |
+
+### Factory Address
+
+```json
+# Standard Object - Used in a resource collection
+{
+    "id": 1,
+    "description": "Trinity USA",
+    "street1": "227 Marketridge Dr",
+    "street2": null,
+    "street3": null,
+    "city": "Ridgeland",
+    "state": "MS",
+    "zip": "39157",
+    "country": "USA",
+    "phone": "601-713-2628"
+}
+```
+
+Standard Attributes
+
+| Attribute                            | Description                      |
+| ------------------------------------ | -------------------------------- |
+| id <br> <span>integer</span>         | Unique identifier for the object |
+| description <br> <span>string</span> | Brief description of address     |
+| street1 <br> <span>string</span>     | First street line of address     |
+| street2 <br> <span>string</span>     | Second street line of address    |
+| street3 <br> <span>string</span>     | Third street line of address     |
+| city <br> <span>string</span>        | City for the address             |
+| state <br> <span>string</span>       | State for the address            |
+| zip <br> <span>string</span>         | Zip Code for the address         |
+| country <br> <span>string</span>     | Country for the address          |
+| phone <br> <span>string</span>       | Phone number for the address     |
+
+### Dealer
+
+```json
+# Standard Object - Used in a resource collection
+{
+    "id": 1106,
+    "name": "Studio Garments",
+    "first_name": "Studio",
+    "last_name": "Garments",
+    "company_name": null,
+    "email": "jwiggins@idpbp.com",
+    "phone": "6017132628",
+    "country": "USA"
+}
+```
+
+Standard Attributes
+
+| Attribute                             | Description                             |
+| ------------------------------------- | --------------------------------------- |
+| id <br> <span>integer</span>          | Unique identifier for the object        |
+| name <br> <span>string</span>         | Combined string for first and last name |
+| first_name <br> <span>string</span>   | First name of the dealer                |
+| last_name <br> <span>string</span>    | Last name of the dealer                 |
+| company_name <br> <span>string</span> | Name of the dealer's company            |
+| email <br> <span>string</span>        | Email address of the dealer             |
+| phone <br> <span>string</span>        | Phone number of the dealer              |
+| country <br> <span>string</span>      | Country where the dealer is             |
+
+### Customer
+
+```json
+# Standard Object - Used in a resource collection
+{
+    "id": 87285,
+    "created_at": "2016-05-29T15:08:38.000Z",
+    "name": "Mr Mannequin",
+    "first_name": "Mr",
+    "last_name": "Mannequin",
+    "email": null
+}
+```
+
+Standard Attributes
+
+| Attribute                             | Description                             |
+| ------------------------------------- | --------------------------------------- |
+| id <br> <span>integer</span>          | Unique identifier for the object        |
+| created_at <br> <span>datetime</span> | *Description TBD*                       |
+| name <br> <span>string</span>         | Combined string for first and last name |
+| first_name <br> <span>string</span>   | First name of the customer              |
+| last_name <br> <span>string</span>    | Last name of the customer               |
+| email <br> <span>string</span>        | Email address of the customer           |
 
 ### Garment
 
 ```json
 # Standard Object - Used in a resource collection
 {
-    "id": 872909,
-    "title": "ID-872909",
-    "copied_garment_id": 872898,
-    "price": "274.0",
-    "option_cost": "65.0",
-    "last_status_change_date": "2018-08-08T15:24:19.000Z",
-    "last_delay_change_date": null,
-    "suit_complete": false,
-    "garment_type": ...,
-    "created_at": "2018-06-29T10:02:12.000Z",
-    "updated_at": "2018-07-27T03:35:22.000Z",
-    "manufacturer": ...,
-    "fabric": ...,
+    "id": 892902,
+    "title": "ID-892902",
+    "order_id": 407781,
+    "copied_garment_id": null,
+    "price": "66.0",
+    "option_cost": "0.0",
+    "garment_type": "CSHT",
+    "created_at": "2018-08-17T09:50:45.000Z",
+    "updated_at": "2018-08-29T03:52:13.000Z",
     "order_status": ...,
+    "delay_status": ...,
     "dealer_order": ...
 }
 ```
 
 Standard Attributes
 
-Attribute | Type | Description
----------- | ------- | -------
-id | string | Unique identifier for the object
-title | string | Our SKU field which includes the garment id number and information about where the factory will send the garment
-order_id | integer | each garment must be a part of a specific order
-copied_garment_id | integer | garment id if this was copied from a previous order
-price | decimal | wholesale cost of the garment
-option_cost | decimal | dollar cost of the premium options used in this garment
-garment_type | resource | garment type (E.g., Shirt, Pant, Suit)
-created_at | datetime | when the garment was first created (but not ordered)
-updated_at | datetime | when the garment was last modified
-
-
-
+| Attribute                                   | Description                                                                                                      |
+| ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| id <br> <span>integer</span>                | Unique identifier for the object                                                                                 |
+| title <br> <span>string</span>              | Our SKU field which includes the garment id number and information about where the factory will send the garment |
+| order_id <br> <span>integer</span>          | Each garment must be a part of a specific order                                                                  |
+| copied_garment_id <br> <span>integer</span> | Garment id if this was copied from a previous order                                                              |
+| price <br> <span>decimal</span>             | Wholesale cost of the garment                                                                                    |
+| option_cost <br> <span>decimal</span>       | Dollar cost of the premium options used in this garment                                                          |
+| garment_type <br> <span>string</span>       | Type of garment. [Click here](#garment-types) for more info                                                      |
+| created_at <br> <span>datetime</span>       | When the garment was first created (but not ordered)                                                             |
+| updated_at <br> <span>datetime</span>       | When the garment was last modified                                                                               |
+| order_status <br> <span>subresource</span>  | Current status of the order. [Click here](#order-statuses) for more info                                         |
+| delay_status <br> <span>subresource</span>  | If garment is delayed, this will return why. [Click here](#delay-statuses) for more info                         |
+| dealer_order <br> <span>subresource</span>  | The full order placed by a single customer. Includes this garment and can include more garments.                 |
 
 ```json
 # Extended Object
 {
-    "id": 872909,
-    "title": "ID-872909",
-    "order_id": 399780,
-    "copied_garment_id": 872898,
-    "garment_price": "274.0",
-    "option_cost": "65.0",
-    "garment_type": ...,
+    "id": 892902,
+    "title": "ID-892902",
+    "order_id": 407781,
+    "copied_garment_id": null,
+    "price": "66.0",
+    "option_cost": "0.0",
+    "garment_type": "CSHT",
+    "created_at": "2018-08-17T09:50:45.000Z",
+    "updated_at": "2018-08-29T03:52:13.000Z",
     "prefix": "ID",
-    "index": "2/7",
-    "created_at": "2018-06-29T10:02:12.000Z",
-    "updated_at": "2018-07-27T03:35:22.000Z",
-    "last_status_change_date": "2018-08-08T15:24:19.000Z",
+    "index": "2/2",
+    "last_status_change_date": "2018-09-14T14:20:40.000Z",
     "last_delay_change_date": null,
     "order_status": ...,
     "delay_status": ...,
@@ -208,13 +364,70 @@ updated_at | datetime | when the garment was last modified
 
 Extended Attributes
 
-Attribute | Type | Description
----------- | ------- | -------
-prefix | string | First part of the title. This indicates where the order was made or where the factory will send the garment
-index | string | Sequence number (1/7, 2/7, 3/7 ...) for each garment in an order. Each item has a different index
-last_status_change_date | datetime | when did the order status last change to a new state
-last_delay_change_date | datetime | when did the delay status last change to a new state
+| Attribute               | Type        | Description                                                                                                 |
+| ----------------------- | ----------- | ----------------------------------------------------------------------------------------------------------- |
+| prefix                  | string      | First part of the title. This indicates where the order was made or where the factory will send the garment |
+| index                   | string      | Sequence number (1/7, 2/7, 3/7 ...) for each garment in an order. Each item has a different index           |
+| last_status_change_date | datetime    | When did the order status last change to a new state                                                        |
+| last_delay_change_date  | datetime    | When did the delay status last change to a new state                                                        |
+| manufacturer            | subresource | The factory who made the garment                                                                            |
+| fabric                  | subresource | Information about the primary fabric used for the garment                                                   |
 
+### Order Status
+
+```json
+# Standard Object - Used in a resource collection
+{
+    "code": "SHIPCUST",
+    "name": "Delivery",
+    "description": "Delivery"
+}
+```
+
+Standard Attributes - [see here](#order-statuses) for details
+
+| Attribute                            | Description                   |
+| ------------------------------------ | ----------------------------- |
+| code <br> <span>string</span>        | Trinity code for order status |
+| name <br> <span>string</span>        | The name of the order status  |
+| description <br> <span>string</span> | Description of order status   |
+
+### Delay Status
+
+```json
+# Standard Object - Used in a resource collection
+{
+    "code": "OK",
+    "description": "Not Delayed"
+}
+```
+
+Standard Attributes - [see here](#delay-statuses) for details
+
+| Attribute                            | Description                   |
+| ------------------------------------ | ----------------------------- |
+| code <br> <span>string</span>        | Trinity code for delay status |
+| description <br> <span>string</span> | Description of delay status   |
+
+### Manufacturer
+
+```json
+# Standard Object - Used in a resource collection
+{
+    "id": 2,
+    "address_id": 1943,
+    "name": "iD Shirts",
+    "email": "info@trinity-apparel.com"
+}
+```
+
+Standard Attributes
+
+| Attribute                      | Description                       |
+| ------------------------------ | --------------------------------- |
+| id <br> <span>integer</span>   | Unique identifier for the object  |
+| name <br> <span>string</span>  | Name of the manufacturer          |
+| email <br> <span>string</span> | Email address of the manufacturer |
 
 ## Get All Orders (DOs)
 
@@ -863,9 +1076,9 @@ Returns an array of dealer orders (DOs).
 
 ### Query Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-is_active | true | If set to true, the result will only include active fabrics
+| Parameter | Default | Description                                                 |
+| --------- | ------- | ----------------------------------------------------------- |
+| is_active | true    | If set to true, the result will only include active fabrics |
 
 ### Other
 
@@ -956,11 +1169,9 @@ curl "https://api.trinity-apparel.com/v1/orders/399780"
             "title": "ID-872898",
             "order_id": 399780,
             "copied_garment_id": null,
-            "garment_price": "274.0",
+            "price": "274.0",
             "option_cost": "65.0",
             "garment_type": "CSC",
-            "factory_prefix": "ID",
-            "factory_index": "1/7",
             "created_at": "2018-06-29T09:44:15.000Z",
             "updated_at": "2018-08-03T04:01:21.000Z"
         },
@@ -969,11 +1180,9 @@ curl "https://api.trinity-apparel.com/v1/orders/399780"
             "title": "ID-872909",
             "order_id": 399780,
             "copied_garment_id": 872898,
-            "garment_price": "274.0",
+            "price": "274.0",
             "option_cost": "65.0",
             "garment_type": "CSC",
-            "factory_prefix": "ID",
-            "factory_index": "2/7",
             "created_at": "2018-06-29T10:02:12.000Z",
             "updated_at": "2018-07-27T03:35:22.000Z"
         },
@@ -982,11 +1191,9 @@ curl "https://api.trinity-apparel.com/v1/orders/399780"
             "title": "ID-872918",
             "order_id": 399780,
             "copied_garment_id": 872909,
-            "garment_price": "274.0",
+            "price": "274.0",
             "option_cost": "65.0",
             "garment_type": "CSC",
-            "factory_prefix": "ID",
-            "factory_index": "3/7",
             "created_at": "2018-06-29T10:20:23.000Z",
             "updated_at": "2018-07-25T04:05:58.000Z"
         },
@@ -995,11 +1202,9 @@ curl "https://api.trinity-apparel.com/v1/orders/399780"
             "title": "ID-872919",
             "order_id": 399780,
             "copied_garment_id": 872898,
-            "garment_price": "274.0",
+            "price": "274.0",
             "option_cost": "65.0",
             "garment_type": "CSC",
-            "factory_prefix": "ID",
-            "factory_index": "4/7",
             "created_at": "2018-06-29T10:26:58.000Z",
             "updated_at": "2018-07-23T03:51:47.000Z"
         },
@@ -1008,11 +1213,9 @@ curl "https://api.trinity-apparel.com/v1/orders/399780"
             "title": "ID-872920",
             "order_id": 399780,
             "copied_garment_id": 872918,
-            "garment_price": "460.0",
+            "price": "460.0",
             "option_cost": "60.0",
             "garment_type": "CSC",
-            "factory_prefix": "ID",
-            "factory_index": "5/7",
             "created_at": "2018-06-29T10:30:15.000Z",
             "updated_at": "2018-07-26T03:38:01.000Z"
         },
@@ -1021,11 +1224,9 @@ curl "https://api.trinity-apparel.com/v1/orders/399780"
             "title": "ID-872932",
             "order_id": 399780,
             "copied_garment_id": 872920,
-            "garment_price": "274.0",
+            "price": "274.0",
             "option_cost": "65.0",
             "garment_type": "CSC",
-            "factory_prefix": "ID",
-            "factory_index": "6/7",
             "created_at": "2018-06-29T10:45:08.000Z",
             "updated_at": "2018-07-23T03:51:40.000Z"
         },
@@ -1034,11 +1235,9 @@ curl "https://api.trinity-apparel.com/v1/orders/399780"
             "title": "ID-872933",
             "order_id": 399780,
             "copied_garment_id": 872932,
-            "garment_price": "274.0",
+            "price": "274.0",
             "option_cost": "65.0",
             "garment_type": "CSC",
-            "factory_prefix": "ID",
-            "factory_index": "7/7",
             "created_at": "2018-06-29T10:48:38.000Z",
             "updated_at": "2018-07-23T03:51:45.000Z"
         }
@@ -1054,9 +1253,9 @@ Returns details on a specific order and a snapshot of the garments within the or
 
 ### Query Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-id | N/A | The specific order id you want to see
+| Parameter | Default | Description                           |
+| --------- | ------- | ------------------------------------- |
+| id        | N/A     | The specific order id you want to see |
 
 ### Other
 
@@ -1075,1052 +1274,1002 @@ curl "https://api.trinity-apparel.com/v1/garments"
 ```json
 [
     {
-        "id": 824833,
-        "title": "ID-824833",
-        "order_id": 376598,
+        "id": 892902,
+        "title": "ID-892902",
+        "order_id": 407781,
         "copied_garment_id": null,
-        "garment_price": "370.0",
-        "option_cost": "15.0",
-        "garment_type": "CSC",
-        "factory_prefix": "ID",
-        "factory_index": "1/2",
-        "created_at": "2018-03-10T15:06:20.000Z",
-        "updated_at": "2018-03-28T01:49:39.000Z",
+        "price": "66.0",
+        "option_cost": "0.0",
+        "garment_type": "CSHT",
+        "created_at": "2018-08-17T09:50:45.000Z",
+        "updated_at": "2018-08-29T03:52:13.000Z",
         "order_status": {
             "code": "SHIPCUST",
-            "description": "Delivery",
-            "name": "Delivery"
+            "name": "Delivery",
+            "description": "Delivery"
         },
         "delay_status": {
-            "id": 1,
+            "code": "OK",
             "description": "Not Delayed"
         },
         "dealer_order": {
-            "id": 376598,
-            "title": "DO-376598",
-            "custom_order_num": "Jason Saint Peter",
+            "id": 407781,
+            "title": "DO-407781",
+            "custom_order_number": null,
             "garment_count": 2,
-            "ship_type": "Ground",
-            "ship_cost": "11.0",
-            "subtotal": "450.0",
+            "ship_type": "In-Store Pick-Up",
+            "ship_cost": "0.0",
+            "subtotal": "416.0",
             "dealer_discount": "0.0",
             "total_discount": "0.0",
             "tax": "0.0",
-            "grand_total": "461.0",
-            "deposit_pct": 100,
-            "current_balance": "0.0",
-            "msmt_units": "uscust",
-            "payment_status": "paid",
-            "ordered_at": "2018-03-10T16:17:22.000Z",
-            "created_at": "2018-03-09T18:09:23.000Z",
+            "grand_total": "416.0",
+            "deposit_percentage": 50,
+            "current_balance": "416.0",
+            "measurement_units": "uscust",
+            "payment_status": "offline",
+            "ordered_at": "2018-08-17T09:54:23.000Z",
+            "created_at": "2018-08-09T10:41:20.000Z",
             "invoiced_at": null
         }
     },
     {
-        "id": 826855,
-        "title": "ID-826855",
-        "order_id": 377644,
-        "copied_garment_id": null,
-        "garment_price": "440.0",
-        "option_cost": "15.0",
-        "garment_type": "CCP",
-        "factory_prefix": "ID",
-        "factory_index": "1/1",
-        "created_at": "2018-03-14T14:49:32.000Z",
-        "updated_at": "2018-04-09T02:21:04.000Z",
+        "id": 892263,
+        "title": "ID-892263",
+        "order_id": 408973,
+        "copied_garment_id": 856350,
+        "price": "90.0",
+        "option_cost": "0.0",
+        "garment_type": "CSHT",
+        "created_at": "2018-08-15T16:43:09.000Z",
+        "updated_at": "2018-08-15T16:43:09.000Z",
         "order_status": {
-            "code": "SHIPCUST",
-            "description": "Delivery",
-            "name": "Delivery"
+            "code": "INCOMPLETE",
+            "name": "Incomplete",
+            "description": "Incomplete"
         },
         "delay_status": {
-            "id": 1,
+            "code": "OK",
             "description": "Not Delayed"
         },
         "dealer_order": {
-            "id": 377644,
-            "title": "DO-377644",
-            "custom_order_num": "Chris Wilhelm",
+            "id": 408973,
+            "title": "DO-408973",
+            "custom_order_number": "",
+            "garment_count": 0,
+            "ship_type": "Ground",
+            "ship_cost": "0.0",
+            "subtotal": "0.0",
+            "dealer_discount": "0.0",
+            "total_discount": null,
+            "tax": "0.0",
+            "grand_total": "0.0",
+            "deposit_percentage": 100,
+            "current_balance": "0.0",
+            "measurement_units": "uscust",
+            "payment_status": "incomplete",
+            "ordered_at": null,
+            "created_at": "2018-08-15T16:41:14.000Z",
+            "invoiced_at": null
+        }
+    },
+    {
+        "id": 895396,
+        "title": "ID-895396",
+        "order_id": 410469,
+        "copied_garment_id": 888670,
+        "price": "66.0",
+        "option_cost": "0.0",
+        "garment_type": "CSHT",
+        "created_at": "2018-08-23T16:34:03.000Z",
+        "updated_at": "2018-09-06T02:46:09.000Z",
+        "order_status": {
+            "code": "SHIPCUST",
+            "name": "Delivery",
+            "description": "Delivery"
+        },
+        "delay_status": {
+            "code": "OK",
+            "description": "Not Delayed"
+        },
+        "dealer_order": {
+            "id": 410469,
+            "title": "DO-410469",
+            "custom_order_number": null,
+            "garment_count": 3,
+            "ship_type": "In-Store Pick-Up",
+            "ship_cost": "0.0",
+            "subtotal": "504.5",
+            "dealer_discount": "0.0",
+            "total_discount": "0.0",
+            "tax": "0.0",
+            "grand_total": "504.5",
+            "deposit_percentage": 50,
+            "current_balance": "504.5",
+            "measurement_units": "uscust",
+            "payment_status": "offline",
+            "ordered_at": "2018-08-23T16:40:53.000Z",
+            "created_at": "2018-08-23T16:20:26.000Z",
+            "invoiced_at": null
+        }
+    },
+    {
+        "id": 895401,
+        "title": "ID-895401",
+        "order_id": 410469,
+        "copied_garment_id": 895396,
+        "price": "54.0",
+        "option_cost": "4.5",
+        "garment_type": "CSHT",
+        "created_at": "2018-08-23T16:39:55.000Z",
+        "updated_at": "2018-09-06T02:46:02.000Z",
+        "order_status": {
+            "code": "SHIPCUST",
+            "name": "Delivery",
+            "description": "Delivery"
+        },
+        "delay_status": {
+            "code": "OK",
+            "description": "Not Delayed"
+        },
+        "dealer_order": {
+            "id": 410469,
+            "title": "DO-410469",
+            "custom_order_number": null,
+            "garment_count": 3,
+            "ship_type": "In-Store Pick-Up",
+            "ship_cost": "0.0",
+            "subtotal": "504.5",
+            "dealer_discount": "0.0",
+            "total_discount": "0.0",
+            "tax": "0.0",
+            "grand_total": "504.5",
+            "deposit_percentage": 50,
+            "current_balance": "504.5",
+            "measurement_units": "uscust",
+            "payment_status": "offline",
+            "ordered_at": "2018-08-23T16:40:53.000Z",
+            "created_at": "2018-08-23T16:20:26.000Z",
+            "invoiced_at": null
+        }
+    },
+    {
+        "id": 896118,
+        "title": "ID-896118",
+        "order_id": 410677,
+        "copied_garment_id": null,
+        "price": "85.0",
+        "option_cost": "0.0",
+        "garment_type": "CSHT",
+        "created_at": "2018-08-27T09:58:53.000Z",
+        "updated_at": "2018-09-06T02:45:58.000Z",
+        "order_status": {
+            "code": "SHIPCUST",
+            "name": "Delivery",
+            "description": "Delivery"
+        },
+        "delay_status": {
+            "code": "OK",
+            "description": "Not Delayed"
+        },
+        "dealer_order": {
+            "id": 410677,
+            "title": "DO-410677",
+            "custom_order_number": null,
+            "garment_count": 2,
+            "ship_type": "In-Store Pick-Up",
+            "ship_cost": "0.0",
+            "subtotal": "745.0",
+            "dealer_discount": "0.0",
+            "total_discount": "0.0",
+            "tax": "0.0",
+            "grand_total": "745.0",
+            "deposit_percentage": 50,
+            "current_balance": "745.0",
+            "measurement_units": "uscust",
+            "payment_status": "offline",
+            "ordered_at": "2018-08-27T10:16:22.000Z",
+            "created_at": "2018-08-24T16:17:43.000Z",
+            "invoiced_at": null
+        }
+    },
+    {
+        "id": 897997,
+        "title": "ID-897997",
+        "order_id": 411784,
+        "copied_garment_id": null,
+        "price": "75.0",
+        "option_cost": "0.0",
+        "garment_type": "CSHT",
+        "created_at": "2018-08-30T14:29:48.000Z",
+        "updated_at": "2018-09-11T03:38:42.000Z",
+        "order_status": {
+            "code": "SHIPCUST",
+            "name": "Delivery",
+            "description": "Delivery"
+        },
+        "delay_status": {
+            "code": "OK",
+            "description": "Not Delayed"
+        },
+        "dealer_order": {
+            "id": 411784,
+            "title": "DO-411784",
+            "custom_order_number": null,
             "garment_count": 1,
-            "ship_type": "Ground",
-            "ship_cost": "11.0",
-            "subtotal": "455.0",
+            "ship_type": "In-Store Pick-Up",
+            "ship_cost": "0.0",
+            "subtotal": "75.0",
             "dealer_discount": "0.0",
             "total_discount": "0.0",
             "tax": "0.0",
-            "grand_total": "466.0",
-            "deposit_pct": 100,
-            "current_balance": "0.0",
-            "msmt_units": "uscust",
-            "payment_status": "paid",
-            "ordered_at": "2018-03-14T14:59:03.000Z",
-            "created_at": "2018-03-14T14:39:30.000Z",
+            "grand_total": "75.0",
+            "deposit_percentage": 50,
+            "current_balance": "75.0",
+            "measurement_units": "uscust",
+            "payment_status": "offline",
+            "ordered_at": "2018-08-30T14:39:11.000Z",
+            "created_at": "2018-08-30T14:22:12.000Z",
             "invoiced_at": null
         }
     },
     {
-        "id": 826936,
-        "title": "ID-826936",
-        "order_id": 377707,
+        "id": 899861,
+        "title": "ID-899861",
+        "order_id": 412640,
         "copied_garment_id": null,
-        "garment_price": "380.0",
-        "option_cost": "5.0",
-        "garment_type": "CSC",
-        "factory_prefix": "ID",
-        "factory_index": "1/2",
-        "created_at": "2018-03-14T16:16:04.000Z",
-        "updated_at": "2018-04-26T03:24:04.000Z",
-        "order_status": {
-            "code": "SHIPCUST",
-            "description": "Delivery",
-            "name": "Delivery"
-        },
-        "delay_status": {
-            "id": 1,
-            "description": "Not Delayed"
-        },
-        "dealer_order": {
-            "id": 377707,
-            "title": "DO-377707",
-            "custom_order_num": "Roy Fickling",
-            "garment_count": 2,
-            "ship_type": "Ground",
-            "ship_cost": "11.0",
-            "subtotal": "565.0",
-            "dealer_discount": "0.0",
-            "total_discount": "0.0",
-            "tax": "0.0",
-            "grand_total": "576.0",
-            "deposit_pct": 100,
-            "current_balance": "0.0",
-            "msmt_units": "uscust",
-            "payment_status": "paid",
-            "ordered_at": "2018-03-14T16:31:02.000Z",
-            "created_at": "2018-03-14T16:15:24.000Z",
-            "invoiced_at": null
-        }
-    },
-    {
-        "id": 826937,
-        "title": "ID-826937",
-        "order_id": 377707,
-        "copied_garment_id": null,
-        "garment_price": "180.0",
-        "option_cost": "0.0",
-        "garment_type": "CT",
-        "factory_prefix": "ID",
-        "factory_index": "2/2",
-        "created_at": "2018-03-14T16:16:39.000Z",
-        "updated_at": "2018-04-08T03:30:17.000Z",
-        "order_status": {
-            "code": "SHIPCUST",
-            "description": "Delivery",
-            "name": "Delivery"
-        },
-        "delay_status": {
-            "id": 1,
-            "description": "Not Delayed"
-        },
-        "dealer_order": {
-            "id": 377707,
-            "title": "DO-377707",
-            "custom_order_num": "Roy Fickling",
-            "garment_count": 2,
-            "ship_type": "Ground",
-            "ship_cost": "11.0",
-            "subtotal": "565.0",
-            "dealer_discount": "0.0",
-            "total_discount": "0.0",
-            "tax": "0.0",
-            "grand_total": "576.0",
-            "deposit_pct": 100,
-            "current_balance": "0.0",
-            "msmt_units": "uscust",
-            "payment_status": "paid",
-            "ordered_at": "2018-03-14T16:31:02.000Z",
-            "created_at": "2018-03-14T16:15:24.000Z",
-            "invoiced_at": null
-        }
-    },
-    {
-        "id": 827028,
-        "title": "ID-827028",
-        "order_id": 377746,
-        "copied_garment_id": null,
-        "garment_price": "300.0",
-        "option_cost": "5.0",
-        "garment_type": "CSC",
-        "factory_prefix": "ID",
-        "factory_index": "1/4",
-        "created_at": "2018-03-14T17:16:57.000Z",
-        "updated_at": "2018-04-12T03:36:53.000Z",
-        "order_status": {
-            "code": "SHIPCUST",
-            "description": "Delivery",
-            "name": "Delivery"
-        },
-        "delay_status": {
-            "id": 1,
-            "description": "Not Delayed"
-        },
-        "dealer_order": {
-            "id": 377746,
-            "title": "DO-377746",
-            "custom_order_num": "Alfred Sams",
-            "garment_count": 4,
-            "ship_type": "Ground",
-            "ship_cost": "22.0",
-            "subtotal": "825.0",
-            "dealer_discount": "0.0",
-            "total_discount": "0.0",
-            "tax": "0.0",
-            "grand_total": "847.0",
-            "deposit_pct": 100,
-            "current_balance": "0.0",
-            "msmt_units": "uscust",
-            "payment_status": "paid",
-            "ordered_at": "2018-03-14T17:45:28.000Z",
-            "created_at": "2018-03-14T17:16:21.000Z",
-            "invoiced_at": null
-        }
-    },
-    {
-        "id": 827033,
-        "title": "ID-827033",
-        "order_id": 377746,
-        "copied_garment_id": null,
-        "garment_price": "100.0",
-        "option_cost": "0.0",
-        "garment_type": "CT",
-        "factory_prefix": "ID",
-        "factory_index": "2/4",
-        "created_at": "2018-03-14T17:28:22.000Z",
-        "updated_at": "2018-04-16T03:16:09.000Z",
-        "order_status": {
-            "code": "SHIPCUST",
-            "description": "Delivery",
-            "name": "Delivery"
-        },
-        "delay_status": {
-            "id": 1,
-            "description": "Not Delayed"
-        },
-        "dealer_order": {
-            "id": 377746,
-            "title": "DO-377746",
-            "custom_order_num": "Alfred Sams",
-            "garment_count": 4,
-            "ship_type": "Ground",
-            "ship_cost": "22.0",
-            "subtotal": "825.0",
-            "dealer_discount": "0.0",
-            "total_discount": "0.0",
-            "tax": "0.0",
-            "grand_total": "847.0",
-            "deposit_pct": 100,
-            "current_balance": "0.0",
-            "msmt_units": "uscust",
-            "payment_status": "paid",
-            "ordered_at": "2018-03-14T17:45:28.000Z",
-            "created_at": "2018-03-14T17:16:21.000Z",
-            "invoiced_at": null
-        }
-    },
-    {
-        "id": 827043,
-        "title": "ID-827043",
-        "order_id": 377746,
-        "copied_garment_id": 827028,
-        "garment_price": "300.0",
-        "option_cost": "20.0",
-        "garment_type": "CSC",
-        "factory_prefix": "ID",
-        "factory_index": "3/4",
-        "created_at": "2018-03-14T17:40:41.000Z",
-        "updated_at": "2018-04-12T03:36:54.000Z",
-        "order_status": {
-            "code": "SHIPCUST",
-            "description": "Delivery",
-            "name": "Delivery"
-        },
-        "delay_status": {
-            "id": 1,
-            "description": "Not Delayed"
-        },
-        "dealer_order": {
-            "id": 377746,
-            "title": "DO-377746",
-            "custom_order_num": "Alfred Sams",
-            "garment_count": 4,
-            "ship_type": "Ground",
-            "ship_cost": "22.0",
-            "subtotal": "825.0",
-            "dealer_discount": "0.0",
-            "total_discount": "0.0",
-            "tax": "0.0",
-            "grand_total": "847.0",
-            "deposit_pct": 100,
-            "current_balance": "0.0",
-            "msmt_units": "uscust",
-            "payment_status": "paid",
-            "ordered_at": "2018-03-14T17:45:28.000Z",
-            "created_at": "2018-03-14T17:16:21.000Z",
-            "invoiced_at": null
-        }
-    },
-    {
-        "id": 827044,
-        "title": "ID-827044",
-        "order_id": 377746,
-        "copied_garment_id": 827033,
-        "garment_price": "100.0",
-        "option_cost": "0.0",
-        "garment_type": "CT",
-        "factory_prefix": "ID",
-        "factory_index": "4/4",
-        "created_at": "2018-03-14T17:41:10.000Z",
-        "updated_at": "2018-04-16T03:16:08.000Z",
-        "order_status": {
-            "code": "SHIPCUST",
-            "description": "Delivery",
-            "name": "Delivery"
-        },
-        "delay_status": {
-            "id": 1,
-            "description": "Not Delayed"
-        },
-        "dealer_order": {
-            "id": 377746,
-            "title": "DO-377746",
-            "custom_order_num": "Alfred Sams",
-            "garment_count": 4,
-            "ship_type": "Ground",
-            "ship_cost": "22.0",
-            "subtotal": "825.0",
-            "dealer_discount": "0.0",
-            "total_discount": "0.0",
-            "tax": "0.0",
-            "grand_total": "847.0",
-            "deposit_pct": 100,
-            "current_balance": "0.0",
-            "msmt_units": "uscust",
-            "payment_status": "paid",
-            "ordered_at": "2018-03-14T17:45:28.000Z",
-            "created_at": "2018-03-14T17:16:21.000Z",
-            "invoiced_at": null
-        }
-    },
-    {
-        "id": 827421,
-        "title": "ID-827421",
-        "order_id": 377919,
-        "copied_garment_id": null,
-        "garment_price": "370.0",
-        "option_cost": "15.0",
-        "garment_type": "CSC",
-        "factory_prefix": "ID",
-        "factory_index": "1/10",
-        "created_at": "2018-03-15T12:58:26.000Z",
-        "updated_at": "2018-03-31T02:17:14.000Z",
-        "order_status": {
-            "code": "SHIPCUST",
-            "description": "Delivery",
-            "name": "Delivery"
-        },
-        "delay_status": {
-            "id": 1,
-            "description": "Not Delayed"
-        },
-        "dealer_order": {
-            "id": 377919,
-            "title": "DO-377919",
-            "custom_order_num": "Bryan Bennight",
-            "garment_count": 10,
-            "ship_type": "Ground",
-            "ship_cost": "33.0",
-            "subtotal": "1541.0",
-            "dealer_discount": "0.0",
-            "total_discount": "0.0",
-            "tax": "0.0",
-            "grand_total": "1574.0",
-            "deposit_pct": 100,
-            "current_balance": "0.0",
-            "msmt_units": "uscust",
-            "payment_status": "paid",
-            "ordered_at": "2018-03-15T13:43:24.000Z",
-            "created_at": "2018-03-15T12:56:48.000Z",
-            "invoiced_at": null
-        }
-    },
-    {
-        "id": 827429,
-        "title": "ID-827429",
-        "order_id": 377919,
-        "copied_garment_id": null,
-        "garment_price": "130.0",
-        "option_cost": "0.0",
-        "garment_type": "CT",
-        "factory_prefix": "ID",
-        "factory_index": "2/10",
-        "created_at": "2018-03-15T13:06:15.000Z",
-        "updated_at": "2018-04-08T03:30:57.000Z",
-        "order_status": {
-            "code": "SHIPCUST",
-            "description": "Delivery",
-            "name": "Delivery"
-        },
-        "delay_status": {
-            "id": 1,
-            "description": "Not Delayed"
-        },
-        "dealer_order": {
-            "id": 377919,
-            "title": "DO-377919",
-            "custom_order_num": "Bryan Bennight",
-            "garment_count": 10,
-            "ship_type": "Ground",
-            "ship_cost": "33.0",
-            "subtotal": "1541.0",
-            "dealer_discount": "0.0",
-            "total_discount": "0.0",
-            "tax": "0.0",
-            "grand_total": "1574.0",
-            "deposit_pct": 100,
-            "current_balance": "0.0",
-            "msmt_units": "uscust",
-            "payment_status": "paid",
-            "ordered_at": "2018-03-15T13:43:24.000Z",
-            "created_at": "2018-03-15T12:56:48.000Z",
-            "invoiced_at": null
-        }
-    },
-    {
-        "id": 827436,
-        "title": "ID-827436",
-        "order_id": 377919,
-        "copied_garment_id": null,
-        "garment_price": "530.0",
-        "option_cost": "15.0",
-        "garment_type": "CCP",
-        "factory_prefix": "ID",
-        "factory_index": "3/10",
-        "created_at": "2018-03-15T13:09:26.000Z",
-        "updated_at": "2018-04-08T03:29:08.000Z",
-        "order_status": {
-            "code": "SHIPCUST",
-            "description": "Delivery",
-            "name": "Delivery"
-        },
-        "delay_status": {
-            "id": 1,
-            "description": "Not Delayed"
-        },
-        "dealer_order": {
-            "id": 377919,
-            "title": "DO-377919",
-            "custom_order_num": "Bryan Bennight",
-            "garment_count": 10,
-            "ship_type": "Ground",
-            "ship_cost": "33.0",
-            "subtotal": "1541.0",
-            "dealer_discount": "0.0",
-            "total_discount": "0.0",
-            "tax": "0.0",
-            "grand_total": "1574.0",
-            "deposit_pct": 100,
-            "current_balance": "0.0",
-            "msmt_units": "uscust",
-            "payment_status": "paid",
-            "ordered_at": "2018-03-15T13:43:24.000Z",
-            "created_at": "2018-03-15T12:56:48.000Z",
-            "invoiced_at": null
-        }
-    },
-    {
-        "id": 827660,
-        "title": "ID-827660",
-        "order_id": 377954,
-        "copied_garment_id": null,
-        "garment_price": "340.0",
-        "option_cost": "15.0",
-        "garment_type": "CCP",
-        "factory_prefix": "ID",
-        "factory_index": "1/1",
-        "created_at": "2018-03-15T16:18:01.000Z",
-        "updated_at": "2018-04-10T03:00:19.000Z",
-        "order_status": {
-            "code": "SHIPCUST",
-            "description": "Delivery",
-            "name": "Delivery"
-        },
-        "delay_status": {
-            "id": 1,
-            "description": "Not Delayed"
-        },
-        "dealer_order": {
-            "id": 377954,
-            "title": "DO-377954",
-            "custom_order_num": "Thomas Heidrich",
-            "garment_count": 1,
-            "ship_type": "Ground",
-            "ship_cost": "11.0",
-            "subtotal": "355.0",
-            "dealer_discount": "0.0",
-            "total_discount": "0.0",
-            "tax": "0.0",
-            "grand_total": "366.0",
-            "deposit_pct": 100,
-            "current_balance": "0.0",
-            "msmt_units": "uscust",
-            "payment_status": "paid",
-            "ordered_at": "2018-03-15T16:29:25.000Z",
-            "created_at": "2018-03-15T13:51:39.000Z",
-            "invoiced_at": null
-        }
-    },
-    {
-        "id": 827521,
-        "title": "ID-827521",
-        "order_id": 377967,
-        "copied_garment_id": 679524,
-        "garment_price": "340.0",
-        "option_cost": "15.0",
-        "garment_type": "CCP",
-        "factory_prefix": "ID",
-        "factory_index": "1/5",
-        "created_at": "2018-03-15T14:15:45.000Z",
-        "updated_at": "2018-04-11T02:35:28.000Z",
-        "order_status": {
-            "code": "SHIPCUST",
-            "description": "Delivery",
-            "name": "Delivery"
-        },
-        "delay_status": {
-            "id": 1,
-            "description": "Not Delayed"
-        },
-        "dealer_order": {
-            "id": 377967,
-            "title": "DO-377967",
-            "custom_order_num": "Ward Stone",
-            "garment_count": 5,
-            "ship_type": "Ground",
-            "ship_cost": "22.0",
-            "subtotal": "660.0",
-            "dealer_discount": "0.0",
-            "total_discount": "0.0",
-            "tax": "0.0",
-            "grand_total": "682.0",
-            "deposit_pct": 100,
-            "current_balance": "0.0",
-            "msmt_units": "uscust",
-            "payment_status": "paid",
-            "ordered_at": "2018-03-15T14:49:15.000Z",
-            "created_at": "2018-03-15T14:12:36.000Z",
-            "invoiced_at": null
-        }
-    },
-    {
-        "id": 827562,
-        "title": "ID-827562",
-        "order_id": 377991,
-        "copied_garment_id": null,
-        "garment_price": "340.0",
-        "option_cost": "15.0",
-        "garment_type": "CCP",
-        "factory_prefix": "ID",
-        "factory_index": "1/2",
-        "created_at": "2018-03-15T14:54:13.000Z",
-        "updated_at": "2018-04-19T02:19:12.000Z",
-        "order_status": {
-            "code": "SHIPCUST",
-            "description": "Delivery",
-            "name": "Delivery"
-        },
-        "delay_status": {
-            "id": 1,
-            "description": "Not Delayed"
-        },
-        "dealer_order": {
-            "id": 377991,
-            "title": "DO-377991",
-            "custom_order_num": "Tim Sanders",
-            "garment_count": 2,
-            "ship_type": "Ground",
-            "ship_cost": "22.0",
-            "subtotal": "424.0",
-            "dealer_discount": "0.0",
-            "total_discount": "0.0",
-            "tax": "0.0",
-            "grand_total": "446.0",
-            "deposit_pct": 100,
-            "current_balance": "0.0",
-            "msmt_units": "uscust",
-            "payment_status": "paid",
-            "ordered_at": "2018-03-15T15:12:34.000Z",
-            "created_at": "2018-03-15T14:50:21.000Z",
-            "invoiced_at": null
-        }
-    },
-    {
-        "id": 827694,
-        "title": "ID-827694",
-        "order_id": 378049,
-        "copied_garment_id": 705021,
-        "garment_price": "100.0",
-        "option_cost": "0.0",
-        "garment_type": "CT",
-        "factory_prefix": "ID",
-        "factory_index": "2/2",
-        "created_at": "2018-03-15T17:05:01.000Z",
-        "updated_at": "2018-04-11T02:35:36.000Z",
-        "order_status": {
-            "code": "SHIPCUST",
-            "description": "Delivery",
-            "name": "Delivery"
-        },
-        "delay_status": {
-            "id": 1,
-            "description": "Not Delayed"
-        },
-        "dealer_order": {
-            "id": 378049,
-            "title": "DO-378049",
-            "custom_order_num": "Ben Frye",
-            "garment_count": 2,
-            "ship_type": "Ground",
-            "ship_cost": "11.0",
-            "subtotal": "165.0",
-            "dealer_discount": "0.0",
-            "total_discount": "0.0",
-            "tax": "0.0",
-            "grand_total": "176.0",
-            "deposit_pct": 100,
-            "current_balance": "0.0",
-            "msmt_units": "uscust",
-            "payment_status": "paid",
-            "ordered_at": "2018-03-15T17:09:41.000Z",
-            "created_at": "2018-03-15T16:53:21.000Z",
-            "invoiced_at": null
-        }
-    },
-    {
-        "id": 831634,
-        "title": "ID-831634",
-        "order_id": 379923,
-        "copied_garment_id": 628693,
-        "garment_price": "340.0",
-        "option_cost": "15.0",
-        "garment_type": "CSC",
-        "factory_prefix": "ID",
-        "factory_index": "1/4",
-        "created_at": "2018-03-23T15:07:06.000Z",
-        "updated_at": "2018-04-27T03:58:24.000Z",
-        "order_status": {
-            "code": "SHIPCUST",
-            "description": "Delivery",
-            "name": "Delivery"
-        },
-        "delay_status": {
-            "id": 1,
-            "description": "Not Delayed"
-        },
-        "dealer_order": {
-            "id": 379923,
-            "title": "DO-379923",
-            "custom_order_num": "Bennett Frye",
-            "garment_count": 4,
-            "ship_type": "Ground",
-            "ship_cost": "22.0",
-            "subtotal": "720.0",
-            "dealer_discount": "0.0",
-            "total_discount": "0.0",
-            "tax": "0.0",
-            "grand_total": "742.0",
-            "deposit_pct": 100,
-            "current_balance": "0.0",
-            "msmt_units": "uscust",
-            "payment_status": "paid",
-            "ordered_at": "2018-03-26T17:17:38.000Z",
-            "created_at": "2018-03-23T15:05:02.000Z",
-            "invoiced_at": null
-        }
-    },
-    {
-        "id": 831639,
-        "title": "ID-831639",
-        "order_id": 379923,
-        "copied_garment_id": 628694,
-        "garment_price": "150.0",
-        "option_cost": "0.0",
-        "garment_type": "CT",
-        "factory_prefix": "ID",
-        "factory_index": "2/4",
-        "created_at": "2018-03-23T15:18:56.000Z",
-        "updated_at": "2018-04-19T02:19:46.000Z",
-        "order_status": {
-            "code": "SHIPCUST",
-            "description": "Delivery",
-            "name": "Delivery"
-        },
-        "delay_status": {
-            "id": 1,
-            "description": "Not Delayed"
-        },
-        "dealer_order": {
-            "id": 379923,
-            "title": "DO-379923",
-            "custom_order_num": "Bennett Frye",
-            "garment_count": 4,
-            "ship_type": "Ground",
-            "ship_cost": "22.0",
-            "subtotal": "720.0",
-            "dealer_discount": "0.0",
-            "total_discount": "0.0",
-            "tax": "0.0",
-            "grand_total": "742.0",
-            "deposit_pct": 100,
-            "current_balance": "0.0",
-            "msmt_units": "uscust",
-            "payment_status": "paid",
-            "ordered_at": "2018-03-26T17:17:38.000Z",
-            "created_at": "2018-03-23T15:05:02.000Z",
-            "invoiced_at": null
-        }
-    },
-    {
-        "id": 831640,
-        "title": "ID-831640",
-        "order_id": 379923,
-        "copied_garment_id": 831639,
-        "garment_price": "150.0",
-        "option_cost": "0.0",
-        "garment_type": "CT",
-        "factory_prefix": "ID",
-        "factory_index": "3/4",
-        "created_at": "2018-03-23T15:21:04.000Z",
-        "updated_at": "2018-04-23T04:16:45.000Z",
-        "order_status": {
-            "code": "SHIPCUST",
-            "description": "Delivery",
-            "name": "Delivery"
-        },
-        "delay_status": {
-            "id": 1,
-            "description": "Not Delayed"
-        },
-        "dealer_order": {
-            "id": 379923,
-            "title": "DO-379923",
-            "custom_order_num": "Bennett Frye",
-            "garment_count": 4,
-            "ship_type": "Ground",
-            "ship_cost": "22.0",
-            "subtotal": "720.0",
-            "dealer_discount": "0.0",
-            "total_discount": "0.0",
-            "tax": "0.0",
-            "grand_total": "742.0",
-            "deposit_pct": 100,
-            "current_balance": "0.0",
-            "msmt_units": "uscust",
-            "payment_status": "paid",
-            "ordered_at": "2018-03-26T17:17:38.000Z",
-            "created_at": "2018-03-23T15:05:02.000Z",
-            "invoiced_at": null
-        }
-    },
-    {
-        "id": 831667,
-        "title": "ID-831667",
-        "order_id": 379945,
-        "copied_garment_id": 718222,
-        "garment_price": "340.0",
-        "option_cost": "5.0",
-        "garment_type": "CSC",
-        "factory_prefix": "ID",
-        "factory_index": "1/6",
-        "created_at": "2018-03-23T16:07:15.000Z",
-        "updated_at": "2018-05-03T05:07:53.000Z",
-        "order_status": {
-            "code": "SHIPCUST",
-            "description": "Delivery",
-            "name": "Delivery"
-        },
-        "delay_status": {
-            "id": 1,
-            "description": "Not Delayed"
-        },
-        "dealer_order": {
-            "id": 379945,
-            "title": "DO-379945",
-            "custom_order_num": "Jack Knox",
-            "garment_count": 6,
-            "ship_type": "Ground",
-            "ship_cost": "33.0",
-            "subtotal": "1309.0",
-            "dealer_discount": "0.0",
-            "total_discount": "0.0",
-            "tax": "0.0",
-            "grand_total": "1342.0",
-            "deposit_pct": 100,
-            "current_balance": "0.0",
-            "msmt_units": "uscust",
-            "payment_status": "paid",
-            "ordered_at": "2018-03-30T12:12:35.000Z",
-            "created_at": "2018-03-23T16:06:08.000Z",
-            "invoiced_at": null
-        }
-    },
-    {
-        "id": 831675,
-        "title": "ID-831675",
-        "order_id": 379945,
-        "copied_garment_id": 831667,
-        "garment_price": "460.0",
-        "option_cost": "15.0",
-        "garment_type": "CSC",
-        "factory_prefix": "ID",
-        "factory_index": "2/6",
-        "created_at": "2018-03-23T16:16:48.000Z",
-        "updated_at": "2018-05-03T05:07:53.000Z",
-        "order_status": {
-            "code": "SHIPCUST",
-            "description": "Delivery",
-            "name": "Delivery"
-        },
-        "delay_status": {
-            "id": 1,
-            "description": "Not Delayed"
-        },
-        "dealer_order": {
-            "id": 379945,
-            "title": "DO-379945",
-            "custom_order_num": "Jack Knox",
-            "garment_count": 6,
-            "ship_type": "Ground",
-            "ship_cost": "33.0",
-            "subtotal": "1309.0",
-            "dealer_discount": "0.0",
-            "total_discount": "0.0",
-            "tax": "0.0",
-            "grand_total": "1342.0",
-            "deposit_pct": 100,
-            "current_balance": "0.0",
-            "msmt_units": "uscust",
-            "payment_status": "paid",
-            "ordered_at": "2018-03-30T12:12:35.000Z",
-            "created_at": "2018-03-23T16:06:08.000Z",
-            "invoiced_at": null
-        }
-    },
-    {
-        "id": 832576,
-        "title": "ID-832576",
-        "order_id": 379945,
-        "copied_garment_id": 779828,
-        "garment_price": "140.0",
-        "option_cost": "0.0",
-        "garment_type": "CT",
-        "factory_prefix": "ID",
-        "factory_index": "3/6",
-        "created_at": "2018-03-26T16:50:17.000Z",
-        "updated_at": "2018-05-03T05:08:30.000Z",
-        "order_status": {
-            "code": "SHIPCUST",
-            "description": "Delivery",
-            "name": "Delivery"
-        },
-        "delay_status": {
-            "id": 1,
-            "description": "Not Delayed"
-        },
-        "dealer_order": {
-            "id": 379945,
-            "title": "DO-379945",
-            "custom_order_num": "Jack Knox",
-            "garment_count": 6,
-            "ship_type": "Ground",
-            "ship_cost": "33.0",
-            "subtotal": "1309.0",
-            "dealer_discount": "0.0",
-            "total_discount": "0.0",
-            "tax": "0.0",
-            "grand_total": "1342.0",
-            "deposit_pct": 100,
-            "current_balance": "0.0",
-            "msmt_units": "uscust",
-            "payment_status": "paid",
-            "ordered_at": "2018-03-30T12:12:35.000Z",
-            "created_at": "2018-03-23T16:06:08.000Z",
-            "invoiced_at": null
-        }
-    },
-    {
-        "id": 832577,
-        "title": "ID-832577",
-        "order_id": 379945,
-        "copied_garment_id": 832576,
-        "garment_price": "200.0",
-        "option_cost": "0.0",
-        "garment_type": "CT",
-        "factory_prefix": "ID",
-        "factory_index": "4/6",
-        "created_at": "2018-03-26T16:51:59.000Z",
-        "updated_at": "2018-04-24T02:44:05.000Z",
-        "order_status": {
-            "code": "SHIPCUST",
-            "description": "Delivery",
-            "name": "Delivery"
-        },
-        "delay_status": {
-            "id": 1,
-            "description": "Not Delayed"
-        },
-        "dealer_order": {
-            "id": 379945,
-            "title": "DO-379945",
-            "custom_order_num": "Jack Knox",
-            "garment_count": 6,
-            "ship_type": "Ground",
-            "ship_cost": "33.0",
-            "subtotal": "1309.0",
-            "dealer_discount": "0.0",
-            "total_discount": "0.0",
-            "tax": "0.0",
-            "grand_total": "1342.0",
-            "deposit_pct": 100,
-            "current_balance": "0.0",
-            "msmt_units": "uscust",
-            "payment_status": "paid",
-            "ordered_at": "2018-03-30T12:12:35.000Z",
-            "created_at": "2018-03-23T16:06:08.000Z",
-            "invoiced_at": null
-        }
-    },
-    {
-        "id": 832686,
-        "title": "ID-832686",
-        "order_id": 380420,
-        "copied_garment_id": null,
-        "garment_price": "340.0",
-        "option_cost": "15.0",
-        "garment_type": "CCP",
-        "factory_prefix": "ID",
-        "factory_index": "1/6",
-        "created_at": "2018-03-26T20:58:17.000Z",
-        "updated_at": "2018-05-03T05:08:07.000Z",
-        "order_status": {
-            "code": "SHIPCUST",
-            "description": "Delivery",
-            "name": "Delivery"
-        },
-        "delay_status": {
-            "id": 1,
-            "description": "Not Delayed"
-        },
-        "dealer_order": {
-            "id": 380420,
-            "title": "DO-380420",
-            "custom_order_num": "Robert Minor",
-            "garment_count": 6,
-            "ship_type": "Ground",
-            "ship_cost": "33.0",
-            "subtotal": "945.0",
-            "dealer_discount": "0.0",
-            "total_discount": "0.0",
-            "tax": "0.0",
-            "grand_total": "978.0",
-            "deposit_pct": 100,
-            "current_balance": "0.0",
-            "msmt_units": "uscust",
-            "payment_status": "paid",
-            "ordered_at": "2018-03-30T12:11:48.000Z",
-            "created_at": "2018-03-26T20:57:23.000Z",
-            "invoiced_at": null
-        }
-    },
-    {
-        "id": 832688,
-        "title": "ID-832688",
-        "order_id": 380420,
-        "copied_garment_id": null,
-        "garment_price": "300.0",
-        "option_cost": "15.0",
-        "garment_type": "CSC",
-        "factory_prefix": "ID",
-        "factory_index": "2/6",
-        "created_at": "2018-03-26T21:03:14.000Z",
-        "updated_at": "2018-04-25T03:22:11.000Z",
-        "order_status": {
-            "code": "SHIPCUST",
-            "description": "Delivery",
-            "name": "Delivery"
-        },
-        "delay_status": {
-            "id": 1,
-            "description": "Not Delayed"
-        },
-        "dealer_order": {
-            "id": 380420,
-            "title": "DO-380420",
-            "custom_order_num": "Robert Minor",
-            "garment_count": 6,
-            "ship_type": "Ground",
-            "ship_cost": "33.0",
-            "subtotal": "945.0",
-            "dealer_discount": "0.0",
-            "total_discount": "0.0",
-            "tax": "0.0",
-            "grand_total": "978.0",
-            "deposit_pct": 100,
-            "current_balance": "0.0",
-            "msmt_units": "uscust",
-            "payment_status": "paid",
-            "ordered_at": "2018-03-30T12:11:48.000Z",
-            "created_at": "2018-03-26T20:57:23.000Z",
-            "invoiced_at": null
-        }
-    },
-    {
-        "id": 832863,
-        "title": "ID-832863",
-        "order_id": 380498,
-        "copied_garment_id": null,
-        "garment_price": "410.0",
+        "price": "66.0",
         "option_cost": "10.0",
-        "garment_type": "CSC",
-        "factory_prefix": "ID",
-        "factory_index": "1/1",
-        "created_at": "2018-03-27T10:14:19.000Z",
-        "updated_at": "2018-04-25T03:22:11.000Z",
+        "garment_type": "CSHT",
+        "created_at": "2018-09-05T11:23:57.000Z",
+        "updated_at": "2018-09-10T02:21:23.000Z",
         "order_status": {
             "code": "SHIPCUST",
-            "description": "Delivery",
-            "name": "Delivery"
+            "name": "Delivery",
+            "description": "Delivery"
         },
         "delay_status": {
-            "id": 1,
+            "code": "OK",
             "description": "Not Delayed"
         },
         "dealer_order": {
-            "id": 380498,
-            "title": "DO-380498",
-            "custom_order_num": "Jim Daws",
-            "garment_count": 1,
-            "ship_type": "Ground",
-            "ship_cost": "11.0",
-            "subtotal": "420.0",
+            "id": 412640,
+            "title": "DO-412640",
+            "custom_order_number": "photo shoot samples",
+            "garment_count": 2,
+            "ship_type": "In-Store Pick-Up",
+            "ship_cost": "0.0",
+            "subtotal": "676.0",
             "dealer_discount": "0.0",
             "total_discount": "0.0",
             "tax": "0.0",
-            "grand_total": "431.0",
-            "deposit_pct": 100,
+            "grand_total": "676.0",
+            "deposit_percentage": 50,
+            "current_balance": "676.0",
+            "measurement_units": "uscust",
+            "payment_status": "offline",
+            "ordered_at": "2018-09-05T15:45:42.000Z",
+            "created_at": "2018-09-05T11:04:38.000Z",
+            "invoiced_at": null
+        }
+    },
+    {
+        "id": 905041,
+        "title": "ID-905041",
+        "order_id": 412892,
+        "copied_garment_id": null,
+        "price": "66.0",
+        "option_cost": "0.0",
+        "garment_type": "CSHT",
+        "created_at": "2018-09-17T09:43:02.000Z",
+        "updated_at": null,
+        "order_status": {
+            "code": "INCOMPLETE",
+            "name": "Incomplete",
+            "description": "Incomplete"
+        },
+        "delay_status": {
+            "code": "OK",
+            "description": "Not Delayed"
+        },
+        "dealer_order": {
+            "id": 412892,
+            "title": "DO-412892",
+            "custom_order_number": "",
+            "garment_count": 0,
+            "ship_type": "Ground",
+            "ship_cost": "0.0",
+            "subtotal": "0.0",
+            "dealer_discount": "0.0",
+            "total_discount": null,
+            "tax": "0.0",
+            "grand_total": "0.0",
+            "deposit_percentage": 100,
             "current_balance": "0.0",
-            "msmt_units": "uscust",
-            "payment_status": "paid",
-            "ordered_at": "2018-03-30T13:47:30.000Z",
-            "created_at": "2018-03-27T10:06:31.000Z",
+            "measurement_units": "uscust",
+            "payment_status": "incomplete",
+            "ordered_at": null,
+            "created_at": "2018-09-06T10:36:15.000Z",
+            "invoiced_at": null
+        }
+    },
+    {
+        "id": 902379,
+        "title": "ID-902379",
+        "order_id": 413845,
+        "copied_garment_id": null,
+        "price": "71.0",
+        "option_cost": "4.5",
+        "garment_type": "CSHT",
+        "created_at": "2018-09-11T14:36:26.000Z",
+        "updated_at": "2018-09-18T03:10:01.000Z",
+        "order_status": {
+            "code": "SHIPCUST",
+            "name": "Delivery",
+            "description": "Delivery"
+        },
+        "delay_status": {
+            "code": "OK",
+            "description": "Not Delayed"
+        },
+        "dealer_order": {
+            "id": 413845,
+            "title": "DO-413845",
+            "custom_order_number": null,
+            "garment_count": 3,
+            "ship_type": "In-Store Pick-Up",
+            "ship_cost": "0.0",
+            "subtotal": "710.5",
+            "dealer_discount": "0.0",
+            "total_discount": "0.0",
+            "tax": "0.0",
+            "grand_total": "710.5",
+            "deposit_percentage": 50,
+            "current_balance": "710.5",
+            "measurement_units": "uscust",
+            "payment_status": "offline",
+            "ordered_at": "2018-09-11T14:39:53.000Z",
+            "created_at": "2018-09-11T14:21:09.000Z",
+            "invoiced_at": null
+        }
+    },
+    {
+        "id": 904299,
+        "title": "ID-904299",
+        "order_id": 414761,
+        "copied_garment_id": 892902,
+        "price": "71.0",
+        "option_cost": "0.0",
+        "garment_type": "CSHT",
+        "created_at": "2018-09-14T14:22:11.000Z",
+        "updated_at": "2018-09-25T03:49:35.000Z",
+        "order_status": {
+            "code": "SHIPCUST",
+            "name": "Delivery",
+            "description": "Delivery"
+        },
+        "delay_status": {
+            "code": "OK",
+            "description": "Not Delayed"
+        },
+        "dealer_order": {
+            "id": 414761,
+            "title": "DO-414761",
+            "custom_order_number": null,
+            "garment_count": 3,
+            "ship_type": "In-Store Pick-Up",
+            "ship_cost": "0.0",
+            "subtotal": "198.0",
+            "dealer_discount": "0.0",
+            "total_discount": "0.0",
+            "tax": "0.0",
+            "grand_total": "198.0",
+            "deposit_percentage": 50,
+            "current_balance": "198.0",
+            "measurement_units": "uscust",
+            "payment_status": "offline",
+            "ordered_at": "2018-09-14T14:34:48.000Z",
+            "created_at": "2018-09-14T14:21:04.000Z",
+            "invoiced_at": null
+        }
+    },
+    {
+        "id": 904303,
+        "title": "ID-904303",
+        "order_id": 414761,
+        "copied_garment_id": 892902,
+        "price": "66.0",
+        "option_cost": "0.0",
+        "garment_type": "CSHT",
+        "created_at": "2018-09-14T14:25:48.000Z",
+        "updated_at": "2018-09-25T03:50:02.000Z",
+        "order_status": {
+            "code": "SHIPCUST",
+            "name": "Delivery",
+            "description": "Delivery"
+        },
+        "delay_status": {
+            "code": "OK",
+            "description": "Not Delayed"
+        },
+        "dealer_order": {
+            "id": 414761,
+            "title": "DO-414761",
+            "custom_order_number": null,
+            "garment_count": 3,
+            "ship_type": "In-Store Pick-Up",
+            "ship_cost": "0.0",
+            "subtotal": "198.0",
+            "dealer_discount": "0.0",
+            "total_discount": "0.0",
+            "tax": "0.0",
+            "grand_total": "198.0",
+            "deposit_percentage": 50,
+            "current_balance": "198.0",
+            "measurement_units": "uscust",
+            "payment_status": "offline",
+            "ordered_at": "2018-09-14T14:34:48.000Z",
+            "created_at": "2018-09-14T14:21:04.000Z",
+            "invoiced_at": null
+        }
+    },
+    {
+        "id": 904305,
+        "title": "ID-904305",
+        "order_id": 414761,
+        "copied_garment_id": 904303,
+        "price": "61.0",
+        "option_cost": "0.0",
+        "garment_type": "CSHT",
+        "created_at": "2018-09-14T14:29:07.000Z",
+        "updated_at": "2018-09-25T03:49:30.000Z",
+        "order_status": {
+            "code": "SHIPCUST",
+            "name": "Delivery",
+            "description": "Delivery"
+        },
+        "delay_status": {
+            "code": "OK",
+            "description": "Not Delayed"
+        },
+        "dealer_order": {
+            "id": 414761,
+            "title": "DO-414761",
+            "custom_order_number": null,
+            "garment_count": 3,
+            "ship_type": "In-Store Pick-Up",
+            "ship_cost": "0.0",
+            "subtotal": "198.0",
+            "dealer_discount": "0.0",
+            "total_discount": "0.0",
+            "tax": "0.0",
+            "grand_total": "198.0",
+            "deposit_percentage": 50,
+            "current_balance": "198.0",
+            "measurement_units": "uscust",
+            "payment_status": "offline",
+            "ordered_at": "2018-09-14T14:34:48.000Z",
+            "created_at": "2018-09-14T14:21:04.000Z",
+            "invoiced_at": null
+        }
+    },
+    {
+        "id": 904374,
+        "title": "ID-904374",
+        "order_id": 414783,
+        "copied_garment_id": 895396,
+        "price": "66.0",
+        "option_cost": "4.5",
+        "garment_type": "CSHT",
+        "created_at": "2018-09-14T15:58:21.000Z",
+        "updated_at": "2018-09-25T03:52:14.000Z",
+        "order_status": {
+            "code": "SHIPCUST",
+            "name": "Delivery",
+            "description": "Delivery"
+        },
+        "delay_status": {
+            "code": "OK",
+            "description": "Not Delayed"
+        },
+        "dealer_order": {
+            "id": 414783,
+            "title": "DO-414783",
+            "custom_order_number": null,
+            "garment_count": 2,
+            "ship_type": "In-Store Pick-Up",
+            "ship_cost": "0.0",
+            "subtotal": "146.5",
+            "dealer_discount": "0.0",
+            "total_discount": "0.0",
+            "tax": "0.0",
+            "grand_total": "146.5",
+            "deposit_percentage": 50,
+            "current_balance": "146.5",
+            "measurement_units": "uscust",
+            "payment_status": "offline",
+            "ordered_at": "2018-09-14T16:03:13.000Z",
+            "created_at": "2018-09-14T15:57:53.000Z",
+            "invoiced_at": null
+        }
+    },
+    {
+        "id": 904376,
+        "title": "ID-904376",
+        "order_id": 414783,
+        "copied_garment_id": 895396,
+        "price": "76.0",
+        "option_cost": "0.0",
+        "garment_type": "CSHT",
+        "created_at": "2018-09-14T16:00:52.000Z",
+        "updated_at": "2018-09-27T03:31:31.000Z",
+        "order_status": {
+            "code": "SHIPCUST",
+            "name": "Delivery",
+            "description": "Delivery"
+        },
+        "delay_status": {
+            "code": "OK",
+            "description": "Not Delayed"
+        },
+        "dealer_order": {
+            "id": 414783,
+            "title": "DO-414783",
+            "custom_order_number": null,
+            "garment_count": 2,
+            "ship_type": "In-Store Pick-Up",
+            "ship_cost": "0.0",
+            "subtotal": "146.5",
+            "dealer_discount": "0.0",
+            "total_discount": "0.0",
+            "tax": "0.0",
+            "grand_total": "146.5",
+            "deposit_percentage": 50,
+            "current_balance": "146.5",
+            "measurement_units": "uscust",
+            "payment_status": "offline",
+            "ordered_at": "2018-09-14T16:03:13.000Z",
+            "created_at": "2018-09-14T15:57:53.000Z",
+            "invoiced_at": null
+        }
+    },
+    {
+        "id": 910833,
+        "title": "ID-910833",
+        "order_id": 417697,
+        "copied_garment_id": null,
+        "price": "76.0",
+        "option_cost": "0.0",
+        "garment_type": "CSHT",
+        "created_at": "2018-09-29T23:10:18.000Z",
+        "updated_at": null,
+        "order_status": {
+            "code": "INCOMPLETE",
+            "name": "Incomplete",
+            "description": "Incomplete"
+        },
+        "delay_status": {
+            "code": "OK",
+            "description": "Not Delayed"
+        },
+        "dealer_order": {
+            "id": 417697,
+            "title": "DO-417697",
+            "custom_order_number": null,
+            "garment_count": 0,
+            "ship_type": "In-Store Pick-Up",
+            "ship_cost": "0.0",
+            "subtotal": "0.0",
+            "dealer_discount": "0.0",
+            "total_discount": null,
+            "tax": "0.0",
+            "grand_total": "0.0",
+            "deposit_percentage": 50,
+            "current_balance": "0.0",
+            "measurement_units": "uscust",
+            "payment_status": "incomplete",
+            "ordered_at": null,
+            "created_at": "2018-09-29T22:59:50.000Z",
+            "invoiced_at": null
+        }
+    },
+    {
+        "id": 912228,
+        "title": "ID-912228",
+        "order_id": 418267,
+        "copied_garment_id": 856350,
+        "price": "90.0",
+        "option_cost": "0.0",
+        "garment_type": "CSHT",
+        "created_at": "2018-10-02T16:38:48.000Z",
+        "updated_at": "2018-10-23T03:38:52.000Z",
+        "order_status": {
+            "code": "SHIPCUST",
+            "name": "Delivery",
+            "description": "Delivery"
+        },
+        "delay_status": {
+            "code": "OK",
+            "description": "Not Delayed"
+        },
+        "dealer_order": {
+            "id": 418267,
+            "title": "DO-418267",
+            "custom_order_number": null,
+            "garment_count": 3,
+            "ship_type": "In-Store Pick-Up",
+            "ship_cost": "0.0",
+            "subtotal": "745.0",
+            "dealer_discount": "0.0",
+            "total_discount": "0.0",
+            "tax": "0.0",
+            "grand_total": "745.0",
+            "deposit_percentage": 50,
+            "current_balance": "745.0",
+            "measurement_units": "uscust",
+            "payment_status": "offline",
+            "ordered_at": "2018-10-05T15:33:18.000Z",
+            "created_at": "2018-10-02T16:17:51.000Z",
+            "invoiced_at": null
+        }
+    },
+    {
+        "id": 912231,
+        "title": "ID-912231",
+        "order_id": 418267,
+        "copied_garment_id": 856347,
+        "price": "75.0",
+        "option_cost": "0.0",
+        "garment_type": "CSHT",
+        "created_at": "2018-10-02T16:40:35.000Z",
+        "updated_at": "2018-10-18T03:15:45.000Z",
+        "order_status": {
+            "code": "SHIPCUST",
+            "name": "Delivery",
+            "description": "Delivery"
+        },
+        "delay_status": {
+            "code": "OK",
+            "description": "Not Delayed"
+        },
+        "dealer_order": {
+            "id": 418267,
+            "title": "DO-418267",
+            "custom_order_number": null,
+            "garment_count": 3,
+            "ship_type": "In-Store Pick-Up",
+            "ship_cost": "0.0",
+            "subtotal": "745.0",
+            "dealer_discount": "0.0",
+            "total_discount": "0.0",
+            "tax": "0.0",
+            "grand_total": "745.0",
+            "deposit_percentage": 50,
+            "current_balance": "745.0",
+            "measurement_units": "uscust",
+            "payment_status": "offline",
+            "ordered_at": "2018-10-05T15:33:18.000Z",
+            "created_at": "2018-10-02T16:17:51.000Z",
+            "invoiced_at": null
+        }
+    },
+    {
+        "id": 913375,
+        "title": "ID-913375",
+        "order_id": 418457,
+        "copied_garment_id": null,
+        "price": "66.0",
+        "option_cost": "0.0",
+        "garment_type": "CSHT",
+        "created_at": "2018-10-04T15:30:18.000Z",
+        "updated_at": null,
+        "order_status": {
+            "code": "INCOMPLETE",
+            "name": "Incomplete",
+            "description": "Incomplete"
+        },
+        "delay_status": {
+            "code": "OK",
+            "description": "Not Delayed"
+        },
+        "dealer_order": {
+            "id": 418457,
+            "title": "DO-418457",
+            "custom_order_number": "",
+            "garment_count": 0,
+            "ship_type": "Ground",
+            "ship_cost": "0.0",
+            "subtotal": "0.0",
+            "dealer_discount": "0.0",
+            "total_discount": null,
+            "tax": "0.0",
+            "grand_total": "0.0",
+            "deposit_percentage": 100,
+            "current_balance": "0.0",
+            "measurement_units": "uscust",
+            "payment_status": "incomplete",
+            "ordered_at": null,
+            "created_at": "2018-10-03T13:26:13.000Z",
+            "invoiced_at": null
+        }
+    },
+    {
+        "id": 913251,
+        "title": "ID-913251",
+        "order_id": 418746,
+        "copied_garment_id": 878112,
+        "price": "66.0",
+        "option_cost": "0.0",
+        "garment_type": "CSHT",
+        "created_at": "2018-10-04T13:52:18.000Z",
+        "updated_at": "2018-10-15T03:36:23.000Z",
+        "order_status": {
+            "code": "SHIPCUST",
+            "name": "Delivery",
+            "description": "Delivery"
+        },
+        "delay_status": {
+            "code": "OK",
+            "description": "Not Delayed"
+        },
+        "dealer_order": {
+            "id": 418746,
+            "title": "DO-418746",
+            "custom_order_number": null,
+            "garment_count": 6,
+            "ship_type": "In-Store Pick-Up",
+            "ship_cost": "0.0",
+            "subtotal": "644.0",
+            "dealer_discount": "0.0",
+            "total_discount": "0.0",
+            "tax": "0.0",
+            "grand_total": "644.0",
+            "deposit_percentage": 50,
+            "current_balance": "644.0",
+            "measurement_units": "uscust",
+            "payment_status": "offline",
+            "ordered_at": "2018-10-04T13:59:15.000Z",
+            "created_at": "2018-10-04T13:50:37.000Z",
+            "invoiced_at": null
+        }
+    },
+    {
+        "id": 913254,
+        "title": "ID-913254",
+        "order_id": 418746,
+        "copied_garment_id": 913251,
+        "price": "66.0",
+        "option_cost": "0.0",
+        "garment_type": "CSHT",
+        "created_at": "2018-10-04T13:52:55.000Z",
+        "updated_at": "2018-10-15T03:32:50.000Z",
+        "order_status": {
+            "code": "SHIPCUST",
+            "name": "Delivery",
+            "description": "Delivery"
+        },
+        "delay_status": {
+            "code": "OK",
+            "description": "Not Delayed"
+        },
+        "dealer_order": {
+            "id": 418746,
+            "title": "DO-418746",
+            "custom_order_number": null,
+            "garment_count": 6,
+            "ship_type": "In-Store Pick-Up",
+            "ship_cost": "0.0",
+            "subtotal": "644.0",
+            "dealer_discount": "0.0",
+            "total_discount": "0.0",
+            "tax": "0.0",
+            "grand_total": "644.0",
+            "deposit_percentage": 50,
+            "current_balance": "644.0",
+            "measurement_units": "uscust",
+            "payment_status": "offline",
+            "ordered_at": "2018-10-04T13:59:15.000Z",
+            "created_at": "2018-10-04T13:50:37.000Z",
+            "invoiced_at": null
+        }
+    },
+    {
+        "id": 913255,
+        "title": "ID-913255",
+        "order_id": 418746,
+        "copied_garment_id": 913254,
+        "price": "66.0",
+        "option_cost": "0.0",
+        "garment_type": "CSHT",
+        "created_at": "2018-10-04T13:53:40.000Z",
+        "updated_at": "2018-10-15T03:32:49.000Z",
+        "order_status": {
+            "code": "SHIPCUST",
+            "name": "Delivery",
+            "description": "Delivery"
+        },
+        "delay_status": {
+            "code": "OK",
+            "description": "Not Delayed"
+        },
+        "dealer_order": {
+            "id": 418746,
+            "title": "DO-418746",
+            "custom_order_number": null,
+            "garment_count": 6,
+            "ship_type": "In-Store Pick-Up",
+            "ship_cost": "0.0",
+            "subtotal": "644.0",
+            "dealer_discount": "0.0",
+            "total_discount": "0.0",
+            "tax": "0.0",
+            "grand_total": "644.0",
+            "deposit_percentage": 50,
+            "current_balance": "644.0",
+            "measurement_units": "uscust",
+            "payment_status": "offline",
+            "ordered_at": "2018-10-04T13:59:15.000Z",
+            "created_at": "2018-10-04T13:50:37.000Z",
+            "invoiced_at": null
+        }
+    },
+    {
+        "id": 913263,
+        "title": "ID-913263",
+        "order_id": 418746,
+        "copied_garment_id": 913255,
+        "price": "66.0",
+        "option_cost": "0.0",
+        "garment_type": "CSHT",
+        "created_at": "2018-10-04T13:56:50.000Z",
+        "updated_at": "2018-10-15T03:32:48.000Z",
+        "order_status": {
+            "code": "SHIPCUST",
+            "name": "Delivery",
+            "description": "Delivery"
+        },
+        "delay_status": {
+            "code": "OK",
+            "description": "Not Delayed"
+        },
+        "dealer_order": {
+            "id": 418746,
+            "title": "DO-418746",
+            "custom_order_number": null,
+            "garment_count": 6,
+            "ship_type": "In-Store Pick-Up",
+            "ship_cost": "0.0",
+            "subtotal": "644.0",
+            "dealer_discount": "0.0",
+            "total_discount": "0.0",
+            "tax": "0.0",
+            "grand_total": "644.0",
+            "deposit_percentage": 50,
+            "current_balance": "644.0",
+            "measurement_units": "uscust",
+            "payment_status": "offline",
+            "ordered_at": "2018-10-04T13:59:15.000Z",
+            "created_at": "2018-10-04T13:50:37.000Z",
+            "invoiced_at": null
+        }
+    },
+    {
+        "id": 915901,
+        "title": "ID-915901",
+        "order_id": 420034,
+        "copied_garment_id": null,
+        "price": "109.0",
+        "option_cost": "0.0",
+        "garment_type": "CSHT",
+        "created_at": "2018-10-10T14:48:27.000Z",
+        "updated_at": "2018-10-26T02:59:40.000Z",
+        "order_status": {
+            "code": "SHIPCUST",
+            "name": "Delivery",
+            "description": "Delivery"
+        },
+        "delay_status": {
+            "code": "OK",
+            "description": "Not Delayed"
+        },
+        "dealer_order": {
+            "id": 420034,
+            "title": "DO-420034",
+            "custom_order_number": null,
+            "garment_count": 1,
+            "ship_type": "In-Store Pick-Up",
+            "ship_cost": "0.0",
+            "subtotal": "109.0",
+            "dealer_discount": "0.0",
+            "total_discount": "0.0",
+            "tax": "0.0",
+            "grand_total": "109.0",
+            "deposit_percentage": 50,
+            "current_balance": "109.0",
+            "measurement_units": "uscust",
+            "payment_status": "offline",
+            "ordered_at": "2018-10-10T15:06:28.000Z",
+            "created_at": "2018-10-10T14:46:24.000Z",
+            "invoiced_at": null
+        }
+    },
+    {
+        "id": 918812,
+        "title": "ID-918812",
+        "order_id": 421405,
+        "copied_garment_id": null,
+        "price": "55.0",
+        "option_cost": "10.0",
+        "garment_type": "CSHT",
+        "created_at": "2018-10-17T12:18:47.000Z",
+        "updated_at": "2018-10-31T02:50:32.000Z",
+        "order_status": {
+            "code": "SHIPCUST",
+            "name": "Delivery",
+            "description": "Delivery"
+        },
+        "delay_status": {
+            "code": "OK",
+            "description": "Not Delayed"
+        },
+        "dealer_order": {
+            "id": 421405,
+            "title": "DO-421405",
+            "custom_order_number": null,
+            "garment_count": 1,
+            "ship_type": "In-Store Pick-Up",
+            "ship_cost": "0.0",
+            "subtotal": "65.0",
+            "dealer_discount": "0.0",
+            "total_discount": "0.0",
+            "tax": "0.0",
+            "grand_total": "65.0",
+            "deposit_percentage": 50,
+            "current_balance": "65.0",
+            "measurement_units": "uscust",
+            "payment_status": "offline",
+            "ordered_at": "2018-10-17T12:26:45.000Z",
+            "created_at": "2018-10-17T12:17:56.000Z",
+            "invoiced_at": null
+        }
+    },
+    {
+        "id": 919662,
+        "title": "ID-919662",
+        "order_id": 421718,
+        "copied_garment_id": null,
+        "price": "109.0",
+        "option_cost": "4.5",
+        "garment_type": "CSHT",
+        "created_at": "2018-10-18T15:23:42.000Z",
+        "updated_at": "2018-10-29T03:09:48.000Z",
+        "order_status": {
+            "code": "SHIPCUST",
+            "name": "Delivery",
+            "description": "Delivery"
+        },
+        "delay_status": {
+            "code": "OK",
+            "description": "Not Delayed"
+        },
+        "dealer_order": {
+            "id": 421718,
+            "title": "DO-421718",
+            "custom_order_number": null,
+            "garment_count": 2,
+            "ship_type": "In-Store Pick-Up",
+            "ship_cost": "0.0",
+            "subtotal": "227.0",
+            "dealer_discount": "0.0",
+            "total_discount": "0.0",
+            "tax": "0.0",
+            "grand_total": "227.0",
+            "deposit_percentage": 50,
+            "current_balance": "218.0",
+            "measurement_units": "uscust",
+            "payment_status": "offline",
+            "ordered_at": "2018-10-18T15:35:38.000Z",
+            "created_at": "2018-10-18T12:49:16.000Z",
             "invoiced_at": null
         }
     }
@@ -2135,11 +2284,11 @@ Returns an array of garments.  Each garment will have pricing information and or
 
 ### Query Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-order_id | N/A | Show garments that are part of a specific dealer order
-order_status_code | N/A | Show garments that are in a specific order status
-delay_status_code | N/A | Show garments that are in a specific delay status
+| Parameter         | Default | Description                                            |
+| ----------------- | ------- | ------------------------------------------------------ |
+| order_id          | N/A     | Show garments that are part of a specific dealer order |
+| order_status_code | N/A     | Show garments that are in a specific order status      |
+| delay_status_code | N/A     | Show garments that are in a specific delay status      |
 
 ### Other
 
@@ -2157,27 +2306,48 @@ curl "https://api.trinity-apparel.com/v1/garments/399780"
 
 ```json
 {
-    "id": 861593,
-    "title": "ID-861593",
-    "order_id": 394366,
-    "copied_garment_id": 816718,
-    "garment_price": "75.0",
+    "id": 892902,
+    "title": "ID-892902",
+    "order_id": 407781,
+    "copied_garment_id": null,
+    "price": "66.0",
     "option_cost": "0.0",
-    "tailoring_grade": 129,
-    "copied_suit_id": 816718,
-    "portfolio_specific_id": null,
-    "last_status_change_date": "2018-06-21T16:04:49.000Z",
+    "garment_type": "CSHT",
+    "created_at": "2018-08-17T09:50:45.000Z",
+    "updated_at": "2018-08-29T03:52:13.000Z",
+    "prefix": "ID",
+    "index": "2/2",
+    "last_status_change_date": "2018-09-14T14:20:40.000Z",
     "last_delay_change_date": null,
-    "suit_complete": false,
-    "garment_type": {
-        "description": "CSHT",
-        "garment_type": 8,
-        "composed_gtype": false
+    "order_status": {
+        "code": "SHIPCUST",
+        "name": "Delivery",
+        "description": "Delivery"
     },
-    "factory_prefix": "ID",
-    "factory_index": "1/1",
-    "created_at": "2018-06-01T12:11:18.000Z",
-    "updated_at": "2018-06-13T03:16:04.000Z",
+    "delay_status": {
+        "code": "OK",
+        "description": "Not Delayed"
+    },
+    "dealer_order": {
+        "id": 407781,
+        "title": "DO-407781",
+        "custom_order_number": null,
+        "garment_count": 2,
+        "ship_type": "In-Store Pick-Up",
+        "ship_cost": "0.0",
+        "subtotal": "416.0",
+        "dealer_discount": "0.0",
+        "total_discount": "0.0",
+        "tax": "0.0",
+        "grand_total": "416.0",
+        "deposit_percentage": 50,
+        "current_balance": "416.0",
+        "measurement_units": "uscust",
+        "payment_status": "offline",
+        "ordered_at": "2018-08-17T09:54:23.000Z",
+        "created_at": "2018-08-09T10:41:20.000Z",
+        "invoiced_at": null
+    },
     "manufacturer": {
         "id": 2,
         "address_id": 1943,
@@ -2185,40 +2355,16 @@ curl "https://api.trinity-apparel.com/v1/garments/399780"
         "email": "info@trinity-apparel.com"
     },
     "fabric": {
-        "id": 43569,
+        "id": 27284,
         "active": true,
         "in_stock": 1,
         "restock_date": null,
-        "description": "Pink Basket Weave",
-        "supplier_fabric_number": "ST 61776-68",
-        "trinity_fabric_number": "P3-3643569",
-        "url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=P3-3643569",
+        "description": "White Fine Twill",
+        "supplier_fabric_number": "#12 White",
+        "trinity_fabric_number": "N3-3127284",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/N3-3127284",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=N3-3127284&res=300",
         "inventory_status": "In Stock"
-    },
-    "order_status": {
-        "code": "SHIPCUST",
-        "description": "Delivery",
-        "name": "Delivery"
-    },
-    "dealer_order": {
-        "id": 394366,
-        "title": "DO-394366",
-        "custom_order_num": "Jason Jungberg",
-        "garment_count": 1,
-        "ship_type": "Ground",
-        "ship_cost": "9.0",
-        "subtotal": "75.0",
-        "dealer_discount": "0.0",
-        "total_discount": "0.0",
-        "tax": "0.0",
-        "grand_total": "84.0",
-        "deposit_pct": 100,
-        "current_balance": "0.0",
-        "msmt_units": "uscust",
-        "payment_status": "paid",
-        "ordered_at": "2018-06-01T12:45:49.000Z",
-        "created_at": "2018-06-01T12:10:42.000Z",
-        "invoiced_at": null
     }
 }
 ```
@@ -2231,9 +2377,9 @@ Returns details on a specific garment.
 
 ### Query Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-id | N/A | The specific garment id you want to see
+| Parameter | Default | Description                             |
+| --------- | ------- | --------------------------------------- |
+| id        | N/A     | The specific garment id you want to see |
 
 ### Other
 
@@ -2363,9 +2509,9 @@ Returns details on an order status
 
 ### Query Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-code | N/A | The specific order status code
+| Parameter | Default | Description                    |
+| --------- | ------- | ------------------------------ |
+| code      | N/A     | The specific order status code |
 
 ### Other
 
@@ -2481,9 +2627,9 @@ Returns details on a delay status. It doesn't provide that much information, as 
 
 ### Query Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-code | N/A | The specific delay status code
+| Parameter | Default | Description                    |
+| --------- | ------- | ------------------------------ |
+| code      | N/A     | The specific delay status code |
 
 ### Other
 
