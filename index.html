@@ -219,7 +219,7 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
           </li>
           <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+            <a href="#authorization" class="toc-h1 toc-link" data-title="Authorization">Authorization</a>
           </li>
           <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
@@ -301,23 +301,23 @@
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
 <p>Welcome to the Trinity Apparel API! You can use our API to get information on all of our endpoints, such as the <strong>Fabrics API</strong> and the <strong>Orders API</strong>.</p>
-<h1 id='authentication'>Authentication</h1>
+<h1 id='authorization'>Authorization</h1>
 <blockquote>
 <p>To authorize, use this code:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># Pass the correct header with each request</span>
 curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"AUTHENTICATION Bearer: swaledale"</span>
+  -H <span class="s2">"Authorization Bearer: swaledale"</span>
 </code></pre>
 <blockquote>
 <p>Make sure to replace <code>swaledale</code> with your JWT.</p>
 </blockquote>
 
-<p>All routes require a valid JSON Web Tokens (JWT) token.  JSON Web Tokens are an open, industry standard RFC 7519 method for representing claims securely between two parties. Learn more at <a href='https://jwt.io/'>https://jwt.io/</a></p>
+<p>All routes require a valid JSON Web Tokens (JWT) token. JSON Web Tokens are an open, industry standard RFC 7519 method for representing claims securely between two parties. Learn more at <a href='https://jwt.io/'>https://jwt.io/</a></p>
 
 <p>You&#39;ll pass the JWT in the header like this:</p>
 
-<p><code>AUTHENTICATION Bearer: eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOjg4LCJleHAiOjE1Njc4NDY5MTksImlhdCI6MTUzNjMxMDkxOSwiaXNzIjoiVHJpbml0eSBBUEkgVjEiLCJqdGkiOiIwYmUxY2IzNTY4NGVkYzhiYTY3YjM0YmRiMTUyZTlkMiJ9.UP7T1J0OM4lBWT3eB6s18qfo1XYI45-w5XIyd94LKlbIRsu1EzGyJrCm6sCwzBi3f3a-4I3wwxAUlt-t7NJP9rCSkWMOMzEOCNOU-waML0tU2dnh_mptxDJCE4GlY8JSTFVXbVGv1r6xDYi0xmy3UJHpW4rsoSUgLBPnTIzsZiE</code></p>
+<p><code>Authorization Bearer: eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOjg4LCJleHAiOjE1Njc4NDY5MTksImlhdCI6MTUzNjMxMDkxOSwiaXNzIjoiVHJpbml0eSBBUEkgVjEiLCJqdGkiOiIwYmUxY2IzNTY4NGVkYzhiYTY3YjM0YmRiMTUyZTlkMiJ9.UP7T1J0OM4lBWT3eB6s18qfo1XYI45-w5XIyd94LKlbIRsu1EzGyJrCm6sCwzBi3f3a-4I3wwxAUlt-t7NJP9rCSkWMOMzEOCNOU-waML0tU2dnh_mptxDJCE4GlY8JSTFVXbVGv1r6xDYi0xmy3UJHpW4rsoSUgLBPnTIzsZiE</code></p>
 
 <aside class="notice">
 You must replace <code>swaledale</code> with your personal JWT token. 
@@ -616,7 +616,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 </tr>
 </tbody></table>
 <h2 id='get-all-collections'>Get All Collections</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/collections"</span>
-  -H <span class="s2">"AUTHENTICATION Bearer: swaledale"</span>
+  -H <span class="s2">"Authorization Bearer: swaledale"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -747,7 +747,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <li>Pagination: Yes</li>
 </ul>
 <h2 id='get-a-specific-collection'>Get a Specific Collection</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/collections/1854"</span>
-  -H <span class="s2">"AUTHENTICATION Bearer: swaledale"</span>
+  -H <span class="s2">"Authorization Bearer: swaledale"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -951,7 +951,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <li>Pagination: N/A</li>
 </ul>
 <h2 id='get-all-fabrics'>Get All Fabrics</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/fabrics"</span>
-  -H <span class="s2">"AUTHENTICATION Bearer: swaledale"</span>
+  -H <span class="s2">"Authorization Bearer: swaledale"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -1319,7 +1319,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <li>Pagination: Yes</li>
 </ul>
 <h2 id='get-a-specific-fabric'>Get a Specific Fabric</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/fabrics/40985"</span>
-  -H <span class="s2">"AUTHENTICATION Bearer: swaledale"</span>
+  -H <span class="s2">"Authorization Bearer: swaledale"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -1378,7 +1378,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <li>Pagination: N/A</li>
 </ul>
 <h2 id='get-related-fabrics'>Get Related Fabrics</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/fabrics/39001/related"</span>
-  -H <span class="s2">"AUTHENTICATION Bearer: swaledale"</span>
+  -H <span class="s2">"Authorization Bearer: swaledale"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -2625,7 +2625,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 </tr>
 </tbody></table>
 <h2 id='get-all-orders-dos'>Get All Orders (DOs)</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/orders"</span>
-  -H <span class="s2">"AUTHENTICATION Bearer: swaledale"</span>
+  -H <span class="s2">"Authorization Bearer: swaledale"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -3281,7 +3281,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <li>Pagination: Yes</li>
 </ul>
 <h2 id='get-a-specific-order'>Get a Specific Order</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/orders/399780"</span>
-  -H <span class="s2">"AUTHENTICATION Bearer: swaledale"</span>
+  -H <span class="s2">"Authorization Bearer: swaledale"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -3458,7 +3458,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <li>Pagination: N/A</li>
 </ul>
 <h2 id='get-all-garments'>Get All Garments</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/garments"</span>
-  -H <span class="s2">"AUTHENTICATION Bearer: swaledale"</span>
+  -H <span class="s2">"Authorization Bearer: swaledale"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -4499,7 +4499,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <li>Pagination: Yes</li>
 </ul>
 <h2 id='get-a-specific-garment'>Get a Specific Garment</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/garments/399780"</span>
-  -H <span class="s2">"AUTHENTICATION Bearer: swaledale"</span>
+  -H <span class="s2">"Authorization Bearer: swaledale"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -4590,7 +4590,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <li>Pagination: N/A</li>
 </ul>
 <h2 id='get-order-statuses'>Get Order Statuses</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/order_statuses"</span>
-  -H <span class="s2">"AUTHENTICATION Bearer: swaledale"</span>
+  -H <span class="s2">"Authorization Bearer: swaledale"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -4674,7 +4674,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <li>Pagination: N/A</li>
 </ul>
 <h2 id='get-an-order-status'>Get an Order Status</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/order_statuses/FABHOLD"</span>
-  -H <span class="s2">"AUTHENTICATION Bearer: swaledale"</span>
+  -H <span class="s2">"Authorization Bearer: swaledale"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -4712,7 +4712,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <li>Pagination: N/A</li>
 </ul>
 <h2 id='get-delay-statuses'>Get Delay Statuses</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/delay_statuses"</span>
-  -H <span class="s2">"AUTHENTICATION Bearer: swaledale"</span>
+  -H <span class="s2">"Authorization Bearer: swaledale"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -4787,7 +4787,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <li>Pagination: N/A</li>
 </ul>
 <h2 id='get-a-delay-status'>Get a Delay Status</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/delay_statuses/FABRIC_OUT"</span>
-  -H <span class="s2">"AUTHENTICATION Bearer: swaledale"</span>
+  -H <span class="s2">"Authorization Bearer: swaledale"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
