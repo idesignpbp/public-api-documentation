@@ -433,7 +433,7 @@ Standard Attributes
 
 ```shell
 curl "https://api.trinity-apparel.com/v1/orders"
-  -H "AUTHENTICATION Bearer: swaledale"
+  -H "Authorization Bearer: swaledale"
 ```
 
 > The above command returns JSON structured like this:
@@ -1089,7 +1089,7 @@ Returns an array of dealer orders (DOs).
 
 ```shell
 curl "https://api.trinity-apparel.com/v1/orders/399780"
-  -H "AUTHENTICATION Bearer: swaledale"
+  -H "Authorization Bearer: swaledale"
 ```
 
 > The above command returns JSON structured like this:
@@ -1266,7 +1266,7 @@ Returns details on a specific order and a snapshot of the garments within the or
 
 ```shell
 curl "https://api.trinity-apparel.com/v1/garments"
-  -H "AUTHENTICATION Bearer: swaledale"
+  -H "Authorization Bearer: swaledale"
 ```
 
 > The above command returns JSON structured like this:
@@ -2299,7 +2299,7 @@ Returns an array of garments.  Each garment will have pricing information and or
 
 ```shell
 curl "https://api.trinity-apparel.com/v1/garments/399780"
-  -H "AUTHENTICATION Bearer: swaledale"
+  -H "Authorization Bearer: swaledale"
 ```
 
 > The above command returns JSON structured like this:
@@ -2390,7 +2390,7 @@ Returns details on a specific garment.
 
 ```shell
 curl "https://api.trinity-apparel.com/v1/order_statuses"
-  -H "AUTHENTICATION Bearer: swaledale"
+  -H "Authorization Bearer: swaledale"
 ```
 
 > The above command returns JSON structured like this:
@@ -2484,7 +2484,7 @@ None
 
 ```shell
 curl "https://api.trinity-apparel.com/v1/order_statuses/FABHOLD"
-  -H "AUTHENTICATION Bearer: swaledale"
+  -H "Authorization Bearer: swaledale"
 ```
 
 > The above command returns JSON structured like this:
@@ -2522,7 +2522,7 @@ Returns details on an order status
 
 ```shell
 curl "https://api.trinity-apparel.com/v1/delay_statuses"
-  -H "AUTHENTICATION Bearer: swaledale"
+  -H "Authorization Bearer: swaledale"
 ```
 
 > The above command returns JSON structured like this:
@@ -2607,7 +2607,7 @@ None
 
 ```shell
 curl "https://api.trinity-apparel.com/v1/delay_statuses/FABRIC_OUT"
-  -H "AUTHENTICATION Bearer: swaledale"
+  -H "Authorization Bearer: swaledale"
 ```
 
 > The above command returns JSON structured like this:

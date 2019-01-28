@@ -149,7 +149,7 @@ Standard Attributes
 
 ```shell
 curl "https://api.trinity-apparel.com/v1/collections"
-  -H "AUTHENTICATION Bearer: swaledale"
+  -H "Authorization Bearer: swaledale"
 ```
 
 > The above command returns JSON structured like this:
@@ -280,7 +280,7 @@ Returns an array of fabric collections.
 
 ```shell
 curl "https://api.trinity-apparel.com/v1/collections/1854"
-  -H "AUTHENTICATION Bearer: swaledale"
+  -H "Authorization Bearer: swaledale"
 ```
 
 > The above command returns JSON structured like this:
@@ -484,7 +484,7 @@ Returns details on a fabric collection and a list of all fabrics in that collect
 
 ```shell
 curl "https://api.trinity-apparel.com/v1/fabrics"
-  -H "AUTHENTICATION Bearer: swaledale"
+  -H "Authorization Bearer: swaledale"
 ```
 
 > The above command returns JSON structured like this:
@@ -824,7 +824,7 @@ Use this API call to lookup a fabric by trinity fabric number or supplier fabric
 
 ```shell
 curl "https://api.trinity-apparel.com/v1/fabrics/40985"
-  -H "AUTHENTICATION Bearer: swaledale"
+  -H "Authorization Bearer: swaledale"
 ```
 
 > The above command returns JSON structured like this:
@@ -883,7 +883,7 @@ Returns details on a specific fabric.
 
 ```shell
 curl "https://api.trinity-apparel.com/v1/fabrics/39001/related"
-  -H "AUTHENTICATION Bearer: swaledale"
+  -H "Authorization Bearer: swaledale"
 ```
 
 > The above command returns JSON structured like this:
