@@ -805,22 +805,32 @@ Use this API call to lookup a fabric by trinity fabric number or supplier fabric
 
 ### Query Parameters
 
-| Parameter           | Default | Description                                                                                                                                                               |
-| ------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| collection_id       | N/A     | Only return fabrics from a specific collection                                                                                                                            |
-| q                   | N/A     | Wildcard matching search by trinity fabric number, supplier fabric number, and fabric description                                                                         |
-| fabric_number       | N/A     | Show fabrics that match a supplier fabric number or a trinity fabric number. The trinity fabric number is an exact match, whereas the supplier number is a wildcard match |
-| trinity_fabric_num  | N/A     | Show fabrics that match a specific Trinity fabric number                                                                                                                  |
-| supplier_fabric_num | N/A     | Show fabrics that match a specific Supplier fabric number                                                                                                                 |
-| is_active           | true    | If set to true, the result will only include active fabrics                                                                                                               |
-| show_archived       | false   | By default archived fabrics (not active, not in stock or temp out) are not returned.  Set this to true in order to show all fabrics.                                      |
-| reverse_sort        | N/A     | If this parameter is sort, fabrics will be sorted descending by fabric_id                                                                                                 |
-| extended            | false   | If set to true, the API call returns extended objects which include a complete set of attributes and subresources                                                         |
+| Parameter              | Default | Description                                                                                                                                                               |
+| ---------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| collection_id          | N/A     | Only return fabrics from a specific collection                                                                                                                            |
+| q                      | N/A     | Wildcard matching search by trinity fabric number, supplier fabric number, and fabric description                                                                         |
+| fabric_number          | N/A     | Show fabrics that match a supplier fabric number or a trinity fabric number. The trinity fabric number is an exact match, whereas the supplier number is a wildcard match |
+| trinity_fabric_number  | N/A     | Show fabrics that match a specific Trinity fabric number.  *See below for example querying for multiple fabrics.*                                                         |
+| supplier_fabric_number | N/A     | Show fabrics that match a specific Supplier fabric number.  *See below for example querying for multiple fabrics.*                                                        |
+| is_active              | true    | If set to true, the result will only include active fabrics                                                                                                               |
+| show_archived          | false   | By default archived fabrics (not active, not in stock or temp out) are not returned.  Set this to true in order to show all fabrics.                                      |
+| reverse_sort           | N/A     | If this parameter is sort, fabrics will be sorted descending by fabric_id                                                                                                 |
+| extended               | false   | If set to true, the API call returns extended objects which include a complete set of attributes and subresources                                                         |
 
 ### Other
 
 - Permissions: All
 - Pagination: Yes
+
+### Querying by multiple fabric numbers
+
+In order to query for multiple fabric numbers, you will pass in multiple params with the format like below:
+
+`GET https://api.trinity-apparel.com/v1//fabrics?trinity_fabric_number[]=C4-3754922&trinity_fabric_number[]=C4-3754923&trinity_fabric_number[]=C4-3754924`
+
+OR
+
+`GET https://api.trinity-apparel.com/v1//fabrics?supplier_fabric_number[]=602%20275%20800&supplier_fabric_number[]=602%20275%20802&supplier_fabric_number[]=602%20275%20802`
 
 ## Get a Specific Fabric
 
