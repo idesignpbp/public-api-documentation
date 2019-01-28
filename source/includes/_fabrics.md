@@ -72,8 +72,8 @@ Extended attributes
 | last_stock_edit_date <br> <span>datetime</span>     | The last time the fabric inventory level was changed               |
 | fabric_year <br> <span>year</span>                  | The year the fabric was released                                   |
 | collection <br> <span>subresource</span>            | The collection in which the fabric was released                    |
-| composition <br> <span>subresource</span>           | The material composition of the fabric                             |
-| mill <br> <span>subresource</span>                  | *Description TBD*                                                  |
+| composition <br> <span>subresource</span>           | The material composition of the fabric (E.g, 100% Wool)            |
+| mill <br> <span>subresource</span>                  | The mill that produced the fabric                                  |
 
 ### Collection
 

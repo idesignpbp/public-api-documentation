@@ -104,7 +104,7 @@ Standard Attributes
 | ship_type <br> <span>string</span>           | How is the garment shipped to the final destination                                                                                                                                                                   |
 | ship_cost <br> <span>decimal</span>          | How much did it cost to ship the whole order                                                                                                                                                                          |
 | subtotal <br> <span>decimal</span>           | Order amount before tax and discounts are included                                                                                                                                                                    |
-| dealer_discount <br> <span>decimal</span>    | *Description TBD*                                                                                                                                                                                                     |
+| dealer_discount <br> <span>decimal</span>    | Dealer discount is the amount of dealer's permanent discounts                                                                                                                                                         |
 | total_discount <br> <span>decimal</span>     | Dollar total of all discounts applied to the order                                                                                                                                                                    |
 | tax <br> <span>decimal</span>                | Dollar total for taxes on the order                                                                                                                                                                                   |
 | grand_total <br> <span>decimal</span>        | Dollar total for the whole order. Used as a basis for credit card charges and invoices.                                                                                                                               |
@@ -159,7 +159,7 @@ Extended Attributes
 | shipping_address <br> <span>subresource</span> | Address of the final destination                               |
 | factory_address <br> <span>subresource</span>  | Address where it was made                                      |
 | dealer <br> <span>subresource</span>           | Dealer who placed the order                                    |
-| customer <br> <span>subresource</span>         | Person who will wear the clothes                               |
+| customer <br> <span>subresource</span>         | Person who will wear the garments                              |
 | garments <br> <span>array</span>               | Array of garments included in the order                        |
 
 ### Currency
@@ -336,7 +336,7 @@ Standard Attributes
 | updated_at <br> <span>datetime</span>       | When the garment was last modified                                                                               |
 | order_status <br> <span>subresource</span>  | Current status of the order. [Click here](#order-statuses) for more info                                         |
 | delay_status <br> <span>subresource</span>  | If garment is delayed, this will return why. [Click here](#delay-statuses) for more info                         |
-| dealer_order <br> <span>subresource</span>  | *Description TBD*                                                                                                |
+| dealer_order <br> <span>subresource</span>  | The full order placed by a single customer. Includes this garment and can include more garments.                 |
 
 ```json
 # Extended Object
@@ -370,7 +370,7 @@ Extended Attributes
 | index                   | string      | Sequence number (1/7, 2/7, 3/7 ...) for each garment in an order. Each item has a different index           |
 | last_status_change_date | datetime    | When did the order status last change to a new state                                                        |
 | last_delay_change_date  | datetime    | When did the delay status last change to a new state                                                        |
-| manufacturer            | subresource | Information about the manufacturer of the garment                                                           |
+| manufacturer            | subresource | The factory who made the garment                                                                            |
 | fabric                  | subresource | Information about the primary fabric used for the garment                                                   |
 
 ### Order Status
@@ -423,12 +423,11 @@ Standard Attributes - [see here](#delay-statuses) for details
 
 Standard Attributes
 
-| Attribute                            | Description                       |
-| ------------------------------------ | --------------------------------- |
-| id <br> <span>integer</span>         | Unique identifier for the object  |
-| address_id <br> <span>integer</span> | *Description TBD*                 |
-| name <br> <span>string</span>        | Name of the manufacturer          |
-| email <br> <span>string</span>       | Email address of the manufacturer |
+| Attribute                      | Description                       |
+| ------------------------------ | --------------------------------- |
+| id <br> <span>integer</span>   | Unique identifier for the object  |
+| name <br> <span>string</span>  | Name of the manufacturer          |
+| email <br> <span>string</span> | Email address of the manufacturer |
 
 ## Get All Orders (DOs)
 
