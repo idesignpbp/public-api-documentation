@@ -1293,14 +1293,14 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <td>Show fabrics that match a supplier fabric number or a trinity fabric number. The trinity fabric number is an exact match, whereas the supplier number is a wildcard match</td>
 </tr>
 <tr>
-<td>trinity_fabric_num</td>
+<td>trinity_fabric_number</td>
 <td>N/A</td>
-<td>Show fabrics that match a specific Trinity fabric number</td>
+<td>Show fabrics that match a specific Trinity fabric number.  <em>See below for example querying for multiple fabrics.</em></td>
 </tr>
 <tr>
-<td>supplier_fabric_num</td>
+<td>supplier_fabric_number</td>
 <td>N/A</td>
-<td>Show fabrics that match a specific Supplier fabric number</td>
+<td>Show fabrics that match a specific Supplier fabric number.  <em>See below for example querying for multiple fabrics.</em></td>
 </tr>
 <tr>
 <td>is_active</td>
@@ -1328,6 +1328,14 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <li>Permissions: All</li>
 <li>Pagination: Yes</li>
 </ul>
+<h3 id='querying-by-multiple-fabric-numbers'>Querying by multiple fabric numbers</h3>
+<p>In order to query for multiple fabric numbers, you will pass in multiple params with the format like below:</p>
+
+<p><code>GET https://api.trinity-apparel.com/v1//fabrics?trinity_fabric_number[]=C4-3754922&amp;trinity_fabric_number[]=C4-3754923&amp;trinity_fabric_number[]=C4-3754924</code></p>
+
+<p>OR</p>
+
+<p><code>GET https://api.trinity-apparel.com/v1//fabrics?supplier_fabric_number[]=602%20275%20800&amp;supplier_fabric_number[]=602%20275%20802&amp;supplier_fabric_number[]=602%20275%20802</code></p>
 <h2 id='get-a-specific-fabric'>Get a Specific Fabric</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/fabrics/40985"</span>
   -H <span class="s2">"Authorization Bearer: swaledale"</span>
 </code></pre>
