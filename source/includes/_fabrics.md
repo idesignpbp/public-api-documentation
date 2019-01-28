@@ -267,9 +267,10 @@ Returns an array of fabric collections.
 
 ### Query Parameters
 
-| Parameter | Default | Description                                                 |
-| --------- | ------- | ----------------------------------------------------------- |
-| is_active | true    | If set to true, the result will only include active fabrics |
+| Parameter | Default | Description                                                                                                       |
+| --------- | ------- | ----------------------------------------------------------------------------------------------------------------- |
+| is_active | true    | If set to true, the result will only include active fabrics                                                       |
+| extended  | false   | If set to true, the API call returns extended objects which include a complete set of attributes and subresources |
 
 ### Other
 
@@ -814,6 +815,7 @@ Use this API call to lookup a fabric by trinity fabric number or supplier fabric
 | is_active           | true    | If set to true, the result will only include active fabrics                                                                                                               |
 | show_archived       | false   | By default archived fabrics (not active, not in stock or temp out) are not returned.  Set this to true in order to show all fabrics.                                      |
 | reverse_sort        | N/A     | If this parameter is sort, fabrics will be sorted descending by fabric_id                                                                                                 |
+| extended            | false   | If set to true, the API call returns extended objects which include a complete set of attributes and subresources                                                         |
 
 ### Other
 
