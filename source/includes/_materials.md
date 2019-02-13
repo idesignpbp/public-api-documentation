@@ -1019,3 +1019,311 @@ Returns details on a specific suede.
 
 - Permissions: All
 - Pagination: N/A
+
+## Get All Material Threads
+
+```shell
+curl "https://api.trinity-apparel.com/v1/material_theads"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+        "value": "black",
+        "code": "C9770",
+        "description": "Black",
+        "image": "http://s7d4.scene7.com/ir/render/trinityapparelrender/buttonhole?wid=112&obj=Buttonhole/Color&color=36,36,36&fmt=png-alpha",
+        "rgb": "36,36,36",
+        "display_order": 4,
+        "active": 1
+    },
+    {
+        "value": "navy",
+        "code": "C7930",
+        "description": "Navy",
+        "image": "http://s7d4.scene7.com/ir/render/trinityapparelrender/buttonhole?wid=112&obj=Buttonhole/Color&color=28,33,50&fmt=png-alpha",
+        "rgb": "28,33,50",
+        "display_order": 8,
+        "active": 1
+    },
+    {
+        "value": "ivory",
+        "code": "C2740",
+        "description": "Ivory",
+        "image": "http://s7d4.scene7.com/ir/render/trinityapparelrender/buttonhole?wid=112&obj=Buttonhole/Color&color=245,247,237&fmt=png-alpha",
+        "rgb": "245,247,237",
+        "display_order": 21,
+        "active": 1
+    },
+    {
+        "value": "light_gray",
+        "code": "C9631",
+        "description": "Light Gray",
+        "image": "http://s7d4.scene7.com/ir/render/trinityapparelrender/buttonhole?wid=112&obj=Buttonhole/Color&color=172,167,172&fmt=png-alpha",
+        "rgb": "172,167,172",
+        "display_order": 7,
+        "active": 1
+    },
+    {
+        "value": "medium_gray",
+        "code": "C9623",
+        "description": "Medium Gray",
+        "image": "http://s7d4.scene7.com/ir/render/trinityapparelrender/buttonhole?wid=112&obj=Buttonhole/Color&color=153,156,158&fmt=png-alpha",
+        "rgb": "153,156,158",
+        "display_order": 6,
+        "active": 1
+    },
+    {
+        "value": "dark_gray",
+        "code": "C9949",
+        "description": "Dark Gray",
+        "image": "http://s7d4.scene7.com/ir/render/trinityapparelrender/buttonhole?wid=112&obj=Buttonhole/Color&color=110,111,112&fmt=png-alpha",
+        "rgb": "110,111,112",
+        "display_order": 5,
+        "active": 1
+    },
+    {
+        "value": "trinity_blue",
+        "code": "C7305",
+        "description": "Trinity Blue",
+        "image": "http://s7d4.scene7.com/ir/render/trinityapparelrender/buttonhole?wid=112&obj=Buttonhole/Color&color=40,81,147&fmt=png-alpha",
+        "rgb": "40,81,147",
+        "display_order": 11,
+        "active": 1
+    },
+    {
+        "value": "blue",
+        "code": "C7201",
+        "description": "Blue",
+        "image": "http://s7d4.scene7.com/ir/render/trinityapparelrender/buttonhole?wid=112&obj=Buttonhole/Color&color=139,187,226&fmt=png-alpha",
+        "rgb": "139,187,226",
+        "display_order": 33,
+        "active": 1
+    },
+    {
+        "value": "light_blue",
+        "code": "C7279",
+        "description": "Light Blue",
+        "image": "http://s7d4.scene7.com/ir/render/trinityapparelrender/buttonhole?wid=112&obj=Buttonhole/Color&color=162,196,204&fmt=png-alpha",
+        "rgb": "162,196,204",
+        "display_order": 10,
+        "active": 1
+    },
+    {
+        "value": "dark_brown",
+        "code": "C8989",
+        "description": "Dark Brown",
+        "image": "http://s7d4.scene7.com/ir/render/trinityapparelrender/buttonhole?wid=112&obj=Buttonhole/Color&color=94,70,61&fmt=png-alpha",
+        "rgb": "94,70,61",
+        "display_order": 14,
+        "active": 1
+    },
+    {
+        "value": "medium_brown",
+        "code": "C8587",
+        "description": "Medium Brown",
+        "image": "http://s7d4.scene7.com/ir/render/trinityapparelrender/buttonhole?wid=112&obj=Buttonhole/Color&color=175,129,86&fmt=png-alpha",
+        "rgb": "175,129,86",
+        "display_order": 15,
+        "active": 1
+    },
+    {
+        "value": "light_brown",
+        "code": "C8501",
+        "description": "Light Brown",
+        "image": "http://s7d4.scene7.com/ir/render/trinityapparelrender/buttonhole?wid=112&obj=Buttonhole/Color&color=214,176,137&fmt=png-alpha",
+        "rgb": "214,176,137",
+        "display_order": 18,
+        "active": 1
+    },
+    {
+        "value": "khaki",
+        "code": "C2376",
+        "description": "Khaki",
+        "image": "http://s7d4.scene7.com/ir/render/trinityapparelrender/buttonhole?wid=112&obj=Buttonhole/Color&color=237,200,147&fmt=png-alpha",
+        "rgb": "237,200,147",
+        "display_order": 13,
+        "active": 1
+    },
+    {
+        "value": "tan",
+        "code": "C9313",
+        "description": "Tan",
+        "image": "http://s7d4.scene7.com/ir/render/trinityapparelrender/buttonhole?wid=112&obj=Buttonhole/Color&color=209,190,170&fmt=png-alpha",
+        "rgb": "209,190,170",
+        "display_order": 12,
+        "active": 1
+    },
+    {
+        "value": "gold",
+        "code": "C1257",
+        "description": "Gold",
+        "image": "http://s7d4.scene7.com/ir/render/trinityapparelrender/buttonhole?wid=112&obj=Buttonhole/Color&color=253,216,121&fmt=png-alpha",
+        "rgb": "253,216,121",
+        "display_order": 25,
+        "active": 1
+    },
+    {
+        "value": "medium_olive",
+        "code": "C5744",
+        "description": "Medium Olive",
+        "image": "http://s7d4.scene7.com/ir/render/trinityapparelrender/buttonhole?wid=112&obj=Buttonhole/Color&color=131,130,52&fmt=png-alpha",
+        "rgb": "131,130,52",
+        "display_order": 12,
+        "active": 1
+    },
+    {
+        "value": "orange",
+        "code": "C2427",
+        "description": "Orange",
+        "image": "http://s7d4.scene7.com/ir/render/trinityapparelrender/buttonhole?wid=112&obj=Buttonhole/Color&color=255,137,38&fmt=png-alpha",
+        "rgb": "255,137,38",
+        "display_order": 0,
+        "active": 1
+    },
+    {
+        "value": "red",
+        "code": "C3853",
+        "description": "Red",
+        "image": "http://s7d4.scene7.com/ir/render/trinityapparelrender/buttonhole?wid=112&obj=Buttonhole/Color&color=182,33,28&fmt=png-alpha",
+        "rgb": "182,33,28",
+        "display_order": 24,
+        "active": 1
+    },
+    {
+        "value": "burgundy",
+        "code": "C3993",
+        "description": "Burgundy",
+        "image": "http://s7d4.scene7.com/ir/render/trinityapparelrender/buttonhole?wid=112&obj=Buttonhole/Color&color=122,40,41&fmt=png-alpha",
+        "rgb": "122,40,41",
+        "display_order": 0,
+        "active": 1
+    },
+    {
+        "value": "purple",
+        "code": "C4983",
+        "description": "Purple",
+        "image": "http://s7d4.scene7.com/ir/render/trinityapparelrender/buttonhole?wid=112&obj=Buttonhole/Color&color=69,43,81&fmt=png-alpha",
+        "rgb": "69,43,81",
+        "display_order": 0,
+        "active": 1
+    },
+    {
+        "value": "lavender",
+        "code": "C4328",
+        "description": "Lavender",
+        "image": "http://s7d4.scene7.com/ir/render/trinityapparelrender/buttonhole?wid=112&obj=Buttonhole/Color&color=133,109,155&fmt=png-alpha",
+        "rgb": "133,109,155",
+        "display_order": 19,
+        "active": 1
+    },
+    {
+        "value": "white",
+        "code": "C1740",
+        "description": "White",
+        "image": "http://s7d4.scene7.com/ir/render/trinityapparelrender/buttonhole?wid=112&obj=Buttonhole/Color&color=244,241,244&fmt=png-alpha",
+        "rgb": "244,241,244",
+        "display_order": 3,
+        "active": 1
+    },
+    {
+        "value": "charcoal",
+        "code": "C9949",
+        "description": "Charcoal",
+        "image": "http://s7d4.scene7.com/ir/render/trinityapparelrender/buttonhole?wid=112&obj=Buttonhole/Color&color=108,111,115&fmt=png-alpha",
+        "rgb": "108,111,115",
+        "display_order": 22,
+        "active": 1
+    },
+    {
+        "value": "silver",
+        "code": "C9114",
+        "description": "Silver",
+        "image": "http://s7d4.scene7.com/ir/render/trinityapparelrender/buttonhole?wid=112&obj=Buttonhole/Color&color=181,183,185&fmt=png-alpha",
+        "rgb": "181,183,185",
+        "display_order": 8,
+        "active": 1
+    },
+    {
+        "value": "beige",
+        "code": "C1172",
+        "description": "Beige",
+        "image": "http://s7d4.scene7.com/ir/render/trinityapparelrender/buttonhole?wid=112&obj=Buttonhole/Color&color=233,232,128&fmt=png-alpha",
+        "rgb": "233,232,128",
+        "display_order": 30,
+        "active": 1
+    }
+]
+```
+
+Returns an array of active threads.
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/material_threads`
+
+### Query Parameters
+
+| Parameter       | Default | Description                                                       |
+| --------------- | ------- | ----------------------------------------------------------------- |
+| show_archived   | false   | If set to true, the result will also include inactive threads.    |
+| code            | N/A     | If set, will return any threads with exact matching code.         |
+| description     | N/A     | If set, will return any threads with exact matching descriptions. |
+| q               | N/A     | If set, return all fuzzy matched descriptions.                    |
+| option_value_id | N/A     | If set, returns all valid threads for that option value.          |
+
+### Other
+
+- Permissions: All
+- Pagination: Yes
+
+### Querying by multiple thread descriptions or codes
+
+In order to query for multiple threads, you will pass in multiple params with the format like below:
+
+`GET https://api.trinity-apparel.com/v1/material_threads?description[]=Black&description[]=Medium Gray&description[]=Trinity Blue`
+
+OR
+
+`GET https://api.trinity-apparel.com/v1/material_threads?code[]=C9770&code[]=C9949&code[]=C7305`
+
+## Get a Specific Thread
+
+```shell
+curl "https://api.trinity-apparel.com/v1/material_threads/trinity_blue"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "value": "trinity_blue",
+  "code": "C7305",
+  "description": "Trinity Blue",
+  "image": "http://s7d4.scene7.com/ir/render/trinityapparelrender/buttonhole?wid=112&obj=Buttonhole/Colorcolor=40,81,147&fmt=png-alpha",
+  "rgb": "40,81,147",
+  "display_order": 11,
+  "active": 1
+}
+```
+
+Returns details on a specific thread.
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/material_threads/:value`
+
+### Query Parameters
+
+| Parameter | Default | Description                               |
+| --------- | ------- | ----------------------------------------- |
+| value     | N/A     | The specific thread value you want to see |
+
+### Other
+
+- Permissions: All
+- Pagination: N/A
