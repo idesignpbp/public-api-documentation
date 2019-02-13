@@ -806,3 +806,216 @@ Returns details on a specific label.
 
 - Permissions: All
 - Pagination: N/A
+
+## Get All Suedes
+
+```shell
+curl "https://api.trinity-apparel.com/v1/suedes"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+        "value": "MS-219183_silver",
+        "description": "7-02 Silver",
+        "image": "http://s7d4.scene7.com/is/image/trinityapparel/7-02_Silver?&hei=100",
+        "rgb": "212,212,212",
+        "display_order": 2,
+        "active": true
+    },
+    {
+        "value": "MS-219184_gray",
+        "description": "7-03 Gray",
+        "image": "http://s7d4.scene7.com/is/image/trinityapparel/7-03_Gray?&hei=100",
+        "rgb": "111,98,110",
+        "display_order": 3,
+        "active": true
+    },
+    {
+        "value": "MS-219185_charcoal",
+        "description": "7-04 Charcoal",
+        "image": "http://s7d4.scene7.com/is/image/trinityapparel/7-04_Charcoal?&hei=100",
+        "rgb": "85,83,83",
+        "display_order": 4,
+        "active": true
+    },
+    {
+        "value": "MS-219186_black",
+        "description": "7-05 Black",
+        "image": "http://s7d4.scene7.com/is/image/trinityapparel/7-05_Black?&hei=100",
+        "rgb": "0,0,0",
+        "display_order": 5,
+        "active": true
+    },
+    {
+        "value": "MS-219187_lt__blue",
+        "description": "7-08 Blue",
+        "image": "http://s7d4.scene7.com/is/image/trinityapparel/7-08_Blue?&hei=100",
+        "rgb": "37,53,97",
+        "display_order": 8,
+        "active": true
+    },
+    {
+        "value": "MS-219188_blue",
+        "description": "7-07 Navy",
+        "image": "http://s7d4.scene7.com/is/image/trinityapparel/7-07_Navy?&hei=100",
+        "rgb": "56,57,73",
+        "display_order": 7,
+        "active": true
+    },
+    {
+        "value": "MS-219189_navy",
+        "description": "7-06 Midnight Blue",
+        "image": "http://s7d4.scene7.com/is/image/trinityapparel/7-06_Midnight_Blue?&hei=100",
+        "rgb": "41,37,49",
+        "display_order": 6,
+        "active": true
+    },
+    {
+        "value": "MS-219190_olive",
+        "description": "7-39 Olive",
+        "image": "http://s7d4.scene7.com/is/image/trinityapparel/7-39_Olive?&hei=100",
+        "rgb": "99,94,76",
+        "display_order": 39,
+        "active": true
+    },
+    {
+        "value": "MS-219191_camel",
+        "description": "7-22 Sand",
+        "image": "http://s7d4.scene7.com/is/image/trinityapparel/7-22_Sand?&hei=100",
+        "rgb": "198,173,143",
+        "display_order": 22,
+        "active": true
+    },
+    {
+        "value": "MS-219192_brown",
+        "description": "7-25 Mocha",
+        "image": "http://s7d4.scene7.com/is/image/trinityapparel/7-25_Mocha?&hei=100",
+        "rgb": "106,69,39",
+        "display_order": 25,
+        "active": true
+    },
+    {
+        "value": "MS-219193_chocolate",
+        "description": "7-26 Dark Brown",
+        "image": "http://s7d4.scene7.com/is/image/trinityapparel/7-26_Dark_Brown?&hei=100",
+        "rgb": "56,43,32",
+        "display_order": 26,
+        "active": true
+    },
+    {
+        "value": "MS-219194_rust",
+        "description": "7-28 Orange",
+        "image": "http://s7d4.scene7.com/is/image/trinityapparel/7-28_Orange?&hei=100",
+        "rgb": "195,82,49",
+        "display_order": 28,
+        "active": true
+    },
+    {
+        "value": "MS-219195_mahogany",
+        "description": "7-27 Rust",
+        "image": "http://s7d4.scene7.com/is/image/trinityapparel/7-27_Rust?&hei=100",
+        "rgb": "135,55,38",
+        "display_order": 27,
+        "active": true
+    },
+    {
+        "value": "MS-219196_burgundy",
+        "description": "7-16 Burgundy",
+        "image": "http://s7d4.scene7.com/is/image/trinityapparel/7-16_Burgundy?&hei=100",
+        "rgb": "112,31,38",
+        "display_order": 16,
+        "active": true
+    },
+    {
+        "value": "MS-219197_maroon",
+        "description": "7-15 Maroon",
+        "image": "http://s7d4.scene7.com/is/image/trinityapparel/7-15_Maroon?&hei=100",
+        "rgb": "89,39,54",
+        "display_order": 15,
+        "active": true
+    },
+    {
+        "value": "MS-219198_purple",
+        "description": "7-14 Purple",
+        "image": "http://s7d4.scene7.com/is/image/trinityapparel/7-14_Purple?&hei=100",
+        "rgb": "92,59,87",
+        "display_order": 14,
+        "active": true
+    },
+    {
+        "value": "MS-219199_lavender",
+        "description": "7-13 Lavender",
+        "image": "http://s7d4.scene7.com/is/image/trinityapparel/7-13_Lavender?&hei=100",
+        "rgb": "197,179,223",
+        "display_order": 13,
+        "active": true
+    }
+]
+```
+
+Returns an array of active suedes.
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/suedes`
+
+### Query Parameters
+
+| Parameter       | Default | Description                                                      |
+| --------------- | ------- | ---------------------------------------------------------------- |
+| show_archived   | false   | If set to true, the result will also include inactive suedes.    |
+| description     | N/A     | If set, will return any suedes with exact matching descriptions. |
+| q               | N/A     | If set, return all fuzzy matched descriptions.                   |
+| option_value_id | N/A     | If set, returns all valid suedes for that option value.          |
+
+### Other
+
+- Permissions: All
+- Pagination: Yes
+
+### Querying by multiple suede descriptions
+
+In order to query for multiple suedes, you will pass in multiple params with the format like below:
+
+`GET https://api.trinity-apparel.com/v1/suedes?description[]=7-03 Gray&description[]=7-05 Black&description[]=7-06 Midnight Blue`
+
+## Get a Specific Suede
+
+```shell
+curl "https://api.trinity-apparel.com/v1/suedes/MS-219187_lt__blue"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "value": "MS-219187_lt__blue",
+  "description": "7-08 Blue",
+  "image": "http://s7d4.scene7.com/is/image/trinityapparel/7-08_Blue?&hei=100",
+  "rgb": "37,53,97",
+  "display_order": 8,
+  "active": true
+}
+```
+
+Returns details on a specific suede.
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/suedes/:value`
+
+### Query Parameters
+
+| Parameter | Default | Description                              |
+| --------- | ------- | ---------------------------------------- |
+| value     | N/A     | The specific suede value you want to see |
+
+### Other
+
+- Permissions: All
+- Pagination: N/A
