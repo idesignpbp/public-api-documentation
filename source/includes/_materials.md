@@ -609,3 +609,200 @@ Returns details on a specific felt.
 
 - Permissions: All
 - Pagination: N/A
+
+## Get All Labels
+
+```shell
+curl "https://api.trinity-apparel.com/v1/labels"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+        "value": "ivory_label",
+        "description": "Ivory Label",
+        "image": "http://s7d4.scene7.com/is/image/trinityapparel/ivory_label?wid=300",
+        "rgb": null,
+        "display_order": 0,
+        "active": 1
+    },
+    {
+        "value": "purple_label",
+        "description": "Purple Label",
+        "image": "http://s7d4.scene7.com/is/image/trinityapparel/purple_label?wid=300",
+        "rgb": null,
+        "display_order": 1,
+        "active": 1
+    },
+    {
+        "value": "green_label",
+        "description": "Green Label",
+        "image": "http://s7d4.scene7.com/is/image/trinityapparel/green_label?wid=300",
+        "rgb": null,
+        "display_order": 2,
+        "active": 1
+    },
+    {
+        "value": "tan_label",
+        "description": "Tan Label",
+        "image": "http://s7d4.scene7.com/is/image/trinityapparel/tan_label?wid=300",
+        "rgb": null,
+        "display_order": 3,
+        "active": 1
+    },
+    {
+        "value": "maroon_label",
+        "description": "Maroon Label",
+        "image": "http://s7d4.scene7.com/is/image/trinityapparel/maroon_label?wid=300",
+        "rgb": null,
+        "display_order": 4,
+        "active": 1
+    },
+    {
+        "value": "blue_label",
+        "description": "Blue Label",
+        "image": "http://s7d4.scene7.com/is/image/trinityapparel/blue_label?wid=300",
+        "rgb": null,
+        "display_order": 5,
+        "active": 1
+    },
+    {
+        "value": "sky_blue_label",
+        "description": "Sky Blue Label",
+        "image": "http://s7d4.scene7.com/is/image/trinityapparel/sky_blue_label?wid=300",
+        "rgb": null,
+        "display_order": 6,
+        "active": 1
+    },
+    {
+        "value": "orange_label",
+        "description": "Orange Label",
+        "image": "http://s7d4.scene7.com/is/image/trinityapparel/orange_label?wid=300",
+        "rgb": null,
+        "display_order": 7,
+        "active": 1
+    },
+    {
+        "value": "red_label",
+        "description": "Red Label",
+        "image": "http://s7d4.scene7.com/is/image/trinityapparel/red_label?wid=300",
+        "rgb": null,
+        "display_order": 8,
+        "active": 1
+    },
+    {
+        "value": "label",
+        "description": "Black Label",
+        "image": "http://s7d4.scene7.com/is/image/trinityapparel/black_label?wid=300",
+        "rgb": null,
+        "display_order": 9,
+        "active": 1
+    },
+    {
+        "value": "direct_embroider_lining",
+        "description": "Embroider Directly on Garment Lining",
+        "image": "http://s7d4.scene7.com/is/image/trinityapparel/Embroidery_Lining?wid=300",
+        "rgb": null,
+        "display_order": 10,
+        "active": 1
+    },
+    {
+        "value": "direct_embroider_undercollar",
+        "description": "Embroidery Directly on Undercollar Felt/Microsuede",
+        "image": "http://s7d4.scene7.com/is/image/trinityapparel/Embroidery_Undercollar?wid=300",
+        "rgb": null,
+        "display_order": 11,
+        "active": 1
+    },
+    {
+        "value": "no",
+        "description": "No",
+        "image": "http://s7d4.scene7.com/is/image/trinityapparel/no_label?wid=300",
+        "rgb": null,
+        "display_order": 12,
+        "active": 1
+    },
+    {
+        "value": "yellow_label",
+        "description": "Yellow Label",
+        "image": "http://s7d4.scene7.com/is/image/trinityapparel/yellow_label?wid=300",
+        "rgb": null,
+        "display_order": 13,
+        "active": 1
+    },
+    {
+        "value": "light_gray_label",
+        "description": "Light Gray Label",
+        "image": "http://s7d4.scene7.com/is/image/trinityapparel/light_grey_label?wid=300",
+        "rgb": null,
+        "display_order": 14,
+        "active": 1
+    }
+]
+```
+
+Returns an array of active labels.
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/labels`
+
+### Query Parameters
+
+| Parameter       | Default | Description                                                      |
+| --------------- | ------- | ---------------------------------------------------------------- |
+| show_archived   | false   | If set to true, the result will also include inactive labels.    |
+| description     | N/A     | If set, will return any labels with exact matching descriptions. |
+| q               | N/A     | If set, return all fuzzy matched descriptions.                   |
+| option_value_id | N/A     | If set, returns all valid labels for that option value.          |
+
+### Other
+
+- Permissions: All
+- Pagination: Yes
+
+### Querying by multiple label descriptions
+
+In order to query for multiple labels, you will pass in multiple params with the format like below:
+
+`GET https://api.trinity-apparel.com/v1/labels?description[]=Ivory Label&description[]=Maroon Label&description[]=Sky Blue Label`
+
+## Get a Specific Label
+
+```shell
+curl "https://api.trinity-apparel.com/v1/labels/orange_label"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "value": "orange_label",
+  "description": "Orange Label",
+  "image": "http://s7d4.scene7.com/is/image/trinityapparel/orange_label?wid=300",
+  "rgb": null,
+  "display_order": 7,
+  "active": 1
+}
+```
+
+Returns details on a specific label.
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/labels/:value`
+
+### Query Parameters
+
+| Parameter | Default | Description                              |
+| --------- | ------- | ---------------------------------------- |
+| value     | N/A     | The specific label value you want to see |
+
+### Other
+
+- Permissions: All
+- Pagination: N/A
