@@ -9,6 +9,7 @@ includes:
   - pagination
   - fabrics
   - orders
+  - materials
 
 search: true
 ---
