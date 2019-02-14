@@ -2,7 +2,7 @@
 
 ## Material Resources
 
-The current materials are Buttons, Felts, Labels, Suedes, and Threads.  Each material has it's own endpoint, but they all work in a nearly identical way and provide the same routes and parameter's.  The only exception is Threads as it also returns and can be filtered on a code.
+The current materials are Buttons, Felts, Labels, Suedes, and Threads.  Each material has its own endpoint, but they all work in a nearly identical way and provide the same routes and parameters.  The only exception is Threads, which also returns and can be filtered on a code.
 
 ### Buttons, Felts, Labels, Suedes
 
@@ -29,7 +29,7 @@ Standard Attributes
 | display_order <br> <span>integer</span> | The order that the material is displayed in Workflow.          |
 | active <br> <span>boolean</span>        | Inactive materials are removed from search results by default. |
 
-### Material Threads
+### Threads
 
 ```json
 # Standard Object - Used in a resource collection
@@ -1020,7 +1020,7 @@ Returns details on a specific suede.
 - Permissions: All
 - Pagination: N/A
 
-## Get All Material Threads
+## Get All Threads
 
 ```shell
 curl "https://api.trinity-apparel.com/v1/material_theads"
