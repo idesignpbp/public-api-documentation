@@ -105,10 +105,14 @@ Standard Attributes
 
 Extended attributes (in addition to standard attributes)
 
-| Attribute                             | Description                                                                                    |
-| ------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| description <br> <span>string</span>  | A one to two paragraph descripton of the collection                                            |
-| fabrics <br> <span>subresource</span> | A list of all fabrics that are a part of the collection. *NOTE: Inactive fabrics may be shown* |
+| Attribute                                     | Description                                                                                    |
+| --------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| title <br> <span>string</span>                | The name of the collection without the datecode.                                               |
+| datecode <br> <span>string</span>             | The datecode of the collection (E.g., V12345).                                                 |
+| image <br> <span>string</span>                | URL to the image for the collection.                                                           |
+| description <br> <span>string</span>          | A one to two paragraph descripton of the collection.                                           |
+| featured_fabric <br> <span>subresource</span> | The first fabric in the collection.                                                            |
+| fabrics <br> <span>subresource</span>         | A list of all fabrics that are a part of the collection. *NOTE: Inactive fabrics may be shown* |
 
 ### Composition
 
