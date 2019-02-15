@@ -124,19 +124,19 @@ Extended attributes (in addition to standard attributes)
 ```json
 # Standard Object - Used in a resource collection
 {
-    "id": 57,
-    "name": "Soktas",
-    "contact": "Amy Keats",
-    "code": "SK",
-    "address1": "Cumhuriyet Mah Akeller Cad",
+    "id": 481,
+    "name": "Supplier",
+    "contact": "Frank Warf",
+    "code": "FW",
+    "address1": "4210 Green Hill Road",
     "address2": null,
-    "city": "Aydin",
-    "state": null,
-    "zip": null,
-    "country": "Turkey",
-    "email": null,
-    "phone": "+90 256 518 22 55",
-    "fax": null
+    "city": "Springdale",
+    "state": "Arkansas",
+    "zip": "72764",
+    "country": "USA",
+    "email": "emmitt.jaco@gmail.com",
+    "phone": "479-251-0678",
+    "fax": "479-216-9139"
 }
 ```
 
@@ -916,19 +916,19 @@ curl "https://api.trinity-apparel.com/v1/fabrics/40985"
         "name": "Soktas Bespoke V17082"
     },
     "supplier": {
-        "id": 57,
-        "name": "Soktas",
-        "contact": "Amy Keats",
-        "code": "SK",
-        "address1": "Cumhuriyet Mah Akeller Cad",
+        "id": 481,
+        "name": "Supplier",
+        "contact": "Frank Warf",
+        "code": "FW",
+        "address1": "4210 Green Hill Road",
         "address2": null,
-        "city": "Aydin",
-        "state": null,
-        "zip": null,
-        "country": "Turkey",
-        "email": null,
-        "phone": "+90 256 518 22 55",
-        "fax": null
+        "city": "Springdale",
+        "state": "Arkansas",
+        "zip": "72764",
+        "country": "USA",
+        "email": "emmitt.jaco@gmail.com",
+        "phone": "479-251-0678",
+        "fax": "479-216-9139"
     },
     "composition": {
         "id": 13,
