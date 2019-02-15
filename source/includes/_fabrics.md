@@ -51,11 +51,14 @@ Standard Attributes
     "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=S2-3540985&res=300",
     "inventory_status": "In Stock",
     "country_origin": "International",
-    "fabric_weight_grams_meter": 125,
     "fabric_grouping": "shirts",
     "pattern": "solid",
+    "usage": "Garment Trim",
     "last_stock_edit_date": "2018-01-19T18:36:51.000Z",
+    "fabric_year": 2017,
+    "weight": 125,
     "collection": ...,
+    "supplier": ...,
     "composition": ...,
     "mill": ...
 }
@@ -107,46 +110,51 @@ Standard Attributes
 
 Extended attributes (in addition to standard attributes)
 
-| Attribute                                     | Description                                                                                    |
-| --------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| title <br> <span>string</span>                | The name of the collection without the datecode.                                               |
-| datecode <br> <span>string</span>             | The datecode of the collection (E.g., v18011). The first two digits are the year (2018), the next two are the month (01 = January), and the last one is which release we did during that month (1 = first).                                                 |
-| image <br> <span>string</span>                | URL to a thumbnail image for the collection. Image size is 105x100 px.                                                           |
-| description <br> <span>string</span>          | A one to two paragraph descripton of the collection.                                           |
-| featured_fabric <br> <span>subresource</span> | The featured fabric is shown in collection previews. It is typically the first fabric in the collection.                                                           |
-| fabrics <br> <span>subresource</span>         | A list of all fabrics that are a part of the collection. *NOTE: Inactive fabrics may be shown* |
+| Attribute                                     | Description                                                                                                                                                                                                 |
+| --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| title <br> <span>string</span>                | The name of the collection without the datecode.                                                                                                                                                            |
+| datecode <br> <span>string</span>             | The datecode of the collection (E.g., v18011). The first two digits are the year (2018), the next two are the month (01 = January), and the last one is which release we did during that month (1 = first). |
+| image <br> <span>string</span>                | URL to a thumbnail image for the collection. Image size is 105x100 px.                                                                                                                                      |
+| description <br> <span>string</span>          | A one to two paragraph descripton of the collection.                                                                                                                                                        |
+| featured_fabric <br> <span>subresource</span> | The featured fabric is shown in collection previews. It is typically the first fabric in the collection.                                                                                                    |
+| fabrics <br> <span>subresource</span>         | A list of all fabrics that are a part of the collection. *NOTE: Inactive fabrics may be shown*                                                                                                              |
 
 ### Supplier
 
 ```json
 # Standard Object - Used in a resource collection
 {
-    "supplier_id": 30,
-    "supplier_name": "Sunrise",
-    "contact_name": null,
-    "supplier_address1": "",
-    "supplier_address2": null,
-    "supplier_city": "",
-    "supplier_state": null,
-    "supplier_zip": null,
-    "supplier_country": "Hong Kong",
-    "phone": null,
-    "fax": null,
-    "supplier_email": null,
-    "standard_delay": 0,
-    "preferred_currency": "",
-    "supplier_code": "SU",
-    "is_factory": false,
-    "login_id": 2
+    "id": 43,
+    "name": "Private Stock Neckwear",
+    "contact": "Gary Cahn",
+    "address1": "36 Glenside Rd",
+    "address2": null,
+    "city": "South Orange",
+    "state": "NJ",
+    "zip": "07079",
+    "country": "USA",
+    "email": "gcahn@privatestockmenswear.com",
+    "phone": "973-763-3474",
+    "fax": "973-767-1164"
 }
 ```
 
 Standard Attributes
 
-| Attribute                            | Description                                   |
-| ------------------------------------ | --------------------------------------------- |
-| id <br> <span>string</span>          | Unique identifier for the object              |
-| description <br> <span>string</span> | A brief description of the fabric composition |
+| Attribute                         | Description                                        |
+| --------------------------------- | -------------------------------------------------- |
+| id <br> <span>string</span>       | Unique identifier for the object.                  |
+| name <br> <span>string</span>     | The name of the supplier.                          |
+| contact <br> <span>string</span>  | The name of the contact person for the supplier.   |
+| address1 <br> <span>string</span> | The first address line of the supplier's address.  |
+| address2 <br> <span>string</span> | The second address line of the supplier's address. |
+| city <br> <span>string</span>     | The city of the supplier's address.                |
+| state <br> <span>string</span>    | The state of the supplier's address.               |
+| zip <br> <span>string</span>      | The zip code of the supplier's address.            |
+| country <br> <span>string</span>  | The country of the supplier's address.             |
+| email <br> <span>string</span>    | The email address for the supplier.                |
+| phone <br> <span>string</span>    | The phone number for the supplier.                 |
+| fax <br> <span>string</span>      | The fax number for the supplier.                   |
 
 ### Composition
 
@@ -328,7 +336,58 @@ curl "https://api.trinity-apparel.com/v1/collections/1854"
 {
     "id": 1854,
     "name": "Outerwear V18082",
+    "title": "Outerwear",
+    "datecode": "V18082",
+    "image": "https://s7d4.scene7.com/is/image/trinityapparel/?&hei=100",
     "description": "",
+    "featured_fabric": {
+        "fabric_id": 54875,
+        "create_date": "2018-07-28T11:25:46.000Z",
+        "active": false,
+        "supplier_id": 1,
+        "fabric_mill_id": 1038,
+        "label_id": null,
+        "supplier_fabric_num": "BT65151-1",
+        "trinity_fabric_num": "C4-3754875",
+        "country_origin": "International",
+        "fabric_weight_grams_meter": 510,
+        "cloth_desc": "Blue Navy Plaid",
+        "fabric_grouping": "blue",
+        "secondary_fabric_grouping": null,
+        "pattern": "plaid",
+        "fabric_width": "60.0",
+        "cuttable_width": "60.0",
+        "grain_repeat": null,
+        "crosswise_repeat": null,
+        "one_way_nap": false,
+        "horiz_pattern": false,
+        "non_iron": false,
+        "supplier_price_dollars_meter": "1.83",
+        "supplier_price_dollars_yard": "2.0",
+        "in_stock": 1,
+        "restock_date": null,
+        "sub_supplier_id": null,
+        "sub_fabric_num": null,
+        "rapid_replenishment": false,
+        "last_stock_edit_date": null,
+        "fabric_price_code_id": 179,
+        "fabric_composition_id": 361,
+        "fabric_garment_type": 743,
+        "trim_garment_type": 0,
+        "fabric_usage": 1,
+        "premium_id": 1,
+        "fabric_season": 37,
+        "fabric_year": 2018,
+        "luxury_level_id": 22,
+        "collection_id": 1854,
+        "material_type_id": 12,
+        "base_color": null,
+        "deco_color_1": null,
+        "deco_color_2": null,
+        "panel": 1,
+        "panel_row": 1,
+        "panel_column": 1
+    },
     "fabrics": [
         {
             "id": 54875,
@@ -448,54 +507,6 @@ curl "https://api.trinity-apparel.com/v1/collections/1854"
             "trinity_fabric_number": "Z6-3754884",
             "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z6-3754884",
             "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z6-3754884&res=300",
-            "inventory_status": "In Stock"
-        },
-        {
-            "id": 54885,
-            "active": false,
-            "in_stock": 1,
-            "restock_date": null,
-            "description": "Grey Expanded Herringbone",
-            "supplier_fabric_number": "340031",
-            "trinity_fabric_number": "Z6-3754885",
-            "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z6-3754885",
-            "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z6-3754885&res=300",
-            "inventory_status": "In Stock"
-        },
-        {
-            "id": 54886,
-            "active": false,
-            "in_stock": 1,
-            "restock_date": null,
-            "description": "Navy Blue Basket",
-            "supplier_fabric_number": "601 574 900",
-            "trinity_fabric_number": "Z4-3754886",
-            "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z4-3754886",
-            "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z4-3754886&res=300",
-            "inventory_status": "In Stock"
-        },
-        {
-            "id": 54887,
-            "active": false,
-            "in_stock": 1,
-            "restock_date": null,
-            "description": "Red Charcoal Check",
-            "supplier_fabric_number": "665 102 1500",
-            "trinity_fabric_number": "Z6-3754887",
-            "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z6-3754887",
-            "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z6-3754887&res=300",
-            "inventory_status": "In Stock"
-        },
-        {
-            "id": 54888,
-            "active": false,
-            "in_stock": 1,
-            "restock_date": null,
-            "description": "Blue Diamond",
-            "supplier_fabric_number": "665 104 1500",
-            "trinity_fabric_number": "Z6-3754888",
-            "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z6-3754888",
-            "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z6-3754888&res=300",
             "inventory_status": "In Stock"
         }
     ]
@@ -892,14 +903,29 @@ curl "https://api.trinity-apparel.com/v1/fabrics/40985"
     "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=S2-3540985&res=300",
     "inventory_status": "In Stock",
     "country_origin": "International",
-    "fabric_weight_grams_meter": 125,
     "fabric_grouping": "shirts",
     "pattern": "solid",
+    "usage": "Garment Trim",
     "last_stock_edit_date": "2018-01-19T18:36:51.000Z",
     "fabric_year": 2017,
+    "weight": 125,
     "collection": {
         "id": 1520,
         "name": "Soktas Bespoke V17082"
+    },
+    "supplier": {
+        "id": 57,
+        "name": "Soktas",
+        "contact": "Amy Keats",
+        "address1": "Cumhuriyet Mah Akeller Cad",
+        "address2": null,
+        "city": "Aydin",
+        "state": null,
+        "zip": null,
+        "country": "Turkey",
+        "email": null,
+        "phone": "+90 256 518 22 55",
+        "fax": null
     },
     "composition": {
         "id": 13,
