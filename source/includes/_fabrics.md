@@ -63,17 +63,19 @@ Standard Attributes
 
 Extended attributes
 
-| Attribute                                           | Description                                                        |
-| --------------------------------------------------- | ------------------------------------------------------------------ |
-| country_origin <br> <span>string</span>             | Where the fabric was milled                                        |
-| fabric_weight_grams_meter <br> <span>integer</span> | Weight in grams per square meter                                   |
-| fabric_grouping <br> <span>string</span>            | Fabrics are typically grouped by dominant color                    |
-| pattern <br> <span>string</span>                    | Type of pattern. Common values are `stripe`, `check`, and `solid`. |
-| last_stock_edit_date <br> <span>datetime</span>     | The last time the fabric inventory level was changed               |
-| fabric_year <br> <span>year</span>                  | The year the fabric was released                                   |
-| collection <br> <span>subresource</span>            | The collection in which the fabric was released                    |
-| composition <br> <span>subresource</span>           | The material composition of the fabric (E.g, 100% Wool)            |
-| mill <br> <span>subresource</span>                  | The mill that produced the fabric                                  |
+| Attribute                                       | Description                                                        |
+| ----------------------------------------------- | ------------------------------------------------------------------ |
+| country_origin <br> <span>string</span>         | Where the fabric was milled.                                       |
+| weight <br> <span>integer</span>                | Weight in grams per square meter.                                  |
+| usage <br> <span>integer</span>                 | The usage of the fabric (E.g., Shirt Trim, Clothing Trim, etc).    |
+| fabric_grouping <br> <span>string</span>        | Fabrics are typically grouped by dominant color.                   |
+| pattern <br> <span>string</span>                | Type of pattern. Common values are `stripe`, `check`, and `solid`. |
+| last_stock_edit_date <br> <span>datetime</span> | The last time the fabric inventory level was changed.              |
+| fabric_year <br> <span>year</span>              | The year the fabric was released.                                  |
+| collection <br> <span>subresource</span>        | The collection in which the fabric was released.                   |
+| supplier <br> <span>subresource</span>          | Information about the supplier of the fabric.                      |
+| composition <br> <span>subresource</span>       | The material composition of the fabric (E.g, 100% Wool).           |
+| mill <br> <span>subresource</span>              | The mill that produced the fabric.                                 |
 
 ### Collection
 
@@ -105,10 +107,46 @@ Standard Attributes
 
 Extended attributes (in addition to standard attributes)
 
-| Attribute                             | Description                                                                                    |
-| ------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| description <br> <span>string</span>  | A one to two paragraph descripton of the collection                                            |
-| fabrics <br> <span>subresource</span> | A list of all fabrics that are a part of the collection. *NOTE: Inactive fabrics may be shown* |
+| Attribute                                     | Description                                                                                    |
+| --------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| title <br> <span>string</span>                | The name of the collection without the datecode.                                               |
+| datecode <br> <span>string</span>             | The datecode of the collection (E.g., v18011). The first two digits are the year (2018), the next two are the month (01 = January), and the last one is which release we did during that month (1 = first).                                                 |
+| image <br> <span>string</span>                | URL to a thumbnail image for the collection. Image size is 105x100 px.                                                           |
+| description <br> <span>string</span>          | A one to two paragraph descripton of the collection.                                           |
+| featured_fabric <br> <span>subresource</span> | The featured fabric is shown in collection previews. It is typically the first fabric in the collection.                                                           |
+| fabrics <br> <span>subresource</span>         | A list of all fabrics that are a part of the collection. *NOTE: Inactive fabrics may be shown* |
+
+### Supplier
+
+```json
+# Standard Object - Used in a resource collection
+{
+    "supplier_id": 30,
+    "supplier_name": "Sunrise",
+    "contact_name": null,
+    "supplier_address1": "",
+    "supplier_address2": null,
+    "supplier_city": "",
+    "supplier_state": null,
+    "supplier_zip": null,
+    "supplier_country": "Hong Kong",
+    "phone": null,
+    "fax": null,
+    "supplier_email": null,
+    "standard_delay": 0,
+    "preferred_currency": "",
+    "supplier_code": "SU",
+    "is_factory": false,
+    "login_id": 2
+}
+```
+
+Standard Attributes
+
+| Attribute                            | Description                                   |
+| ------------------------------------ | --------------------------------------------- |
+| id <br> <span>string</span>          | Unique identifier for the object              |
+| description <br> <span>string</span> | A brief description of the fabric composition |
 
 ### Composition
 
