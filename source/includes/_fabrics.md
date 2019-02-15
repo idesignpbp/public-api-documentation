@@ -124,18 +124,19 @@ Extended attributes (in addition to standard attributes)
 ```json
 # Standard Object - Used in a resource collection
 {
-    "id": 43,
-    "name": "Private Stock Neckwear",
-    "contact": "Gary Cahn",
-    "address1": "36 Glenside Rd",
+    "id": 57,
+    "name": "Soktas",
+    "contact": "Amy Keats",
+    "code": "SK",
+    "address1": "Cumhuriyet Mah Akeller Cad",
     "address2": null,
-    "city": "South Orange",
-    "state": "NJ",
-    "zip": "07079",
-    "country": "USA",
-    "email": "gcahn@privatestockmenswear.com",
-    "phone": "973-763-3474",
-    "fax": "973-767-1164"
+    "city": "Aydin",
+    "state": null,
+    "zip": null,
+    "country": "Turkey",
+    "email": null,
+    "phone": "+90 256 518 22 55",
+    "fax": null
 }
 ```
 
@@ -146,6 +147,7 @@ Standard Attributes
 | id <br> <span>string</span>       | Unique identifier for the object.                  |
 | name <br> <span>string</span>     | The name of the supplier.                          |
 | contact <br> <span>string</span>  | The name of the contact person for the supplier.   |
+| code <br> <span>string</span>     | The abbreviated name for a supplier.               |
 | address1 <br> <span>string</span> | The first address line of the supplier's address.  |
 | address2 <br> <span>string</span> | The second address line of the supplier's address. |
 | city <br> <span>string</span>     | The city of the supplier's address.                |
@@ -917,6 +919,7 @@ curl "https://api.trinity-apparel.com/v1/fabrics/40985"
         "id": 57,
         "name": "Soktas",
         "contact": "Amy Keats",
+        "code": "SK",
         "address1": "Cumhuriyet Mah Akeller Cad",
         "address2": null,
         "city": "Aydin",
