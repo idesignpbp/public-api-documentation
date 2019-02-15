@@ -110,10 +110,10 @@ Extended attributes (in addition to standard attributes)
 | Attribute                                     | Description                                                                                    |
 | --------------------------------------------- | ---------------------------------------------------------------------------------------------- |
 | title <br> <span>string</span>                | The name of the collection without the datecode.                                               |
-| datecode <br> <span>string</span>             | The datecode of the collection (E.g., V12345).                                                 |
-| image <br> <span>string</span>                | URL to the image for the collection.                                                           |
+| datecode <br> <span>string</span>             | The datecode of the collection (E.g., v18011). The first two digits are the year (2018), the next two are the month (01 = January), and the last one is which release we did during that month (1 = first).                                                 |
+| image <br> <span>string</span>                | URL to a thumbnail image for the collection. Image size is 105x100 px.                                                           |
 | description <br> <span>string</span>          | A one to two paragraph descripton of the collection.                                           |
-| featured_fabric <br> <span>subresource</span> | The first fabric in the collection.                                                            |
+| featured_fabric <br> <span>subresource</span> | The featured fabric is shown in collection previews. It is typically the first fabric in the collection.                                                           |
 | fabrics <br> <span>subresource</span>         | A list of all fabrics that are a part of the collection. *NOTE: Inactive fabrics may be shown* |
 
 ### Supplier
