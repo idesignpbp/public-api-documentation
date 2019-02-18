@@ -10,6 +10,7 @@ includes:
   - fabrics
   - orders
   - materials
+  - customers
 
 search: true
 ---
