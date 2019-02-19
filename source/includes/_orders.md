@@ -20,7 +20,6 @@ All garments are in a particular order statuses.  While a garment is being produ
 | CANCEL      | Canceled              |
 | CMTHOLD     | CMT Fabric Hold       |
 
-
 ## Delay Statuses
 
 Sometimes a garment gets delayed during production. We categorize the reason for the delay in an effort to speed up the process. Here is a list of all possible delay codes:
@@ -428,6 +427,111 @@ Standard Attributes
 | id <br> <span>integer</span>   | Unique identifier for the object  |
 | name <br> <span>string</span>  | Name of the manufacturer          |
 | email <br> <span>string</span> | Email address of the manufacturer |
+
+### Garment Options
+
+```json
+# Standard Object - Used in a resource collection
+{
+    "updated_at": "2019-02-12T16:36:59.000Z",
+    "text": null,
+    "option": ...,
+    "option_value": ...
+}
+```
+
+Standard Attributes
+
+| Attribute                                  | Description                                                                            |
+| ------------------------------------------ | -------------------------------------------------------------------------------------- |
+| updated_at <br> <span>datetime</span>      | The last time the garment option was updated.                                          |
+| text <br> <span>string</span>              | If the option has a text value (E.g., monogram, label, etc), it will be returned here. |
+| option <br> <span>subresource</span>       | Detailed object for the option.                                                        |
+| option_value <br> <span>subresource</span> | Detailed object for the option value.                                                  |
+
+### Option
+
+```json
+# Standard Object - Used in a resource collection
+{
+    "id": 1,
+    "garment_type": 545,
+    "tailoring_grade": 895,
+    "order_type": 3,
+    "name": "garment_label",
+    "description": "Garment Label",
+    "gerber_option": false,
+    "option_operator": "A1",
+    "option_group_id": 27,
+    "material_type_id": 0,
+    "option_location": "interior",
+    "option_control_type": "select",
+    "popup_text": null,
+    "parent_option_id": null,
+    "display_order": 5,
+    "active": true
+}
+```
+
+Standard Attributes
+
+| Attribute                                    | Description                       |
+| -------------------------------------------- | --------------------------------- |
+| id <br> <span>integer</span>                 | Unique identifier for the object. |
+| garment_type <br> <span>integer</span>       | *Description TBD*                 |
+| tailoring_grade <br> <span>integer</span>    | *Description TBD*                 |
+| order_type <br> <span>integer</span>         | *Description TBD*                 |
+| name <br> <span>string</span>                | *Description TBD*                 |
+| description <br> <span>string</span>         | *Description TBD*                 |
+| gerber_option <br> <span>boolean</span>      | *Description TBD*                 |
+| option_operator <br> <span>string</span>     | *Description TBD*                 |
+| option_group_id <br> <span>integer</span>    | *Description TBD*                 |
+| material_type_id <br> <span>integer</span>   | *Description TBD*                 |
+| option_locator <br> <span>string</span>      | *Description TBD*                 |
+| option_control_type <br> <span>string</span> | *Description TBD*                 |
+| popup_text <br> <span>string</span>          | *Description TBD*                 |
+| parent_option_id <br> <span>integer</span>   | *Description TBD*                 |
+| display_order <br> <span>integer</span>      | *Description TBD*                 |
+| active <br> <span>boolean</span>             | *Description TBD*                 |
+
+### Option Value
+
+```json
+# Standard Object - Used in a resource collection
+{
+    "id": 4,
+    "garment_type": 545,
+    "tailoring_grade": 895,
+    "order_type": 3,
+    "option_value": "no_label",
+    "gerber_optval": false,
+    "rc_price": "0.0",
+    "premium_id": 1,
+    "default_value": true,
+    "copyable": true,
+    "display_order": 2,
+    "active": true,
+    "description": "No Label"
+}
+```
+
+Standard Attributes
+
+| Attribute                                 | Description                       |
+| ----------------------------------------- | --------------------------------- |
+| id <br> <span>integer</span>              | Unique identifier for the object. |
+| garment_type <br> <span>integer</span>    | *Description TBD*                 |
+| tailoring_grade <br> <span>integer</span> | *Description TBD*                 |
+| order_type <br> <span>integer</span>      | *Description TBD*                 |
+| option_value <br> <span>string</span>     | *Description TBD*                 |
+| gerber_optval <br> <span>boolean</span>   | *Description TBD*                 |
+| rc_price <br> <span>string</span>         | *Description TBD*                 |
+| premium_id <br> <span>integer</span>      | *Description TBD*                 |
+| default_value <br> <span>boolean</span>   | *Description TBD*                 |
+| copyable <br> <span>boolean</span>        | *Description TBD*                 |
+| display_order <br> <span>integer</span>   | *Description TBD*                 |
+| active <br> <span>boolean</span>          | *Description TBD*                 |
+| description <br> <span>string</span>      | *Description TBD*                 |
 
 ## Get All Orders (DOs)
 
