@@ -2492,6 +2492,555 @@ Returns details on a specific garment.
 - Permissions: All
 - Pagination: N/A
 
+## Get All Garment Options
+
+```shell
+curl "https://api.trinity-apparel.com/v1/garments/966400/options"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+        "updated_at": "2019-02-12T16:36:59.000Z",
+        "text": null,
+        "option": {
+            "id": 1,
+            "garment_type": 545,
+            "tailoring_grade": 895,
+            "order_type": 3,
+            "name": "garment_label",
+            "description": "Garment Label",
+            "gerber_option": false,
+            "option_operator": "A1",
+            "option_group_id": 27,
+            "material_type_id": 0,
+            "option_location": "interior",
+            "option_control_type": "select",
+            "popup_text": null,
+            "parent_option_id": null,
+            "display_order": 5,
+            "active": true
+        },
+        "option_value": {
+            "id": 4,
+            "garment_type": 545,
+            "tailoring_grade": 895,
+            "order_type": 3,
+            "option_value": "no_label",
+            "gerber_optval": false,
+            "rc_price": "0.0",
+            "premium_id": 1,
+            "default_value": true,
+            "copyable": true,
+            "display_order": 2,
+            "active": true,
+            "description": "No Label"
+        }
+    },
+    {
+        "updated_at": "2019-02-12T16:36:59.000Z",
+        "text": null,
+        "option": {
+            "id": 2,
+            "garment_type": 33,
+            "tailoring_grade": 895,
+            "order_type": 3,
+            "name": "vent_style",
+            "description": "Vent Style",
+            "gerber_option": true,
+            "option_operator": "B1",
+            "option_group_id": 30,
+            "material_type_id": 0,
+            "option_location": "exterior",
+            "option_control_type": "select",
+            "popup_text": null,
+            "parent_option_id": null,
+            "display_order": 1,
+            "active": true
+        },
+        "option_value": {
+            "id": 7,
+            "garment_type": 1,
+            "tailoring_grade": 895,
+            "order_type": 3,
+            "option_value": "side_vent",
+            "gerber_optval": true,
+            "rc_price": "0.0",
+            "premium_id": 1,
+            "default_value": true,
+            "copyable": true,
+            "display_order": 6,
+            "active": true,
+            "description": "Sides (9 1/2\") - Standard"
+        }
+    },
+    {
+        "updated_at": "2019-02-12T16:38:47.000Z",
+        "text": null,
+        "option": {
+            "id": 3,
+            "garment_type": 33,
+            "tailoring_grade": 895,
+            "order_type": 3,
+            "name": "shoulder_style",
+            "description": "Shoulder Style",
+            "gerber_option": true,
+            "option_operator": "B5",
+            "option_group_id": 29,
+            "material_type_id": 0,
+            "option_location": "exterior",
+            "option_control_type": "select",
+            "popup_text": null,
+            "parent_option_id": null,
+            "display_order": 1,
+            "active": true
+        },
+        "option_value": {
+            "id": 656,
+            "garment_type": 33,
+            "tailoring_grade": 383,
+            "order_type": 3,
+            "option_value": "ultra_soft",
+            "gerber_optval": true,
+            "rc_price": "0.0",
+            "premium_id": 1,
+            "default_value": false,
+            "copyable": true,
+            "display_order": 0,
+            "active": true,
+            "description": "Ultra Soft"
+        }
+    },
+    {
+        "updated_at": "2019-02-12T16:36:59.000Z",
+        "text": null,
+        "option": {
+            "id": 4,
+            "garment_type": 33,
+            "tailoring_grade": 895,
+            "order_type": 3,
+            "name": "exterior_breast_pocket",
+            "description": "Exterior Breast Pocket",
+            "gerber_option": true,
+            "option_operator": "A1",
+            "option_group_id": 2,
+            "material_type_id": 0,
+            "option_location": "exterior",
+            "option_control_type": "select",
+            "popup_text": null,
+            "parent_option_id": null,
+            "display_order": 1,
+            "active": true
+        },
+        "option_value": {
+            "id": 730,
+            "garment_type": 1,
+            "tailoring_grade": 383,
+            "order_type": 3,
+            "option_value": "welt_curved_square",
+            "gerber_optval": true,
+            "rc_price": "0.0",
+            "premium_id": 1,
+            "default_value": false,
+            "copyable": true,
+            "display_order": 3,
+            "active": true,
+            "description": "Welt (Curved, Square Edges)"
+        }
+    },
+    {
+        "updated_at": "2019-02-12T16:39:03.000Z",
+        "text": null,
+        "option": {
+            "id": 5,
+            "garment_type": 33,
+            "tailoring_grade": 895,
+            "order_type": 3,
+            "name": "ticket_pocket",
+            "description": "Ticket Pocket",
+            "gerber_option": true,
+            "option_operator": "A1",
+            "option_group_id": 2,
+            "material_type_id": 0,
+            "option_location": "exterior",
+            "option_control_type": "select",
+            "popup_text": null,
+            "parent_option_id": null,
+            "display_order": 5,
+            "active": true
+        },
+        "option_value": {
+            "id": 771,
+            "garment_type": 33,
+            "tailoring_grade": 383,
+            "order_type": 3,
+            "option_value": "patch",
+            "gerber_optval": true,
+            "rc_price": "0.0",
+            "premium_id": 1,
+            "default_value": false,
+            "copyable": true,
+            "display_order": 15,
+            "active": true,
+            "description": "Patch"
+        }
+    },
+    {
+        "updated_at": "2019-02-12T16:36:59.000Z",
+        "text": null,
+        "option": {
+            "id": 6,
+            "garment_type": 33,
+            "tailoring_grade": 895,
+            "order_type": 3,
+            "name": "exterior_lower_pockets",
+            "description": "Exterior Lower Pockets",
+            "gerber_option": true,
+            "option_operator": "A1",
+            "option_group_id": 2,
+            "material_type_id": 0,
+            "option_location": "exterior",
+            "option_control_type": "select",
+            "popup_text": "Microsuede Pocket Jetting is only available on Double Besom pockets",
+            "parent_option_id": null,
+            "display_order": 9,
+            "active": true
+        },
+        "option_value": {
+            "id": 18,
+            "garment_type": 33,
+            "tailoring_grade": 895,
+            "order_type": 3,
+            "option_value": "patch",
+            "gerber_optval": true,
+            "rc_price": "0.0",
+            "premium_id": 1,
+            "default_value": false,
+            "copyable": true,
+            "display_order": 15,
+            "active": true,
+            "description": "Patch"
+        }
+    },
+    {
+        "updated_at": "2019-02-12T16:36:59.000Z",
+        "text": null,
+        "option": {
+            "id": 7,
+            "garment_type": 33,
+            "tailoring_grade": 895,
+            "order_type": 3,
+            "name": "interior_breast_pocket_l",
+            "description": "Interior Breast Pocket (L)",
+            "gerber_option": true,
+            "option_operator": "A1",
+            "option_group_id": 2,
+            "material_type_id": 0,
+            "option_location": "interior",
+            "option_control_type": "select",
+            "popup_text": "Cellphone Pocket: Left and Pen/Pencil Pocket: Left cannot be ordered with Interior Breast Pocket (L): Double Besom Button-Through\nIf Interior Breast Pocket L: Patch Pockets are chosen, Interior Shape: Parallel is required\nShell Fabric Pocket Fasteners are only available on Interior Breast Pockets with Loop, Flap, or Tab",
+            "parent_option_id": null,
+            "display_order": 1,
+            "active": true
+        },
+        "option_value": {
+            "id": 1299,
+            "garment_type": 33,
+            "tailoring_grade": 895,
+            "order_type": 3,
+            "option_value": "double_besom",
+            "gerber_optval": true,
+            "rc_price": "0.0",
+            "premium_id": 1,
+            "default_value": true,
+            "copyable": true,
+            "display_order": 2,
+            "active": true,
+            "description": "Double Besom"
+        }
+    },
+    {
+        "updated_at": "2019-02-12T16:36:59.000Z",
+        "text": null,
+        "option": {
+            "id": 8,
+            "garment_type": 33,
+            "tailoring_grade": 895,
+            "order_type": 3,
+            "name": "interior_breast_pocket_r",
+            "description": "Interior Breast Pocket (R)",
+            "gerber_option": true,
+            "option_operator": "A1",
+            "option_group_id": 2,
+            "material_type_id": 0,
+            "option_location": "interior",
+            "option_control_type": "select",
+            "popup_text": "Cellphone Pocket: Right and Pen/Pencil Pocket: Right cannot be ordered with Interior Breast Pocket (R): Double Besom Button-Through\nIf Interior Breast Pocket R: Patch Pockets are chosen, Interior Shape: Parallel is required\nShell Fabric Pocket Fasteners are only available on Interior Breast Pockets with Loop, Flap, or Tab",
+            "parent_option_id": null,
+            "display_order": 2,
+            "active": true
+        },
+        "option_value": {
+            "id": 1357,
+            "garment_type": 33,
+            "tailoring_grade": 895,
+            "order_type": 3,
+            "option_value": "double_besom",
+            "gerber_optval": true,
+            "rc_price": "0.0",
+            "premium_id": 1,
+            "default_value": true,
+            "copyable": true,
+            "display_order": 2,
+            "active": true,
+            "description": "Double Besom"
+        }
+    },
+    {
+        "updated_at": "2019-02-12T16:36:59.000Z",
+        "text": null,
+        "option": {
+            "id": 9,
+            "garment_type": 33,
+            "tailoring_grade": 895,
+            "order_type": 3,
+            "name": "pen_pencil_pocket",
+            "description": "Pen/Pencil Pocket",
+            "gerber_option": true,
+            "option_operator": "A1",
+            "option_group_id": 2,
+            "material_type_id": 0,
+            "option_location": "interior",
+            "option_control_type": "select",
+            "popup_text": "Interior Breast Pocket: Double Besom Button-Through cannot be ordered with Pen/Pencil Pocket",
+            "parent_option_id": null,
+            "display_order": 6,
+            "active": true
+        },
+        "option_value": {
+            "id": 32,
+            "garment_type": 33,
+            "tailoring_grade": 863,
+            "order_type": 3,
+            "option_value": "none",
+            "gerber_optval": false,
+            "rc_price": "0.0",
+            "premium_id": 1,
+            "default_value": true,
+            "copyable": true,
+            "display_order": 1,
+            "active": true,
+            "description": "None"
+        }
+    },
+    {
+        "updated_at": "2019-02-12T16:36:59.000Z",
+        "text": null,
+        "option": {
+            "id": 10,
+            "garment_type": 33,
+            "tailoring_grade": 895,
+            "order_type": 3,
+            "name": "cellphone_pocket",
+            "description": "Cell Phone Pocket",
+            "gerber_option": true,
+            "option_operator": "A1",
+            "option_group_id": 2,
+            "material_type_id": 0,
+            "option_location": "interior",
+            "option_control_type": "select",
+            "popup_text": "Interior Breast Pocket: Double Besom Button-Through cannot be ordered with Cellphone Pocket\nInterior Shape: Curved French Facing Two-Piece is not available when Cellphone Pocket is chosen",
+            "parent_option_id": null,
+            "display_order": 5,
+            "active": true
+        },
+        "option_value": {
+            "id": 33,
+            "garment_type": 33,
+            "tailoring_grade": 351,
+            "order_type": 3,
+            "option_value": "right",
+            "gerber_optval": true,
+            "rc_price": "0.0",
+            "premium_id": 1,
+            "default_value": false,
+            "copyable": true,
+            "display_order": 3,
+            "active": true,
+            "description": "Right"
+        }
+    },
+    {
+        "updated_at": "2019-02-12T16:36:59.000Z",
+        "text": null,
+        "option": {
+            "id": 11,
+            "garment_type": 33,
+            "tailoring_grade": 895,
+            "order_type": 3,
+            "name": "lower_card_pocket_l",
+            "description": "Lower Card Pocket (L)",
+            "gerber_option": true,
+            "option_operator": "A1",
+            "option_group_id": 2,
+            "material_type_id": 0,
+            "option_location": "interior",
+            "option_control_type": "select",
+            "popup_text": null,
+            "parent_option_id": null,
+            "display_order": 7,
+            "active": true
+        },
+        "option_value": {
+            "id": 1403,
+            "garment_type": 33,
+            "tailoring_grade": 351,
+            "order_type": 3,
+            "option_value": "none",
+            "gerber_optval": false,
+            "rc_price": "0.0",
+            "premium_id": 1,
+            "default_value": true,
+            "copyable": true,
+            "display_order": 1,
+            "active": true,
+            "description": "None"
+        }
+    },
+    {
+        "updated_at": "2019-02-12T16:36:59.000Z",
+        "text": null,
+        "option": {
+            "id": 12,
+            "garment_type": 33,
+            "tailoring_grade": 895,
+            "order_type": 3,
+            "name": "lower_card_pocket_r",
+            "description": "Lower Card Pocket (R)",
+            "gerber_option": true,
+            "option_operator": "A1",
+            "option_group_id": 2,
+            "material_type_id": 0,
+            "option_location": "interior",
+            "option_control_type": "select",
+            "popup_text": null,
+            "parent_option_id": null,
+            "display_order": 8,
+            "active": true
+        },
+        "option_value": {
+            "id": 1411,
+            "garment_type": 33,
+            "tailoring_grade": 351,
+            "order_type": 3,
+            "option_value": "none",
+            "gerber_optval": false,
+            "rc_price": "0.0",
+            "premium_id": 1,
+            "default_value": true,
+            "copyable": true,
+            "display_order": 1,
+            "active": true,
+            "description": "None"
+        }
+    },
+    {
+        "updated_at": "2019-02-12T16:36:59.000Z",
+        "text": null,
+        "option": {
+            "id": 13,
+            "garment_type": 33,
+            "tailoring_grade": 895,
+            "order_type": 3,
+            "name": "contrast_pocket_cording",
+            "description": "Contrast Pocket Cording",
+            "gerber_option": true,
+            "option_operator": "A1",
+            "option_group_id": 2,
+            "material_type_id": 2,
+            "option_location": "interior",
+            "option_control_type": "select",
+            "popup_text": "Ribbon cannot be used for Contrast Pocket Cording. Please use ONLY Shirt Trim or Lining fabrics for this option.",
+            "parent_option_id": null,
+            "display_order": 15,
+            "active": true
+        },
+        "option_value": {
+            "id": 41,
+            "garment_type": 33,
+            "tailoring_grade": 895,
+            "order_type": 3,
+            "option_value": "shell_fabric",
+            "gerber_optval": false,
+            "rc_price": "0.0",
+            "premium_id": 1,
+            "default_value": true,
+            "copyable": true,
+            "display_order": 2,
+            "active": true,
+            "description": "Use Shell Fabric"
+        }
+    },
+    {
+        "updated_at": "2019-02-12T16:36:59.000Z",
+        "text": null,
+        "option": {
+            "id": 14,
+            "garment_type": 33,
+            "tailoring_grade": 895,
+            "order_type": 3,
+            "name": "exterior_lapel_stitching",
+            "description": "Collar/Lapels/Front Stitching",
+            "gerber_option": false,
+            "option_operator": "B6",
+            "option_group_id": 3,
+            "material_type_id": 0,
+            "option_location": "exterior",
+            "option_control_type": "select",
+            "popup_text": null,
+            "parent_option_id": null,
+            "display_order": 3,
+            "active": true
+        },
+        "option_value": {
+            "id": 918,
+            "garment_type": 33,
+            "tailoring_grade": 383,
+            "order_type": 3,
+            "option_value": "pic_1_4",
+            "gerber_optval": false,
+            "rc_price": "0.0",
+            "premium_id": 1,
+            "default_value": false,
+            "copyable": true,
+            "display_order": 6,
+            "active": true,
+            "description": "1/4\" Pic Stitch"
+        }
+    }
+]
+```
+
+Returns an array of garment options and option values for a specific garment.
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/garments/:id/options`
+
+### Query Parameters
+
+| Parameter | Default | Description                                              |
+| --------- | ------- | -------------------------------------------------------- |
+| id        | N/A     | The specific garment id you want to see the options for. |
+
+### Other
+
+- Permissions: All
+- Pagination: N/A
+
 ## Get Order Statuses
 
 ```shell
