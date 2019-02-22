@@ -572,7 +572,11 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <h3 id='collection'>Collection</h3><pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Standard</span><span class="w"> </span><span class="err">Object</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">Used</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">resource</span><span class="w"> </span><span class="err">collection</span><span class="w">
 </span><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1309</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Derby Performance Cornerstone Suitings V17011"</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Derby Performance Cornerstone Suitings V17011"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Derby Performance Cornerstone Suitings"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"V17011"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Derby_Performance_Cornerstone_Suitings_V17011?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"featured_fabric"</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Standard Attributes</p>
@@ -591,24 +595,6 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <td>name <br> <span>string</span></td>
 <td>The title of the collection</td>
 </tr>
-</tbody></table>
-<pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Extended</span><span class="w"> </span><span class="err">Object</span><span class="w">
-</span><span class="err">```json</span><span class="w">
-</span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1854</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Outerwear V18082"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fabrics"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>Extended attributes (in addition to standard attributes)</p>
-
-<table><thead>
-<tr>
-<th>Attribute</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
 <tr>
 <td>title <br> <span>string</span></td>
 <td>The name of the collection without the datecode.</td>
@@ -622,12 +608,34 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <td>URL to a thumbnail image for the collection. Image size is 105x100 px.</td>
 </tr>
 <tr>
-<td>description <br> <span>string</span></td>
-<td>A one to two paragraph descripton of the collection.</td>
-</tr>
-<tr>
 <td>featured_fabric <br> <span>subresource</span></td>
 <td>The featured fabric is shown in collection previews. It is typically the first fabric in the collection.</td>
+</tr>
+</tbody></table>
+<pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Extended</span><span class="w"> </span><span class="err">Object</span><span class="w">
+</span><span class="err">```json</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1854</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Outerwear V18082"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Outerwear"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"V18082"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Outerwear_V18082?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"featured_fabric"</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fabrics"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Extended attributes (in addition to standard attributes)</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>description <br> <span>string</span></td>
+<td>A one to two paragraph descripton of the collection.</td>
 </tr>
 <tr>
 <td>fabrics <br> <span>subresource</span></td>
@@ -767,104 +775,213 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1309</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Derby Performance Cornerstone Suitings V17011"</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Derby Performance Cornerstone Suitings V17011"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Derby Performance Cornerstone Suitings"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"V17011"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Derby_Performance_Cornerstone_Suitings_V17011?&amp;hei=100"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"featured_fabric"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">37087</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lt Grey Blue Glenplaid"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"59918-2"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C6-3337087"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/C6-3337087"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=C6-3337087&amp;res=300"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1312</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sartorial Dress V17011"</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sartorial Dress V17011"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sartorial Dress"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"V17011"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Sartorial_Dress_V17011?&amp;hei=100"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"featured_fabric"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">36835</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Oxford Gray Solid"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"107707"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C6-3336835"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/C6-3336835"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=C6-3336835&amp;res=300"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1317</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Derby Performance Contemporary Suitings V17011"</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Derby Performance Contemporary Suitings V17011"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Derby Performance Contemporary Suitings"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"V17011"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Derby_Performance_Contemporary_Suitings_V17011?&amp;hei=100"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"featured_fabric"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">37022</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Grey Pink Plaid"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"59905-1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C6-3337022"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/C6-3337022"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=C6-3337022&amp;res=300"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1318</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kensington Brighton Sport Coats V17011"</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kensington Brighton Sport Coats V17011"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kensington Brighton Sport Coats"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"V17011"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Kensington_Brighton_Sport_Coats_V17011?&amp;hei=100"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"featured_fabric"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">36961</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blue Red Windowpane"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"25002-2"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"K4-3336961"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/K4-3336961"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=K4-3336961&amp;res=300"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1319</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dormeuil Iconik Nano 704 V17011"</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dormeuil Iconik Nano 704 V17011"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dormeuil Iconik Nano 704"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"V17011"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Dormeuil_Iconik_Nano_704_V17011?&amp;hei=100"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"featured_fabric"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">37152</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"null"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Grey Rope Stripe"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"264001"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y4-3437152"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Y4-3437152"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Y4-3437152&amp;res=300"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sold Out"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1320</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dormeuil Amadeus Jacketings 365 No.702 V17011"</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dormeuil Amadeus Jacketings 365 No.702 V17011"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dormeuil Amadeus Jacketings 365 No.702"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"V17011"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Dormeuil_Amadeus_Jacketings_365_No.702_V17011?&amp;hei=100"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"featured_fabric"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">37217</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Burgundy Plaid"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"420083"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y4-3437217"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Y4-3437217"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Y4-3437217&amp;res=300"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1321</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sartorial Volume 1 V17011"</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sartorial Volume 1 V17011"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sartorial Volume 1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"V17011"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Sartorial_Volume_1_V17011?&amp;hei=100"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"featured_fabric"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">37261</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"White Solid"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65167"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C4-3337261"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/C4-3337261"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=C4-3337261&amp;res=300"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1322</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Derby Performance Corinthian Sport Coats V17011"</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Derby Performance Corinthian Sport Coats V17011"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Derby Performance Corinthian Sport Coats"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"V17011"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Derby_Performance_Corinthian_Sport_Coats_V17011?&amp;hei=100"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"featured_fabric"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">37619</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lavender Grey Black Check"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"59510-2"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C6-3337619"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/C6-3337619"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=C6-3337619&amp;res=300"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1323</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Zenith Riviera V17011"</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Zenith Riviera V17011"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Zenith Riviera"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"V17011"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Zenith_Riviera_V17011?&amp;hei=100"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"featured_fabric"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">37725</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blue  Lt Blue Check"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"609 042 900"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z4-3337725"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z4-3337725"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z4-3337725&amp;res=300"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1324</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Norwich TravelEase V17011"</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Norwich TravelEase V17011"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Norwich TravelEase"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"V17011"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Norwich_TravelEase_V17011?&amp;hei=100"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"featured_fabric"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">37790</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Charles Herringbone White"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"D#3-C/#11"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N3-3337790"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/N3-3337790"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=N3-3337790&amp;res=300"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1325</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dormeuil 703 D Philosphy V17011V"</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dormeuil 703 D Philosphy V17011V"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dormeuil 703 D Philosphy V"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"V17011"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Dormeuil_703_D_Philosphy_V17011V?&amp;hei=100"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"featured_fabric"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">37828</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"null"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Green  Blue Check"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"412001"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y4-3437828"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Y4-3437828"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Y4-3437828&amp;res=300"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sold Out"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1326</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dormeuil 705 Distinction V17011V"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1327</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lifestyle V17031"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1328</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Puro Colors V17031"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1329</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Puro Stripes &amp; Checks V17031"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1330</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Puro White Blue V17031"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1331</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ghost"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1332</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bedlam 461 V17021V"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1333</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Classic ll 477E V17021V"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1334</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fresco lll 492 V17021V"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1335</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QX² 494 V17021V"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1336</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QZ Project 411-A V17021V"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1337</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Worsted Alsport ll 458 V17021V"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1338</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thomas Mason Seasonal V17031"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1339</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marzoni M1 V17031V"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>Returns an array of fabric collections.</p>
@@ -905,55 +1022,19 @@ You must replace <code>swaledale</code> with your personal JWT token.
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Outerwear V18082"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Outerwear"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"V18082"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Outerwear_V18082?&amp;hei=100"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="s2">"featured_fabric"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"fabric_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">54875</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"create_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-28T11:25:46.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">54875</span><span class="p">,</span><span class="w">
         </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"fabric_mill_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1038</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"label_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_fabric_num"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BT65151-1"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trinity_fabric_num"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C4-3754875"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"country_origin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"International"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"fabric_weight_grams_meter"</span><span class="p">:</span><span class="w"> </span><span class="mi">510</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"cloth_desc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blue Navy Plaid"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"fabric_grouping"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blue"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"secondary_fabric_grouping"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"pattern"</span><span class="p">:</span><span class="w"> </span><span class="s2">"plaid"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"fabric_width"</span><span class="p">:</span><span class="w"> </span><span class="s2">"60.0"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"cuttable_width"</span><span class="p">:</span><span class="w"> </span><span class="s2">"60.0"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"grain_repeat"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"crosswise_repeat"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"one_way_nap"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"horiz_pattern"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"non_iron"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_price_dollars_meter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.83"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_price_dollars_yard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"sub_supplier_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"sub_fabric_num"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"rapid_replenishment"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"last_stock_edit_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"fabric_price_code_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">179</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"fabric_composition_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">361</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"fabric_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">743</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trim_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"fabric_usage"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"premium_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"fabric_season"</span><span class="p">:</span><span class="w"> </span><span class="mi">37</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"fabric_year"</span><span class="p">:</span><span class="w"> </span><span class="mi">2018</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"luxury_level_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"collection_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1854</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"material_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"base_color"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"deco_color_1"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"deco_color_2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"panel"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"panel_row"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"panel_column"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blue Navy Plaid"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BT65151-1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C4-3754875"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/C4-3754875"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=C4-3754875&amp;res=300"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"fabrics"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
