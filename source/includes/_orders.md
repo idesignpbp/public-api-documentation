@@ -533,6 +533,83 @@ Standard Attributes
 | active <br> <span>boolean</span>          | *Description TBD*                 |
 | description <br> <span>string</span>      | *Description TBD*                 |
 
+### Garment Measurements
+
+```json
+# Standard Object - Used in a resource collection
+{
+    "updated_at": "2018-08-10T21:29:27.000Z",
+    "text": "0.000",
+    "measurement": ...,
+    "measurement_value": ...
+}
+```
+
+Standard Attributes
+
+| Attribute                                      | Description                                   |
+| ---------------------------------------------- | --------------------------------------------- |
+| updated_at <br> <span>datetime</span>          | The last time the garment option was updated. |
+| text <br> <span>string</span>                  | *Description TBD*                             |
+| measurement <br> <span>subresource</span>      | Detailed object for the measurement.          |
+| meaurement_value <br> <span>subresource</span> | Detailed object for measurement value.        |
+
+### Measurement
+
+```json
+# Standard Object - Used in a resource collection
+{
+    "id": 7,
+    "name": "perkins_incline",
+    "description": "Incline Reading",
+    "description_zh_cn": "正常",
+    "garment_type": 239,
+    "tailoring_grade": 511,
+    "isdropdown": 0,
+    "display_order": 5
+}
+```
+
+Standard Attributes
+
+| Attribute                                  | Description                       |
+| ------------------------------------------ | --------------------------------- |
+| id <br> <span>integer</span>               | Unique identifier for the object. |
+| name <br> <span>string</span>              | *Description TBD*                 |
+| description <br> <span>string</span>       | *Description TBD*                 |
+| description_zh_cn <br> <span>string</span> | *Description TBD*                 |
+| garment_type <br> <span>integer</span>     | *Description TBD*                 |
+| tailoring_grade <br> <span>integer</span>  | *Description TBD*                 |
+| isdropdown <br> <span>boolean</span>       | *Description TBD*                 |
+| display_order <br> <span>integer</span>    | *Description TBD*                 |
+
+### Measurement Value
+
+```json
+# Standard Object - Used in a resource collection
+{
+    "id": 16,
+    "value": "0.000",
+    "description": "",
+    "description_zh_cn": "",
+    "default_value": 1,
+    "display_order": 1,
+    "active": 1
+}
+```
+
+Standard Attributes
+
+| Attribute                                  | Description                       |
+| ------------------------------------------ | --------------------------------- |
+| id <br> <span>integer</span>               | Unique identifier for the object. |
+| value <br> <span>string</span>             | *Description TBD*                 |
+| description <br> <span>string</span>       | *Description TBD*                 |
+| description_zh_cn <br> <span>string</span> | *Description TBD*                 |
+| default_value <br> <span>integer</span>    | *Description TBD*                 |
+| display_order <br> <span>integer</span>    | *Description TBD*                 |
+| active <br> <span>boolean</span>           | *Description TBD*                 |
+
 ## Get All Orders (DOs)
 
 ```shell
@@ -3035,6 +3112,447 @@ Returns an array of garment options and option values for a specific garment.
 | Parameter | Default | Description                                              |
 | --------- | ------- | -------------------------------------------------------- |
 | id        | N/A     | The specific garment id you want to see the options for. |
+
+### Other
+
+- Permissions: All
+- Pagination: N/A
+
+## Get All Garment Measurements
+
+```shell
+curl "https://api.trinity-apparel.com/v1/garments/890682/measurements"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+        "updated_at": "2018-08-10T21:29:27.000Z",
+        "text": "0.000",
+        "measurement": {
+            "id": 7,
+            "name": "perkins_incline",
+            "description": "Incline Reading",
+            "description_zh_cn": "正常",
+            "garment_type": 239,
+            "tailoring_grade": 511,
+            "isdropdown": 0,
+            "display_order": 5
+        },
+        "measurement_value": {
+            "id": 16,
+            "value": "0.000",
+            "description": "",
+            "description_zh_cn": "",
+            "default_value": 1,
+            "display_order": 1,
+            "active": 1
+        }
+    },
+    {
+        "updated_at": "2018-08-10T21:29:27.000Z",
+        "text": "0.000",
+        "measurement": {
+            "id": 9,
+            "name": "perkins_shoulder_l",
+            "description": "Shoulder Reading (L)",
+            "description_zh_cn": "正常",
+            "garment_type": 239,
+            "tailoring_grade": 511,
+            "isdropdown": 0,
+            "display_order": 6
+        },
+        "measurement_value": {
+            "id": 39,
+            "value": "0.000",
+            "description": "",
+            "description_zh_cn": "",
+            "default_value": 1,
+            "display_order": 1,
+            "active": 1
+        }
+    },
+    {
+        "updated_at": "2018-08-10T21:29:27.000Z",
+        "text": "0.000",
+        "measurement": {
+            "id": 10,
+            "name": "perkins_shoulder_r",
+            "description": "Shoulder Reading (R)",
+            "description_zh_cn": "正常",
+            "garment_type": 239,
+            "tailoring_grade": 511,
+            "isdropdown": 0,
+            "display_order": 7
+        },
+        "measurement_value": {
+            "id": 51,
+            "value": "0.000",
+            "description": "",
+            "description_zh_cn": "",
+            "default_value": 1,
+            "display_order": 1,
+            "active": 1
+        }
+    },
+    {
+        "updated_at": "2018-08-10T21:29:27.000Z",
+        "text": "regular",
+        "measurement": {
+            "id": 11,
+            "name": "perkins_shoulder_desc_l",
+            "description": "Shoulder Desc (L)",
+            "description_zh_cn": "",
+            "garment_type": 239,
+            "tailoring_grade": 1023,
+            "isdropdown": 0,
+            "display_order": 8
+        },
+        "measurement_value": {
+            "id": 65,
+            "value": "regular",
+            "description": "Regular",
+            "description_zh_cn": "正常",
+            "default_value": 1,
+            "display_order": 3,
+            "active": 1
+        }
+    },
+    {
+        "updated_at": "2018-08-10T21:29:27.000Z",
+        "text": "regular",
+        "measurement": {
+            "id": 12,
+            "name": "perkins_shoulder_desc_r",
+            "description": "Shoulder Desc (R)",
+            "description_zh_cn": "",
+            "garment_type": 239,
+            "tailoring_grade": 1023,
+            "isdropdown": 0,
+            "display_order": 9
+        },
+        "measurement_value": {
+            "id": 71,
+            "value": "regular",
+            "description": "Regular",
+            "description_zh_cn": "正常",
+            "default_value": 1,
+            "display_order": 3,
+            "active": 1
+        }
+    },
+    {
+        "updated_at": "2018-08-10T21:29:27.000Z",
+        "text": "42",
+        "measurement": {
+            "id": 49,
+            "name": "shirt_chest_base",
+            "description": "Actual Chest",
+            "description_zh_cn": "净胸围",
+            "garment_type": 8,
+            "tailoring_grade": 453,
+            "isdropdown": 1,
+            "display_order": 5
+        },
+        "measurement_value": null
+    },
+    {
+        "updated_at": "2018-08-10T21:29:27.000Z",
+        "text": "5",
+        "measurement": {
+            "id": 50,
+            "name": "shirt_chest_fit",
+            "description": "Chest Fit Allowance",
+            "description_zh_cn": "胸围加放量",
+            "garment_type": 8,
+            "tailoring_grade": 453,
+            "isdropdown": 0,
+            "display_order": 6
+        },
+        "measurement_value": null
+    },
+    {
+        "updated_at": "2018-08-10T21:29:27.000Z",
+        "text": "47",
+        "measurement": {
+            "id": 51,
+            "name": "shirt_chest_total",
+            "description": "Chest Fit Total",
+            "description_zh_cn": "胸围",
+            "garment_type": 8,
+            "tailoring_grade": 453,
+            "isdropdown": 1,
+            "display_order": 7
+        },
+        "measurement_value": null
+    },
+    {
+        "updated_at": "2018-08-10T21:29:27.000Z",
+        "text": "0",
+        "measurement": {
+            "id": 54,
+            "name": "shirt_waist_total",
+            "description": "Waist Fit Total",
+            "description_zh_cn": "腰围",
+            "garment_type": 8,
+            "tailoring_grade": 453,
+            "isdropdown": 1,
+            "display_order": 10
+        },
+        "measurement_value": null
+    },
+    {
+        "updated_at": "2018-08-10T21:29:27.000Z",
+        "text": "0",
+        "measurement": {
+            "id": 57,
+            "name": "shirt_hips_total",
+            "description": "Hips Fit Total",
+            "description_zh_cn": "摆围",
+            "garment_type": 8,
+            "tailoring_grade": 453,
+            "isdropdown": 1,
+            "display_order": 13
+        },
+        "measurement_value": null
+    },
+    {
+        "updated_at": "2018-08-10T21:29:27.000Z",
+        "text": "regular",
+        "measurement": {
+            "id": 58,
+            "name": "shirt_armhole",
+            "description": "Armhole/Sleeve Fit",
+            "description_zh_cn": "",
+            "garment_type": 8,
+            "tailoring_grade": 453,
+            "isdropdown": 0,
+            "display_order": 14
+        },
+        "measurement_value": {
+            "id": 13,
+            "value": "regular",
+            "description": "Regular",
+            "description_zh_cn": "袖笼正常",
+            "default_value": 1,
+            "display_order": 1,
+            "active": 1
+        }
+    },
+    {
+        "updated_at": "2018-08-10T21:29:28.000Z",
+        "text": "0",
+        "measurement": {
+            "id": 98,
+            "name": "shirt_point_sleeve_l",
+            "description": "Shoulder Point Sleeve Length (L)",
+            "description_zh_cn": "直袖长 (左)",
+            "garment_type": 8,
+            "tailoring_grade": 453,
+            "isdropdown": 0,
+            "display_order": 0
+        },
+        "measurement_value": null
+    },
+    {
+        "updated_at": "2018-08-10T21:29:28.000Z",
+        "text": "0",
+        "measurement": {
+            "id": 99,
+            "name": "shirt_point_sleeve_r",
+            "description": "Shoulder Point Sleeve Length (R)",
+            "description_zh_cn": "直袖长 (右)",
+            "garment_type": 8,
+            "tailoring_grade": 453,
+            "isdropdown": 0,
+            "display_order": 0
+        },
+        "measurement_value": null
+    },
+    {
+        "updated_at": "2018-08-10T21:29:28.000Z",
+        "text": "regular",
+        "measurement": {
+            "id": 122,
+            "name": "gerber_armhole",
+            "description": "Gerber Armhole",
+            "description_zh_cn": null,
+            "garment_type": 239,
+            "tailoring_grade": 447,
+            "isdropdown": 0,
+            "display_order": 0
+        },
+        "measurement_value": null
+    },
+    {
+        "updated_at": "2018-08-10T21:29:27.000Z",
+        "text": "normal",
+        "measurement": {
+            "id": 123,
+            "name": "posture",
+            "description": "Posture",
+            "description_zh_cn": null,
+            "garment_type": 43,
+            "tailoring_grade": 1023,
+            "isdropdown": 0,
+            "display_order": 12
+        },
+        "measurement_value": {
+            "id": 184,
+            "value": "normal",
+            "description": "Normal",
+            "description_zh_cn": "正常",
+            "default_value": 1,
+            "display_order": 1,
+            "active": 1
+        }
+    },
+    {
+        "updated_at": "2018-08-10T21:29:27.000Z",
+        "text": "normal",
+        "measurement": {
+            "id": 130,
+            "name": "stomach_stature",
+            "description": "Stomach Description",
+            "description_zh_cn": null,
+            "garment_type": 43,
+            "tailoring_grade": 447,
+            "isdropdown": 0,
+            "display_order": 19
+        },
+        "measurement_value": {
+            "id": 214,
+            "value": "normal",
+            "description": "Normal",
+            "description_zh_cn": null,
+            "default_value": 1,
+            "display_order": 1,
+            "active": 1
+        }
+    },
+    {
+        "updated_at": "2018-08-10T21:29:28.000Z",
+        "text": "normal",
+        "measurement": {
+            "id": 185,
+            "name": "gerber_posture_shirt",
+            "description": "Gerber Posture (Shirt)",
+            "description_zh_cn": null,
+            "garment_type": 8,
+            "tailoring_grade": 389,
+            "isdropdown": 0,
+            "display_order": 0
+        },
+        "measurement_value": {
+            "id": 440,
+            "value": "normal",
+            "description": "Normal",
+            "description_zh_cn": null,
+            "default_value": 0,
+            "display_order": 0,
+            "active": 1
+        }
+    },
+    {
+        "updated_at": "2018-08-10T21:29:28.000Z",
+        "text": "fold",
+        "measurement": {
+            "id": 220,
+            "name": "gerber_layout",
+            "description": "Gerber Layout",
+            "description_zh_cn": null,
+            "garment_type": 33,
+            "tailoring_grade": 319,
+            "isdropdown": 0,
+            "display_order": 0
+        },
+        "measurement_value": null
+    },
+    {
+        "updated_at": "2018-08-10T21:29:28.000Z",
+        "text": "3",
+        "measurement": {
+            "id": 267,
+            "name": "swacket_chest",
+            "description": "Chest",
+            "description_zh_cn": "胸围",
+            "garment_type": 512,
+            "tailoring_grade": 383,
+            "isdropdown": 0,
+            "display_order": 0
+        },
+        "measurement_value": null
+    },
+    {
+        "updated_at": "2018-08-10T21:29:27.000Z",
+        "text": "none",
+        "measurement": {
+            "id": 271,
+            "name": "shirt_elbow_forearm_reduction",
+            "description": "Elbow/Forearm Reduction",
+            "description_zh_cn": "手肘围减",
+            "garment_type": 8,
+            "tailoring_grade": 453,
+            "isdropdown": 0,
+            "display_order": 15
+        },
+        "measurement_value": {
+            "id": 602,
+            "value": "none",
+            "description": "None",
+            "description_zh_cn": "Shirt Elbow Forearm Fit Regular",
+            "default_value": 1,
+            "display_order": 1,
+            "active": 1
+        }
+    },
+    {
+        "updated_at": "2018-08-10T21:29:28.000Z",
+        "text": "-0.5",
+        "measurement": {
+            "id": 278,
+            "name": "estimated_finished_thigh",
+            "description": "Estimated Finished Thigh",
+            "description_zh_cn": null,
+            "garment_type": 196,
+            "tailoring_grade": 319,
+            "isdropdown": 0,
+            "display_order": 8
+        },
+        "measurement_value": null
+    },
+    {
+        "updated_at": "2018-08-10T21:29:28.000Z",
+        "text": "-0.5",
+        "measurement": {
+            "id": 279,
+            "name": "estimated_u_rise",
+            "description": "Estimated U Rise",
+            "description_zh_cn": null,
+            "garment_type": 196,
+            "tailoring_grade": 383,
+            "isdropdown": 0,
+            "display_order": 5
+        },
+        "measurement_value": null
+    }
+]
+```
+
+Returns an array of garment measurements and measurement values for a specific garment.
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/garments/:id/measurements`
+
+### Query Parameters
+
+| Parameter | Default | Description                                                   |
+| --------- | ------- | ------------------------------------------------------------- |
+| id        | N/A     | The specific garment id you want to see the measurements for. |
 
 ### Other
 
