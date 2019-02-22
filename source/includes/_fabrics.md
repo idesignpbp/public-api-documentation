@@ -86,16 +86,24 @@ Extended attributes
 # Standard Object - Used in a resource collection
 {
     "id": 1309,
-    "name": "Derby Performance Cornerstone Suitings V17011"
+    "name": "Derby Performance Cornerstone Suitings V17011",
+    "title": "Derby Performance Cornerstone Suitings",
+    "datecode": "V17011",
+    "image": "https://s7d4.scene7.com/is/image/trinityapparel/Derby_Performance_Cornerstone_Suitings_V17011?&hei=100",
+    "featured_fabric": ...
 }
 ```
 
 Standard Attributes
 
-| Attribute                     | Description                      |
-| ----------------------------- | -------------------------------- |
-| id <br> <span>integer</span>  | Unique identifier for the object |
-| name <br> <span>string</span> | The title of the collection      |
+| Attribute                                     | Description                                                                                                                                                                                                 |
+| --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| id <br> <span>integer</span>                  | Unique identifier for the object                                                                                                                                                                            |
+| name <br> <span>string</span>                 | The title of the collection                                                                                                                                                                                 |
+| title <br> <span>string</span>                | The name of the collection without the datecode.                                                                                                                                                            |
+| datecode <br> <span>string</span>             | The datecode of the collection (E.g., v18011). The first two digits are the year (2018), the next two are the month (01 = January), and the last one is which release we did during that month (1 = first). |
+| image <br> <span>string</span>                | URL to a thumbnail image for the collection. Image size is 105x100 px.                                                                                                                                      |
+| featured_fabric <br> <span>subresource</span> | The featured fabric is shown in collection previews. It is typically the first fabric in the collection.                                                                                                    |
 
 ```json
 # Extended Object
@@ -103,21 +111,21 @@ Standard Attributes
 {
     "id": 1854,
     "name": "Outerwear V18082",
+    "title": "Outerwear",
+    "datecode": "V18082",
+    "image": "https://s7d4.scene7.com/is/image/trinityapparel/Outerwear_V18082?&hei=100",
     "description": "",
+    "featured_fabric": ...,
     "fabrics": [...]
 }
 ```
 
 Extended attributes (in addition to standard attributes)
 
-| Attribute                                     | Description                                                                                                                                                                                                 |
-| --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| title <br> <span>string</span>                | The name of the collection without the datecode.                                                                                                                                                            |
-| datecode <br> <span>string</span>             | The datecode of the collection (E.g., v18011). The first two digits are the year (2018), the next two are the month (01 = January), and the last one is which release we did during that month (1 = first). |
-| image <br> <span>string</span>                | URL to a thumbnail image for the collection. Image size is 105x100 px.                                                                                                                                      |
-| description <br> <span>string</span>          | A one to two paragraph descripton of the collection.                                                                                                                                                        |
-| featured_fabric <br> <span>subresource</span> | The featured fabric is shown in collection previews. It is typically the first fabric in the collection.                                                                                                    |
-| fabrics <br> <span>subresource</span>         | A list of all fabrics that are a part of the collection. *NOTE: Inactive fabrics may be shown*                                                                                                              |
+| Attribute                             | Description                                                                                    |
+| ------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| description <br> <span>string</span>  | A one to two paragraph descripton of the collection.                                           |
+| fabrics <br> <span>subresource</span> | A list of all fabrics that are a part of the collection. *NOTE: Inactive fabrics may be shown* |
 
 ### Supplier
 
@@ -206,104 +214,213 @@ curl "https://api.trinity-apparel.com/v1/collections"
 [
     {
         "id": 1309,
-        "name": "Derby Performance Cornerstone Suitings V17011"
+        "name": "Derby Performance Cornerstone Suitings V17011",
+        "title": "Derby Performance Cornerstone Suitings",
+        "datecode": "V17011",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/Derby_Performance_Cornerstone_Suitings_V17011?&hei=100",
+        "featured_fabric": {
+            "id": 37087,
+            "active": true,
+            "in_stock": 1,
+            "restock_date": null,
+            "description": "Lt Grey Blue Glenplaid",
+            "supplier_fabric_number": "59918-2",
+            "trinity_fabric_number": "C6-3337087",
+            "url": "https://s7d4.scene7.com/is/image/trinityapparel/C6-3337087",
+            "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=C6-3337087&res=300",
+            "inventory_status": "In Stock"
+        }
     },
     {
         "id": 1312,
-        "name": "Sartorial Dress V17011"
+        "name": "Sartorial Dress V17011",
+        "title": "Sartorial Dress",
+        "datecode": "V17011",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/Sartorial_Dress_V17011?&hei=100",
+        "featured_fabric": {
+            "id": 36835,
+            "active": true,
+            "in_stock": 1,
+            "restock_date": null,
+            "description": "Oxford Gray Solid",
+            "supplier_fabric_number": "107707",
+            "trinity_fabric_number": "C6-3336835",
+            "url": "https://s7d4.scene7.com/is/image/trinityapparel/C6-3336835",
+            "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=C6-3336835&res=300",
+            "inventory_status": "In Stock"
+        }
     },
     {
         "id": 1317,
-        "name": "Derby Performance Contemporary Suitings V17011"
+        "name": "Derby Performance Contemporary Suitings V17011",
+        "title": "Derby Performance Contemporary Suitings",
+        "datecode": "V17011",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/Derby_Performance_Contemporary_Suitings_V17011?&hei=100",
+        "featured_fabric": {
+            "id": 37022,
+            "active": true,
+            "in_stock": 1,
+            "restock_date": null,
+            "description": "Grey Pink Plaid",
+            "supplier_fabric_number": "59905-1",
+            "trinity_fabric_number": "C6-3337022",
+            "url": "https://s7d4.scene7.com/is/image/trinityapparel/C6-3337022",
+            "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=C6-3337022&res=300",
+            "inventory_status": "In Stock"
+        }
     },
     {
         "id": 1318,
-        "name": "Kensington Brighton Sport Coats V17011"
+        "name": "Kensington Brighton Sport Coats V17011",
+        "title": "Kensington Brighton Sport Coats",
+        "datecode": "V17011",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/Kensington_Brighton_Sport_Coats_V17011?&hei=100",
+        "featured_fabric": {
+            "id": 36961,
+            "active": true,
+            "in_stock": 1,
+            "restock_date": null,
+            "description": "Blue Red Windowpane",
+            "supplier_fabric_number": "25002-2",
+            "trinity_fabric_number": "K4-3336961",
+            "url": "https://s7d4.scene7.com/is/image/trinityapparel/K4-3336961",
+            "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=K4-3336961&res=300",
+            "inventory_status": "In Stock"
+        }
     },
     {
         "id": 1319,
-        "name": "Dormeuil Iconik Nano 704 V17011"
+        "name": "Dormeuil Iconik Nano 704 V17011",
+        "title": "Dormeuil Iconik Nano 704",
+        "datecode": "V17011",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/Dormeuil_Iconik_Nano_704_V17011?&hei=100",
+        "featured_fabric": {
+            "id": 37152,
+            "active": true,
+            "in_stock": 0,
+            "restock_date": "null",
+            "description": "Grey Rope Stripe",
+            "supplier_fabric_number": "264001",
+            "trinity_fabric_number": "Y4-3437152",
+            "url": "https://s7d4.scene7.com/is/image/trinityapparel/Y4-3437152",
+            "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Y4-3437152&res=300",
+            "inventory_status": "Sold Out"
+        }
     },
     {
         "id": 1320,
-        "name": "Dormeuil Amadeus Jacketings 365 No.702 V17011"
+        "name": "Dormeuil Amadeus Jacketings 365 No.702 V17011",
+        "title": "Dormeuil Amadeus Jacketings 365 No.702",
+        "datecode": "V17011",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/Dormeuil_Amadeus_Jacketings_365_No.702_V17011?&hei=100",
+        "featured_fabric": {
+            "id": 37217,
+            "active": true,
+            "in_stock": 1,
+            "restock_date": null,
+            "description": "Burgundy Plaid",
+            "supplier_fabric_number": "420083",
+            "trinity_fabric_number": "Y4-3437217",
+            "url": "https://s7d4.scene7.com/is/image/trinityapparel/Y4-3437217",
+            "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Y4-3437217&res=300",
+            "inventory_status": "In Stock"
+        }
     },
     {
         "id": 1321,
-        "name": "Sartorial Volume 1 V17011"
+        "name": "Sartorial Volume 1 V17011",
+        "title": "Sartorial Volume 1",
+        "datecode": "V17011",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/Sartorial_Volume_1_V17011?&hei=100",
+        "featured_fabric": {
+            "id": 37261,
+            "active": true,
+            "in_stock": 1,
+            "restock_date": null,
+            "description": "White Solid",
+            "supplier_fabric_number": "65167",
+            "trinity_fabric_number": "C4-3337261",
+            "url": "https://s7d4.scene7.com/is/image/trinityapparel/C4-3337261",
+            "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=C4-3337261&res=300",
+            "inventory_status": "In Stock"
+        }
     },
     {
         "id": 1322,
-        "name": "Derby Performance Corinthian Sport Coats V17011"
+        "name": "Derby Performance Corinthian Sport Coats V17011",
+        "title": "Derby Performance Corinthian Sport Coats",
+        "datecode": "V17011",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/Derby_Performance_Corinthian_Sport_Coats_V17011?&hei=100",
+        "featured_fabric": {
+            "id": 37619,
+            "active": true,
+            "in_stock": 1,
+            "restock_date": null,
+            "description": "Lavender Grey Black Check",
+            "supplier_fabric_number": "59510-2",
+            "trinity_fabric_number": "C6-3337619",
+            "url": "https://s7d4.scene7.com/is/image/trinityapparel/C6-3337619",
+            "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=C6-3337619&res=300",
+            "inventory_status": "In Stock"
+        }
     },
     {
         "id": 1323,
-        "name": "Zenith Riviera V17011"
+        "name": "Zenith Riviera V17011",
+        "title": "Zenith Riviera",
+        "datecode": "V17011",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/Zenith_Riviera_V17011?&hei=100",
+        "featured_fabric": {
+            "id": 37725,
+            "active": true,
+            "in_stock": 1,
+            "restock_date": null,
+            "description": "Blue  Lt Blue Check",
+            "supplier_fabric_number": "609 042 900",
+            "trinity_fabric_number": "Z4-3337725",
+            "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z4-3337725",
+            "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z4-3337725&res=300",
+            "inventory_status": "In Stock"
+        }
     },
     {
         "id": 1324,
-        "name": "Norwich TravelEase V17011"
+        "name": "Norwich TravelEase V17011",
+        "title": "Norwich TravelEase",
+        "datecode": "V17011",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/Norwich_TravelEase_V17011?&hei=100",
+        "featured_fabric": {
+            "id": 37790,
+            "active": true,
+            "in_stock": 1,
+            "restock_date": null,
+            "description": "Charles Herringbone White",
+            "supplier_fabric_number": "D#3-C/#11",
+            "trinity_fabric_number": "N3-3337790",
+            "url": "https://s7d4.scene7.com/is/image/trinityapparel/N3-3337790",
+            "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=N3-3337790&res=300",
+            "inventory_status": "In Stock"
+        }
     },
     {
         "id": 1325,
-        "name": "Dormeuil 703 D Philosphy V17011V"
+        "name": "Dormeuil 703 D Philosphy V17011V",
+        "title": "Dormeuil 703 D Philosphy V",
+        "datecode": "V17011",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/Dormeuil_703_D_Philosphy_V17011V?&hei=100",
+        "featured_fabric": {
+            "id": 37828,
+            "active": true,
+            "in_stock": 0,
+            "restock_date": "null",
+            "description": "Green  Blue Check",
+            "supplier_fabric_number": "412001",
+            "trinity_fabric_number": "Y4-3437828",
+            "url": "https://s7d4.scene7.com/is/image/trinityapparel/Y4-3437828",
+            "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Y4-3437828&res=300",
+            "inventory_status": "Sold Out"
+        }
     },
-    {
-        "id": 1326,
-        "name": "Dormeuil 705 Distinction V17011V"
-    },
-    {
-        "id": 1327,
-        "name": "Lifestyle V17031"
-    },
-    {
-        "id": 1328,
-        "name": "Puro Colors V17031"
-    },
-    {
-        "id": 1329,
-        "name": "Puro Stripes & Checks V17031"
-    },
-    {
-        "id": 1330,
-        "name": "Puro White Blue V17031"
-    },
-    {
-        "id": 1331,
-        "name": "Ghost"
-    },
-    {
-        "id": 1332,
-        "name": "Bedlam 461 V17021V"
-    },
-    {
-        "id": 1333,
-        "name": "Classic ll 477E V17021V"
-    },
-    {
-        "id": 1334,
-        "name": "Fresco lll 492 V17021V"
-    },
-    {
-        "id": 1335,
-        "name": "QX² 494 V17021V"
-    },
-    {
-        "id": 1336,
-        "name": "QZ Project 411-A V17021V"
-    },
-    {
-        "id": 1337,
-        "name": "Worsted Alsport ll 458 V17021V"
-    },
-    {
-        "id": 1338,
-        "name": "Thomas Mason Seasonal V17031"
-    },
-    {
-        "id": 1339,
-        "name": "Marzoni M1 V17031V"
-    }
 ]
 ```
 
@@ -340,55 +457,19 @@ curl "https://api.trinity-apparel.com/v1/collections/1854"
     "name": "Outerwear V18082",
     "title": "Outerwear",
     "datecode": "V18082",
-    "image": "https://s7d4.scene7.com/is/image/trinityapparel/?&hei=100",
+    "image": "https://s7d4.scene7.com/is/image/trinityapparel/Outerwear_V18082?&hei=100",
     "description": "",
     "featured_fabric": {
-        "fabric_id": 54875,
-        "create_date": "2018-07-28T11:25:46.000Z",
+        "id": 54875,
         "active": false,
-        "supplier_id": 1,
-        "fabric_mill_id": 1038,
-        "label_id": null,
-        "supplier_fabric_num": "BT65151-1",
-        "trinity_fabric_num": "C4-3754875",
-        "country_origin": "International",
-        "fabric_weight_grams_meter": 510,
-        "cloth_desc": "Blue Navy Plaid",
-        "fabric_grouping": "blue",
-        "secondary_fabric_grouping": null,
-        "pattern": "plaid",
-        "fabric_width": "60.0",
-        "cuttable_width": "60.0",
-        "grain_repeat": null,
-        "crosswise_repeat": null,
-        "one_way_nap": false,
-        "horiz_pattern": false,
-        "non_iron": false,
-        "supplier_price_dollars_meter": "1.83",
-        "supplier_price_dollars_yard": "2.0",
         "in_stock": 1,
         "restock_date": null,
-        "sub_supplier_id": null,
-        "sub_fabric_num": null,
-        "rapid_replenishment": false,
-        "last_stock_edit_date": null,
-        "fabric_price_code_id": 179,
-        "fabric_composition_id": 361,
-        "fabric_garment_type": 743,
-        "trim_garment_type": 0,
-        "fabric_usage": 1,
-        "premium_id": 1,
-        "fabric_season": 37,
-        "fabric_year": 2018,
-        "luxury_level_id": 22,
-        "collection_id": 1854,
-        "material_type_id": 12,
-        "base_color": null,
-        "deco_color_1": null,
-        "deco_color_2": null,
-        "panel": 1,
-        "panel_row": 1,
-        "panel_column": 1
+        "description": "Blue Navy Plaid",
+        "supplier_fabric_number": "BT65151-1",
+        "trinity_fabric_number": "C4-3754875",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/C4-3754875",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=C4-3754875&res=300",
+        "inventory_status": "In Stock"
     },
     "fabrics": [
         {
