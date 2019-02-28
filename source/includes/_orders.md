@@ -20,7 +20,6 @@ All garments are in a particular order statuses.  While a garment is being produ
 | CANCEL      | Canceled              |
 | CMTHOLD     | CMT Fabric Hold       |
 
-
 ## Delay Statuses
 
 Sometimes a garment gets delayed during production. We categorize the reason for the delay in an effort to speed up the process. Here is a list of all possible delay codes:
@@ -276,31 +275,6 @@ Standard Attributes
 | phone <br> <span>string</span>        | Phone number of the dealer              |
 | country <br> <span>string</span>      | Country where the dealer is             |
 
-### Customer
-
-```json
-# Standard Object - Used in a resource collection
-{
-    "id": 87285,
-    "created_at": "2016-05-29T15:08:38.000Z",
-    "name": "Mr Mannequin",
-    "first_name": "Mr",
-    "last_name": "Mannequin",
-    "email": null
-}
-```
-
-Standard Attributes
-
-| Attribute                             | Description                             |
-| ------------------------------------- | --------------------------------------- |
-| id <br> <span>integer</span>          | Unique identifier for the object        |
-| created_at <br> <span>datetime</span> | *Description TBD*                       |
-| name <br> <span>string</span>         | Combined string for first and last name |
-| first_name <br> <span>string</span>   | First name of the customer              |
-| last_name <br> <span>string</span>    | Last name of the customer               |
-| email <br> <span>string</span>        | Email address of the customer           |
-
 ### Garment
 
 ```json
@@ -428,6 +402,132 @@ Standard Attributes
 | id <br> <span>integer</span>   | Unique identifier for the object  |
 | name <br> <span>string</span>  | Name of the manufacturer          |
 | email <br> <span>string</span> | Email address of the manufacturer |
+
+### Garment Options
+
+```json
+# Standard Object - Used in a resource collection
+{
+    "updated_at": "2019-02-12T16:36:59.000Z",
+    "text": null,
+    "option": ...,
+    "option_value": ...
+}
+```
+
+Standard Attributes
+
+| Attribute                                  | Description                                                                            |
+| ------------------------------------------ | -------------------------------------------------------------------------------------- |
+| updated_at <br> <span>datetime</span>      | The last time the garment option was updated.                                          |
+| text <br> <span>string</span>              | If the option has a text value (E.g., monogram, label, etc), it will be returned here. |
+| option <br> <span>subresource</span>       | Detailed object for the option.                                                        |
+| option_value <br> <span>subresource</span> | Detailed object for the option value.                                                  |
+
+### Option
+
+```json
+# Standard Object - Used in a resource collection
+{
+    "id": 67,
+    "name": "collar",
+    "description": "Collar",
+    "display_order": 1
+}
+```
+
+Standard Attributes
+
+| Attribute                               | Description                                             |
+| --------------------------------------- | ------------------------------------------------------- |
+| id <br> <span>integer</span>            | Unique identifier for the object.                       |
+| name <br> <span>string</span>           | The name of the option.                                 |
+| description <br> <span>string</span>    | A human readable description of the option.             |
+| display_order <br> <span>integer</span> | The order in which the option is displayed in Workflow. |
+
+### Option Value
+
+```json
+# Standard Object - Used in a resource collection
+{
+    "id": 520,
+    "option_value": "american_spread",
+    "description": "American Spread",
+    "display_order": 12
+}
+```
+
+Standard Attributes
+
+| Attribute                               | Description                                                   |
+| --------------------------------------- | ------------------------------------------------------------- |
+| id <br> <span>integer</span>            | Unique identifier for the object.                             |
+| option_value <br> <span>string</span>   | The name of the option value.                                 |
+| description <br> <span>string</span>    | A human readable description of the option value.             |
+| display_order <br> <span>integer</span> | The order in which the option value is displayed in Workflow. |
+
+### Garment Measurements
+
+```json
+# Standard Object - Used in a resource collection
+{
+    "updated_at": "2018-08-10T21:29:27.000Z",
+    "text": "0.000",
+    "measurement": ...,
+    "measurement_value": ...
+}
+```
+
+Standard Attributes
+
+| Attribute                                      | Description                                                           |
+| ---------------------------------------------- | --------------------------------------------------------------------- |
+| updated_at <br> <span>datetime</span>          | The last time the garment option was updated.                         |
+| text <br> <span>string</span>                  | The text value that is associated to the measurement when applicable. |
+| measurement <br> <span>subresource</span>      | Detailed object for the measurement.                                  |
+| meaurement_value <br> <span>subresource</span> | Detailed object for measurement value.                                |
+
+### Measurement
+
+```json
+# Standard Object - Used in a resource collection
+{
+    "id": 7,
+    "name": "perkins_incline",
+    "description": "Incline Reading",
+    "display_order": 5
+}
+```
+
+Standard Attributes
+
+| Attribute                               | Description                                                  |
+| --------------------------------------- | ------------------------------------------------------------ |
+| id <br> <span>integer</span>            | Unique identifier for the object.                            |
+| name <br> <span>string</span>           | The name of the measurement.                                 |
+| description <br> <span>string</span>    | A human readable description of the measurement.             |
+| display_order <br> <span>integer</span> | The order in which the measurement is displayed in Workflow. |
+
+### Measurement Value
+
+```json
+# Standard Object - Used in a resource collection
+{
+    "id": 16,
+    "value": "0.000",
+    "description": "",
+    "display_order": 1
+}
+```
+
+Standard Attributes
+
+| Attribute                               | Description                                                        |
+| --------------------------------------- | ------------------------------------------------------------------ |
+| id <br> <span>integer</span>            | Unique identifier for the object.                                  |
+| value <br> <span>string</span>          | The name of the measurement value.                                 |
+| description <br> <span>string</span>    | A human readable description of the measurement value.             |
+| display_order <br> <span>integer</span> | The order in which the measurement value is displayed in Workflow. |
 
 ## Get All Orders (DOs)
 
@@ -2382,6 +2482,520 @@ Returns details on a specific garment.
 | Parameter | Default | Description                             |
 | --------- | ------- | --------------------------------------- |
 | id        | N/A     | The specific garment id you want to see |
+
+### Other
+
+- Permissions: All
+- Pagination: N/A
+
+## Get All Garment Options
+
+```shell
+curl "https://api.trinity-apparel.com/v1/garments/966400/options"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+        "updated_at": "2019-02-12T16:36:59.000Z",
+        "text": null,
+        "option": {
+            "id": 1,
+            "name": "garment_label",
+            "description": "Garment Label",
+            "display_order": 5
+        },
+        "option_value": {
+            "id": 4,
+            "option_value": "no_label",
+            "description": "No Label",
+            "display_order": 2
+        }
+    },
+    {
+        "updated_at": "2019-02-12T16:36:59.000Z",
+        "text": null,
+        "option": {
+            "id": 2,
+            "name": "vent_style",
+            "description": "Vent Style",
+            "display_order": 1
+        },
+        "option_value": {
+            "id": 7,
+            "option_value": "side_vent",
+            "description": "Sides (9 1/2\") - Standard",
+            "display_order": 6
+        }
+    },
+    {
+        "updated_at": "2019-02-12T16:38:47.000Z",
+        "text": null,
+        "option": {
+            "id": 3,
+            "name": "shoulder_style",
+            "description": "Shoulder Style",
+            "display_order": 1
+        },
+        "option_value": {
+            "id": 656,
+            "option_value": "ultra_soft",
+            "description": "Ultra Soft",
+            "display_order": 0
+        }
+    },
+    {
+        "updated_at": "2019-02-12T16:36:59.000Z",
+        "text": null,
+        "option": {
+            "id": 4,
+            "name": "exterior_breast_pocket",
+            "description": "Exterior Breast Pocket",
+            "display_order": 1
+        },
+        "option_value": {
+            "id": 730,
+            "option_value": "welt_curved_square",
+            "description": "Welt (Curved, Square Edges)",
+            "display_order": 3
+        }
+    },
+    {
+        "updated_at": "2019-02-12T16:39:03.000Z",
+        "text": null,
+        "option": {
+            "id": 5,
+            "name": "ticket_pocket",
+            "description": "Ticket Pocket",
+            "display_order": 5
+        },
+        "option_value": {
+            "id": 771,
+            "option_value": "patch",
+            "description": "Patch",
+            "display_order": 15
+        }
+    },
+    {
+        "updated_at": "2019-02-12T16:36:59.000Z",
+        "text": null,
+        "option": {
+            "id": 6,
+            "name": "exterior_lower_pockets",
+            "description": "Exterior Lower Pockets",
+            "display_order": 9
+        },
+        "option_value": {
+            "id": 18,
+            "option_value": "patch",
+            "description": "Patch",
+            "display_order": 15
+        }
+    },
+    {
+        "updated_at": "2019-02-12T16:36:59.000Z",
+        "text": null,
+        "option": {
+            "id": 7,
+            "name": "interior_breast_pocket_l",
+            "description": "Interior Breast Pocket (L)",
+            "display_order": 1
+        },
+        "option_value": {
+            "id": 1299,
+            "option_value": "double_besom",
+            "description": "Double Besom",
+            "display_order": 2
+        }
+    },
+    {
+        "updated_at": "2019-02-12T16:36:59.000Z",
+        "text": null,
+        "option": {
+            "id": 8,
+            "name": "interior_breast_pocket_r",
+            "description": "Interior Breast Pocket (R)",
+            "display_order": 2
+        },
+        "option_value": {
+            "id": 1357,
+            "option_value": "double_besom",
+            "description": "Double Besom",
+            "display_order": 2
+        }
+    },
+    {
+        "updated_at": "2019-02-12T16:36:59.000Z",
+        "text": null,
+        "option": {
+            "id": 9,
+            "name": "pen_pencil_pocket",
+            "description": "Pen/Pencil Pocket",
+            "display_order": 6
+        },
+        "option_value": {
+            "id": 32,
+            "option_value": "none",
+            "description": "None",
+            "display_order": 1
+        }
+    },
+    {
+        "updated_at": "2019-02-12T16:36:59.000Z",
+        "text": null,
+        "option": {
+            "id": 10,
+            "name": "cellphone_pocket",
+            "description": "Cell Phone Pocket",
+            "display_order": 5
+        },
+        "option_value": {
+            "id": 33,
+            "option_value": "right",
+            "description": "Right",
+            "display_order": 3
+        }
+    }
+]
+```
+
+Returns an array of garment options and option values for a specific garment.
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/garments/:id/options`
+
+### Query Parameters
+
+| Parameter | Default | Description                                              |
+| --------- | ------- | -------------------------------------------------------- |
+| id        | N/A     | The specific garment id you want to see the options for. |
+
+### Other
+
+- Permissions: All
+- Pagination: N/A
+
+## Get All Garment Measurements
+
+```shell
+curl "https://api.trinity-apparel.com/v1/garments/890682/measurements"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+        "updated_at": "2018-08-10T21:29:27.000Z",
+        "text": "0.000",
+        "measurement": {
+            "id": 7,
+            "name": "perkins_incline",
+            "description": "Incline Reading",
+            "display_order": 5
+        },
+        "measurement_value": {
+            "id": 16,
+            "value": "0.000",
+            "description": "",
+            "display_order": 1
+        }
+    },
+    {
+        "updated_at": "2018-08-10T21:29:27.000Z",
+        "text": "0.000",
+        "measurement": {
+            "id": 9,
+            "name": "perkins_shoulder_l",
+            "description": "Shoulder Reading (L)",
+            "display_order": 6
+        },
+        "measurement_value": {
+            "id": 39,
+            "value": "0.000",
+            "description": "",
+            "display_order": 1
+        }
+    },
+    {
+        "updated_at": "2018-08-10T21:29:27.000Z",
+        "text": "0.000",
+        "measurement": {
+            "id": 10,
+            "name": "perkins_shoulder_r",
+            "description": "Shoulder Reading (R)",
+            "display_order": 7
+        },
+        "measurement_value": {
+            "id": 51,
+            "value": "0.000",
+            "description": "",
+            "display_order": 1
+        }
+    },
+    {
+        "updated_at": "2018-08-10T21:29:27.000Z",
+        "text": "regular",
+        "measurement": {
+            "id": 11,
+            "name": "perkins_shoulder_desc_l",
+            "description": "Shoulder Desc (L)",
+            "display_order": 8
+        },
+        "measurement_value": {
+            "id": 65,
+            "value": "regular",
+            "description": "Regular",
+            "display_order": 3
+        }
+    },
+    {
+        "updated_at": "2018-08-10T21:29:27.000Z",
+        "text": "regular",
+        "measurement": {
+            "id": 12,
+            "name": "perkins_shoulder_desc_r",
+            "description": "Shoulder Desc (R)",
+            "display_order": 9
+        },
+        "measurement_value": {
+            "id": 71,
+            "value": "regular",
+            "description": "Regular",
+            "display_order": 3
+        }
+    },
+    {
+        "updated_at": "2018-08-10T21:29:27.000Z",
+        "text": "42",
+        "measurement": {
+            "id": 49,
+            "name": "shirt_chest_base",
+            "description": "Actual Chest",
+            "display_order": 5
+        },
+        "measurement_value": null
+    },
+    {
+        "updated_at": "2018-08-10T21:29:27.000Z",
+        "text": "5",
+        "measurement": {
+            "id": 50,
+            "name": "shirt_chest_fit",
+            "description": "Chest Fit Allowance",
+            "display_order": 6
+        },
+        "measurement_value": null
+    },
+    {
+        "updated_at": "2018-08-10T21:29:27.000Z",
+        "text": "47",
+        "measurement": {
+            "id": 51,
+            "name": "shirt_chest_total",
+            "description": "Chest Fit Total",
+            "display_order": 7
+        },
+        "measurement_value": null
+    },
+    {
+        "updated_at": "2018-08-10T21:29:27.000Z",
+        "text": "0",
+        "measurement": {
+            "id": 54,
+            "name": "shirt_waist_total",
+            "description": "Waist Fit Total",
+            "display_order": 10
+        },
+        "measurement_value": null
+    },
+    {
+        "updated_at": "2018-08-10T21:29:27.000Z",
+        "text": "0",
+        "measurement": {
+            "id": 57,
+            "name": "shirt_hips_total",
+            "description": "Hips Fit Total",
+            "display_order": 13
+        },
+        "measurement_value": null
+    },
+    {
+        "updated_at": "2018-08-10T21:29:27.000Z",
+        "text": "regular",
+        "measurement": {
+            "id": 58,
+            "name": "shirt_armhole",
+            "description": "Armhole/Sleeve Fit",
+            "display_order": 14
+        },
+        "measurement_value": {
+            "id": 13,
+            "value": "regular",
+            "description": "Regular",
+            "display_order": 1
+        }
+    },
+    {
+        "updated_at": "2018-08-10T21:29:28.000Z",
+        "text": "0",
+        "measurement": {
+            "id": 98,
+            "name": "shirt_point_sleeve_l",
+            "description": "Shoulder Point Sleeve Length (L)",
+            "display_order": 0
+        },
+        "measurement_value": null
+    },
+    {
+        "updated_at": "2018-08-10T21:29:28.000Z",
+        "text": "0",
+        "measurement": {
+            "id": 99,
+            "name": "shirt_point_sleeve_r",
+            "description": "Shoulder Point Sleeve Length (R)",
+            "display_order": 0
+        },
+        "measurement_value": null
+    },
+    {
+        "updated_at": "2018-08-10T21:29:28.000Z",
+        "text": "regular",
+        "measurement": {
+            "id": 122,
+            "name": "gerber_armhole",
+            "description": "Gerber Armhole",
+            "display_order": 0
+        },
+        "measurement_value": null
+    },
+    {
+        "updated_at": "2018-08-10T21:29:27.000Z",
+        "text": "normal",
+        "measurement": {
+            "id": 123,
+            "name": "posture",
+            "description": "Posture",
+            "display_order": 12
+        },
+        "measurement_value": {
+            "id": 184,
+            "value": "normal",
+            "description": "Normal",
+            "display_order": 1
+        }
+    },
+    {
+        "updated_at": "2018-08-10T21:29:27.000Z",
+        "text": "normal",
+        "measurement": {
+            "id": 130,
+            "name": "stomach_stature",
+            "description": "Stomach Description",
+            "display_order": 19
+        },
+        "measurement_value": {
+            "id": 214,
+            "value": "normal",
+            "description": "Normal",
+            "display_order": 1
+        }
+    },
+    {
+        "updated_at": "2018-08-10T21:29:28.000Z",
+        "text": "normal",
+        "measurement": {
+            "id": 185,
+            "name": "gerber_posture_shirt",
+            "description": "Gerber Posture (Shirt)",
+            "display_order": 0
+        },
+        "measurement_value": {
+            "id": 440,
+            "value": "normal",
+            "description": "Normal",
+            "display_order": 0
+        }
+    },
+    {
+        "updated_at": "2018-08-10T21:29:28.000Z",
+        "text": "fold",
+        "measurement": {
+            "id": 220,
+            "name": "gerber_layout",
+            "description": "Gerber Layout",
+            "display_order": 0
+        },
+        "measurement_value": null
+    },
+    {
+        "updated_at": "2018-08-10T21:29:28.000Z",
+        "text": "3",
+        "measurement": {
+            "id": 267,
+            "name": "swacket_chest",
+            "description": "Chest",
+            "display_order": 0
+        },
+        "measurement_value": null
+    },
+    {
+        "updated_at": "2018-08-10T21:29:27.000Z",
+        "text": "none",
+        "measurement": {
+            "id": 271,
+            "name": "shirt_elbow_forearm_reduction",
+            "description": "Elbow/Forearm Reduction",
+            "display_order": 15
+        },
+        "measurement_value": {
+            "id": 602,
+            "value": "none",
+            "description": "None",
+            "display_order": 1
+        }
+    },
+    {
+        "updated_at": "2018-08-10T21:29:28.000Z",
+        "text": "-0.5",
+        "measurement": {
+            "id": 278,
+            "name": "estimated_finished_thigh",
+            "description": "Estimated Finished Thigh",
+            "display_order": 8
+        },
+        "measurement_value": null
+    },
+    {
+        "updated_at": "2018-08-10T21:29:28.000Z",
+        "text": "-0.5",
+        "measurement": {
+            "id": 279,
+            "name": "estimated_u_rise",
+            "description": "Estimated U Rise",
+            "display_order": 5
+        },
+        "measurement_value": null
+    }
+]
+```
+
+Returns an array of garment measurements and measurement values for a specific garment.
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/garments/:id/measurements`
+
+### Query Parameters
+
+| Parameter | Default | Description                                                   |
+| --------- | ------- | ------------------------------------------------------------- |
+| id        | N/A     | The specific garment id you want to see the measurements for. |
 
 ### Other
 
