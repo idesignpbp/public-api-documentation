@@ -429,84 +429,42 @@ Standard Attributes
 ```json
 # Standard Object - Used in a resource collection
 {
-    "id": 1,
-    "garment_type": 545,
-    "tailoring_grade": 895,
-    "order_type": 3,
-    "name": "garment_label",
-    "description": "Garment Label",
-    "gerber_option": false,
-    "option_operator": "A1",
-    "option_group_id": 27,
-    "material_type_id": 0,
-    "option_location": "interior",
-    "option_control_type": "select",
-    "popup_text": null,
-    "parent_option_id": null,
-    "display_order": 5,
-    "active": true
+    "id": 67,
+    "name": "collar",
+    "description": "Collar",
+    "display_order": 1
 }
 ```
 
 Standard Attributes
 
-| Attribute                                    | Description                       |
-| -------------------------------------------- | --------------------------------- |
-| id <br> <span>integer</span>                 | Unique identifier for the object. |
-| garment_type <br> <span>integer</span>       | *Description TBD*                 |
-| tailoring_grade <br> <span>integer</span>    | *Description TBD*                 |
-| order_type <br> <span>integer</span>         | *Description TBD*                 |
-| name <br> <span>string</span>                | *Description TBD*                 |
-| description <br> <span>string</span>         | *Description TBD*                 |
-| gerber_option <br> <span>boolean</span>      | *Description TBD*                 |
-| option_operator <br> <span>string</span>     | *Description TBD*                 |
-| option_group_id <br> <span>integer</span>    | *Description TBD*                 |
-| material_type_id <br> <span>integer</span>   | *Description TBD*                 |
-| option_locator <br> <span>string</span>      | *Description TBD*                 |
-| option_control_type <br> <span>string</span> | *Description TBD*                 |
-| popup_text <br> <span>string</span>          | *Description TBD*                 |
-| parent_option_id <br> <span>integer</span>   | *Description TBD*                 |
-| display_order <br> <span>integer</span>      | *Description TBD*                 |
-| active <br> <span>boolean</span>             | *Description TBD*                 |
+| Attribute                               | Description                                             |
+| --------------------------------------- | ------------------------------------------------------- |
+| id <br> <span>integer</span>            | Unique identifier for the object.                       |
+| name <br> <span>string</span>           | The name of the option.                                 |
+| description <br> <span>string</span>    | A human readable description of the option.             |
+| display_order <br> <span>integer</span> | The order in which the option is displayed in Workflow. |
 
 ### Option Value
 
 ```json
 # Standard Object - Used in a resource collection
 {
-    "id": 4,
-    "garment_type": 545,
-    "tailoring_grade": 895,
-    "order_type": 3,
-    "option_value": "no_label",
-    "gerber_optval": false,
-    "rc_price": "0.0",
-    "premium_id": 1,
-    "default_value": true,
-    "copyable": true,
-    "display_order": 2,
-    "active": true,
-    "description": "No Label"
+    "id": 520,
+    "option_value": "american_spread",
+    "description": "American Spread",
+    "display_order": 12
 }
 ```
 
 Standard Attributes
 
-| Attribute                                 | Description                       |
-| ----------------------------------------- | --------------------------------- |
-| id <br> <span>integer</span>              | Unique identifier for the object. |
-| garment_type <br> <span>integer</span>    | *Description TBD*                 |
-| tailoring_grade <br> <span>integer</span> | *Description TBD*                 |
-| order_type <br> <span>integer</span>      | *Description TBD*                 |
-| option_value <br> <span>string</span>     | *Description TBD*                 |
-| gerber_optval <br> <span>boolean</span>   | *Description TBD*                 |
-| rc_price <br> <span>string</span>         | *Description TBD*                 |
-| premium_id <br> <span>integer</span>      | *Description TBD*                 |
-| default_value <br> <span>boolean</span>   | *Description TBD*                 |
-| copyable <br> <span>boolean</span>        | *Description TBD*                 |
-| display_order <br> <span>integer</span>   | *Description TBD*                 |
-| active <br> <span>boolean</span>          | *Description TBD*                 |
-| description <br> <span>string</span>      | *Description TBD*                 |
+| Attribute                               | Description                                                   |
+| --------------------------------------- | ------------------------------------------------------------- |
+| id <br> <span>integer</span>            | Unique identifier for the object.                             |
+| option_value <br> <span>string</span>   | The name of the option value.                                 |
+| description <br> <span>string</span>    | A human readable description of the option value.             |
+| display_order <br> <span>integer</span> | The order in which the option value is displayed in Workflow. |
 
 ### Garment Measurements
 
@@ -522,12 +480,12 @@ Standard Attributes
 
 Standard Attributes
 
-| Attribute                                      | Description                                   |
-| ---------------------------------------------- | --------------------------------------------- |
-| updated_at <br> <span>datetime</span>          | The last time the garment option was updated. |
-| text <br> <span>string</span>                  | *Description TBD*                             |
-| measurement <br> <span>subresource</span>      | Detailed object for the measurement.          |
-| meaurement_value <br> <span>subresource</span> | Detailed object for measurement value.        |
+| Attribute                                      | Description                                                           |
+| ---------------------------------------------- | --------------------------------------------------------------------- |
+| updated_at <br> <span>datetime</span>          | The last time the garment option was updated.                         |
+| text <br> <span>string</span>                  | The text value that is associated to the measurement when applicable. |
+| measurement <br> <span>subresource</span>      | Detailed object for the measurement.                                  |
+| meaurement_value <br> <span>subresource</span> | Detailed object for measurement value.                                |
 
 ### Measurement
 
@@ -537,26 +495,18 @@ Standard Attributes
     "id": 7,
     "name": "perkins_incline",
     "description": "Incline Reading",
-    "description_zh_cn": "正常",
-    "garment_type": 239,
-    "tailoring_grade": 511,
-    "isdropdown": 0,
     "display_order": 5
 }
 ```
 
 Standard Attributes
 
-| Attribute                                  | Description                       |
-| ------------------------------------------ | --------------------------------- |
-| id <br> <span>integer</span>               | Unique identifier for the object. |
-| name <br> <span>string</span>              | *Description TBD*                 |
-| description <br> <span>string</span>       | *Description TBD*                 |
-| description_zh_cn <br> <span>string</span> | *Description TBD*                 |
-| garment_type <br> <span>integer</span>     | *Description TBD*                 |
-| tailoring_grade <br> <span>integer</span>  | *Description TBD*                 |
-| isdropdown <br> <span>boolean</span>       | *Description TBD*                 |
-| display_order <br> <span>integer</span>    | *Description TBD*                 |
+| Attribute                               | Description                                                  |
+| --------------------------------------- | ------------------------------------------------------------ |
+| id <br> <span>integer</span>            | Unique identifier for the object.                            |
+| name <br> <span>string</span>           | The name of the measurement.                                 |
+| description <br> <span>string</span>    | A human readable description of the measurement.             |
+| display_order <br> <span>integer</span> | The order in which the measurement is displayed in Workflow. |
 
 ### Measurement Value
 
@@ -566,24 +516,18 @@ Standard Attributes
     "id": 16,
     "value": "0.000",
     "description": "",
-    "description_zh_cn": "",
-    "default_value": 1,
-    "display_order": 1,
-    "active": 1
+    "display_order": 1
 }
 ```
 
 Standard Attributes
 
-| Attribute                                  | Description                       |
-| ------------------------------------------ | --------------------------------- |
-| id <br> <span>integer</span>               | Unique identifier for the object. |
-| value <br> <span>string</span>             | *Description TBD*                 |
-| description <br> <span>string</span>       | *Description TBD*                 |
-| description_zh_cn <br> <span>string</span> | *Description TBD*                 |
-| default_value <br> <span>integer</span>    | *Description TBD*                 |
-| display_order <br> <span>integer</span>    | *Description TBD*                 |
-| active <br> <span>boolean</span>           | *Description TBD*                 |
+| Attribute                               | Description                                                        |
+| --------------------------------------- | ------------------------------------------------------------------ |
+| id <br> <span>integer</span>            | Unique identifier for the object.                                  |
+| value <br> <span>string</span>          | The name of the measurement value.                                 |
+| description <br> <span>string</span>    | A human readable description of the measurement value.             |
+| display_order <br> <span>integer</span> | The order in which the measurement value is displayed in Workflow. |
 
 ## Get All Orders (DOs)
 
@@ -2560,36 +2504,15 @@ curl "https://api.trinity-apparel.com/v1/garments/966400/options"
         "text": null,
         "option": {
             "id": 1,
-            "garment_type": 545,
-            "tailoring_grade": 895,
-            "order_type": 3,
             "name": "garment_label",
             "description": "Garment Label",
-            "gerber_option": false,
-            "option_operator": "A1",
-            "option_group_id": 27,
-            "material_type_id": 0,
-            "option_location": "interior",
-            "option_control_type": "select",
-            "popup_text": null,
-            "parent_option_id": null,
-            "display_order": 5,
-            "active": true
+            "display_order": 5
         },
         "option_value": {
             "id": 4,
-            "garment_type": 545,
-            "tailoring_grade": 895,
-            "order_type": 3,
             "option_value": "no_label",
-            "gerber_optval": false,
-            "rc_price": "0.0",
-            "premium_id": 1,
-            "default_value": true,
-            "copyable": true,
-            "display_order": 2,
-            "active": true,
-            "description": "No Label"
+            "description": "No Label",
+            "display_order": 2
         }
     },
     {
@@ -2597,36 +2520,15 @@ curl "https://api.trinity-apparel.com/v1/garments/966400/options"
         "text": null,
         "option": {
             "id": 2,
-            "garment_type": 33,
-            "tailoring_grade": 895,
-            "order_type": 3,
             "name": "vent_style",
             "description": "Vent Style",
-            "gerber_option": true,
-            "option_operator": "B1",
-            "option_group_id": 30,
-            "material_type_id": 0,
-            "option_location": "exterior",
-            "option_control_type": "select",
-            "popup_text": null,
-            "parent_option_id": null,
-            "display_order": 1,
-            "active": true
+            "display_order": 1
         },
         "option_value": {
             "id": 7,
-            "garment_type": 1,
-            "tailoring_grade": 895,
-            "order_type": 3,
             "option_value": "side_vent",
-            "gerber_optval": true,
-            "rc_price": "0.0",
-            "premium_id": 1,
-            "default_value": true,
-            "copyable": true,
-            "display_order": 6,
-            "active": true,
-            "description": "Sides (9 1/2\") - Standard"
+            "description": "Sides (9 1/2\") - Standard",
+            "display_order": 6
         }
     },
     {
@@ -2634,36 +2536,15 @@ curl "https://api.trinity-apparel.com/v1/garments/966400/options"
         "text": null,
         "option": {
             "id": 3,
-            "garment_type": 33,
-            "tailoring_grade": 895,
-            "order_type": 3,
             "name": "shoulder_style",
             "description": "Shoulder Style",
-            "gerber_option": true,
-            "option_operator": "B5",
-            "option_group_id": 29,
-            "material_type_id": 0,
-            "option_location": "exterior",
-            "option_control_type": "select",
-            "popup_text": null,
-            "parent_option_id": null,
-            "display_order": 1,
-            "active": true
+            "display_order": 1
         },
         "option_value": {
             "id": 656,
-            "garment_type": 33,
-            "tailoring_grade": 383,
-            "order_type": 3,
             "option_value": "ultra_soft",
-            "gerber_optval": true,
-            "rc_price": "0.0",
-            "premium_id": 1,
-            "default_value": false,
-            "copyable": true,
-            "display_order": 0,
-            "active": true,
-            "description": "Ultra Soft"
+            "description": "Ultra Soft",
+            "display_order": 0
         }
     },
     {
@@ -2671,36 +2552,15 @@ curl "https://api.trinity-apparel.com/v1/garments/966400/options"
         "text": null,
         "option": {
             "id": 4,
-            "garment_type": 33,
-            "tailoring_grade": 895,
-            "order_type": 3,
             "name": "exterior_breast_pocket",
             "description": "Exterior Breast Pocket",
-            "gerber_option": true,
-            "option_operator": "A1",
-            "option_group_id": 2,
-            "material_type_id": 0,
-            "option_location": "exterior",
-            "option_control_type": "select",
-            "popup_text": null,
-            "parent_option_id": null,
-            "display_order": 1,
-            "active": true
+            "display_order": 1
         },
         "option_value": {
             "id": 730,
-            "garment_type": 1,
-            "tailoring_grade": 383,
-            "order_type": 3,
             "option_value": "welt_curved_square",
-            "gerber_optval": true,
-            "rc_price": "0.0",
-            "premium_id": 1,
-            "default_value": false,
-            "copyable": true,
-            "display_order": 3,
-            "active": true,
-            "description": "Welt (Curved, Square Edges)"
+            "description": "Welt (Curved, Square Edges)",
+            "display_order": 3
         }
     },
     {
@@ -2708,36 +2568,15 @@ curl "https://api.trinity-apparel.com/v1/garments/966400/options"
         "text": null,
         "option": {
             "id": 5,
-            "garment_type": 33,
-            "tailoring_grade": 895,
-            "order_type": 3,
             "name": "ticket_pocket",
             "description": "Ticket Pocket",
-            "gerber_option": true,
-            "option_operator": "A1",
-            "option_group_id": 2,
-            "material_type_id": 0,
-            "option_location": "exterior",
-            "option_control_type": "select",
-            "popup_text": null,
-            "parent_option_id": null,
-            "display_order": 5,
-            "active": true
+            "display_order": 5
         },
         "option_value": {
             "id": 771,
-            "garment_type": 33,
-            "tailoring_grade": 383,
-            "order_type": 3,
             "option_value": "patch",
-            "gerber_optval": true,
-            "rc_price": "0.0",
-            "premium_id": 1,
-            "default_value": false,
-            "copyable": true,
-            "display_order": 15,
-            "active": true,
-            "description": "Patch"
+            "description": "Patch",
+            "display_order": 15
         }
     },
     {
@@ -2745,36 +2584,15 @@ curl "https://api.trinity-apparel.com/v1/garments/966400/options"
         "text": null,
         "option": {
             "id": 6,
-            "garment_type": 33,
-            "tailoring_grade": 895,
-            "order_type": 3,
             "name": "exterior_lower_pockets",
             "description": "Exterior Lower Pockets",
-            "gerber_option": true,
-            "option_operator": "A1",
-            "option_group_id": 2,
-            "material_type_id": 0,
-            "option_location": "exterior",
-            "option_control_type": "select",
-            "popup_text": "Microsuede Pocket Jetting is only available on Double Besom pockets",
-            "parent_option_id": null,
-            "display_order": 9,
-            "active": true
+            "display_order": 9
         },
         "option_value": {
             "id": 18,
-            "garment_type": 33,
-            "tailoring_grade": 895,
-            "order_type": 3,
             "option_value": "patch",
-            "gerber_optval": true,
-            "rc_price": "0.0",
-            "premium_id": 1,
-            "default_value": false,
-            "copyable": true,
-            "display_order": 15,
-            "active": true,
-            "description": "Patch"
+            "description": "Patch",
+            "display_order": 15
         }
     },
     {
@@ -2782,36 +2600,15 @@ curl "https://api.trinity-apparel.com/v1/garments/966400/options"
         "text": null,
         "option": {
             "id": 7,
-            "garment_type": 33,
-            "tailoring_grade": 895,
-            "order_type": 3,
             "name": "interior_breast_pocket_l",
             "description": "Interior Breast Pocket (L)",
-            "gerber_option": true,
-            "option_operator": "A1",
-            "option_group_id": 2,
-            "material_type_id": 0,
-            "option_location": "interior",
-            "option_control_type": "select",
-            "popup_text": "Cellphone Pocket: Left and Pen/Pencil Pocket: Left cannot be ordered with Interior Breast Pocket (L): Double Besom Button-Through\nIf Interior Breast Pocket L: Patch Pockets are chosen, Interior Shape: Parallel is required\nShell Fabric Pocket Fasteners are only available on Interior Breast Pockets with Loop, Flap, or Tab",
-            "parent_option_id": null,
-            "display_order": 1,
-            "active": true
+            "display_order": 1
         },
         "option_value": {
             "id": 1299,
-            "garment_type": 33,
-            "tailoring_grade": 895,
-            "order_type": 3,
             "option_value": "double_besom",
-            "gerber_optval": true,
-            "rc_price": "0.0",
-            "premium_id": 1,
-            "default_value": true,
-            "copyable": true,
-            "display_order": 2,
-            "active": true,
-            "description": "Double Besom"
+            "description": "Double Besom",
+            "display_order": 2
         }
     },
     {
@@ -2819,36 +2616,15 @@ curl "https://api.trinity-apparel.com/v1/garments/966400/options"
         "text": null,
         "option": {
             "id": 8,
-            "garment_type": 33,
-            "tailoring_grade": 895,
-            "order_type": 3,
             "name": "interior_breast_pocket_r",
             "description": "Interior Breast Pocket (R)",
-            "gerber_option": true,
-            "option_operator": "A1",
-            "option_group_id": 2,
-            "material_type_id": 0,
-            "option_location": "interior",
-            "option_control_type": "select",
-            "popup_text": "Cellphone Pocket: Right and Pen/Pencil Pocket: Right cannot be ordered with Interior Breast Pocket (R): Double Besom Button-Through\nIf Interior Breast Pocket R: Patch Pockets are chosen, Interior Shape: Parallel is required\nShell Fabric Pocket Fasteners are only available on Interior Breast Pockets with Loop, Flap, or Tab",
-            "parent_option_id": null,
-            "display_order": 2,
-            "active": true
+            "display_order": 2
         },
         "option_value": {
             "id": 1357,
-            "garment_type": 33,
-            "tailoring_grade": 895,
-            "order_type": 3,
             "option_value": "double_besom",
-            "gerber_optval": true,
-            "rc_price": "0.0",
-            "premium_id": 1,
-            "default_value": true,
-            "copyable": true,
-            "display_order": 2,
-            "active": true,
-            "description": "Double Besom"
+            "description": "Double Besom",
+            "display_order": 2
         }
     },
     {
@@ -2856,36 +2632,15 @@ curl "https://api.trinity-apparel.com/v1/garments/966400/options"
         "text": null,
         "option": {
             "id": 9,
-            "garment_type": 33,
-            "tailoring_grade": 895,
-            "order_type": 3,
             "name": "pen_pencil_pocket",
             "description": "Pen/Pencil Pocket",
-            "gerber_option": true,
-            "option_operator": "A1",
-            "option_group_id": 2,
-            "material_type_id": 0,
-            "option_location": "interior",
-            "option_control_type": "select",
-            "popup_text": "Interior Breast Pocket: Double Besom Button-Through cannot be ordered with Pen/Pencil Pocket",
-            "parent_option_id": null,
-            "display_order": 6,
-            "active": true
+            "display_order": 6
         },
         "option_value": {
             "id": 32,
-            "garment_type": 33,
-            "tailoring_grade": 863,
-            "order_type": 3,
             "option_value": "none",
-            "gerber_optval": false,
-            "rc_price": "0.0",
-            "premium_id": 1,
-            "default_value": true,
-            "copyable": true,
-            "display_order": 1,
-            "active": true,
-            "description": "None"
+            "description": "None",
+            "display_order": 1
         }
     },
     {
@@ -2893,184 +2648,15 @@ curl "https://api.trinity-apparel.com/v1/garments/966400/options"
         "text": null,
         "option": {
             "id": 10,
-            "garment_type": 33,
-            "tailoring_grade": 895,
-            "order_type": 3,
             "name": "cellphone_pocket",
             "description": "Cell Phone Pocket",
-            "gerber_option": true,
-            "option_operator": "A1",
-            "option_group_id": 2,
-            "material_type_id": 0,
-            "option_location": "interior",
-            "option_control_type": "select",
-            "popup_text": "Interior Breast Pocket: Double Besom Button-Through cannot be ordered with Cellphone Pocket\nInterior Shape: Curved French Facing Two-Piece is not available when Cellphone Pocket is chosen",
-            "parent_option_id": null,
-            "display_order": 5,
-            "active": true
+            "display_order": 5
         },
         "option_value": {
             "id": 33,
-            "garment_type": 33,
-            "tailoring_grade": 351,
-            "order_type": 3,
             "option_value": "right",
-            "gerber_optval": true,
-            "rc_price": "0.0",
-            "premium_id": 1,
-            "default_value": false,
-            "copyable": true,
-            "display_order": 3,
-            "active": true,
-            "description": "Right"
-        }
-    },
-    {
-        "updated_at": "2019-02-12T16:36:59.000Z",
-        "text": null,
-        "option": {
-            "id": 11,
-            "garment_type": 33,
-            "tailoring_grade": 895,
-            "order_type": 3,
-            "name": "lower_card_pocket_l",
-            "description": "Lower Card Pocket (L)",
-            "gerber_option": true,
-            "option_operator": "A1",
-            "option_group_id": 2,
-            "material_type_id": 0,
-            "option_location": "interior",
-            "option_control_type": "select",
-            "popup_text": null,
-            "parent_option_id": null,
-            "display_order": 7,
-            "active": true
-        },
-        "option_value": {
-            "id": 1403,
-            "garment_type": 33,
-            "tailoring_grade": 351,
-            "order_type": 3,
-            "option_value": "none",
-            "gerber_optval": false,
-            "rc_price": "0.0",
-            "premium_id": 1,
-            "default_value": true,
-            "copyable": true,
-            "display_order": 1,
-            "active": true,
-            "description": "None"
-        }
-    },
-    {
-        "updated_at": "2019-02-12T16:36:59.000Z",
-        "text": null,
-        "option": {
-            "id": 12,
-            "garment_type": 33,
-            "tailoring_grade": 895,
-            "order_type": 3,
-            "name": "lower_card_pocket_r",
-            "description": "Lower Card Pocket (R)",
-            "gerber_option": true,
-            "option_operator": "A1",
-            "option_group_id": 2,
-            "material_type_id": 0,
-            "option_location": "interior",
-            "option_control_type": "select",
-            "popup_text": null,
-            "parent_option_id": null,
-            "display_order": 8,
-            "active": true
-        },
-        "option_value": {
-            "id": 1411,
-            "garment_type": 33,
-            "tailoring_grade": 351,
-            "order_type": 3,
-            "option_value": "none",
-            "gerber_optval": false,
-            "rc_price": "0.0",
-            "premium_id": 1,
-            "default_value": true,
-            "copyable": true,
-            "display_order": 1,
-            "active": true,
-            "description": "None"
-        }
-    },
-    {
-        "updated_at": "2019-02-12T16:36:59.000Z",
-        "text": null,
-        "option": {
-            "id": 13,
-            "garment_type": 33,
-            "tailoring_grade": 895,
-            "order_type": 3,
-            "name": "contrast_pocket_cording",
-            "description": "Contrast Pocket Cording",
-            "gerber_option": true,
-            "option_operator": "A1",
-            "option_group_id": 2,
-            "material_type_id": 2,
-            "option_location": "interior",
-            "option_control_type": "select",
-            "popup_text": "Ribbon cannot be used for Contrast Pocket Cording. Please use ONLY Shirt Trim or Lining fabrics for this option.",
-            "parent_option_id": null,
-            "display_order": 15,
-            "active": true
-        },
-        "option_value": {
-            "id": 41,
-            "garment_type": 33,
-            "tailoring_grade": 895,
-            "order_type": 3,
-            "option_value": "shell_fabric",
-            "gerber_optval": false,
-            "rc_price": "0.0",
-            "premium_id": 1,
-            "default_value": true,
-            "copyable": true,
-            "display_order": 2,
-            "active": true,
-            "description": "Use Shell Fabric"
-        }
-    },
-    {
-        "updated_at": "2019-02-12T16:36:59.000Z",
-        "text": null,
-        "option": {
-            "id": 14,
-            "garment_type": 33,
-            "tailoring_grade": 895,
-            "order_type": 3,
-            "name": "exterior_lapel_stitching",
-            "description": "Collar/Lapels/Front Stitching",
-            "gerber_option": false,
-            "option_operator": "B6",
-            "option_group_id": 3,
-            "material_type_id": 0,
-            "option_location": "exterior",
-            "option_control_type": "select",
-            "popup_text": null,
-            "parent_option_id": null,
-            "display_order": 3,
-            "active": true
-        },
-        "option_value": {
-            "id": 918,
-            "garment_type": 33,
-            "tailoring_grade": 383,
-            "order_type": 3,
-            "option_value": "pic_1_4",
-            "gerber_optval": false,
-            "rc_price": "0.0",
-            "premium_id": 1,
-            "default_value": false,
-            "copyable": true,
-            "display_order": 6,
-            "active": true,
-            "description": "1/4\" Pic Stitch"
+            "description": "Right",
+            "display_order": 3
         }
     }
 ]
@@ -3111,20 +2697,13 @@ curl "https://api.trinity-apparel.com/v1/garments/890682/measurements"
             "id": 7,
             "name": "perkins_incline",
             "description": "Incline Reading",
-            "description_zh_cn": "正常",
-            "garment_type": 239,
-            "tailoring_grade": 511,
-            "isdropdown": 0,
             "display_order": 5
         },
         "measurement_value": {
             "id": 16,
             "value": "0.000",
             "description": "",
-            "description_zh_cn": "",
-            "default_value": 1,
-            "display_order": 1,
-            "active": 1
+            "display_order": 1
         }
     },
     {
@@ -3134,20 +2713,13 @@ curl "https://api.trinity-apparel.com/v1/garments/890682/measurements"
             "id": 9,
             "name": "perkins_shoulder_l",
             "description": "Shoulder Reading (L)",
-            "description_zh_cn": "正常",
-            "garment_type": 239,
-            "tailoring_grade": 511,
-            "isdropdown": 0,
             "display_order": 6
         },
         "measurement_value": {
             "id": 39,
             "value": "0.000",
             "description": "",
-            "description_zh_cn": "",
-            "default_value": 1,
-            "display_order": 1,
-            "active": 1
+            "display_order": 1
         }
     },
     {
@@ -3157,20 +2729,13 @@ curl "https://api.trinity-apparel.com/v1/garments/890682/measurements"
             "id": 10,
             "name": "perkins_shoulder_r",
             "description": "Shoulder Reading (R)",
-            "description_zh_cn": "正常",
-            "garment_type": 239,
-            "tailoring_grade": 511,
-            "isdropdown": 0,
             "display_order": 7
         },
         "measurement_value": {
             "id": 51,
             "value": "0.000",
             "description": "",
-            "description_zh_cn": "",
-            "default_value": 1,
-            "display_order": 1,
-            "active": 1
+            "display_order": 1
         }
     },
     {
@@ -3180,20 +2745,13 @@ curl "https://api.trinity-apparel.com/v1/garments/890682/measurements"
             "id": 11,
             "name": "perkins_shoulder_desc_l",
             "description": "Shoulder Desc (L)",
-            "description_zh_cn": "",
-            "garment_type": 239,
-            "tailoring_grade": 1023,
-            "isdropdown": 0,
             "display_order": 8
         },
         "measurement_value": {
             "id": 65,
             "value": "regular",
             "description": "Regular",
-            "description_zh_cn": "正常",
-            "default_value": 1,
-            "display_order": 3,
-            "active": 1
+            "display_order": 3
         }
     },
     {
@@ -3203,20 +2761,13 @@ curl "https://api.trinity-apparel.com/v1/garments/890682/measurements"
             "id": 12,
             "name": "perkins_shoulder_desc_r",
             "description": "Shoulder Desc (R)",
-            "description_zh_cn": "",
-            "garment_type": 239,
-            "tailoring_grade": 1023,
-            "isdropdown": 0,
             "display_order": 9
         },
         "measurement_value": {
             "id": 71,
             "value": "regular",
             "description": "Regular",
-            "description_zh_cn": "正常",
-            "default_value": 1,
-            "display_order": 3,
-            "active": 1
+            "display_order": 3
         }
     },
     {
@@ -3226,10 +2777,6 @@ curl "https://api.trinity-apparel.com/v1/garments/890682/measurements"
             "id": 49,
             "name": "shirt_chest_base",
             "description": "Actual Chest",
-            "description_zh_cn": "净胸围",
-            "garment_type": 8,
-            "tailoring_grade": 453,
-            "isdropdown": 1,
             "display_order": 5
         },
         "measurement_value": null
@@ -3241,10 +2788,6 @@ curl "https://api.trinity-apparel.com/v1/garments/890682/measurements"
             "id": 50,
             "name": "shirt_chest_fit",
             "description": "Chest Fit Allowance",
-            "description_zh_cn": "胸围加放量",
-            "garment_type": 8,
-            "tailoring_grade": 453,
-            "isdropdown": 0,
             "display_order": 6
         },
         "measurement_value": null
@@ -3256,10 +2799,6 @@ curl "https://api.trinity-apparel.com/v1/garments/890682/measurements"
             "id": 51,
             "name": "shirt_chest_total",
             "description": "Chest Fit Total",
-            "description_zh_cn": "胸围",
-            "garment_type": 8,
-            "tailoring_grade": 453,
-            "isdropdown": 1,
             "display_order": 7
         },
         "measurement_value": null
@@ -3271,10 +2810,6 @@ curl "https://api.trinity-apparel.com/v1/garments/890682/measurements"
             "id": 54,
             "name": "shirt_waist_total",
             "description": "Waist Fit Total",
-            "description_zh_cn": "腰围",
-            "garment_type": 8,
-            "tailoring_grade": 453,
-            "isdropdown": 1,
             "display_order": 10
         },
         "measurement_value": null
@@ -3286,10 +2821,6 @@ curl "https://api.trinity-apparel.com/v1/garments/890682/measurements"
             "id": 57,
             "name": "shirt_hips_total",
             "description": "Hips Fit Total",
-            "description_zh_cn": "摆围",
-            "garment_type": 8,
-            "tailoring_grade": 453,
-            "isdropdown": 1,
             "display_order": 13
         },
         "measurement_value": null
@@ -3301,20 +2832,13 @@ curl "https://api.trinity-apparel.com/v1/garments/890682/measurements"
             "id": 58,
             "name": "shirt_armhole",
             "description": "Armhole/Sleeve Fit",
-            "description_zh_cn": "",
-            "garment_type": 8,
-            "tailoring_grade": 453,
-            "isdropdown": 0,
             "display_order": 14
         },
         "measurement_value": {
             "id": 13,
             "value": "regular",
             "description": "Regular",
-            "description_zh_cn": "袖笼正常",
-            "default_value": 1,
-            "display_order": 1,
-            "active": 1
+            "display_order": 1
         }
     },
     {
@@ -3324,10 +2848,6 @@ curl "https://api.trinity-apparel.com/v1/garments/890682/measurements"
             "id": 98,
             "name": "shirt_point_sleeve_l",
             "description": "Shoulder Point Sleeve Length (L)",
-            "description_zh_cn": "直袖长 (左)",
-            "garment_type": 8,
-            "tailoring_grade": 453,
-            "isdropdown": 0,
             "display_order": 0
         },
         "measurement_value": null
@@ -3339,10 +2859,6 @@ curl "https://api.trinity-apparel.com/v1/garments/890682/measurements"
             "id": 99,
             "name": "shirt_point_sleeve_r",
             "description": "Shoulder Point Sleeve Length (R)",
-            "description_zh_cn": "直袖长 (右)",
-            "garment_type": 8,
-            "tailoring_grade": 453,
-            "isdropdown": 0,
             "display_order": 0
         },
         "measurement_value": null
@@ -3354,10 +2870,6 @@ curl "https://api.trinity-apparel.com/v1/garments/890682/measurements"
             "id": 122,
             "name": "gerber_armhole",
             "description": "Gerber Armhole",
-            "description_zh_cn": null,
-            "garment_type": 239,
-            "tailoring_grade": 447,
-            "isdropdown": 0,
             "display_order": 0
         },
         "measurement_value": null
@@ -3369,20 +2881,13 @@ curl "https://api.trinity-apparel.com/v1/garments/890682/measurements"
             "id": 123,
             "name": "posture",
             "description": "Posture",
-            "description_zh_cn": null,
-            "garment_type": 43,
-            "tailoring_grade": 1023,
-            "isdropdown": 0,
             "display_order": 12
         },
         "measurement_value": {
             "id": 184,
             "value": "normal",
             "description": "Normal",
-            "description_zh_cn": "正常",
-            "default_value": 1,
-            "display_order": 1,
-            "active": 1
+            "display_order": 1
         }
     },
     {
@@ -3392,20 +2897,13 @@ curl "https://api.trinity-apparel.com/v1/garments/890682/measurements"
             "id": 130,
             "name": "stomach_stature",
             "description": "Stomach Description",
-            "description_zh_cn": null,
-            "garment_type": 43,
-            "tailoring_grade": 447,
-            "isdropdown": 0,
             "display_order": 19
         },
         "measurement_value": {
             "id": 214,
             "value": "normal",
             "description": "Normal",
-            "description_zh_cn": null,
-            "default_value": 1,
-            "display_order": 1,
-            "active": 1
+            "display_order": 1
         }
     },
     {
@@ -3415,20 +2913,13 @@ curl "https://api.trinity-apparel.com/v1/garments/890682/measurements"
             "id": 185,
             "name": "gerber_posture_shirt",
             "description": "Gerber Posture (Shirt)",
-            "description_zh_cn": null,
-            "garment_type": 8,
-            "tailoring_grade": 389,
-            "isdropdown": 0,
             "display_order": 0
         },
         "measurement_value": {
             "id": 440,
             "value": "normal",
             "description": "Normal",
-            "description_zh_cn": null,
-            "default_value": 0,
-            "display_order": 0,
-            "active": 1
+            "display_order": 0
         }
     },
     {
@@ -3438,10 +2929,6 @@ curl "https://api.trinity-apparel.com/v1/garments/890682/measurements"
             "id": 220,
             "name": "gerber_layout",
             "description": "Gerber Layout",
-            "description_zh_cn": null,
-            "garment_type": 33,
-            "tailoring_grade": 319,
-            "isdropdown": 0,
             "display_order": 0
         },
         "measurement_value": null
@@ -3453,10 +2940,6 @@ curl "https://api.trinity-apparel.com/v1/garments/890682/measurements"
             "id": 267,
             "name": "swacket_chest",
             "description": "Chest",
-            "description_zh_cn": "胸围",
-            "garment_type": 512,
-            "tailoring_grade": 383,
-            "isdropdown": 0,
             "display_order": 0
         },
         "measurement_value": null
@@ -3468,20 +2951,13 @@ curl "https://api.trinity-apparel.com/v1/garments/890682/measurements"
             "id": 271,
             "name": "shirt_elbow_forearm_reduction",
             "description": "Elbow/Forearm Reduction",
-            "description_zh_cn": "手肘围减",
-            "garment_type": 8,
-            "tailoring_grade": 453,
-            "isdropdown": 0,
             "display_order": 15
         },
         "measurement_value": {
             "id": 602,
             "value": "none",
             "description": "None",
-            "description_zh_cn": "Shirt Elbow Forearm Fit Regular",
-            "default_value": 1,
-            "display_order": 1,
-            "active": 1
+            "display_order": 1
         }
     },
     {
@@ -3491,10 +2967,6 @@ curl "https://api.trinity-apparel.com/v1/garments/890682/measurements"
             "id": 278,
             "name": "estimated_finished_thigh",
             "description": "Estimated Finished Thigh",
-            "description_zh_cn": null,
-            "garment_type": 196,
-            "tailoring_grade": 319,
-            "isdropdown": 0,
             "display_order": 8
         },
         "measurement_value": null
@@ -3506,10 +2978,6 @@ curl "https://api.trinity-apparel.com/v1/garments/890682/measurements"
             "id": 279,
             "name": "estimated_u_rise",
             "description": "Estimated U Rise",
-            "description_zh_cn": null,
-            "garment_type": 196,
-            "tailoring_grade": 383,
-            "isdropdown": 0,
             "display_order": 5
         },
         "measurement_value": null
