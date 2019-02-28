@@ -1176,10 +1176,11 @@ Returns an array of dealer orders (DOs).
 
 ### Query Parameters
 
-| Parameter | Default | Description                                                                                                       |
-| --------- | ------- | ----------------------------------------------------------------------------------------------------------------- |
-| is_active | true    | If set to true, the result will only include active fabrics                                                       |
-| extended  | false   | If set to true, the API call returns extended objects which include a complete set of attributes and subresources |
+| Parameter   | Default | Description                                                                                                        |
+| ----------- | ------- | ------------------------------------------------------------------------------------------------------------------ |
+| customer_id | N/A     | If set, the result will only include orders from this customer id.                                                 |
+| is_active   | true    | If set to true, the result will only include active fabrics.                                                       |
+| extended    | false   | If set to true, the API call returns extended objects which include a complete set of attributes and subresources. |
 
 ### Other
 
