@@ -275,31 +275,6 @@ Standard Attributes
 | phone <br> <span>string</span>        | Phone number of the dealer              |
 | country <br> <span>string</span>      | Country where the dealer is             |
 
-### Customer
-
-```json
-# Standard Object - Used in a resource collection
-{
-    "id": 87285,
-    "created_at": "2016-05-29T15:08:38.000Z",
-    "name": "Mr Mannequin",
-    "first_name": "Mr",
-    "last_name": "Mannequin",
-    "email": null
-}
-```
-
-Standard Attributes
-
-| Attribute                             | Description                             |
-| ------------------------------------- | --------------------------------------- |
-| id <br> <span>integer</span>          | Unique identifier for the object        |
-| created_at <br> <span>datetime</span> | *Description TBD*                       |
-| name <br> <span>string</span>         | Combined string for first and last name |
-| first_name <br> <span>string</span>   | First name of the customer              |
-| last_name <br> <span>string</span>    | Last name of the customer               |
-| email <br> <span>string</span>        | Email address of the customer           |
-
 ### Garment
 
 ```json

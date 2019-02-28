@@ -11,8 +11,6 @@ The customers API will return detailed information about customers you have crea
 {
   "id": 293,
   "name": "Jakob Causey",
-  "first_name": "Jakob",
-  "last_name": "Causey",
   "home_phone": "617-608-2771",
   "cell": "555-555-1234",
   "email": "jakob_upto6@hotmail.com"
@@ -25,8 +23,6 @@ Standard Attributes
 | ----------------------------------- | ------------------------------------------- |
 | id <br> <span>integer</span>        | Unique identifier for the object.           |
 | name <br> <span>string</span>       | The customers first and last name combined. |
-| first_name <br> <span>string</span> | The customer's first name.                  |
-| last_name <br> <span>string</span>  | The customer's last name.                   |
 | home_phone <br> <span>string</span> | The customer's home phone number.           |
 | cell <br> <span>string</span>       | The customer's mobile phone number.         |
 | email <br> <span>string</span>      | The customer's email address.               |
@@ -41,6 +37,8 @@ Standard Attributes
     "home_phone": "617-608-2771",
     "cell": "555-555-1234",
     "email": "jakob_upto6@hotmail.com",
+    "first_name": "Jakob",
+    "last_name": "Causey",
     "created_at": "2019-02-13T11:12:56.000Z",
     "address1": "4809 Cedar Lane",
     "address2": null,
@@ -66,6 +64,8 @@ Extended attributes
 
 | Attribute                                      | Description                                          |
 | ---------------------------------------------- | ---------------------------------------------------- |
+| first_name <br> <span>string</span>            | The customer's first name.                           |
+| last_name <br> <span>string</span>             | The customer's last name.                            |
 | created_at <br> <span>datetime</span>          | The date the customer was added to Workflow.         |
 | address1 <br> <span>string</span>              | The customer's first address line.                   |
 | address2 <br> <span>string</span>              | The customer's second address line.                  |
@@ -197,20 +197,16 @@ Returns an array of your customers.
 
 ### Query Parameters
 
-| Parameter    | Default | Description                                                                                                 |
-| ------------ | ------- | ----------------------------------------------------------------------------------------------------------- |
-| name         | N/A     | If set, will return results with exact matching name.                                                       |
-| first_name   | N/A     | If set, will return results with exact matching first_name.                                                 |
-| last_name    | N/A     | If set, will return results with exact matching last_name.                                                  |
-| email        | N/A     | If set, will return results with exact matching email address.                                              |
-| city         | N/A     | If set, will return results with exact matching city.                                                       |
-| state        | N/A     | If set, will return results with exact matching state.                                                      |
-| zip          | N/A     | If set, will return results with exact matching zip code.                                                   |
-| country      | N/A     | If set, will return results with exact matching country.                                                    |
-| email_promos | N/A     | Can set to true or false and will only return matching email_promo results.                                 |
-| mail_promos  | N/A     | Can set to true or false and will only return matching mail_promo results.                                  |
-| personal     | N/A     | Can set to true or false and will only return matching dealer_personal results.                             |
-| extended     | false   | If true, the API call returns extended objects which include a complete set of attributes and subresources. |
+| Parameter  | Default | Description                                                                                                 |
+| ---------- | ------- | ----------------------------------------------------------------------------------------------------------- |
+| first_name | N/A     | If set, will return results with exact matching first_name.                                                 |
+| last_name  | N/A     | If set, will return results with exact matching last_name.                                                  |
+| email      | N/A     | If set, will return results with exact matching email address.                                              |
+| city       | N/A     | If set, will return results with exact matching city.                                                       |
+| state      | N/A     | If set, will return results with exact matching state.                                                      |
+| zip        | N/A     | If set, will return results with exact matching zip code.                                                   |
+| country    | N/A     | If set, will return results with exact matching country.                                                    |
+| extended   | false   | If true, the API call returns extended objects which include a complete set of attributes and subresources. |
 
 ### Other
 
