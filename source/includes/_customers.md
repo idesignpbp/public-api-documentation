@@ -83,7 +83,7 @@ Extended attributes
 | laundry_marker <br> <span>string</span>        | The customer's preferred laundry marker.             |
 | monogram <br> <span>string</span>              | The customer's preferred monogram.                   |
 | notes <br> <span>string</span>                 | Notes about the customer.                            |
-| dealer_personal <br> <span>boolean</span>      | If this cusomer is a personal account of the dealer. |
+| dealer_personal <br> <span>boolean</span>      | If this customer is a personal account of the dealer. |
 
 ## Get All Customers
 
