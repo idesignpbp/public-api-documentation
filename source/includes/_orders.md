@@ -2389,7 +2389,6 @@ Returns an array of garments.  Each garment will have pricing information and or
 | Parameter         | Default | Description                                                                                                        |
 | ----------------- | ------- | ------------------------------------------------------------------------------------------------------------------ |
 | customer_id       | N/A     | Show garments for a specific customer.                                                                             |
-| dealer_id         | N/A     | Show garments for a specific dealer.                                                                               |
 | order_id          | N/A     | Show garments that are part of a specific dealer order.                                                            |
 | order_status_code | N/A     | Show garments that are in a specific order status.                                                                 |
 | delay_status_code | N/A     | Show garments that are in a specific delay status.                                                                 |
