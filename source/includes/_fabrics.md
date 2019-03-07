@@ -57,6 +57,8 @@ Standard Attributes
     "last_stock_edit_date": "2018-01-19T18:36:51.000Z",
     "fabric_year": 2017,
     "weight": 125,
+    "lead_time": "Stocked",
+    "price_code": ...,
     "collection": ...,
     "supplier": ...,
     "composition": ...,
@@ -66,19 +68,40 @@ Standard Attributes
 
 Extended attributes
 
-| Attribute                                       | Description                                                        |
-| ----------------------------------------------- | ------------------------------------------------------------------ |
-| country_origin <br> <span>string</span>         | Where the fabric was milled.                                       |
-| weight <br> <span>integer</span>                | Weight in grams per square meter.                                  |
-| usage <br> <span>integer</span>                 | The usage of the fabric (E.g., Shirt Trim, Clothing Trim, etc).    |
-| fabric_grouping <br> <span>string</span>        | Fabrics are typically grouped by dominant color.                   |
-| pattern <br> <span>string</span>                | Type of pattern. Common values are `stripe`, `check`, and `solid`. |
-| last_stock_edit_date <br> <span>datetime</span> | The last time the fabric inventory level was changed.              |
-| fabric_year <br> <span>year</span>              | The year the fabric was released.                                  |
-| collection <br> <span>subresource</span>        | The collection in which the fabric was released.                   |
-| supplier <br> <span>subresource</span>          | Information about the supplier of the fabric.                      |
-| composition <br> <span>subresource</span>       | The material composition of the fabric (E.g, 100% Wool).           |
-| mill <br> <span>subresource</span>              | The mill that produced the fabric.                                 |
+| Attribute                                       | Description                                                           |
+| ----------------------------------------------- | --------------------------------------------------------------------- |
+| country_origin <br> <span>string</span>         | Where the fabric was milled.                                          |
+| weight <br> <span>integer</span>                | Weight in grams per square meter.                                     |
+| usage <br> <span>integer</span>                 | The usage of the fabric (E.g., Shirt Trim, Clothing Trim, etc).       |
+| fabric_grouping <br> <span>string</span>        | Fabrics are typically grouped by dominant color.                      |
+| pattern <br> <span>string</span>                | Type of pattern. Common values are `stripe`, `check`, and `solid`.    |
+| last_stock_edit_date <br> <span>datetime</span> | The last time the fabric inventory level was changed.                 |
+| fabric_year <br> <span>year</span>              | The year the fabric was released.                                     |
+| lead_time <br> <span>string</span>              | If the fabric is in stock or the estimated time until it is in stock. |
+| price_code <br> <span>subresource</span>        | Information about the price code for the fabric.                      |
+| collection <br> <span>subresource</span>        | The collection in which the fabric was released.                      |
+| supplier <br> <span>subresource</span>          | Information about the supplier of the fabric.                         |
+| composition <br> <span>subresource</span>       | The material composition of the fabric (E.g, 100% Wool).              |
+| mill <br> <span>subresource</span>              | The mill that produced the fabric.                                    |
+
+### Price Code
+
+```json
+# Standard Object - Used in a resource collection
+{
+    "code": "S2",
+    "description": "Soktas Bespoke",
+    "tier": 3
+}
+```
+
+Standard Attributes
+
+| Attribute                            | Description                                                                                                             |
+| ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------- |
+| code <br> <span>string</span>        | Unique identifier for the object.                                                                                       |
+| description <br> <span>string</span> | A human readable description of the price code.                                                                         |
+| tier <br> <span>integer</span>       | If set, will be a ranking between 1-4 of how expensive the fabric is (1 being least expensive, 4 being most expensive). |
 
 ### Collection
 
@@ -1446,11 +1469,12 @@ Returns a list of related fabrics
 
 ### Query Parameters
 
-| Parameter | Default | Description                                                |
-| --------- | ------- | ---------------------------------------------------------- |
-| id        | N/A     | The specific fabric id you want to see related fabrics for |
+| Parameter | Default | Description                                                 |
+| --------- | ------- | ----------------------------------------------------------- |
+| id        | N/A     | The specific fabric id you want to see related fabrics for. |
+| rpp       | 10      | The number of results you would like to return.             |
 
 ### Other
 
 - Permissions: All
-- Pagination: N/A - Limited to 32 results
+- Pagination: N/A
