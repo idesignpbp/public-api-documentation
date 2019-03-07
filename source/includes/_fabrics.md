@@ -1473,6 +1473,7 @@ Returns a list of related fabrics
 | --------- | ------- | ----------------------------------------------------------- |
 | id        | N/A     | The specific fabric id you want to see related fabrics for. |
 | rpp       | 10      | The number of results you would like to return.             |
+| extended  | false   | If set to true, the API call returns extended objects which include a complete set of attributes and subresources. |
 
 ### Other
 
