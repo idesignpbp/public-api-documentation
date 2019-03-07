@@ -9,16 +9,18 @@ The Trinity Fabrics API provides detailed information on fabrics and collections
 ```json
 # Standard Object - Used in a resource collection
 {
-    "id": 42701,
+    "id": 61189,
     "active": true,
     "in_stock": 1,
     "restock_date": null,
-    "description": "Teal Basket Weave",
-    "supplier_fabric_number": "602 275 800",
-    "trinity_fabric_number": "Z4-3642701",
-    "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z4-3642701",
-    "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z4-3642701&res=300",
-    "inventory_status": "In Stock"
+    "description": "Black solid",
+    "supplier_fabric_number": "53145",
+    "trinity_fabric_number": "XG-3861189",
+    "url": "https://s7d4.scene7.com/is/image/trinityapparel/XG-3861189",
+    "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=XG-3861189&res=300",
+    "inventory_status": "In Stock",
+    "price_tier": 4,
+    "has_image": true
 }
 ```
 
@@ -36,6 +38,8 @@ Standard Attributes
 | url <br> <span>string</span>                    | The url for a repeatable image of the fabric                                                                                                                                                                                 |
 | swatch_url <br> <span>string</span>             | The url for a swatch image of the fabric. This image contains serrated edges. Users can configure the zoom of the image by changing the `res=` parameter in the url to a different number.                                   |
 | inventory_status <br> <span>string</span>       | A human readable version of the in_stock attribute                                                                                                                                                                           |
+| price_tier <br> <span>integer</span>            | If set, will be a ranking between 1-4 of how expensive the fabric is (1 being least expensive, 4 being most expensive).                                                                                                      |
+| has_image <br> <span>boolean</span>             | If true, the fabric image url will actually return an image of the fabric.                                                                                                                                                   |
 
 ```json
 # Extended Object
@@ -50,6 +54,8 @@ Standard Attributes
     "url": "https://s7d4.scene7.com/is/image/trinityapparel/S2-3540985",
     "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=S2-3540985&res=300",
     "inventory_status": "In Stock",
+    "price_tier": 3,
+    "has_image": null,
     "country_origin": "International",
     "fabric_grouping": "shirts",
     "pattern": "solid",
@@ -58,8 +64,8 @@ Standard Attributes
     "fabric_year": 2017,
     "weight": 125,
     "lead_time": "Stocked",
-    "price_code": ...,
     "collection": ...,
+    "price_code": ...,
     "supplier": ...,
     "composition": ...,
     "mill": ...
@@ -658,7 +664,9 @@ curl "https://api.trinity-apparel.com/v1/fabrics"
         "trinity_fabric_number": "Z4-3642701",
         "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z4-3642701",
         "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z4-3642701&res=300",
-        "inventory_status": "In Stock"
+        "inventory_status": "In Stock",
+        "price_tier": 4,
+        "has_image": true
     },
     {
         "id": 42702,
@@ -670,7 +678,9 @@ curl "https://api.trinity-apparel.com/v1/fabrics"
         "trinity_fabric_number": "Z4-3642702",
         "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z4-3642702",
         "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z4-3642702&res=300",
-        "inventory_status": "In Stock"
+        "inventory_status": "In Stock",
+        "price_tier": 4,
+        "has_image": true
     },
     {
         "id": 42703,
@@ -682,7 +692,9 @@ curl "https://api.trinity-apparel.com/v1/fabrics"
         "trinity_fabric_number": "Z4-3642703",
         "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z4-3642703",
         "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z4-3642703&res=300",
-        "inventory_status": "In Stock"
+        "inventory_status": "In Stock",
+        "price_tier": 4,
+        "has_image": true
     },
     {
         "id": 42704,
@@ -694,7 +706,9 @@ curl "https://api.trinity-apparel.com/v1/fabrics"
         "trinity_fabric_number": "Z4-3642704",
         "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z4-3642704",
         "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z4-3642704&res=300",
-        "inventory_status": "In Stock"
+        "inventory_status": "In Stock",
+        "price_tier": 4,
+        "has_image": true
     },
     {
         "id": 42705,
@@ -706,7 +720,9 @@ curl "https://api.trinity-apparel.com/v1/fabrics"
         "trinity_fabric_number": "Z4-3642705",
         "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z4-3642705",
         "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z4-3642705&res=300",
-        "inventory_status": "In Stock"
+        "inventory_status": "In Stock",
+        "price_tier": 4,
+        "has_image": true
     },
     {
         "id": 42706,
@@ -718,7 +734,9 @@ curl "https://api.trinity-apparel.com/v1/fabrics"
         "trinity_fabric_number": "Z4-3642706",
         "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z4-3642706",
         "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z4-3642706&res=300",
-        "inventory_status": "In Stock"
+        "inventory_status": "In Stock",
+        "price_tier": 4,
+        "has_image": true
     },
     {
         "id": 42707,
@@ -730,7 +748,9 @@ curl "https://api.trinity-apparel.com/v1/fabrics"
         "trinity_fabric_number": "Z4-3642707",
         "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z4-3642707",
         "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z4-3642707&res=300",
-        "inventory_status": "In Stock"
+        "inventory_status": "In Stock",
+        "price_tier": 4,
+        "has_image": true
     },
     {
         "id": 42708,
@@ -742,7 +762,9 @@ curl "https://api.trinity-apparel.com/v1/fabrics"
         "trinity_fabric_number": "Z4-3642708",
         "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z4-3642708",
         "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z4-3642708&res=300",
-        "inventory_status": "In Stock"
+        "inventory_status": "In Stock",
+        "price_tier": 4,
+        "has_image": true
     },
     {
         "id": 42709,
@@ -754,7 +776,9 @@ curl "https://api.trinity-apparel.com/v1/fabrics"
         "trinity_fabric_number": "Z4-3642709",
         "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z4-3642709",
         "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z4-3642709&res=300",
-        "inventory_status": "In Stock"
+        "inventory_status": "In Stock",
+        "price_tier": 4,
+        "has_image": true
     },
     {
         "id": 42710,
@@ -766,7 +790,9 @@ curl "https://api.trinity-apparel.com/v1/fabrics"
         "trinity_fabric_number": "Z4-3642710",
         "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z4-3642710",
         "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z4-3642710&res=300",
-        "inventory_status": "In Stock"
+        "inventory_status": "In Stock",
+        "price_tier": 4,
+        "has_image": true
     },
     {
         "id": 42711,
@@ -778,175 +804,9 @@ curl "https://api.trinity-apparel.com/v1/fabrics"
         "trinity_fabric_number": "Z4-3642711",
         "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z4-3642711",
         "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z4-3642711&res=300",
-        "inventory_status": "In Stock"
-    },
-    {
-        "id": 42712,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": null,
-        "description": "Royal Blue Basket Weave",
-        "supplier_fabric_number": "602 287 800",
-        "trinity_fabric_number": "Z4-3642712",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z4-3642712",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z4-3642712&res=300",
-        "inventory_status": "In Stock"
-    },
-    {
-        "id": 42713,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": null,
-        "description": "Marine Blue Basket Weave",
-        "supplier_fabric_number": "602 029 800",
-        "trinity_fabric_number": "Z4-3642713",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z4-3642713",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z4-3642713&res=300",
-        "inventory_status": "In Stock"
-    },
-    {
-        "id": 42714,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": null,
-        "description": "Navy Blue Basket Weave",
-        "supplier_fabric_number": "602 288 800",
-        "trinity_fabric_number": "Z4-3642714",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z4-3642714",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z4-3642714&res=300",
-        "inventory_status": "In Stock"
-    },
-    {
-        "id": 42715,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": null,
-        "description": "Black Basket Weave",
-        "supplier_fabric_number": "602 027 800",
-        "trinity_fabric_number": "Z4-3642715",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z4-3642715",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z4-3642715&res=300",
-        "inventory_status": "In Stock"
-    },
-    {
-        "id": 42716,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": null,
-        "description": "Blue Sky Micro Checkerboard",
-        "supplier_fabric_number": "880012",
-        "trinity_fabric_number": "Y6-3642716",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Y6-3642716",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Y6-3642716&res=300",
-        "inventory_status": "In Stock"
-    },
-    {
-        "id": 42717,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": "null",
-        "description": "Pink Plum Micro Checkerboard",
-        "supplier_fabric_number": "880009",
-        "trinity_fabric_number": "Y6-3642717",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Y6-3642717",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Y6-3642717&res=300",
-        "inventory_status": "In Stock"
-    },
-    {
-        "id": 42718,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": "null",
-        "description": "Blue Marine Micro Checkerboard",
-        "supplier_fabric_number": "880010",
-        "trinity_fabric_number": "Y6-3642718",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Y6-3642718",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Y6-3642718&res=300",
-        "inventory_status": "In Stock"
-    },
-    {
-        "id": 42719,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": null,
-        "description": "Rust Brown Micro Checkerboard",
-        "supplier_fabric_number": "880011",
-        "trinity_fabric_number": "Y6-3642719",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Y6-3642719",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Y6-3642719&res=300",
-        "inventory_status": "In Stock"
-    },
-    {
-        "id": 42720,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": null,
-        "description": "Black Grey Vintage Puppy Tooth",
-        "supplier_fabric_number": "880004",
-        "trinity_fabric_number": "Y6-3642720",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Y6-3642720",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Y6-3642720&res=300",
-        "inventory_status": "In Stock"
-    },
-    {
-        "id": 42721,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": null,
-        "description": "Blue Vintage Puppy Tooth",
-        "supplier_fabric_number": "880005",
-        "trinity_fabric_number": "Y6-3642721",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Y6-3642721",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Y6-3642721&res=300",
-        "inventory_status": "In Stock"
-    },
-    {
-        "id": 42722,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": null,
-        "description": "Brown Vintage Puppy Tooth",
-        "supplier_fabric_number": "880008",
-        "trinity_fabric_number": "Y6-3642722",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Y6-3642722",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Y6-3642722&res=300",
-        "inventory_status": "In Stock"
-    },
-    {
-        "id": 42723,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": null,
-        "description": "Green Vintage Puppy Tooth",
-        "supplier_fabric_number": "880013",
-        "trinity_fabric_number": "Y6-3642723",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Y6-3642723",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Y6-3642723&res=300",
-        "inventory_status": "In Stock"
-    },
-    {
-        "id": 42724,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": null,
-        "description": "Berry Vintage Puppy Tooth",
-        "supplier_fabric_number": "880007",
-        "trinity_fabric_number": "Y6-3642724",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Y6-3642724",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Y6-3642724&res=300",
-        "inventory_status": "In Stock"
-    },
-    {
-        "id": 42725,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": "null",
-        "description": "Sky Blue Vintage Puppy Tooth",
-        "supplier_fabric_number": "880006",
-        "trinity_fabric_number": "Y6-3642725",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Y6-3642725",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Y6-3642725&res=300",
-        "inventory_status": "In Stock"
+        "inventory_status": "In Stock",
+        "price_tier": 4,
+        "has_image": true
     }
 ]
 ```
@@ -961,17 +821,18 @@ Use this API call to lookup a fabric by trinity fabric number or supplier fabric
 
 ### Query Parameters
 
-| Parameter              | Default | Description                                                                                                                                                               |
-| ---------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| collection_id          | N/A     | Only return fabrics from a specific collection                                                                                                                            |
-| q                      | N/A     | Wildcard matching search by trinity fabric number, supplier fabric number, and fabric description                                                                         |
-| fabric_number          | N/A     | Show fabrics that match a supplier fabric number or a trinity fabric number. The trinity fabric number is an exact match, whereas the supplier number is a wildcard match |
-| trinity_fabric_number  | N/A     | Show fabrics that match a specific Trinity fabric number.  *See below for example querying for multiple fabrics.*                                                         |
-| supplier_fabric_number | N/A     | Show fabrics that match a specific Supplier fabric number.  *See below for example querying for multiple fabrics.*                                                        |
-| is_active              | true    | If set to true, the result will only include active fabrics                                                                                                               |
-| show_archived          | false   | By default archived fabrics (not active, not in stock or temp out) are not returned.  Set this to true in order to show all fabrics.                                      |
-| reverse_sort           | N/A     | If this parameter is set, fabrics will be sorted descending by fabric_id                                                                                                  |
-| extended               | false   | If set to true, the API call returns extended objects which include a complete set of attributes and subresources                                                         |
+| Parameter              | Default | Description                                                                                                                                                              |
+| ---------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| collection_id          | N/A     | Only return fabrics from a specific collection.                                                                                                                          |
+| has_image              | false   | If set to true, will only return fabrics that have a working image url.                                                                                                  |
+| q                      | N/A     | Wildcard matching search by trinity fabric number, supplier fabric number, and fabric description.                                                                       |
+| fabric_number          | N/A     | Show fabrics that match supplier fabric number or a trinity fabric number. The trinity fabric number is an exact match, whereas the supplier number is a wildcard match. |
+| trinity_fabric_number  | N/A     | Show fabrics that match a specific Trinity fabric number.  *See below for example querying for multiple fabrics.*                                                        |
+| supplier_fabric_number | N/A     | Show fabrics that match a specific Supplier fabric number.  *See below for example querying for multiple fabrics.*                                                       |
+| active                 | true    | If set to false, the result will also include inactive fabrics.                                                                                                          |
+| show_archived          | false   | By default archived fabrics (not active, not in stock or temp out) are not returned.  Set this to true in order to show all fabrics.                                     |
+| reverse_sort           | N/A     | If this parameter is set, fabrics will be sorted descending by fabric_id.                                                                                                |
+| extended               | false   | If set to true, the API call returns extended objects which include a complete set of attributes and subresources.                                                       |
 
 ### Other
 
@@ -1009,6 +870,8 @@ curl "https://api.trinity-apparel.com/v1/fabrics/40985"
     "url": "https://s7d4.scene7.com/is/image/trinityapparel/S2-3540985",
     "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=S2-3540985&res=300",
     "inventory_status": "In Stock",
+    "price_tier": 3,
+    "has_image": null,
     "country_origin": "International",
     "fabric_grouping": "shirts",
     "pattern": "solid",
@@ -1016,24 +879,26 @@ curl "https://api.trinity-apparel.com/v1/fabrics/40985"
     "last_stock_edit_date": "2018-01-19T18:36:51.000Z",
     "fabric_year": 2017,
     "weight": 125,
+    "lead_time": "Stocked",
     "collection": {
         "id": 1520,
-        "name": "Soktas Bespoke V17082"
+        "name": "Soktas Bespoke V17082",
+        "title": "Soktas Bespoke",
+        "datecode": "V17082",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/Soktas_Bespoke_V17082?&hei=100"
+    },
+    "price_code": {
+        "code": "S2",
+        "description": "Soktas Bespoke",
+        "tier": 3
     },
     "supplier": {
-        "id": 481,
-        "name": "Supplier",
-        "contact": "Frank Warf",
-        "code": "FW",
-        "address1": "4210 Green Hill Road",
-        "address2": null,
-        "city": "Springdale",
-        "state": "Arkansas",
-        "zip": "72764",
-        "country": "USA",
-        "email": "emmitt.jaco@gmail.com",
-        "phone": "479-251-0678",
-        "fax": "479-216-9139"
+        "id": 57,
+        "code": "SK",
+        "name": "Soktas",
+        "city": "Aydin",
+        "state": null,
+        "country": "Turkey"
     },
     "composition": {
         "id": 13,
@@ -1469,10 +1334,10 @@ Returns a list of related fabrics
 
 ### Query Parameters
 
-| Parameter | Default | Description                                                 |
-| --------- | ------- | ----------------------------------------------------------- |
-| id        | N/A     | The specific fabric id you want to see related fabrics for. |
-| rpp       | 10      | The number of results you would like to return.             |
+| Parameter | Default | Description                                                                                                        |
+| --------- | ------- | ------------------------------------------------------------------------------------------------------------------ |
+| id        | N/A     | The specific fabric id you want to see related fabrics for.                                                        |
+| rpp       | 10      | The number of results you would like to return.                                                                    |
 | extended  | false   | If set to true, the API call returns extended objects which include a complete set of attributes and subresources. |
 
 ### Other
