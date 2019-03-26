@@ -460,8 +460,10 @@ You must replace <code>swaledale</code> with your personal JWT token.
     </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/XG-3861189"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=XG-3861189&amp;res=300"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Standard Attributes</p>
@@ -513,6 +515,14 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <td>A human readable version of the in_stock attribute</td>
 </tr>
 <tr>
+<td>pattern_id <br> <span>integer</span></td>
+<td>The unique ID for the pattern of the fabric.</td>
+</tr>
+<tr>
+<td>weave_id <br> <span>integer</span></td>
+<td>The unique ID for the weave of the fabric.</td>
+</tr>
+<tr>
 <td>price_tier <br> <span>integer</span></td>
 <td>If set, will be a ranking between 1-4 of how expensive the fabric is (1 being least expensive, 4 being most expensive).</td>
 </tr>
@@ -533,21 +543,26 @@ You must replace <code>swaledale</code> with your personal JWT token.
     </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/S2-3540985"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=S2-3540985&amp;res=300"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="s2">"country_origin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"International"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"fabric_grouping"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shirts"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"pattern"</span><span class="p">:</span><span class="w"> </span><span class="s2">"solid"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Garment Trim"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Garments"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"last_stock_edit_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-19T18:36:51.000Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"fabric_year"</span><span class="p">:</span><span class="w"> </span><span class="mi">2017</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fabric_garment_types"</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"trim_garment_types"</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="p">,</span><span class="w">
     </span><span class="s2">"weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">125</span><span class="p">,</span><span class="w">
     </span><span class="s2">"lead_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Stocked"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"alternate_images"</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="p">,</span><span class="w">
     </span><span class="s2">"collection"</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pattern"</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"weave"</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="p">,</span><span class="w">
     </span><span class="s2">"price_code"</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="p">,</span><span class="w">
     </span><span class="s2">"supplier"</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"composition"</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"mill"</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="w">
+    </span><span class="s2">"composition"</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Extended attributes</p>
@@ -563,20 +578,12 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <td>Where the fabric was milled.</td>
 </tr>
 <tr>
-<td>weight <br> <span>integer</span></td>
-<td>Weight in grams per square meter.</td>
-</tr>
-<tr>
-<td>usage <br> <span>integer</span></td>
-<td>The usage of the fabric (E.g., Shirt Trim, Clothing Trim, etc).</td>
-</tr>
-<tr>
 <td>fabric_grouping <br> <span>string</span></td>
 <td>Fabrics are typically grouped by dominant color.</td>
 </tr>
 <tr>
-<td>pattern <br> <span>string</span></td>
-<td>Type of pattern. Common values are <code>stripe</code>, <code>check</code>, and <code>solid</code>.</td>
+<td>usage <br> <span>integer</span></td>
+<td>The usage of the fabric (E.g., Shirt Trim, Clothing Trim, etc).</td>
 </tr>
 <tr>
 <td>last_stock_edit_date <br> <span>datetime</span></td>
@@ -587,16 +594,40 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <td>The year the fabric was released.</td>
 </tr>
 <tr>
+<td>fabric_garment_types <br> <span>subresource</span></td>
+<td>An array of the garment types a fabric is used for.</td>
+</tr>
+<tr>
+<td>trim_garment_types <br> <span>subresource</span></td>
+<td>An array of the garment types a trim is used for.</td>
+</tr>
+<tr>
+<td>weight <br> <span>integer</span></td>
+<td>Weight in grams per square meter.</td>
+</tr>
+<tr>
 <td>lead_time <br> <span>string</span></td>
 <td>If the fabric is in stock or the estimated time until it is in stock.</td>
 </tr>
 <tr>
-<td>price_code <br> <span>subresource</span></td>
-<td>Information about the price code for the fabric.</td>
+<td>alternate_images <br> <span>subresource</span></td>
+<td>An array of alternate images for a fabric.</td>
 </tr>
 <tr>
 <td>collection <br> <span>subresource</span></td>
 <td>The collection in which the fabric was released.</td>
+</tr>
+<tr>
+<td>weave <br> <span>subresource</span></td>
+<td>Information about the weave of a fabric.</td>
+</tr>
+<tr>
+<td>pattern <br> <span>subresource</span></td>
+<td>Information about the pattern of a fabric, such as <code>stripe</code>, <code>check</code>, and <code>solid</code>.</td>
+</tr>
+<tr>
+<td>price_code <br> <span>subresource</span></td>
+<td>Information about the price code for the fabric.</td>
 </tr>
 <tr>
 <td>supplier <br> <span>subresource</span></td>
@@ -606,9 +637,160 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <td>composition <br> <span>subresource</span></td>
 <td>The material composition of the fabric (E.g, 100% Wool).</td>
 </tr>
+</tbody></table>
+<h3 id='fabric-garment-types'>Fabric Garment Types</h3><pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Standard</span><span class="w"> </span><span class="err">Object</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">Used</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">resource</span><span class="w"> </span><span class="err">collection</span><span class="w">
+</span><span class="p">[</span><span class="w">
+    </span><span class="s2">"CSC"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"CV"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"CT"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"CSHO"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"CBK"</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>Standard Attributes</p>
+
+<table><thead>
 <tr>
-<td>mill <br> <span>subresource</span></td>
-<td>The mill that produced the fabric.</td>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><br> <span>string</span></td>
+<td>An array of strings that lists each garment type a fabric is valid for.</td>
+</tr>
+</tbody></table>
+<h3 id='trim-garment-types'>Trim Garment Types</h3><pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Standard</span><span class="w"> </span><span class="err">Object</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">Used</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">resource</span><span class="w"> </span><span class="err">collection</span><span class="w">
+</span><span class="p">[</span><span class="w">
+    </span><span class="s2">"CSC"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"CV"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"CT"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"CSHO"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"CBK"</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>Standard Attributes</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><br> <span>string</span></td>
+<td>An array of strings that lists each garment type a trim is valid for.</td>
+</tr>
+</tbody></table>
+<h3 id='alternate-images'>Alternate Images</h3><pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Standard</span><span class="w"> </span><span class="err">Object</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">Used</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">resource</span><span class="w"> </span><span class="err">collection</span><span class="w">
+</span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CSC"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jacket Laydown"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/CSC202-NT-4x4?&amp;obj=CSC/Fabric&amp;src=CMT-70001&amp;res=300&amp;obj=CSC/Buttons&amp;color=43,43,43&amp;obj=CSC/Thread/Thread&amp;color=36,36,36&amp;obj=CSCLining&amp;src=LL-2617432&amp;obj=CSC/Fabric/Lapel&amp;src=CMT-70001&amp;res=300&amp;obj=CSC/Fabric/Collar&amp;src=CMT-70001&amp;res=300&amp;obj=CSC/Fabric/Pockets/Breast_PKT&amp;src=CMT-70001&amp;res=300&amp;obj=CSC/Fabric/Pkt_Cordingsrc=CMT-70001&amp;res=300"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CV"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vest Laydown"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/CV2-LINED-2x3?&amp;obj=CV/Fabric&amp;src=CMT-70001&amp;res=300&amp;obj=CV/Buttons&amp;color=37,37,49&amp;obj=CV/Thread&amp;color=28,33,50&amp;obj=CV/Liningsrc=LL-2617432&amp;res=300&amp;wid=200"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Trouser Laydown"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/CT-T0-OW-2X3?&amp;obj=CT/Fabric&amp;src=CMT-70001&amp;res=300&amp;obj=CT/Buttons&amp;color=37,37,49&amp;obj=CT/Thread&amp;color=28,33,50&amp;wid=200"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CSHT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shirt Laydown"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/CSHT-AS-FC4AMF-4x4?&amp;obj=CSHT/Fabric&amp;src=CMT-70001&amp;res=300&amp;obj=CSHT/Buttons&amp;color=235,230,214&amp;obj=CSHT/Thread&amp;color=244,241,244obj=CSHT/Fabric/Neckband_In&amp;src=CMT-70001&amp;res=300&amp;obj=CSHT/Fabric/Collar&amp;src=CMT-70001&amp;res=300&amp;obj=CSHT/Fabric/Yoke_In&amp;src=CMT-70001&amp;res=300&amp;obj=CSHT/Fabric/Cuff_Out&amp;src=CMT-70001&amp;res=300obj=CSHT/Fabric/Fronts/Placket&amp;src=CMT-70001&amp;res=300"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>Standard Attributes</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name <br> <span>string</span></td>
+<td>The garment type used in the alternate image.</td>
+</tr>
+<tr>
+<td>description <br> <span>string</span></td>
+<td>A human readable description of the alternate image.</td>
+</tr>
+<tr>
+<td>url <br> <span>integer</span></td>
+<td>The url for the image itself.</td>
+</tr>
+</tbody></table>
+<h3 id='weave'>Weave</h3><pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Standard</span><span class="w"> </span><span class="err">Object</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">Used</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">resource</span><span class="w"> </span><span class="err">collection</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"poplin"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"parent_weave_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Standard Attributes</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id <br> <span>integer</span></td>
+<td>Unique identifier for the object.</td>
+</tr>
+<tr>
+<td>name <br> <span>string</span></td>
+<td>The name of the weave.</td>
+</tr>
+<tr>
+<td>position <br> <span>integer</span></td>
+<td>The ordering of the weave in a list.</td>
+</tr>
+<tr>
+<td>parent_weave_id <br> <span>integer</span></td>
+<td>Points to a higher level grouping of weaves</td>
+</tr>
+</tbody></table>
+<h3 id='pattern'>Pattern</h3><pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Standard</span><span class="w"> </span><span class="err">Object</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">Used</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">resource</span><span class="w"> </span><span class="err">collection</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"check"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"parent_pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Standard Attributes</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id <br> <span>integer</span></td>
+<td>Unique identifier for the object.</td>
+</tr>
+<tr>
+<td>name <br> <span>string</span></td>
+<td>The name of the pattern.</td>
+</tr>
+<tr>
+<td>position <br> <span>integer</span></td>
+<td>The ordering of the pattern in a list.</td>
+</tr>
+<tr>
+<td>parent_pattern_id <br> <span>integer</span></td>
+<td>Points to a higher level grouping of patterns, such as checks.  For example, a child could be Club Check.</td>
 </tr>
 </tbody></table>
 <h3 id='price-code'>Price Code</h3><pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Standard</span><span class="w"> </span><span class="err">Object</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">Used</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">resource</span><span class="w"> </span><span class="err">collection</span><span class="w">
@@ -715,18 +897,11 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <h3 id='supplier'>Supplier</h3><pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Standard</span><span class="w"> </span><span class="err">Object</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">Used</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">resource</span><span class="w"> </span><span class="err">collection</span><span class="w">
 </span><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">481</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Supplier"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"contact"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Frank Warf"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FW"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4210 Green Hill Road"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"address2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Supplier"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Springdale"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Arkansas"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"72764"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USA"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"emmitt.jaco@gmail.com"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"479-251-0678"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"479-216-9139"</span><span class="w">
+    </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USA"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Standard Attributes</p>
@@ -742,24 +917,12 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <td>Unique identifier for the object.</td>
 </tr>
 <tr>
-<td>name <br> <span>string</span></td>
-<td>The name of the supplier.</td>
-</tr>
-<tr>
-<td>contact <br> <span>string</span></td>
-<td>The name of the contact person for the supplier.</td>
-</tr>
-<tr>
 <td>code <br> <span>string</span></td>
 <td>The abbreviated name for a supplier.</td>
 </tr>
 <tr>
-<td>address1 <br> <span>string</span></td>
-<td>The first address line of the supplier&#39;s address.</td>
-</tr>
-<tr>
-<td>address2 <br> <span>string</span></td>
-<td>The second address line of the supplier&#39;s address.</td>
+<td>name <br> <span>string</span></td>
+<td>The name of the supplier.</td>
 </tr>
 <tr>
 <td>city <br> <span>string</span></td>
@@ -770,24 +933,8 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <td>The state of the supplier&#39;s address.</td>
 </tr>
 <tr>
-<td>zip <br> <span>string</span></td>
-<td>The zip code of the supplier&#39;s address.</td>
-</tr>
-<tr>
 <td>country <br> <span>string</span></td>
 <td>The country of the supplier&#39;s address.</td>
-</tr>
-<tr>
-<td>email <br> <span>string</span></td>
-<td>The email address for the supplier.</td>
-</tr>
-<tr>
-<td>phone <br> <span>string</span></td>
-<td>The phone number for the supplier.</td>
-</tr>
-<tr>
-<td>fax <br> <span>string</span></td>
-<td>The fax number for the supplier.</td>
 </tr>
 </tbody></table>
 <h3 id='composition'>Composition</h3><pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Standard</span><span class="w"> </span><span class="err">Object</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">Used</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">resource</span><span class="w"> </span><span class="err">collection</span><span class="w">
@@ -811,29 +958,6 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <tr>
 <td>description <br> <span>string</span></td>
 <td>A brief description of the fabric composition</td>
-</tr>
-</tbody></table>
-<h3 id='mill'>Mill</h3><pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Standard</span><span class="w"> </span><span class="err">Object</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">Used</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">resource</span><span class="w"> </span><span class="err">collection</span><span class="w">
-</span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1049</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Soktas"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>Standard Attributes</p>
-
-<table><thead>
-<tr>
-<th>Attribute</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id <br> <span>integer</span></td>
-<td>Unique identifier for the object</td>
-</tr>
-<tr>
-<td>name <br> <span>string</span></td>
-<td>The name of the mill</td>
 </tr>
 </tbody></table>
 <h2 id='get-all-collections'>Get All Collections</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/collections"</span>
@@ -1265,157 +1389,163 @@ You must replace <code>swaledale</code> with your personal JWT token.
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">42701</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">53401</span><span class="p">,</span><span class="w">
         </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
         </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teal Basket Weave"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"602 275 800"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z4-3642701"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z4-3642701"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z4-3642701&amp;res=300"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blue Broadcloth Stripe"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1415570-6"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N1-3653401"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/N1-3653401"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=N1-3653401&amp;res=300"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">42702</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">53402</span><span class="p">,</span><span class="w">
         </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
         </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dark Teal Basket Weave"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"602 036 800"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z4-3642702"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z4-3642702"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z4-3642702&amp;res=300"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Violet Broadcloth Stripe"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1415570-7"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N1-3653402"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/N1-3653402"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=N1-3653402&amp;res=300"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">42703</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">53403</span><span class="p">,</span><span class="w">
         </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
         </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sky Blue Basket Weave"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"602 290 800"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z4-3642703"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z4-3642703"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z4-3642703&amp;res=300"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pink Broadcloth Stripe"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1415570-1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N1-3653403"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/N1-3653403"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=N1-3653403&amp;res=300"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">42704</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">53404</span><span class="p">,</span><span class="w">
         </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
         </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blue Basket Weave"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"602 285 800"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z4-3642704"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z4-3642704"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z4-3642704&amp;res=300"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Grey Broadcloth Stripe"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1415570-3"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N1-3653404"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/N1-3653404"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=N1-3653404&amp;res=300"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">42705</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">53405</span><span class="p">,</span><span class="w">
         </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
         </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lt Lavender Basket Weave"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"602 032 800"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z4-3642705"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z4-3642705"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z4-3642705&amp;res=300"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lt Blue Broadcloth Graph Check"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CM0022LBU"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N1-3653405"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/N1-3653405"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=N1-3653405&amp;res=300"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">42706</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">53406</span><span class="p">,</span><span class="w">
         </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
         </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bright Purple Basket Weave"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"602 279 800"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z4-3642706"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z4-3642706"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z4-3642706&amp;res=300"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blue Broadcloth Graph Check"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CM0022MBU"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N1-3653406"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/N1-3653406"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=N1-3653406&amp;res=300"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">42707</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">53407</span><span class="p">,</span><span class="w">
         </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
         </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Maroon Basket Weave"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"602 047 800"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z4-3642707"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z4-3642707"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z4-3642707&amp;res=300"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pink Broadcloth Graph Check"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CM0022PNK"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N1-3653407"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/N1-3653407"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=N1-3653407&amp;res=300"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">42708</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">53408</span><span class="p">,</span><span class="w">
         </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
         </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lavendar Blue Basket Weave"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"602 033 800"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z4-3642708"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z4-3642708"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z4-3642708&amp;res=300"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Red Broadcloth Graph Check"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CM0022DRD"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N1-3653408"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/N1-3653408"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=N1-3653408&amp;res=300"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">42709</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">53409</span><span class="p">,</span><span class="w">
         </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
         </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Green Basket Weave"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"602 178 800"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z4-3642709"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z4-3642709"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z4-3642709&amp;res=300"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Violet Broadcloth Graph Check"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CM0022DPR"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N1-3653409"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/N1-3653409"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=N1-3653409&amp;res=300"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">42710</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">53410</span><span class="p">,</span><span class="w">
         </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
         </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lt Blue Basket Weave"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"602 286 800"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z4-3642710"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z4-3642710"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z4-3642710&amp;res=300"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blue Broadcloth Graph Check"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CM0063MBU"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N1-3653410"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/N1-3653410"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=N1-3653410&amp;res=300"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">42711</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blue Basket Weave"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"602 028 800"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z4-3642711"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z4-3642711"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z4-3642711&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
@@ -1446,7 +1576,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <tr>
 <td>q</td>
 <td>N/A</td>
-<td>Wildcard matching search by trinity fabric number, supplier fabric number, and fabric description.</td>
+<td>Wildcard matching search by trinity fabric number, supplier fabric number, fabric price code, and fabric description.</td>
 </tr>
 <tr>
 <td>fabric_number</td>
@@ -1462,6 +1592,41 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <td>supplier_fabric_number</td>
 <td>N/A</td>
 <td>Show fabrics that match a specific Supplier fabric number.  <em>See below for example querying for multiple fabrics.</em></td>
+</tr>
+<tr>
+<td>fabric_price_code_id</td>
+<td>N/A</td>
+<td>Show fabrics that match a specific fabric price code.</td>
+</tr>
+<tr>
+<td>pattern_id</td>
+<td>N/A</td>
+<td>Show fabrics that match a specific pattern, plus all child patterns of that id</td>
+</tr>
+<tr>
+<td>weave_id</td>
+<td>N/A</td>
+<td>Show fabrics that match a specific weave, plus all child patterns of that id</td>
+</tr>
+<tr>
+<td>price_tier</td>
+<td>N/A</td>
+<td>Show fabrics that match a specific price tier (Must be between 1-4).</td>
+</tr>
+<tr>
+<td>usage</td>
+<td>1</td>
+<td>An integer between 1 and 7. fabric usage can be clothing, shirting, lining, shirt trim, or a combination of these values</td>
+</tr>
+<tr>
+<td>garment_type</td>
+<td>N/A</td>
+<td>An integer between 1 and 1023. garment_type is a bitmask which allows us to turn on and off different garment types, such as pant and shirt easily</td>
+</tr>
+<tr>
+<td>trim_garment_type</td>
+<td>N/A</td>
+<td>An integer between 1 and 1023. garment_type is a bitmask which allows us to turn on and off different trim garment types, such as shirt trim or jacket lining easily</td>
 </tr>
 <tr>
 <td>active</td>
@@ -1490,7 +1655,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <li>Pagination: Yes</li>
 </ul>
 <h3 id='querying-by-multiple-fabric-numbers'>Querying by multiple fabric numbers</h3>
-<p>In order to query for multiple fabric numbers, you will pass in multiple params with the format like below:</p>
+<p>In order to query for multiple fabric numbers, you will pass in multiple params with the array-style format like below:</p>
 
 <p><code>GET https://api.trinity-apparel.com/v1//fabrics?trinity_fabric_number[]=C4-3754922&amp;trinity_fabric_number[]=C4-3754923&amp;trinity_fabric_number[]=C4-3754924</code></p>
 
@@ -1514,22 +1679,41 @@ You must replace <code>swaledale</code> with your personal JWT token.
     </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/S2-3540985"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=S2-3540985&amp;res=300"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="s2">"country_origin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"International"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"fabric_grouping"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shirts"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"pattern"</span><span class="p">:</span><span class="w"> </span><span class="s2">"solid"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Garment Trim"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pattern"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Garments"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"last_stock_edit_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-19T18:36:51.000Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"fabric_year"</span><span class="p">:</span><span class="w"> </span><span class="mi">2017</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fabric_garment_types"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"CSHT"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"trim_garment_types"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
     </span><span class="s2">"weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">125</span><span class="p">,</span><span class="w">
     </span><span class="s2">"lead_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Stocked"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"alternate_images"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CSHT"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shirt Laydown"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/CSHT-AS-FC4AMF-4x4?&amp;obj=CSHT/Fabric&amp;src=S2-3540985&amp;res=300&amp;obj=CSHT/Buttons&amp;color=235,230,214&amp;obj=CSHT/Thread&amp;color=244,241,244&amp;obj=CSHT/Fabric/Neckband_In&amp;src=S2-3540985&amp;res=300&amp;obj=CSHT/Fabric/Collar&amp;src=S2-3540985&amp;res=300&amp;obj=CSHT/Fabric/Yoke_In&amp;src=S2-3540985&amp;res=300&amp;obj=CSHT/Fabric/Cuff_Out&amp;src=S2-3540985&amp;res=300&amp;obj=CSHT/Fabric/Fronts/Placket&amp;src=S2-3540985&amp;res=300"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
     </span><span class="s2">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1520</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Soktas Bespoke V17082"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Soktas Bespoke"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"V17082"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Soktas_Bespoke_V17082?&amp;hei=100"</span><span class="w">
+        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Soktas_Bespoke_V17082?&amp;hei=100"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"weave"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dobby"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"price_code"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S2"</span><span class="p">,</span><span class="w">
@@ -1547,10 +1731,6 @@ You must replace <code>swaledale</code> with your personal JWT token.
     </span><span class="s2">"composition"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
         </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100% Cotton"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"mill"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1049</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Soktas"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1584,18 +1764,6 @@ You must replace <code>swaledale</code> with your personal JWT token.
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">39000</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Linen Blue Dot"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55699-16"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z8-3339000"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z8-3339000"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z8-3339000&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">38992</span><span class="p">,</span><span class="w">
         </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
         </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -1605,7 +1773,11 @@ You must replace <code>swaledale</code> with your personal JWT token.
         </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z8-3338992"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z8-3338992"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z8-3338992&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="w">
+        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">38993</span><span class="p">,</span><span class="w">
@@ -1617,7 +1789,11 @@ You must replace <code>swaledale</code> with your personal JWT token.
         </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z8-3338993"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z8-3338993"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z8-3338993&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="w">
+        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">38994</span><span class="p">,</span><span class="w">
@@ -1629,7 +1805,27 @@ You must replace <code>swaledale</code> with your personal JWT token.
         </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z8-3338994"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z8-3338994"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z8-3338994&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="w">
+        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">39000</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Linen Blue Dot"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55699-16"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z8-3339000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z8-3339000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z8-3339000&amp;res=300"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">38979</span><span class="p">,</span><span class="w">
@@ -1641,7 +1837,11 @@ You must replace <code>swaledale</code> with your personal JWT token.
         </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z8-3338979"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z8-3338979"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z8-3338979&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="w">
+        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">38984</span><span class="p">,</span><span class="w">
@@ -1653,7 +1853,11 @@ You must replace <code>swaledale</code> with your personal JWT token.
         </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z8-3338984"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z8-3338984"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z8-3338984&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="w">
+        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">38985</span><span class="p">,</span><span class="w">
@@ -1665,7 +1869,11 @@ You must replace <code>swaledale</code> with your personal JWT token.
         </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z8-3338985"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z8-3338985"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z8-3338985&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="w">
+        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">38991</span><span class="p">,</span><span class="w">
@@ -1677,7 +1885,11 @@ You must replace <code>swaledale</code> with your personal JWT token.
         </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z8-3338991"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z8-3338991"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z8-3338991&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="w">
+        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">38980</span><span class="p">,</span><span class="w">
@@ -1689,7 +1901,11 @@ You must replace <code>swaledale</code> with your personal JWT token.
         </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z8-3338980"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z8-3338980"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z8-3338980&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="w">
+        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">38981</span><span class="p">,</span><span class="w">
@@ -1701,275 +1917,15 @@ You must replace <code>swaledale</code> with your personal JWT token.
         </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z8-3338981"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z8-3338981"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z8-3338981&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">38982</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Raspberry Hairline Stripe"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FL54667-83"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z8-3338982"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z8-3338982"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z8-3338982&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">38983</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lime Hairline Stripe"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FL54667-53"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z8-3338983"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z8-3338983"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z8-3338983&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">38986</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Purple Mini Check"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FL63933-15"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z8-3338986"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z8-3338986"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z8-3338986&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">38987</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pink Mini Check"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FL63933-31"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z8-3338987"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z8-3338987"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z8-3338987&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">38988</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Raspberry Mini Check"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FL63933-83"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z8-3338988"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z8-3338988"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z8-3338988&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">38989</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lime Mini Check"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FL63933-53"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z8-3338989"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z8-3338989"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z8-3338989&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">38990</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teal Mini Check"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FL63933-11"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z8-3338990"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z8-3338990"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z8-3338990&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">38997</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Demim"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FM300583-100"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z8-3338997"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z8-3338997"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z8-3338997&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">39002</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lt Blue Mini Check w/ Dot"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FL66290-11"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z4-3339002"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z4-3339002"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z4-3339002&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">33056</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"White Poplin"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FM39497-1"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z8-3333056"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z8-3333056"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z8-3333056&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">33058</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lt Blue End on End"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FM37748-12"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z8-3333058"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z8-3333058"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z8-3333058&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">33059</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blue End on End"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FM37748-13"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z8-3333059"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z8-3333059"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z8-3333059&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">33069</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lt Blue Micro Stripe"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FM39477-113"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z8-3333069"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z8-3333069"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z8-3333069&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">33070</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Navy Blue Micro Stripe"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FM39477-15"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z8-3333070"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z8-3333070"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z8-3333070&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">33074</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Violet Graph Check"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FM25979-85"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z8-3333074"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z8-3333074"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z8-3333074&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">33075</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Red Graph Check"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FM25979-35"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z8-3333075"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z8-3333075"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z8-3333075&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">33083</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lt Bue Gingham"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FM16617-13"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z8-3333083"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z8-3333083"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z8-3333083&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">33084</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Navy Gingham"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FM16617-19"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z8-3333084"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z8-3333084"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z8-3333084&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">33092</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lt Blue Stripe"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FM37751-13"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z8-3333092"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z8-3333092"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z8-3333092&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">33093</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blue Stripe"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FM37751-15"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z8-3333093"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z8-3333093"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z8-3333093&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">33094</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Violet Stripe"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FM37751-86"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z8-3333094"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z8-3333094"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z8-3333094&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">33095</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fuchsia Stripe"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FM37751-85"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z8-3333095"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z8-3333095"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z8-3333095&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="w">
+        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>Returns a list of related fabrics</p>
+<p>Returns a list of up to 10 related fabrics.</p>
 <h3 id='http-request-5'>HTTP Request</h3>
 <p><code>GET https://api.trinity-apparel.com/v1/fabrics/:id/related</code></p>
 <h3 id='query-parameters-5'>Query Parameters</h3>
@@ -2000,6 +1956,19 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <ul>
 <li>Permissions: All</li>
 <li>Pagination: N/A</li>
+</ul>
+<h3 id='sorting-algorithm'>Sorting Algorithm</h3>
+<ul>
+<li>Usage (shirting, clothing, trim, lining)</li>
+<li>Garment types</li>
+<li>Exact match on fabric description</li>
+<li>Pattern and weave</li>
+<li>Price Code</li>
+<li>Mill</li>
+<li>Composition</li>
+<li>Weight in g/m</li>
+<li>Cost</li>
+<li>Date Added</li>
 </ul>
 <h1 id='orders-api'>Orders API</h1><h2 id='order-statuses'>Order Statuses</h2>
 <p>All garments are in a particular order statuses.  While a garment is being produced it flows through a number of different statuses. Here is a list of all possible status codes:</p>
