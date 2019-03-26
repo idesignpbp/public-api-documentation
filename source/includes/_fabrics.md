@@ -19,20 +19,6 @@ The Trinity Fabrics API provides detailed information on fabrics and collections
     "url": "https://s7d4.scene7.com/is/image/trinityapparel/XG-3861189",
     "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=XG-3861189&res=300",
     "inventory_status": "In Stock",
-    "price_tier": 4,
-    "has_image": true
-}
-{
-    "id": 61189,
-    "active": true,
-    "in_stock": 1,
-    "restock_date": null,
-    "description": "Black solid",
-    "supplier_fabric_number": "53145",
-    "trinity_fabric_number": "XG-3861189",
-    "url": "https://s7d4.scene7.com/is/image/trinityapparel/XG-3861189",
-    "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=XG-3861189&res=300",
-    "inventory_status": "In Stock",
     "pattern_id": 1,
     "weave_id": null,
     "price_tier": 4,
@@ -78,7 +64,6 @@ Standard Attributes
     "has_image": false,
     "country_origin": "International",
     "fabric_grouping": "shirts",
-    "pattern": null,
     "usage": "Garments",
     "last_stock_edit_date": "2018-01-19T18:36:51.000Z",
     "fabric_year": 2017,
@@ -88,6 +73,7 @@ Standard Attributes
     "lead_time": "Stocked",
     "alternate_images": ...,
     "collection": ...,
+    "pattern": ...,
     "weave": ...,
     "price_code": ...,
     "supplier": ...,
@@ -101,7 +87,6 @@ Extended attributes
 | -------------------------------------------------- | --------------------------------------------------------------------- |
 | country_origin <br> <span>string</span>            | Where the fabric was milled.                                          |
 | fabric_grouping <br> <span>string</span>           | Fabrics are typically grouped by dominant color.                      |
-| pattern <br> <span>string</span>                   | Type of pattern. Common values are `stripe`, `check`, and `solid`.    |
 | usage <br> <span>integer</span>                    | The usage of the fabric (E.g., Shirt Trim, Clothing Trim, etc).       |
 | last_stock_edit_date <br> <span>datetime</span>    | The last time the fabric inventory level was changed.                 |
 | fabric_year <br> <span>year</span>                 | The year the fabric was released.                                     |
@@ -112,6 +97,7 @@ Extended attributes
 | alternate_images <br> <span>subresource</span>     | An array of alternate images for a fabric.                            |
 | collection <br> <span>subresource</span>           | The collection in which the fabric was released.                      |
 | weave <br> <span>subresource</span>                | Information about the weave of a fabric.                              |
+| pattern <br> <span>subresource</span>              | Information about the pattern of a fabric, such as `stripe`, `check`, and `solid`. |
 | price_code <br> <span>subresource</span>           | Information about the price code for the fabric.                      |
 | supplier <br> <span>subresource</span>             | Information about the supplier of the fabric.                         |
 | composition <br> <span>subresource</span>          | The material composition of the fabric (E.g, 100% Wool).              |
@@ -197,7 +183,8 @@ Standard Attributes
 {
     "id": 4,
     "name": "poplin",
-    "position": 4
+    "position": 4,
+    "parent_weave_id": null
 }
 ```
 
@@ -207,7 +194,29 @@ Standard Attributes
 | ---------------------------------- | --------------------------------- |
 | id <br> <span>integer</span>       | Unique identifier for the object. |
 | name <br> <span>string</span>      | The name of the weave.            |
-| position <br> <span>integer</span> | The position of the weave.        |
+| position <br> <span>integer</span> | The ordering of the weave in a list. |
+| parent_weave_id <br> <span>integer</span> | Points to a higher level grouping of weaves |
+
+### Pattern
+
+```json
+# Standard Object - Used in a resource collection
+{
+    "id": 3,
+    "name": "check",
+    "position": 3,
+    "parent_pattern_id": null
+}
+```
+
+Standard Attributes
+
+| Attribute                          | Description                       |
+| ---------------------------------- | --------------------------------- |
+| id <br> <span>integer</span>       | Unique identifier for the object. |
+| name <br> <span>string</span>      | The name of the pattern.            |
+| position <br> <span>integer</span> | The ordering of the pattern in a list. |
+| parent_pattern_id <br> <span>integer</span> | Points to a higher level grouping of patterns, such as checks.  For example, a child could be Club Check. |
 
 ### Price Code
 
@@ -924,11 +933,12 @@ Use this API call to lookup a fabric by trinity fabric number or supplier fabric
 | trinity_fabric_number  | N/A     | Show fabrics that match a specific Trinity fabric number.  *See below for example querying for multiple fabrics.*                                                        |
 | supplier_fabric_number | N/A     | Show fabrics that match a specific Supplier fabric number.  *See below for example querying for multiple fabrics.*                                                       |
 | fabric_price_code_id   | N/A     | Show fabrics that match a specific fabric price code.                                                                                                                    |
-| pattern_id             | N/A     | Show fabrics that match a specific pattern ID.                                                                                                                           |
-| weave_id               | N/A     | Show fabrics that match a specific weave ID.                                                                                                                             |
+| pattern_id             | N/A     | Show fabrics that match a specific pattern, plus all child patterns of that id |
+| weave_id               | N/A     | Show fabrics that match a specific weave, plus all child patterns of that id |
 | price_tier             | N/A     | Show fabrics that match a specific price tier (Must be between 1-4).                                                                                                     |
-| usage                  | 1       | *Description TBD*                                                                                                                                                        |
-| garment_type           | 65535   | *Description TBD*                                                                                                                                                        |
+| usage                  | 1       | An integer between 1 and 7. fabric usage can be clothing, shirting, lining, shirt trim, or a combination of these values |
+| garment_type           | N/A     | An integer between 1 and 1023. garment_type is a bitmask which allows us to turn on and off different garment types, such as pant and shirt easily |
+| trim_garment_type      | N/A     | An integer between 1 and 1023. garment_type is a bitmask which allows us to turn on and off different trim garment types, such as shirt trim or jacket lining easily |
 | active                 | true    | If set to false, the result will also include inactive fabrics.                                                                                                          |
 | show_archived          | false   | By default archived fabrics (not active, not in stock or temp out) are not returned.  Set this to true in order to show all fabrics.                                     |
 | reverse_sort           | N/A     | If this parameter is set, fabrics will be sorted descending by fabric_id.                                                                                                |
@@ -941,7 +951,7 @@ Use this API call to lookup a fabric by trinity fabric number or supplier fabric
 
 ### Querying by multiple fabric numbers
 
-In order to query for multiple fabric numbers, you will pass in multiple params with the format like below:
+In order to query for multiple fabric numbers, you will pass in multiple params with the array-style format like below:
 
 `GET https://api.trinity-apparel.com/v1//fabrics?trinity_fabric_number[]=C4-3754922&trinity_fabric_number[]=C4-3754923&trinity_fabric_number[]=C4-3754924`
 
@@ -1217,7 +1227,7 @@ curl "https://api.trinity-apparel.com/v1/fabrics/39001/related"
 ]
 ```
 
-Returns a list of related fabrics
+Returns a list of up to 10 related fabrics.
 
 ### HTTP Request
 
@@ -1235,3 +1245,16 @@ Returns a list of related fabrics
 
 - Permissions: All
 - Pagination: N/A
+
+### Sorting Algorithm
+
+- Usage (shirting, clothing, trim, lining)
+- Garment types
+- Exact match on fabric description
+- Pattern and weave
+- Price Code
+- Mill
+- Composition
+- Weight in g/m
+- Cost
+- Date Added
