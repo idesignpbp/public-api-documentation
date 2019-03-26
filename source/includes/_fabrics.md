@@ -22,6 +22,22 @@ The Trinity Fabrics API provides detailed information on fabrics and collections
     "price_tier": 4,
     "has_image": true
 }
+{
+    "id": 61189,
+    "active": true,
+    "in_stock": 1,
+    "restock_date": null,
+    "description": "Black solid",
+    "supplier_fabric_number": "53145",
+    "trinity_fabric_number": "XG-3861189",
+    "url": "https://s7d4.scene7.com/is/image/trinityapparel/XG-3861189",
+    "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=XG-3861189&res=300",
+    "inventory_status": "In Stock",
+    "pattern_id": 1,
+    "weave_id": null,
+    "price_tier": 4,
+    "has_image": false
+}
 ```
 
 Standard Attributes
@@ -38,6 +54,8 @@ Standard Attributes
 | url <br> <span>string</span>                    | The url for a repeatable image of the fabric                                                                                                                                                                                 |
 | swatch_url <br> <span>string</span>             | The url for a swatch image of the fabric. This image contains serrated edges. Users can configure the zoom of the image by changing the `res=` parameter in the url to a different number.                                   |
 | inventory_status <br> <span>string</span>       | A human readable version of the in_stock attribute                                                                                                                                                                           |
+| pattern_id <br> <span>integer</span>            | The unique ID for the pattern of the fabric.                                                                                                                                                                                 |
+| weave_id <br> <span>integer</span>              | The unique ID for the weave of the fabric.                                                                                                                                                                                   |
 | price_tier <br> <span>integer</span>            | If set, will be a ranking between 1-4 of how expensive the fabric is (1 being least expensive, 4 being most expensive).                                                                                                      |
 | has_image <br> <span>boolean</span>             | If true, the fabric image url will actually return an image of the fabric.                                                                                                                                                   |
 
@@ -54,41 +72,142 @@ Standard Attributes
     "url": "https://s7d4.scene7.com/is/image/trinityapparel/S2-3540985",
     "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=S2-3540985&res=300",
     "inventory_status": "In Stock",
+    "pattern_id": null,
+    "weave_id": 3,
     "price_tier": 3,
-    "has_image": null,
+    "has_image": false,
     "country_origin": "International",
     "fabric_grouping": "shirts",
-    "pattern": "solid",
-    "usage": "Garment Trim",
+    "pattern": null,
+    "usage": "Garments",
     "last_stock_edit_date": "2018-01-19T18:36:51.000Z",
     "fabric_year": 2017,
+    "fabric_garment_types": ...,
+    "trim_garment_types": ...,
     "weight": 125,
     "lead_time": "Stocked",
+    "alternate_images": ...,
     "collection": ...,
+    "weave": ...,
     "price_code": ...,
     "supplier": ...,
-    "composition": ...,
-    "mill": ...
+    "composition": ...
 }
 ```
 
 Extended attributes
 
-| Attribute                                       | Description                                                           |
-| ----------------------------------------------- | --------------------------------------------------------------------- |
-| country_origin <br> <span>string</span>         | Where the fabric was milled.                                          |
-| weight <br> <span>integer</span>                | Weight in grams per square meter.                                     |
-| usage <br> <span>integer</span>                 | The usage of the fabric (E.g., Shirt Trim, Clothing Trim, etc).       |
-| fabric_grouping <br> <span>string</span>        | Fabrics are typically grouped by dominant color.                      |
-| pattern <br> <span>string</span>                | Type of pattern. Common values are `stripe`, `check`, and `solid`.    |
-| last_stock_edit_date <br> <span>datetime</span> | The last time the fabric inventory level was changed.                 |
-| fabric_year <br> <span>year</span>              | The year the fabric was released.                                     |
-| lead_time <br> <span>string</span>              | If the fabric is in stock or the estimated time until it is in stock. |
-| price_code <br> <span>subresource</span>        | Information about the price code for the fabric.                      |
-| collection <br> <span>subresource</span>        | The collection in which the fabric was released.                      |
-| supplier <br> <span>subresource</span>          | Information about the supplier of the fabric.                         |
-| composition <br> <span>subresource</span>       | The material composition of the fabric (E.g, 100% Wool).              |
-| mill <br> <span>subresource</span>              | The mill that produced the fabric.                                    |
+| Attribute                                          | Description                                                           |
+| -------------------------------------------------- | --------------------------------------------------------------------- |
+| country_origin <br> <span>string</span>            | Where the fabric was milled.                                          |
+| fabric_grouping <br> <span>string</span>           | Fabrics are typically grouped by dominant color.                      |
+| pattern <br> <span>string</span>                   | Type of pattern. Common values are `stripe`, `check`, and `solid`.    |
+| usage <br> <span>integer</span>                    | The usage of the fabric (E.g., Shirt Trim, Clothing Trim, etc).       |
+| last_stock_edit_date <br> <span>datetime</span>    | The last time the fabric inventory level was changed.                 |
+| fabric_year <br> <span>year</span>                 | The year the fabric was released.                                     |
+| fabric_garment_types <br> <span>subresource</span> | An array of the garment types a fabric is used for.                   |
+| trim_garment_types <br> <span>subresource</span>   | An array of the garment types a trim is used for.                     |
+| weight <br> <span>integer</span>                   | Weight in grams per square meter.                                     |
+| lead_time <br> <span>string</span>                 | If the fabric is in stock or the estimated time until it is in stock. |
+| alternate_images <br> <span>subresource</span>     | An array of alternate images for a fabric.                            |
+| collection <br> <span>subresource</span>           | The collection in which the fabric was released.                      |
+| weave <br> <span>subresource</span>                | Information about the weave of a fabric.                              |
+| price_code <br> <span>subresource</span>           | Information about the price code for the fabric.                      |
+| supplier <br> <span>subresource</span>             | Information about the supplier of the fabric.                         |
+| composition <br> <span>subresource</span>          | The material composition of the fabric (E.g, 100% Wool).              |
+
+### Fabric Garment Types
+
+```json
+# Standard Object - Used in a resource collection
+[
+    "CSC",
+    "CV",
+    "CT",
+    "CSHO",
+    "CBK"
+]
+```
+
+Standard Attributes
+
+| Attribute                | Description                                                             |
+| ------------------------ | ----------------------------------------------------------------------- |
+| <br> <span>string</span> | An array of strings that lists each garment type a fabric is valid for. |
+
+### Trim Garment Types
+
+```json
+# Standard Object - Used in a resource collection
+[
+    "CSC",
+    "CV",
+    "CT",
+    "CSHO",
+    "CBK"
+]
+```
+
+Standard Attributes
+
+| Attribute                | Description                                                           |
+| ------------------------ | --------------------------------------------------------------------- |
+| <br> <span>string</span> | An array of strings that lists each garment type a trim is valid for. |
+
+### Alternate Images
+
+```json
+# Standard Object - Used in a resource collection
+[
+    {
+        "name": "CSC",
+        "description": "Jacket Laydown",
+        "url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/CSC202-NT-4x4?&obj=CSC/Fabric&src=CMT-70001&res=300&obj=CSC/Buttons&color=43,43,43&obj=CSC/Thread/Thread&color=36,36,36&obj=CSCLining&src=LL-2617432&obj=CSC/Fabric/Lapel&src=CMT-70001&res=300&obj=CSC/Fabric/Collar&src=CMT-70001&res=300&obj=CSC/Fabric/Pockets/Breast_PKT&src=CMT-70001&res=300&obj=CSC/Fabric/Pkt_Cordingsrc=CMT-70001&res=300"
+    },
+    {
+        "name": "CV",
+        "description": "Vest Laydown",
+        "url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/CV2-LINED-2x3?&obj=CV/Fabric&src=CMT-70001&res=300&obj=CV/Buttons&color=37,37,49&obj=CV/Thread&color=28,33,50&obj=CV/Liningsrc=LL-2617432&res=300&wid=200"
+    },
+    {
+        "name": "CT",
+        "description": "Trouser Laydown",
+        "url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/CT-T0-OW-2X3?&obj=CT/Fabric&src=CMT-70001&res=300&obj=CT/Buttons&color=37,37,49&obj=CT/Thread&color=28,33,50&wid=200"
+    },
+    {
+        "name": "CSHT",
+        "description": "Shirt Laydown",
+        "url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/CSHT-AS-FC4AMF-4x4?&obj=CSHT/Fabric&src=CMT-70001&res=300&obj=CSHT/Buttons&color=235,230,214&obj=CSHT/Thread&color=244,241,244obj=CSHT/Fabric/Neckband_In&src=CMT-70001&res=300&obj=CSHT/Fabric/Collar&src=CMT-70001&res=300&obj=CSHT/Fabric/Yoke_In&src=CMT-70001&res=300&obj=CSHT/Fabric/Cuff_Out&src=CMT-70001&res=300obj=CSHT/Fabric/Fronts/Placket&src=CMT-70001&res=300"
+    }
+]
+```
+
+Standard Attributes
+
+| Attribute                            | Description                                          |
+| ------------------------------------ | ---------------------------------------------------- |
+| name <br> <span>string</span>        | The garment type used in the alternate image.        |
+| description <br> <span>string</span> | A human readable description of the alternate image. |
+| url <br> <span>integer</span>        | The url for the image itself.                        |
+
+### Weave
+
+```json
+# Standard Object - Used in a resource collection
+{
+    "id": 4,
+    "name": "poplin",
+    "position": 4
+}
+```
+
+Standard Attributes
+
+| Attribute                          | Description                       |
+| ---------------------------------- | --------------------------------- |
+| id <br> <span>integer</span>       | Unique identifier for the object. |
+| name <br> <span>string</span>      | The name of the weave.            |
+| position <br> <span>integer</span> | The position of the weave.        |
 
 ### Price Code
 
@@ -162,38 +281,24 @@ Extended attributes (in addition to standard attributes)
 # Standard Object - Used in a resource collection
 {
     "id": 481,
-    "name": "Supplier",
-    "contact": "Frank Warf",
     "code": "FW",
-    "address1": "4210 Green Hill Road",
-    "address2": null,
+    "name": "Supplier",
     "city": "Springdale",
     "state": "Arkansas",
-    "zip": "72764",
-    "country": "USA",
-    "email": "emmitt.jaco@gmail.com",
-    "phone": "479-251-0678",
-    "fax": "479-216-9139"
+    "country": "USA"
 }
 ```
 
 Standard Attributes
 
-| Attribute                         | Description                                        |
-| --------------------------------- | -------------------------------------------------- |
-| id <br> <span>string</span>       | Unique identifier for the object.                  |
-| name <br> <span>string</span>     | The name of the supplier.                          |
-| contact <br> <span>string</span>  | The name of the contact person for the supplier.   |
-| code <br> <span>string</span>     | The abbreviated name for a supplier.               |
-| address1 <br> <span>string</span> | The first address line of the supplier's address.  |
-| address2 <br> <span>string</span> | The second address line of the supplier's address. |
-| city <br> <span>string</span>     | The city of the supplier's address.                |
-| state <br> <span>string</span>    | The state of the supplier's address.               |
-| zip <br> <span>string</span>      | The zip code of the supplier's address.            |
-| country <br> <span>string</span>  | The country of the supplier's address.             |
-| email <br> <span>string</span>    | The email address for the supplier.                |
-| phone <br> <span>string</span>    | The phone number for the supplier.                 |
-| fax <br> <span>string</span>      | The fax number for the supplier.                   |
+| Attribute                        | Description                            |
+| -------------------------------- | -------------------------------------- |
+| id <br> <span>string</span>      | Unique identifier for the object.      |
+| code <br> <span>string</span>    | The abbreviated name for a supplier.   |
+| name <br> <span>string</span>    | The name of the supplier.              |
+| city <br> <span>string</span>    | The city of the supplier's address.    |
+| state <br> <span>string</span>   | The state of the supplier's address.   |
+| country <br> <span>string</span> | The country of the supplier's address. |
 
 ### Composition
 
@@ -211,23 +316,6 @@ Standard Attributes
 | ------------------------------------ | --------------------------------------------- |
 | id <br> <span>string</span>          | Unique identifier for the object              |
 | description <br> <span>string</span> | A brief description of the fabric composition |
-
-### Mill
-
-```json
-# Standard Object - Used in a resource collection
-{
-    "id": 1049,
-    "name": "Soktas"
-}
-```
-
-Standard Attributes
-
-| Attribute                     | Description                      |
-| ----------------------------- | -------------------------------- |
-| id <br> <span>integer</span>  | Unique identifier for the object |
-| name <br> <span>string</span> | The name of the mill             |
 
 
 ## Get All Collections
@@ -655,157 +743,163 @@ curl "https://api.trinity-apparel.com/v1/fabrics"
 ```json
 [
     {
-        "id": 42701,
+        "id": 53401,
         "active": true,
         "in_stock": 1,
         "restock_date": null,
-        "description": "Teal Basket Weave",
-        "supplier_fabric_number": "602 275 800",
-        "trinity_fabric_number": "Z4-3642701",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z4-3642701",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z4-3642701&res=300",
+        "description": "Blue Broadcloth Stripe",
+        "supplier_fabric_number": "1415570-6",
+        "trinity_fabric_number": "N1-3653401",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/N1-3653401",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=N1-3653401&res=300",
         "inventory_status": "In Stock",
-        "price_tier": 4,
+        "pattern_id": 2,
+        "weave_id": 5,
+        "price_tier": 1,
         "has_image": true
     },
     {
-        "id": 42702,
+        "id": 53402,
         "active": true,
         "in_stock": 1,
         "restock_date": null,
-        "description": "Dark Teal Basket Weave",
-        "supplier_fabric_number": "602 036 800",
-        "trinity_fabric_number": "Z4-3642702",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z4-3642702",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z4-3642702&res=300",
+        "description": "Violet Broadcloth Stripe",
+        "supplier_fabric_number": "1415570-7",
+        "trinity_fabric_number": "N1-3653402",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/N1-3653402",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=N1-3653402&res=300",
         "inventory_status": "In Stock",
-        "price_tier": 4,
+        "pattern_id": 2,
+        "weave_id": 5,
+        "price_tier": 1,
         "has_image": true
     },
     {
-        "id": 42703,
+        "id": 53403,
         "active": true,
         "in_stock": 1,
         "restock_date": null,
-        "description": "Sky Blue Basket Weave",
-        "supplier_fabric_number": "602 290 800",
-        "trinity_fabric_number": "Z4-3642703",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z4-3642703",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z4-3642703&res=300",
+        "description": "Pink Broadcloth Stripe",
+        "supplier_fabric_number": "1415570-1",
+        "trinity_fabric_number": "N1-3653403",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/N1-3653403",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=N1-3653403&res=300",
         "inventory_status": "In Stock",
-        "price_tier": 4,
+        "pattern_id": 2,
+        "weave_id": 5,
+        "price_tier": 1,
         "has_image": true
     },
     {
-        "id": 42704,
+        "id": 53404,
         "active": true,
         "in_stock": 1,
         "restock_date": null,
-        "description": "Blue Basket Weave",
-        "supplier_fabric_number": "602 285 800",
-        "trinity_fabric_number": "Z4-3642704",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z4-3642704",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z4-3642704&res=300",
+        "description": "Grey Broadcloth Stripe",
+        "supplier_fabric_number": "1415570-3",
+        "trinity_fabric_number": "N1-3653404",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/N1-3653404",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=N1-3653404&res=300",
         "inventory_status": "In Stock",
-        "price_tier": 4,
+        "pattern_id": 2,
+        "weave_id": 5,
+        "price_tier": 1,
         "has_image": true
     },
     {
-        "id": 42705,
+        "id": 53405,
         "active": true,
         "in_stock": 1,
         "restock_date": null,
-        "description": "Lt Lavender Basket Weave",
-        "supplier_fabric_number": "602 032 800",
-        "trinity_fabric_number": "Z4-3642705",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z4-3642705",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z4-3642705&res=300",
+        "description": "Lt Blue Broadcloth Graph Check",
+        "supplier_fabric_number": "CM0022LBU",
+        "trinity_fabric_number": "N1-3653405",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/N1-3653405",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=N1-3653405&res=300",
         "inventory_status": "In Stock",
-        "price_tier": 4,
+        "pattern_id": 20,
+        "weave_id": 5,
+        "price_tier": 1,
         "has_image": true
     },
     {
-        "id": 42706,
+        "id": 53406,
         "active": true,
         "in_stock": 1,
         "restock_date": null,
-        "description": "Bright Purple Basket Weave",
-        "supplier_fabric_number": "602 279 800",
-        "trinity_fabric_number": "Z4-3642706",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z4-3642706",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z4-3642706&res=300",
+        "description": "Blue Broadcloth Graph Check",
+        "supplier_fabric_number": "CM0022MBU",
+        "trinity_fabric_number": "N1-3653406",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/N1-3653406",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=N1-3653406&res=300",
         "inventory_status": "In Stock",
-        "price_tier": 4,
+        "pattern_id": 20,
+        "weave_id": 5,
+        "price_tier": 1,
         "has_image": true
     },
     {
-        "id": 42707,
+        "id": 53407,
         "active": true,
         "in_stock": 1,
         "restock_date": null,
-        "description": "Maroon Basket Weave",
-        "supplier_fabric_number": "602 047 800",
-        "trinity_fabric_number": "Z4-3642707",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z4-3642707",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z4-3642707&res=300",
+        "description": "Pink Broadcloth Graph Check",
+        "supplier_fabric_number": "CM0022PNK",
+        "trinity_fabric_number": "N1-3653407",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/N1-3653407",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=N1-3653407&res=300",
         "inventory_status": "In Stock",
-        "price_tier": 4,
+        "pattern_id": 20,
+        "weave_id": 5,
+        "price_tier": 1,
         "has_image": true
     },
     {
-        "id": 42708,
+        "id": 53408,
         "active": true,
         "in_stock": 1,
         "restock_date": null,
-        "description": "Lavendar Blue Basket Weave",
-        "supplier_fabric_number": "602 033 800",
-        "trinity_fabric_number": "Z4-3642708",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z4-3642708",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z4-3642708&res=300",
+        "description": "Red Broadcloth Graph Check",
+        "supplier_fabric_number": "CM0022DRD",
+        "trinity_fabric_number": "N1-3653408",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/N1-3653408",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=N1-3653408&res=300",
         "inventory_status": "In Stock",
-        "price_tier": 4,
+        "pattern_id": 20,
+        "weave_id": 5,
+        "price_tier": 1,
         "has_image": true
     },
     {
-        "id": 42709,
+        "id": 53409,
         "active": true,
         "in_stock": 1,
         "restock_date": null,
-        "description": "Green Basket Weave",
-        "supplier_fabric_number": "602 178 800",
-        "trinity_fabric_number": "Z4-3642709",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z4-3642709",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z4-3642709&res=300",
+        "description": "Violet Broadcloth Graph Check",
+        "supplier_fabric_number": "CM0022DPR",
+        "trinity_fabric_number": "N1-3653409",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/N1-3653409",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=N1-3653409&res=300",
         "inventory_status": "In Stock",
-        "price_tier": 4,
+        "pattern_id": 20,
+        "weave_id": 5,
+        "price_tier": 1,
         "has_image": true
     },
     {
-        "id": 42710,
+        "id": 53410,
         "active": true,
         "in_stock": 1,
         "restock_date": null,
-        "description": "Lt Blue Basket Weave",
-        "supplier_fabric_number": "602 286 800",
-        "trinity_fabric_number": "Z4-3642710",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z4-3642710",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z4-3642710&res=300",
+        "description": "Blue Broadcloth Graph Check",
+        "supplier_fabric_number": "CM0063MBU",
+        "trinity_fabric_number": "N1-3653410",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/N1-3653410",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=N1-3653410&res=300",
         "inventory_status": "In Stock",
-        "price_tier": 4,
-        "has_image": true
-    },
-    {
-        "id": 42711,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": null,
-        "description": "Blue Basket Weave",
-        "supplier_fabric_number": "602 028 800",
-        "trinity_fabric_number": "Z4-3642711",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z4-3642711",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z4-3642711&res=300",
-        "inventory_status": "In Stock",
-        "price_tier": 4,
+        "pattern_id": 20,
+        "weave_id": 5,
+        "price_tier": 1,
         "has_image": true
     }
 ]
@@ -825,10 +919,16 @@ Use this API call to lookup a fabric by trinity fabric number or supplier fabric
 | ---------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | collection_id          | N/A     | Only return fabrics from a specific collection.                                                                                                                          |
 | has_image              | false   | If set to true, will only return fabrics that have a working image url.                                                                                                  |
-| q                      | N/A     | Wildcard matching search by trinity fabric number, supplier fabric number, and fabric description.                                                                       |
+| q                      | N/A     | Wildcard matching search by trinity fabric number, supplier fabric number, fabric price code, and fabric description.                                                    |
 | fabric_number          | N/A     | Show fabrics that match supplier fabric number or a trinity fabric number. The trinity fabric number is an exact match, whereas the supplier number is a wildcard match. |
 | trinity_fabric_number  | N/A     | Show fabrics that match a specific Trinity fabric number.  *See below for example querying for multiple fabrics.*                                                        |
 | supplier_fabric_number | N/A     | Show fabrics that match a specific Supplier fabric number.  *See below for example querying for multiple fabrics.*                                                       |
+| fabric_price_code_id   | N/A     | Show fabrics that match a specific fabric price code.                                                                                                                    |
+| pattern_id             | N/A     | Show fabrics that match a specific pattern ID.                                                                                                                           |
+| weave_id               | N/A     | Show fabrics that match a specific weave ID.                                                                                                                             |
+| price_tier             | N/A     | Show fabrics that match a specific price tier (Must be between 1-4).                                                                                                     |
+| usage                  | 1       | *Description TBD*                                                                                                                                                        |
+| garment_type           | 65535   | *Description TBD*                                                                                                                                                        |
 | active                 | true    | If set to false, the result will also include inactive fabrics.                                                                                                          |
 | show_archived          | false   | By default archived fabrics (not active, not in stock or temp out) are not returned.  Set this to true in order to show all fabrics.                                     |
 | reverse_sort           | N/A     | If this parameter is set, fabrics will be sorted descending by fabric_id.                                                                                                |
@@ -870,22 +970,41 @@ curl "https://api.trinity-apparel.com/v1/fabrics/40985"
     "url": "https://s7d4.scene7.com/is/image/trinityapparel/S2-3540985",
     "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=S2-3540985&res=300",
     "inventory_status": "In Stock",
+    "pattern_id": null,
+    "weave_id": 3,
     "price_tier": 3,
-    "has_image": null,
+    "has_image": false,
     "country_origin": "International",
     "fabric_grouping": "shirts",
-    "pattern": "solid",
-    "usage": "Garment Trim",
+    "pattern": null,
+    "usage": "Garments",
     "last_stock_edit_date": "2018-01-19T18:36:51.000Z",
     "fabric_year": 2017,
+    "fabric_garment_types": [
+        "CSHT"
+    ],
+    "trim_garment_types": [],
     "weight": 125,
     "lead_time": "Stocked",
+    "alternate_images": [
+        {
+            "name": "CSHT",
+            "description": "Shirt Laydown",
+            "url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/CSHT-AS-FC4AMF-4x4?&obj=CSHT/Fabric&src=S2-3540985&res=300&obj=CSHT/Buttons&color=235,230,214&obj=CSHT/Thread&color=244,241,244&obj=CSHT/Fabric/Neckband_In&src=S2-3540985&res=300&obj=CSHT/Fabric/Collar&src=S2-3540985&res=300&obj=CSHT/Fabric/Yoke_In&src=S2-3540985&res=300&obj=CSHT/Fabric/Cuff_Out&src=S2-3540985&res=300&obj=CSHT/Fabric/Fronts/Placket&src=S2-3540985&res=300"
+        }
+    ],
     "collection": {
         "id": 1520,
         "name": "Soktas Bespoke V17082",
         "title": "Soktas Bespoke",
         "datecode": "V17082",
-        "image": "https://s7d4.scene7.com/is/image/trinityapparel/Soktas_Bespoke_V17082?&hei=100"
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/Soktas_Bespoke_V17082?&hei=100",
+        "digital_pdf_url": null
+    },
+    "weave": {
+        "id": 3,
+        "name": "dobby",
+        "position": 3
     },
     "price_code": {
         "code": "S2",
@@ -903,10 +1022,6 @@ curl "https://api.trinity-apparel.com/v1/fabrics/40985"
     "composition": {
         "id": 13,
         "description": "100% Cotton"
-    },
-    "mill": {
-        "id": 1049,
-        "name": "Soktas"
     }
 }
 ```
@@ -940,18 +1055,6 @@ curl "https://api.trinity-apparel.com/v1/fabrics/39001/related"
 ```json
 [
     {
-        "id": 39000,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": null,
-        "description": "Linen Blue Dot",
-        "supplier_fabric_number": "55699-16",
-        "trinity_fabric_number": "Z8-3339000",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z8-3339000",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z8-3339000&res=300",
-        "inventory_status": "In Stock"
-    },
-    {
         "id": 38992,
         "active": true,
         "in_stock": 1,
@@ -961,7 +1064,11 @@ curl "https://api.trinity-apparel.com/v1/fabrics/39001/related"
         "trinity_fabric_number": "Z8-3338992",
         "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z8-3338992",
         "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z8-3338992&res=300",
-        "inventory_status": "In Stock"
+        "inventory_status": "In Stock",
+        "pattern_id": 1,
+        "weave_id": null,
+        "price_tier": 4,
+        "has_image": true
     },
     {
         "id": 38993,
@@ -973,7 +1080,11 @@ curl "https://api.trinity-apparel.com/v1/fabrics/39001/related"
         "trinity_fabric_number": "Z8-3338993",
         "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z8-3338993",
         "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z8-3338993&res=300",
-        "inventory_status": "In Stock"
+        "inventory_status": "In Stock",
+        "pattern_id": 18,
+        "weave_id": null,
+        "price_tier": 4,
+        "has_image": true
     },
     {
         "id": 38994,
@@ -985,7 +1096,27 @@ curl "https://api.trinity-apparel.com/v1/fabrics/39001/related"
         "trinity_fabric_number": "Z8-3338994",
         "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z8-3338994",
         "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z8-3338994&res=300",
-        "inventory_status": "In Stock"
+        "inventory_status": "In Stock",
+        "pattern_id": 18,
+        "weave_id": null,
+        "price_tier": 4,
+        "has_image": true
+    },
+    {
+        "id": 39000,
+        "active": true,
+        "in_stock": 1,
+        "restock_date": null,
+        "description": "Linen Blue Dot",
+        "supplier_fabric_number": "55699-16",
+        "trinity_fabric_number": "Z8-3339000",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z8-3339000",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z8-3339000&res=300",
+        "inventory_status": "In Stock",
+        "pattern_id": 44,
+        "weave_id": null,
+        "price_tier": 4,
+        "has_image": true
     },
     {
         "id": 38979,
@@ -997,7 +1128,11 @@ curl "https://api.trinity-apparel.com/v1/fabrics/39001/related"
         "trinity_fabric_number": "Z8-3338979",
         "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z8-3338979",
         "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z8-3338979&res=300",
-        "inventory_status": "In Stock"
+        "inventory_status": "In Stock",
+        "pattern_id": 2,
+        "weave_id": null,
+        "price_tier": 4,
+        "has_image": true
     },
     {
         "id": 38984,
@@ -1009,7 +1144,11 @@ curl "https://api.trinity-apparel.com/v1/fabrics/39001/related"
         "trinity_fabric_number": "Z8-3338984",
         "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z8-3338984",
         "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z8-3338984&res=300",
-        "inventory_status": "In Stock"
+        "inventory_status": "In Stock",
+        "pattern_id": 2,
+        "weave_id": null,
+        "price_tier": 4,
+        "has_image": true
     },
     {
         "id": 38985,
@@ -1021,7 +1160,11 @@ curl "https://api.trinity-apparel.com/v1/fabrics/39001/related"
         "trinity_fabric_number": "Z8-3338985",
         "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z8-3338985",
         "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z8-3338985&res=300",
-        "inventory_status": "In Stock"
+        "inventory_status": "In Stock",
+        "pattern_id": 22,
+        "weave_id": null,
+        "price_tier": 4,
+        "has_image": true
     },
     {
         "id": 38991,
@@ -1033,7 +1176,11 @@ curl "https://api.trinity-apparel.com/v1/fabrics/39001/related"
         "trinity_fabric_number": "Z8-3338991",
         "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z8-3338991",
         "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z8-3338991&res=300",
-        "inventory_status": "In Stock"
+        "inventory_status": "In Stock",
+        "pattern_id": 1,
+        "weave_id": null,
+        "price_tier": 4,
+        "has_image": true
     },
     {
         "id": 38980,
@@ -1045,7 +1192,11 @@ curl "https://api.trinity-apparel.com/v1/fabrics/39001/related"
         "trinity_fabric_number": "Z8-3338980",
         "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z8-3338980",
         "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z8-3338980&res=300",
-        "inventory_status": "In Stock"
+        "inventory_status": "In Stock",
+        "pattern_id": 2,
+        "weave_id": null,
+        "price_tier": 4,
+        "has_image": true
     },
     {
         "id": 38981,
@@ -1057,271 +1208,11 @@ curl "https://api.trinity-apparel.com/v1/fabrics/39001/related"
         "trinity_fabric_number": "Z8-3338981",
         "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z8-3338981",
         "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z8-3338981&res=300",
-        "inventory_status": "In Stock"
-    },
-    {
-        "id": 38982,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": null,
-        "description": "Raspberry Hairline Stripe",
-        "supplier_fabric_number": "FL54667-83",
-        "trinity_fabric_number": "Z8-3338982",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z8-3338982",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z8-3338982&res=300",
-        "inventory_status": "In Stock"
-    },
-    {
-        "id": 38983,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": null,
-        "description": "Lime Hairline Stripe",
-        "supplier_fabric_number": "FL54667-53",
-        "trinity_fabric_number": "Z8-3338983",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z8-3338983",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z8-3338983&res=300",
-        "inventory_status": "In Stock"
-    },
-    {
-        "id": 38986,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": null,
-        "description": "Purple Mini Check",
-        "supplier_fabric_number": "FL63933-15",
-        "trinity_fabric_number": "Z8-3338986",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z8-3338986",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z8-3338986&res=300",
-        "inventory_status": "In Stock"
-    },
-    {
-        "id": 38987,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": null,
-        "description": "Pink Mini Check",
-        "supplier_fabric_number": "FL63933-31",
-        "trinity_fabric_number": "Z8-3338987",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z8-3338987",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z8-3338987&res=300",
-        "inventory_status": "In Stock"
-    },
-    {
-        "id": 38988,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": null,
-        "description": "Raspberry Mini Check",
-        "supplier_fabric_number": "FL63933-83",
-        "trinity_fabric_number": "Z8-3338988",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z8-3338988",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z8-3338988&res=300",
-        "inventory_status": "In Stock"
-    },
-    {
-        "id": 38989,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": null,
-        "description": "Lime Mini Check",
-        "supplier_fabric_number": "FL63933-53",
-        "trinity_fabric_number": "Z8-3338989",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z8-3338989",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z8-3338989&res=300",
-        "inventory_status": "In Stock"
-    },
-    {
-        "id": 38990,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": null,
-        "description": "Teal Mini Check",
-        "supplier_fabric_number": "FL63933-11",
-        "trinity_fabric_number": "Z8-3338990",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z8-3338990",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z8-3338990&res=300",
-        "inventory_status": "In Stock"
-    },
-    {
-        "id": 38997,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": null,
-        "description": "Demim",
-        "supplier_fabric_number": "FM300583-100",
-        "trinity_fabric_number": "Z8-3338997",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z8-3338997",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z8-3338997&res=300",
-        "inventory_status": "In Stock"
-    },
-    {
-        "id": 39002,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": null,
-        "description": "Lt Blue Mini Check w/ Dot",
-        "supplier_fabric_number": "FL66290-11",
-        "trinity_fabric_number": "Z4-3339002",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z4-3339002",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z4-3339002&res=300",
-        "inventory_status": "In Stock"
-    },
-    {
-        "id": 33056,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": null,
-        "description": "White Poplin",
-        "supplier_fabric_number": "FM39497-1",
-        "trinity_fabric_number": "Z8-3333056",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z8-3333056",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z8-3333056&res=300",
-        "inventory_status": "In Stock"
-    },
-    {
-        "id": 33058,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": null,
-        "description": "Lt Blue End on End",
-        "supplier_fabric_number": "FM37748-12",
-        "trinity_fabric_number": "Z8-3333058",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z8-3333058",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z8-3333058&res=300",
-        "inventory_status": "In Stock"
-    },
-    {
-        "id": 33059,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": null,
-        "description": "Blue End on End",
-        "supplier_fabric_number": "FM37748-13",
-        "trinity_fabric_number": "Z8-3333059",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z8-3333059",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z8-3333059&res=300",
-        "inventory_status": "In Stock"
-    },
-    {
-        "id": 33069,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": null,
-        "description": "Lt Blue Micro Stripe",
-        "supplier_fabric_number": "FM39477-113",
-        "trinity_fabric_number": "Z8-3333069",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z8-3333069",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z8-3333069&res=300",
-        "inventory_status": "In Stock"
-    },
-    {
-        "id": 33070,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": null,
-        "description": "Navy Blue Micro Stripe",
-        "supplier_fabric_number": "FM39477-15",
-        "trinity_fabric_number": "Z8-3333070",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z8-3333070",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z8-3333070&res=300",
-        "inventory_status": "In Stock"
-    },
-    {
-        "id": 33074,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": null,
-        "description": "Violet Graph Check",
-        "supplier_fabric_number": "FM25979-85",
-        "trinity_fabric_number": "Z8-3333074",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z8-3333074",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z8-3333074&res=300",
-        "inventory_status": "In Stock"
-    },
-    {
-        "id": 33075,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": null,
-        "description": "Red Graph Check",
-        "supplier_fabric_number": "FM25979-35",
-        "trinity_fabric_number": "Z8-3333075",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z8-3333075",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z8-3333075&res=300",
-        "inventory_status": "In Stock"
-    },
-    {
-        "id": 33083,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": null,
-        "description": "Lt Bue Gingham",
-        "supplier_fabric_number": "FM16617-13",
-        "trinity_fabric_number": "Z8-3333083",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z8-3333083",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z8-3333083&res=300",
-        "inventory_status": "In Stock"
-    },
-    {
-        "id": 33084,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": null,
-        "description": "Navy Gingham",
-        "supplier_fabric_number": "FM16617-19",
-        "trinity_fabric_number": "Z8-3333084",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z8-3333084",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z8-3333084&res=300",
-        "inventory_status": "In Stock"
-    },
-    {
-        "id": 33092,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": null,
-        "description": "Lt Blue Stripe",
-        "supplier_fabric_number": "FM37751-13",
-        "trinity_fabric_number": "Z8-3333092",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z8-3333092",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z8-3333092&res=300",
-        "inventory_status": "In Stock"
-    },
-    {
-        "id": 33093,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": null,
-        "description": "Blue Stripe",
-        "supplier_fabric_number": "FM37751-15",
-        "trinity_fabric_number": "Z8-3333093",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z8-3333093",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z8-3333093&res=300",
-        "inventory_status": "In Stock"
-    },
-    {
-        "id": 33094,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": null,
-        "description": "Violet Stripe",
-        "supplier_fabric_number": "FM37751-86",
-        "trinity_fabric_number": "Z8-3333094",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z8-3333094",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z8-3333094&res=300",
-        "inventory_status": "In Stock"
-    },
-    {
-        "id": 33095,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": null,
-        "description": "Fuchsia Stripe",
-        "supplier_fabric_number": "FM37751-85",
-        "trinity_fabric_number": "Z8-3333095",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z8-3333095",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z8-3333095&res=300",
-        "inventory_status": "In Stock"
+        "inventory_status": "In Stock",
+        "pattern_id": 2,
+        "weave_id": null,
+        "price_tier": 4,
+        "has_image": true
     }
 ]
 ```
