@@ -11,6 +11,7 @@ includes:
   - orders
   - materials
   - customers
+  - manufacturers
 
 search: true
 ---
