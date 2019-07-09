@@ -556,3 +556,82 @@ Returns an array of fabrics that are used to make a garment.  Under each fabric 
 - Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.
 - Pagination: No
 
+
+## Create Shipment
+
+```shell
+curl -X POST "https://api.trinity-apparel.com/v1/shipments"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns a `201 Created` and returns a JSON structured like this:
+
+```json
+{
+    "id": 356907,
+    "description": "US Shirts - July 09 #1 from iD Shirts",
+    "status": "transit",
+    "method": "Worldwide Express",
+    "carrier": "FedEx",
+    "tracking_number": null,
+    "create_date": "2019-07-09T10:18:07.000Z",
+    "ship_date": null,
+    "receive_date": null,
+    "login_id": 1578,
+    "address": {
+        "id": 1,
+        "description": "Trinity USA",
+        "street1": "227 Marketridge Dr",
+        "street2": null,
+        "street3": null,
+        "city": "Ridgeland",
+        "state": "MS",
+        "zip": "39157",
+        "country": "USA",
+        "phone": "601-713-2628"
+    },
+    "shipment_items": [
+        {
+            "id": 1855007,
+            "item_id": 941358,
+            "created_at": "2019-07-09T10:18:07.000Z"
+        }
+    ]
+}
+```
+
+### Description
+
+This call creates a shipment then adds every garment id that was provided to the shipment.  A shipment is just like a packing list.
+
+It also creates a tracking box and tracking box items, which our distribution centers use to track and receive garments from a manufacturer.
+
+### Rules
+
+All items in a shipment must be going to the same destination.  If any garment is going to another location the whole shipment fails to be created.
+
+Same rules apply to manufacturers.  If any item is from a different manufacturer, the shipment will fail to be created.
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/garments/:id/order_statuses/:order_status`
+
+### Query Parameters
+
+| Parameter       | Default | Description                                                       |
+| --------------- | ------- | ----------------------------------------------------------------- |
+| garment_id[]    | N/A     | An array of garment ids.  All garments must be included when the shipment is created |
+| tracking_number | null    | Optional. The tracking number for the shipping carrier (E.g., FedEx, DHL, etc) |
+
+### Other
+
+- Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.
+- Pagination: N/A
+
+### Responses
+
+| Response Code   | Description                                                       |
+| --------------- | ----------------------------------------------------------------- |
+| 201             | Garment Order status was successfully changed                     |
+| 403             | Not Authorized - You're not a factory or the garment isn't from your factory |
+| 409             | Unable to move to a different status. Reason provided in JSON     |
