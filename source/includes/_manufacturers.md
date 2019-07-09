@@ -11,6 +11,43 @@ This includes:
 - Set Order Status - E.g., Move a garment from Ready to Production
 - Create Shipment - Add garments to a new shipment
 
+## Order Processing Flow
+
+ready -> blue pencil -> cutting -> production -> production complete -> international transit
+
+### Ready status
+
+Garment can be downloaded if it is not in a delay status (trinity review of special instructions, etc). Downloading involves getting garment detail, garment properties, garment fabrics, and downloading the gerber files.
+
+Once the garment is fully downloaded, the manufacturer should move the garment to Blue Pencil status (ID=4 or code=PENDING).
+
+### Blue Pencil status
+
+In Blue Pencil status, the CAD team lays the marker, the order team puts the order in the production plan, and materials are gathered.  Once the marker is complete, the factory should input the CAD measurements into Trinity Admin on the `Fabric Cuts` page: https://admin.trinity-apparel.com/fabric_cuts
+
+When all fabric cut lengths are entered into the system, the garment will be automatically moved into cutting.
+
+### Cutting status
+
+Once all fabrics (shell, lining, trims, etc) have been cut, the garment should be moved to Production status (ID=5 or code=PRODUCTION) using the set order status call.
+
+### Production status
+
+During the production process we print care labels and hang tags.  You will use our Windows applications to print these.  These applications require internet connectivity to hit our api and get data about the garment.
+
+For garments with embroidery, you need to use two Windows applications.  One must be connected to a computer with the App Ethos software installed and have the App Ethos dongle.  It cannot be a server and will not allow remote desktop connections while the app is running.  Our app connects to our API and gets data about embroidery and generates an input file that app ethos uses to create a DST file.  The file can either sit on a share drive or be moved manually using a USB key.  The second embroidery app reads the DST files and provides them to a Brother embroidery machine.
+
+Once production is complete and the garment is ready to ship. Please set the order status to production complete (ID=6 or code=MADE).
+
+### Production complete status
+
+In the production complete status, we build a packing list using the create shipment call.  We can add a tracking number immediately or add one at a later time.  Once the shipment has a tracking number, we can move the garments to international transit (set status to ID=7 or code=SHIPDC).
+
+### International Transit
+
+Trinity will take the order from here.  Once we receive the garment at a distribution center, we will move the status to final inspection.
+
+
 ## Resources
 
 The resources provided by the manufacturers API are almost identical to the orders API.  Only the garment and dealer_order objects are different. Links to download Gerber input files and the order PDFs are included.
