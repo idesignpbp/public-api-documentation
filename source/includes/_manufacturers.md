@@ -6,10 +6,11 @@ This includes:
 
 - [Download Orders](#download-orders) - a list of new garment orders that are ready to be produced by the factory
 - [Garment Detail](#get-a-specific-garment)
-- Garment Properties - Get Options and Measurements for a specific garment
+- [Garment Properties](#garment-properties) - Get Options and Measurements for a specific garment
 - [Garment Fabrics](#get-garment-fabrics) - Get a list of fabrics needed, what they are used for (shell, lining, trims, etc), and see their measurments and status
 - [Set Order Status](#set-order-status) - E.g., Move a garment from Ready to Production
 - [Create Shipment](#create-shipment) - Add garments to a new shipment
+- [Get Shipment Detail](#get-shipment-detail) - Shipment details and garments in the shipment
 
 
 ## Order Processing Flow
@@ -321,7 +322,8 @@ Returns garments #1001234, #1002345, and #1003456 as long as they are in `Ready`
 
 ## Garment Properties
 
-** NOTE ** This is a temporary url that will change in the next few weeks
+**NOTE**: This is a temporary url that will change in the next few weeks
+
 ```shell
 curl "https://dev.trinity-apparel.com/properties/v1/garment_properties/:id"
 ```
@@ -754,3 +756,84 @@ Same rules apply to manufacturers.  If any item is from a different manufacturer
 | 201             | Garment Order status was successfully changed                     |
 | 403             | Not Authorized - You're not a factory or the garment isn't from your factory |
 | 409             | Unable to move to a different status. Reason provided in JSON     |
+
+
+## Get Shipment Detail
+
+```shell
+curl -X POST "https://api.trinity-apparel.com/v1/shipments/:id"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns a JSON structured like this:
+
+```json
+{
+    "id": 351907,
+    "description": "UK Shirts - May 22 #6 from iD Shirts",
+    "status": "received",
+    "method": "Worldwide Express",
+    "carrier": "FedEx",
+    "tracking_number": "485590026995",
+    "create_date": "2019-05-22T06:58:58.000Z",
+    "ship_date": "2019-05-22T02:52:14.000Z",
+    "receive_date": "2019-05-29T08:12:59.000Z",
+    "login_id": 1026,
+    "address": {
+        "id": 1222,
+        "description": "Trinity UK Shipping",
+        "street1": "8 George St.",
+        "street2": null,
+        "street3": null,
+        "city": "Alderley Edge",
+        "state": null,
+        "zip": "SK9 7EJ",
+        "country": "U.K.",
+        "phone": null
+    },
+    "shipment_items": [
+        {
+            "id": 1819962,
+            "item_id": 996625,
+            "created_at": "2019-05-22T06:58:58.000Z"
+        },
+        {
+            "id": 1819965,
+            "item_id": 996626,
+            "created_at": "2019-05-22T06:58:58.000Z"
+        },
+        {
+            "id": 1819963,
+            "item_id": 996627,
+            "created_at": "2019-05-22T06:58:58.000Z"
+        },
+        {
+            "id": 1819969,
+            "item_id": 996630,
+            "created_at": "2019-05-22T06:58:58.000Z"
+        },
+        ...
+    }
+}
+```
+
+### Description
+
+Returns detail on a shipment, which includes the tracking number and destination.  It also includes a full list of shipment items.
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/shipments/:id`
+
+### Query Parameters
+
+| Parameter       | Default | Description                                                       |
+| --------------- | ------- | ----------------------------------------------------------------- |
+| id              | N/A     | Lookup id for the shipment                                        |
+
+### Other
+
+- Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.
+- Pagination: N/A
+
+
