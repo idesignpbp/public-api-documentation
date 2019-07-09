@@ -9,6 +9,7 @@ All garments are in a particular order statuses.  While a garment is being produ
 | INCOMPLETE  | Incomplete            |
 | SUBMITTED   | Ready                 |
 | PENDING     | Blue Pencil           |
+| CUTTING     | Cutting               |
 | PRODUCTION  | Production            |
 | MADE        | Production Complete   |
 | SHIPDC      | International Transit |
