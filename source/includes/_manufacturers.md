@@ -319,6 +319,124 @@ Returns garments from a specific factory
 Returns garments #1001234, #1002345, and #1003456 as long as they are in `Ready` status and have no delays.
 
 
+## Garment Properties
+
+** NOTE ** This is a temporary url that will change in the next few weeks
+```shell
+curl "https://dev.trinity-apparel.com/properties/v1/garment_properties/:id"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "measurements": [
+    {
+      "id": 2,
+      "name": "height",
+      "description": "Height",
+      "value": 182.9,
+      "last_modified": "2019-07-06 04:43:30 UTC"
+    },
+    {
+      "id": 3,
+      "name": "weight",
+      "description": "Weight",
+      "value": 533.4,
+      "last_modified": "2019-07-06 04:43:30 UTC"
+    },
+    {
+      "id": 6,
+      "name": "coat_fit",
+      "description": "Coat Fit",
+      "value": "trim",
+      "last_modified": "2019-07-06 04:43:30 UTC"
+    },
+    {
+      "id": 7,
+      "name": "perkins_incline",
+      "description": "Incline Reading",
+      "value": 8.3,
+      "last_modified": "2019-07-06 04:43:30 UTC"
+    },
+    ...
+  ],
+  "options": [
+    {
+      "option": {
+        "id": 1,
+        "name": "garment_label",
+        "description": "Garment Label"
+      },
+      "option_value": {
+        "id": 374,
+        "value": "dealer_label",
+        "description": "Dealer Private Label"
+      }
+    },
+    {
+      "option": {
+        "id": 2,
+        "name": "vent_style",
+        "description": "Vent Style"
+      },
+      "option_value": {
+        "id": 7,
+        "value": "side_vent",
+        "description": "Side Vents"
+      }
+    },
+    {
+      "option": {
+        "id": 3,
+        "name": "shoulder_style",
+        "description": "Shoulder Style"
+      },
+      "option_value": {
+        "id": 656,
+        "value": "ultra_soft",
+        "description": "Ultra Soft"
+      }
+    },
+    {
+      "option": {
+        "id": 4,
+        "name": "exterior_breast_pocket",
+        "description": "Exterior Breast Pocket"
+      },
+      "option_value": {
+        "id": 10,
+        "value": "welt",
+        "description": "Welt (Standard)"
+      }
+    },
+    ...
+
+}
+```
+
+Returns an array of `measurements` and an array of `options`.
+
+All measurements are converted into the appropriate measurement units for the factory (typically CM) and measurements are adjusted to be finished.  Synthetic measurements are calculated and inserted into this list.
+
+All options are shown with the option id, name and description, plus the option value name, localized description, and text (if entered by the dealer).
+
+
+### HTTP Request
+
+`GET https://dev.trinity-apparel.com/properties/v1/garment_properties/:id`
+
+### Query Parameters
+
+| Parameter       | Default | Description                                                       |
+| --------------- | ------- | ----------------------------------------------------------------- |
+| id              | N/A     | The specific garment you want fabrics for                         |
+
+### Other
+
+- Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.
+- Pagination: No
+
 
 ## Get Garment Fabrics
 
