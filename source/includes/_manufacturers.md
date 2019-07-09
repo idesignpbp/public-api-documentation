@@ -4,11 +4,11 @@ The manufacturers API allows a factory to download all relevant information need
 
 This includes:
 
-- Download Garments - a list of new garment orders that are ready to be produced by the factory
+- [Download Orders](#download-orders) - a list of new garment orders that are ready to be produced by the factory
 - Garment Detail
 - Garment Properties - Get Options and Measurements for a specific garment
 - Garment Fabrics - Get a list of fabrics needed, what they are used for (shell, lining, trims, etc), and see their measurments and status
-- Set Order Status - E.g., Move a garment from Ready to Production
+- [Set Order Status](#set-order-status) - E.g., Move a garment from Ready to Production
 - Create Shipment - Add garments to a new shipment
 
 
@@ -319,7 +319,7 @@ Returns garments from a specific factory
 Returns garments #1001234, #1002345, and #1003456 as long as they are in `Ready` status and have no delays.
 
 
-## Move Garment to a new Order Status
+## Set Order Status
 
 ```shell
 curl -X POST "https://api.trinity-apparel.com/v1/garments/:id/order_statuses/:order_status"
