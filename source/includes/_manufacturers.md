@@ -5,9 +5,9 @@ The manufacturers API allows a factory to download all relevant information need
 This includes:
 
 - [Download Orders](#download-orders) - a list of new garment orders that are ready to be produced by the factory
-- Garment Detail
+- [Garment Detail](#get-a-specific-garment)
 - Garment Properties - Get Options and Measurements for a specific garment
-- Garment Fabrics - Get a list of fabrics needed, what they are used for (shell, lining, trims, etc), and see their measurments and status
+- [Garment Fabrics](#get-garment-fabrics) - Get a list of fabrics needed, what they are used for (shell, lining, trims, etc), and see their measurments and status
 - [Set Order Status](#set-order-status) - E.g., Move a garment from Ready to Production
 - Create Shipment - Add garments to a new shipment
 
@@ -377,3 +377,182 @@ Trinity enforces strict validation rules so that garments can only move to a few
 | 201             | Garment Order status was successfully changed                     |
 | 403             | Not Authorized - You're not a factory or the garment isn't from your factory |
 | 409             | Unable to move to a different status. Reason provided in JSON     |
+
+
+## Get Garment Fabrics
+
+```shell
+curl "https://api.trinity-apparel.com/v1/garments/:id/fabrics"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+        "fabric": {
+            "id": 39988,
+            "active": true,
+            "in_stock": 1,
+            "restock_date": null,
+            "description": "Blue Sharkskin",
+            "supplier_fabric_number": "223.046/44",
+            "trinity_fabric_number": "Z2-3339988",
+            "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z2-3339988",
+            "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z2-3339988&res=300",
+            "inventory_status": "In Stock",
+            "pattern_id": null,
+            "weave_id": 15,
+            "price_tier": 3,
+            "discount": null,
+            "has_image": true,
+            "availability": "at once",
+            "favorite_id": null,
+            "fabric_type": null,
+            "fabric_garment_type": 199,
+            "trim_garment_type": 0
+        },
+        "options": [
+            {
+                "option_id": null,
+                "name": "shell",
+                "description": "Shell Fabric",
+                "garment_types": [
+                    {
+                        "name": "Coat",
+                        "abbreviation": "CSC",
+                        "garment_type": 1
+                    },
+                    {
+                        "name": "Pant",
+                        "abbreviation": "CT",
+                        "garment_type": 4
+                    }
+                ]
+            }
+        ],
+        "errors": [],
+        "measurements": {
+            "estimated": {
+                "width": null,
+                "length": null,
+                "type": null
+            },
+            "cad": {
+                "width": 146,
+                "length": 320,
+                "is_cut": false
+            },
+            "received": {
+                "width": null,
+                "length": null,
+                "notes": null
+            },
+            "repeated_pattern": {
+                "width": null,
+                "length": null,
+                "type": null
+            }
+        }
+    },
+    {
+        "fabric": {
+            "id": 40676,
+            "active": true,
+            "in_stock": 1,
+            "restock_date": null,
+            "description": "Royal Blue Fancy",
+            "supplier_fabric_number": "L4-3540676",
+            "trinity_fabric_number": "L4-3540676",
+            "url": "https://s7d4.scene7.com/is/image/trinityapparel/L4-3540676",
+            "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=L4-3540676&res=300",
+            "inventory_status": "In Stock",
+            "pattern_id": 35,
+            "weave_id": null,
+            "price_tier": 3,
+            "discount": null,
+            "has_image": true,
+            "availability": "at once",
+            "favorite_id": null,
+            "fabric_type": null,
+            "fabric_garment_type": 0,
+            "trim_garment_type": 759
+        },
+        "options": [
+            {
+                "option_id": 510,
+                "name": "materials_lining_fabric_num",
+                "description": "Lining Fabric #",
+                "garment_types": [
+                    {
+                        "name": "Coat",
+                        "abbreviation": "CSC",
+                        "garment_type": 1
+                    }
+                ]
+            },
+            {
+                "option_id": 229,
+                "name": "lining_fabric_num",
+                "description": "Lining Fabric #",
+                "garment_types": [
+                    {
+                        "name": "Coat",
+                        "abbreviation": "CSC",
+                        "garment_type": 1
+                    }
+                ]
+            }
+        ],
+        "errors": [],
+        "measurements": {
+            "estimated": {
+                "width": null,
+                "length": null,
+                "type": null
+            },
+            "cad": {
+                "width": null,
+                "length": null,
+                "is_cut": null
+            },
+            "received": {
+                "width": null,
+                "length": null,
+                "notes": null
+            },
+            "repeated_pattern": {
+                "width": null,
+                "length": null,
+                "type": null
+            }
+        }
+    }
+]
+```
+
+Returns an array of fabrics that are used to make a garment.  Under each fabric we list the options it is used for, as well as the shell fabric.  This uses a simple garment option subresource that identifies the option id, name, description, and garment types for the option.  Errors are indicated if a fabric was damaged or short. We also include information about fabric measurements.
+
+| Measurement      | Fabric Source | Description                                                      |
+| ---------------- | ------------- | --------------------------------------------------------------- |
+| estimated        | Single-Length | Estimated fabric length needed. Provided to fabric suppliers at checkout     |
+| received         | Single-Length | Measured length and width of single-length fabric provided by a supplier |
+| repeated_pattern | Single-Length | Optional; Pattern width of stripes or length and width of check |
+| cad              | All           | Length and width needed by CAD marker                           |
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/garments/:id/fabrics`
+
+### Query Parameters
+
+| Parameter       | Default | Description                                                       |
+| --------------- | ------- | ----------------------------------------------------------------- |
+| id              | N/A     | The specific garment you want fabrics for                         |
+
+### Other
+
+- Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.
+- Pagination: No
+
