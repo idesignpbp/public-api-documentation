@@ -359,7 +359,7 @@
                     <a href="#resources" class="toc-h2 toc-link" data-title="Resources">Resources</a>
                   </li>
                   <li>
-                    <a href="#download-orders" class="toc-h2 toc-link" data-title="Download Orders">Download Orders</a>
+                    <a href="#download-garments" class="toc-h2 toc-link" data-title="Download Garments">Download Garments</a>
                   </li>
                   <li>
                     <a href="#garment-properties" class="toc-h2 toc-link" data-title="Garment Properties">Garment Properties</a>
@@ -7516,7 +7516,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <p>This includes:</p>
 
 <ul>
-<li><a href="#download-orders">Download Orders</a> - a list of new garment orders that are ready to be produced by the factory</li>
+<li><a href="#download-garments">Download Garments</a> - a list of new garment orders that are ready to be produced by the factory</li>
 <li><a href="#get-a-specific-garment">Garment Detail</a></li>
 <li><a href="#garment-properties">Garment Properties</a> - Get Options and Measurements for a specific garment</li>
 <li><a href="#get-garment-fabrics">Garment Fabrics</a> - Get a list of fabrics needed, what they are used for (shell, lining, trims, etc), and see their measurments and status</li>
@@ -7708,7 +7708,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <td>Time of the first invoice</td>
 </tr>
 </tbody></table>
-<h2 id='download-orders'>Download Orders</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/download_orders"</span>
+<h2 id='download-garments'>Download Garments</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/download_garments"</span>
   -H <span class="s2">"Authorization Bearer: swaledale"</span>
 </code></pre>
 <blockquote>
@@ -7854,7 +7854,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 
 <p>We expect the manufacturer to get a list of garments, then get garment details, fabric, options and measurements info.  Once this is obtained, they will move the order status to <code>Blue Pencil</code>, which means that the factory downloaded the order and is laying the marker and putting the order into the production plan. When those tasks are completed the order moves to <code>Cutting</code> and then to <code>Production</code>.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET https://api.trinity-apparel.com/v1/download_orders</code></p>
+<p><code>GET https://api.trinity-apparel.com/v1/download_garments</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -7880,11 +7880,11 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <li>Pagination: Yes</li>
 </ul>
 <h3 id='examples'>Examples</h3><h4 id='download-from-a-specific-manufacturer'>Download from a specific manufacturer</h4>
-<p><code>GET https://api.trinity-apparel.com/v1/download_orders?manufacturer_id=4</code></p>
+<p><code>GET https://api.trinity-apparel.com/v1/download_garments?manufacturer_id=4</code></p>
 
 <p>Returns garments from a specific factory</p>
 <h4 id='download-specific-garments'>Download specific garments</h4>
-<p><code>GET https://api.trinity-apparel.com/v1/download_orders?garment_id[]=1001234&amp;garment_id[]=1002345&amp;garment_id[]=1003456</code></p>
+<p><code>GET https://api.trinity-apparel.com/v1/download_garments?garment_id[]=1001234&amp;garment_id[]=1002345&amp;garment_id[]=1003456</code></p>
 
 <p>Returns garments #1001234, #1002345, and #1003456 as long as they are in <code>Ready</code> status and have no delays.</p>
 <h2 id='garment-properties'>Garment Properties</h2>
