@@ -735,7 +735,7 @@ Same rules apply to manufacturers.  If any item is from a different manufacturer
 
 ### HTTP Request
 
-`GET https://api.trinity-apparel.com/v1/garments/:id/order_statuses/:order_status`
+`POST https://api.trinity-apparel.com/v1/shipments`
 
 ### Query Parameters
 
