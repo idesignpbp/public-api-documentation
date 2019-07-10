@@ -7,8 +7,8 @@ All garments are in a particular order statuses.  While a garment is being produ
 | Status Code | Description           |
 | ----------- | --------------------- |
 | INCOMPLETE  | Incomplete            |
-| SUBMITTED   | Ready                 |
-| PENDING     | Blue Pencil           |
+| READY       | Ready                 |
+| PREP        | Blue Pencil           |
 | CUTTING     | Cutting               |
 | PRODUCTION  | Production            |
 | MADE        | Production Complete   |

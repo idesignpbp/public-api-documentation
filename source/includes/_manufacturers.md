@@ -6,10 +6,11 @@ This includes:
 
 - [Download Orders](#download-orders) - a list of new garment orders that are ready to be produced by the factory
 - [Garment Detail](#get-a-specific-garment)
-- Garment Properties - Get Options and Measurements for a specific garment
+- [Garment Properties](#garment-properties) - Get Options and Measurements for a specific garment
 - [Garment Fabrics](#get-garment-fabrics) - Get a list of fabrics needed, what they are used for (shell, lining, trims, etc), and see their measurments and status
 - [Set Order Status](#set-order-status) - E.g., Move a garment from Ready to Production
-- Create Shipment - Add garments to a new shipment
+- [Create Shipment](#create-shipment) - Add garments to a new shipment
+- [Get Shipment Detail](#get-shipment-detail) - Shipment details and garments in the shipment
 
 
 ## Order Processing Flow
@@ -319,64 +320,124 @@ Returns garments from a specific factory
 Returns garments #1001234, #1002345, and #1003456 as long as they are in `Ready` status and have no delays.
 
 
-## Set Order Status
+## Garment Properties
+
+**NOTE**: This is a temporary url that will change in the next few weeks
 
 ```shell
-curl -X POST "https://api.trinity-apparel.com/v1/garments/:id/order_statuses/:order_status"
-  -H "Authorization Bearer: swaledale"
+curl "https://dev.trinity-apparel.com/properties/v1/garment_properties/:id"
 ```
 
-> The above command returns a `201 Created` and no JSON output when it is successful.
+> The above command returns JSON structured like this:
 
-### Description
+```json
+{
+  "measurements": [
+    {
+      "id": 2,
+      "name": "height",
+      "description": "Height",
+      "value": 182.9,
+      "last_modified": "2019-07-06 04:43:30 UTC"
+    },
+    {
+      "id": 3,
+      "name": "weight",
+      "description": "Weight",
+      "value": 533.4,
+      "last_modified": "2019-07-06 04:43:30 UTC"
+    },
+    {
+      "id": 6,
+      "name": "coat_fit",
+      "description": "Coat Fit",
+      "value": "trim",
+      "last_modified": "2019-07-06 04:43:30 UTC"
+    },
+    {
+      "id": 7,
+      "name": "perkins_incline",
+      "description": "Incline Reading",
+      "value": 8.3,
+      "last_modified": "2019-07-06 04:43:30 UTC"
+    },
+    ...
+  ],
+  "options": [
+    {
+      "option": {
+        "id": 1,
+        "name": "garment_label",
+        "description": "Garment Label"
+      },
+      "option_value": {
+        "id": 374,
+        "value": "dealer_label",
+        "description": "Dealer Private Label"
+      }
+    },
+    {
+      "option": {
+        "id": 2,
+        "name": "vent_style",
+        "description": "Vent Style"
+      },
+      "option_value": {
+        "id": 7,
+        "value": "side_vent",
+        "description": "Side Vents"
+      }
+    },
+    {
+      "option": {
+        "id": 3,
+        "name": "shoulder_style",
+        "description": "Shoulder Style"
+      },
+      "option_value": {
+        "id": 656,
+        "value": "ultra_soft",
+        "description": "Ultra Soft"
+      }
+    },
+    {
+      "option": {
+        "id": 4,
+        "name": "exterior_breast_pocket",
+        "description": "Exterior Breast Pocket"
+      },
+      "option_value": {
+        "id": 10,
+        "value": "welt",
+        "description": "Welt (Standard)"
+      }
+    },
+    ...
 
-This call updates the order status of a garment and puts an entry in garment history to note when the change was made.
+}
+```
 
-Our customers, partners, and staff can see the order status for each garment. It helps us set expecations for when we can make delivery, so it is important to keep things up to date.
+Returns an array of `measurements` and an array of `options`.
 
-### Rules
+All measurements are converted into the appropriate measurement units for the factory (typically CM) and measurements are adjusted to be finished.  Synthetic measurements are calculated and inserted into this list.
 
-Trinity enforces strict validation rules so that garments can only move to a few order statuses from any given status.  Here are the valid transitions for each status:
+All options are shown with the option id, name and description, plus the option value name, localized description, and text (if entered by the dealer).
 
-| Starting Status | Valid Destination Status                                          |
-| --------------- | ----------------------------------------------------------------- |
-| Incomplete      | CMT Fabric Hold, Fabric Hold, Ready, Cancelled                    |
-| CMT Fabric Hold | Fabric Hold, Ready, Cancelled                                     |
-| Fabric Hold     | Ready, Cancelled                                                  |
-| Ready           | Blue Pencil, Cutting, Production, Cancelled                       |
-| Blue Pencil     | Cutting, Production, Production Complete, Cancelled               |
-| Cutting         | Production, Production Complete, Cancelled                        |
-| Production      | Production Complete, International Transit, Cancelled             |
-| Production Complete | International Transit, Direct Ship, Cancelled                 |
-| International Transit | Final Inspection, Shipment Processing, Direct Ship, Cancelled |
-| Final Inspection | Shipment Processing, Delivery, Direct Ship, Cancelled            |
-| Shipment Processing |  Delivery, Direct Ship, Cancelled                             |
-| Delivery        | Shipment Processing, Cancelled                                    |
-| Direct Ship     | Production Complete, Cancelled                                    |
-| Cancelled       |                                                                   |
 
 ### HTTP Request
 
-`GET https://api.trinity-apparel.com/v1/garments/:id/order_statuses/:order_status`
+`GET https://dev.trinity-apparel.com/properties/v1/garment_properties/:id`
 
 ### Query Parameters
 
 | Parameter       | Default | Description                                                       |
 | --------------- | ------- | ----------------------------------------------------------------- |
-| order_status    | N/A     | Can be an id number or a code. [Click here](#order-statuses) for more info |
+| id              | N/A     | The specific garment you want fabrics for                         |
 
 ### Other
 
 - Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.
-- Pagination: N/A
-
-### Responses
-
-| Response Code   | Description                                                       |
-| --------------- | ----------------------------------------------------------------- |
-| 201             | Garment Order status was successfully changed                     |
-| 403             | Not Authorized - You're not a factory or the garment isn't from your factory |
-| 409             | Unable to move to a different status. Reason provided in JSON     |
+- Pagination: No
 
 
 ## Get Garment Fabrics
@@ -555,4 +616,224 @@ Returns an array of fabrics that are used to make a garment.  Under each fabric 
 
 - Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.
 - Pagination: No
+
+
+## Set Order Status
+
+```shell
+curl -X POST "https://api.trinity-apparel.com/v1/garments/:id/order_statuses/:order_status"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns a `201 Created` and no JSON output when it is successful.
+
+### Description
+
+This call updates the order status of a garment and puts an entry in garment history to note when the change was made.
+
+Our customers, partners, and staff can see the order status for each garment. It helps us set expecations for when we can make delivery, so it is important to keep things up to date.
+
+### Rules
+
+Trinity enforces strict validation rules so that garments can only move to a few order statuses from any given status.  Here are the valid transitions for each status:
+
+| Starting Status | Valid Destination Status                                          |
+| --------------- | ----------------------------------------------------------------- |
+| Incomplete      | CMT Fabric Hold, Fabric Hold, Ready, Cancelled                    |
+| CMT Fabric Hold | Fabric Hold, Ready, Cancelled                                     |
+| Fabric Hold     | Ready, Cancelled                                                  |
+| Ready           | Blue Pencil, Cutting, Production, Cancelled                       |
+| Blue Pencil     | Cutting, Production, Production Complete, Cancelled               |
+| Cutting         | Production, Production Complete, Cancelled                        |
+| Production      | Production Complete, International Transit, Cancelled             |
+| Production Complete | International Transit, Direct Ship, Cancelled                 |
+| International Transit | Final Inspection, Shipment Processing, Direct Ship, Cancelled |
+| Final Inspection | Shipment Processing, Delivery, Direct Ship, Cancelled            |
+| Shipment Processing |  Delivery, Direct Ship, Cancelled                             |
+| Delivery        | Shipment Processing, Cancelled                                    |
+| Direct Ship     | Production Complete, Cancelled                                    |
+| Cancelled       |                                                                   |
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/garments/:id/order_statuses/:order_status`
+
+### Query Parameters
+
+| Parameter       | Default | Description                                                       |
+| --------------- | ------- | ----------------------------------------------------------------- |
+| order_status    | N/A     | Can be an id number or a code. [Click here](#order-statuses) for more info |
+
+### Other
+
+- Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.
+- Pagination: N/A
+
+### Responses
+
+| Response Code   | Description                                                       |
+| --------------- | ----------------------------------------------------------------- |
+| 201             | Garment Order status was successfully changed                     |
+| 403             | Not Authorized - You're not a factory or the garment isn't from your factory |
+| 409             | Unable to move to a different status. Reason provided in JSON     |
+
+
+## Create Shipment
+
+```shell
+curl -X POST "https://api.trinity-apparel.com/v1/shipments"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns a `201 Created` and returns a JSON structured like this:
+
+```json
+{
+    "id": 356907,
+    "description": "US Shirts - July 09 #1 from iD Shirts",
+    "status": "transit",
+    "method": "Worldwide Express",
+    "carrier": "FedEx",
+    "tracking_number": null,
+    "create_date": "2019-07-09T10:18:07.000Z",
+    "ship_date": null,
+    "receive_date": null,
+    "login_id": 1578,
+    "address": {
+        "id": 1,
+        "description": "Trinity USA",
+        "street1": "227 Marketridge Dr",
+        "street2": null,
+        "street3": null,
+        "city": "Ridgeland",
+        "state": "MS",
+        "zip": "39157",
+        "country": "USA",
+        "phone": "601-713-2628"
+    },
+    "shipment_items": [
+        {
+            "id": 1855007,
+            "item_id": 941358,
+            "created_at": "2019-07-09T10:18:07.000Z"
+        }
+    ]
+}
+```
+
+### Description
+
+This call creates a shipment then adds every garment id that was provided to the shipment.  A shipment is just like a packing list.
+
+It also creates a tracking box and tracking box items, which our distribution centers use to track and receive garments from a manufacturer.
+
+### Rules
+
+All items in a shipment must be going to the same destination.  If any garment is going to another location the whole shipment fails to be created.
+
+Same rules apply to manufacturers.  If any item is from a different manufacturer, the shipment will fail to be created.
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/garments/:id/order_statuses/:order_status`
+
+### Query Parameters
+
+| Parameter       | Default | Description                                                       |
+| --------------- | ------- | ----------------------------------------------------------------- |
+| garment_id[]    | N/A     | An array of garment ids.  All garments must be included when the shipment is created |
+| tracking_number | null    | Optional. The tracking number for the shipping carrier (E.g., FedEx, DHL, etc) |
+
+### Other
+
+- Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.
+- Pagination: N/A
+
+### Responses
+
+| Response Code   | Description                                                       |
+| --------------- | ----------------------------------------------------------------- |
+| 201             | Garment Order status was successfully changed                     |
+| 403             | Not Authorized - You're not a factory or the garment isn't from your factory |
+| 409             | Unable to move to a different status. Reason provided in JSON     |
+
+
+## Get Shipment Detail
+
+```shell
+curl -X POST "https://api.trinity-apparel.com/v1/shipments/:id"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns a JSON structured like this:
+
+```json
+{
+    "id": 351907,
+    "description": "UK Shirts - May 22 #6 from iD Shirts",
+    "status": "received",
+    "method": "Worldwide Express",
+    "carrier": "FedEx",
+    "tracking_number": "485590026995",
+    "create_date": "2019-05-22T06:58:58.000Z",
+    "ship_date": "2019-05-22T02:52:14.000Z",
+    "receive_date": "2019-05-29T08:12:59.000Z",
+    "login_id": 1026,
+    "address": {
+        "id": 1222,
+        "description": "Trinity UK Shipping",
+        "street1": "8 George St.",
+        "street2": null,
+        "street3": null,
+        "city": "Alderley Edge",
+        "state": null,
+        "zip": "SK9 7EJ",
+        "country": "U.K.",
+        "phone": null
+    },
+    "shipment_items": [
+        {
+            "id": 1819962,
+            "item_id": 996625,
+            "created_at": "2019-05-22T06:58:58.000Z"
+        },
+        {
+            "id": 1819965,
+            "item_id": 996626,
+            "created_at": "2019-05-22T06:58:58.000Z"
+        },
+        {
+            "id": 1819963,
+            "item_id": 996627,
+            "created_at": "2019-05-22T06:58:58.000Z"
+        },
+        {
+            "id": 1819969,
+            "item_id": 996630,
+            "created_at": "2019-05-22T06:58:58.000Z"
+        },
+        ...
+    }
+}
+```
+
+### Description
+
+Returns detail on a shipment, which includes the tracking number and destination.  It also includes a full list of shipment items.
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/shipments/:id`
+
+### Query Parameters
+
+| Parameter       | Default | Description                                                       |
+| --------------- | ------- | ----------------------------------------------------------------- |
+| id              | N/A     | Lookup id for the shipment                                        |
+
+### Other
+
+- Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.
+- Pagination: N/A
+
 
