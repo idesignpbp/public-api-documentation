@@ -4,7 +4,7 @@ The manufacturers API allows a factory to download all relevant information need
 
 This includes:
 
-- [Download Orders](#download-orders) - a list of new garment orders that are ready to be produced by the factory
+- [Download Garments](#download-garments) - a list of new garment orders that are ready to be produced by the factory
 - [Garment Detail](#get-a-specific-garment)
 - [Garment Properties](#garment-properties) - Get Options and Measurements for a specific garment
 - [Garment Fabrics](#get-garment-fabrics) - Get a list of fabrics needed, what they are used for (shell, lining, trims, etc), and see their measurments and status
@@ -138,10 +138,10 @@ Standard Attributes
 | invoiced_at <br> <span>datetime</span>       | Time of the first invoice                                                                                                                                                                                             |
 
 
-## Download Orders
+## Download Garments
 
 ```shell
-curl "https://api.trinity-apparel.com/v1/download_orders"
+curl "https://api.trinity-apparel.com/v1/download_garments"
   -H "Authorization Bearer: swaledale"
 ```
 
@@ -291,7 +291,7 @@ We expect the manufacturer to get a list of garments, then get garment details, 
 
 ### HTTP Request
 
-`GET https://api.trinity-apparel.com/v1/download_orders`
+`GET https://api.trinity-apparel.com/v1/download_garments`
 
 ### Query Parameters
 
@@ -309,13 +309,13 @@ We expect the manufacturer to get a list of garments, then get garment details, 
 
 #### Download from a specific manufacturer
 
-`GET https://api.trinity-apparel.com/v1/download_orders?manufacturer_id=4`
+`GET https://api.trinity-apparel.com/v1/download_garments?manufacturer_id=4`
 
 Returns garments from a specific factory
 
 #### Download specific garments
 
-`GET https://api.trinity-apparel.com/v1/download_orders?garment_id[]=1001234&garment_id[]=1002345&garment_id[]=1003456`
+`GET https://api.trinity-apparel.com/v1/download_garments?garment_id[]=1001234&garment_id[]=1002345&garment_id[]=1003456`
 
 Returns garments #1001234, #1002345, and #1003456 as long as they are in `Ready` status and have no delays.
 
