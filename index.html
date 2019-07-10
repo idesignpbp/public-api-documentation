@@ -362,10 +362,19 @@
                     <a href="#download-orders" class="toc-h2 toc-link" data-title="Download Orders">Download Orders</a>
                   </li>
                   <li>
-                    <a href="#set-order-status" class="toc-h2 toc-link" data-title="Set Order Status">Set Order Status</a>
+                    <a href="#garment-properties" class="toc-h2 toc-link" data-title="Garment Properties">Garment Properties</a>
                   </li>
                   <li>
                     <a href="#get-garment-fabrics" class="toc-h2 toc-link" data-title="Get Garment Fabrics">Get Garment Fabrics</a>
+                  </li>
+                  <li>
+                    <a href="#set-order-status" class="toc-h2 toc-link" data-title="Set Order Status">Set Order Status</a>
+                  </li>
+                  <li>
+                    <a href="#create-shipment" class="toc-h2 toc-link" data-title="Create Shipment">Create Shipment</a>
+                  </li>
+                  <li>
+                    <a href="#get-shipment-detail" class="toc-h2 toc-link" data-title="Get Shipment Detail">Get Shipment Detail</a>
                   </li>
               </ul>
           </li>
@@ -2004,11 +2013,11 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <td>Incomplete</td>
 </tr>
 <tr>
-<td>SUBMITTED</td>
+<td>READY</td>
 <td>Ready</td>
 </tr>
 <tr>
-<td>PENDING</td>
+<td>PREP</td>
 <td>Blue Pencil</td>
 </tr>
 <tr>
@@ -7509,10 +7518,11 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <ul>
 <li><a href="#download-orders">Download Orders</a> - a list of new garment orders that are ready to be produced by the factory</li>
 <li><a href="#get-a-specific-garment">Garment Detail</a></li>
-<li>Garment Properties - Get Options and Measurements for a specific garment</li>
+<li><a href="#garment-properties">Garment Properties</a> - Get Options and Measurements for a specific garment</li>
 <li><a href="#get-garment-fabrics">Garment Fabrics</a> - Get a list of fabrics needed, what they are used for (shell, lining, trims, etc), and see their measurments and status</li>
 <li><a href="#set-order-status">Set Order Status</a> - E.g., Move a garment from Ready to Production</li>
-<li>Create Shipment - Add garments to a new shipment</li>
+<li><a href="#create-shipment">Create Shipment</a> - Add garments to a new shipment</li>
+<li><a href="#get-shipment-detail">Get Shipment Detail</a> - Shipment details and garments in the shipment</li>
 </ul>
 <h2 id='order-processing-flow'>Order Processing Flow</h2>
 <p><code>Ready</code> -&gt; <code>Blue Pencil</code> -&gt; <code>Cutting</code> -&gt; <code>Production</code> -&gt; <code>Production Complete</code> -&gt; <code>International Transit</code></p>
@@ -7877,84 +7887,105 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <p><code>GET https://api.trinity-apparel.com/v1/download_orders?garment_id[]=1001234&amp;garment_id[]=1002345&amp;garment_id[]=1003456</code></p>
 
 <p>Returns garments #1001234, #1002345, and #1003456 as long as they are in <code>Ready</code> status and have no delays.</p>
-<h2 id='set-order-status'>Set Order Status</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://api.trinity-apparel.com/v1/garments/:id/order_statuses/:order_status"</span>
-  -H <span class="s2">"Authorization Bearer: swaledale"</span>
+<h2 id='garment-properties'>Garment Properties</h2>
+<p><strong>NOTE</strong>: This is a temporary url that will change in the next few weeks</p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://dev.trinity-apparel.com/properties/v1/garment_properties/:id"</span>
 </code></pre>
 <blockquote>
-<p>The above command returns a <code>201 Created</code> and no JSON output when it is successful.</p>
+<p>The above command returns JSON structured like this:</p>
 </blockquote>
-<h3 id='description'>Description</h3>
-<p>This call updates the order status of a garment and puts an entry in garment history to note when the change was made.</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"measurements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"height"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Height"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">182.9</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-06 04:43:30 UTC"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"weight"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Weight"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">533.4</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-06 04:43:30 UTC"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coat_fit"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Coat Fit"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"trim"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-06 04:43:30 UTC"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"perkins_incline"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Incline Reading"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">8.3</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-06 04:43:30 UTC"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"option"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"garment_label"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Garment Label"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"option_value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">374</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dealer_label"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dealer Private Label"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"option"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vent_style"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vent Style"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"option_value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"side_vent"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Side Vents"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"option"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shoulder_style"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shoulder Style"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"option_value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">656</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ultra_soft"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ultra Soft"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"option"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"exterior_breast_pocket"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Exterior Breast Pocket"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"option_value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"welt"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Welt (Standard)"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="err">...</span><span class="w">
 
-<p>Our customers, partners, and staff can see the order status for each garment. It helps us set expecations for when we can make delivery, so it is important to keep things up to date.</p>
-<h3 id='rules'>Rules</h3>
-<p>Trinity enforces strict validation rules so that garments can only move to a few order statuses from any given status.  Here are the valid transitions for each status:</p>
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Returns an array of <code>measurements</code> and an array of <code>options</code>.</p>
 
-<table><thead>
-<tr>
-<th>Starting Status</th>
-<th>Valid Destination Status</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Incomplete</td>
-<td>CMT Fabric Hold, Fabric Hold, Ready, Cancelled</td>
-</tr>
-<tr>
-<td>CMT Fabric Hold</td>
-<td>Fabric Hold, Ready, Cancelled</td>
-</tr>
-<tr>
-<td>Fabric Hold</td>
-<td>Ready, Cancelled</td>
-</tr>
-<tr>
-<td>Ready</td>
-<td>Blue Pencil, Cutting, Production, Cancelled</td>
-</tr>
-<tr>
-<td>Blue Pencil</td>
-<td>Cutting, Production, Production Complete, Cancelled</td>
-</tr>
-<tr>
-<td>Cutting</td>
-<td>Production, Production Complete, Cancelled</td>
-</tr>
-<tr>
-<td>Production</td>
-<td>Production Complete, International Transit, Cancelled</td>
-</tr>
-<tr>
-<td>Production Complete</td>
-<td>International Transit, Direct Ship, Cancelled</td>
-</tr>
-<tr>
-<td>International Transit</td>
-<td>Final Inspection, Shipment Processing, Direct Ship, Cancelled</td>
-</tr>
-<tr>
-<td>Final Inspection</td>
-<td>Shipment Processing, Delivery, Direct Ship, Cancelled</td>
-</tr>
-<tr>
-<td>Shipment Processing</td>
-<td>Delivery, Direct Ship, Cancelled</td>
-</tr>
-<tr>
-<td>Delivery</td>
-<td>Shipment Processing, Cancelled</td>
-</tr>
-<tr>
-<td>Direct Ship</td>
-<td>Production Complete, Cancelled</td>
-</tr>
-<tr>
-<td>Cancelled</td>
-<td></td>
-</tr>
-</tbody></table>
+<p>All measurements are converted into the appropriate measurement units for the factory (typically CM) and measurements are adjusted to be finished.  Synthetic measurements are calculated and inserted into this list.</p>
+
+<p>All options are shown with the option id, name and description, plus the option value name, localized description, and text (if entered by the dealer).</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET https://api.trinity-apparel.com/v1/garments/:id/order_statuses/:order_status</code></p>
+<p><code>GET https://dev.trinity-apparel.com/properties/v1/garment_properties/:id</code></p>
 <h3 id='query-parameters-2'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -7964,36 +7995,16 @@ You must replace <code>swaledale</code> with your personal JWT token.
 </tr>
 </thead><tbody>
 <tr>
-<td>order_status</td>
+<td>id</td>
 <td>N/A</td>
-<td>Can be an id number or a code. <a href="#order-statuses">Click here</a> for more info</td>
+<td>The specific garment you want fabrics for</td>
 </tr>
 </tbody></table>
 <h3 id='other-2'>Other</h3>
 <ul>
 <li>Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.</li>
-<li>Pagination: N/A</li>
+<li>Pagination: No</li>
 </ul>
-<h3 id='responses'>Responses</h3>
-<table><thead>
-<tr>
-<th>Response Code</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>201</td>
-<td>Garment Order status was successfully changed</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Not Authorized - You&#39;re not a factory or the garment isn&#39;t from your factory</td>
-</tr>
-<tr>
-<td>409</td>
-<td>Unable to move to a different status. Reason provided in JSON</td>
-</tr>
-</tbody></table>
 <h2 id='get-garment-fabrics'>Get Garment Fabrics</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/garments/:id/fabrics"</span>
   -H <span class="s2">"Authorization Bearer: swaledale"</span>
 </code></pre>
@@ -8192,6 +8203,290 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <ul>
 <li>Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.</li>
 <li>Pagination: No</li>
+</ul>
+<h2 id='set-order-status'>Set Order Status</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://api.trinity-apparel.com/v1/garments/:id/order_statuses/:order_status"</span>
+  -H <span class="s2">"Authorization Bearer: swaledale"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns a <code>201 Created</code> and no JSON output when it is successful.</p>
+</blockquote>
+<h3 id='description'>Description</h3>
+<p>This call updates the order status of a garment and puts an entry in garment history to note when the change was made.</p>
+
+<p>Our customers, partners, and staff can see the order status for each garment. It helps us set expecations for when we can make delivery, so it is important to keep things up to date.</p>
+<h3 id='rules'>Rules</h3>
+<p>Trinity enforces strict validation rules so that garments can only move to a few order statuses from any given status.  Here are the valid transitions for each status:</p>
+
+<table><thead>
+<tr>
+<th>Starting Status</th>
+<th>Valid Destination Status</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Incomplete</td>
+<td>CMT Fabric Hold, Fabric Hold, Ready, Cancelled</td>
+</tr>
+<tr>
+<td>CMT Fabric Hold</td>
+<td>Fabric Hold, Ready, Cancelled</td>
+</tr>
+<tr>
+<td>Fabric Hold</td>
+<td>Ready, Cancelled</td>
+</tr>
+<tr>
+<td>Ready</td>
+<td>Blue Pencil, Cutting, Production, Cancelled</td>
+</tr>
+<tr>
+<td>Blue Pencil</td>
+<td>Cutting, Production, Production Complete, Cancelled</td>
+</tr>
+<tr>
+<td>Cutting</td>
+<td>Production, Production Complete, Cancelled</td>
+</tr>
+<tr>
+<td>Production</td>
+<td>Production Complete, International Transit, Cancelled</td>
+</tr>
+<tr>
+<td>Production Complete</td>
+<td>International Transit, Direct Ship, Cancelled</td>
+</tr>
+<tr>
+<td>International Transit</td>
+<td>Final Inspection, Shipment Processing, Direct Ship, Cancelled</td>
+</tr>
+<tr>
+<td>Final Inspection</td>
+<td>Shipment Processing, Delivery, Direct Ship, Cancelled</td>
+</tr>
+<tr>
+<td>Shipment Processing</td>
+<td>Delivery, Direct Ship, Cancelled</td>
+</tr>
+<tr>
+<td>Delivery</td>
+<td>Shipment Processing, Cancelled</td>
+</tr>
+<tr>
+<td>Direct Ship</td>
+<td>Production Complete, Cancelled</td>
+</tr>
+<tr>
+<td>Cancelled</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET https://api.trinity-apparel.com/v1/garments/:id/order_statuses/:order_status</code></p>
+<h3 id='query-parameters-4'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>order_status</td>
+<td>N/A</td>
+<td>Can be an id number or a code. <a href="#order-statuses">Click here</a> for more info</td>
+</tr>
+</tbody></table>
+<h3 id='other-4'>Other</h3>
+<ul>
+<li>Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.</li>
+<li>Pagination: N/A</li>
+</ul>
+<h3 id='responses'>Responses</h3>
+<table><thead>
+<tr>
+<th>Response Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>201</td>
+<td>Garment Order status was successfully changed</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Not Authorized - You&#39;re not a factory or the garment isn&#39;t from your factory</td>
+</tr>
+<tr>
+<td>409</td>
+<td>Unable to move to a different status. Reason provided in JSON</td>
+</tr>
+</tbody></table>
+<h2 id='create-shipment'>Create Shipment</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://api.trinity-apparel.com/v1/shipments"</span>
+  -H <span class="s2">"Authorization Bearer: swaledale"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns a <code>201 Created</code> and returns a JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">356907</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US Shirts - July 09 #1 from iD Shirts"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transit"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Worldwide Express"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"carrier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FedEx"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tracking_number"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"create_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T10:18:07.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ship_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"receive_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"login_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1578</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Trinity USA"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"street1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"227 Marketridge Dr"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"street2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"street3"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ridgeland"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MS"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"39157"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USA"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"601-713-2628"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"shipment_items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1855007</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">941358</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T10:18:07.000Z"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='description-2'>Description</h3>
+<p>This call creates a shipment then adds every garment id that was provided to the shipment.  A shipment is just like a packing list.</p>
+
+<p>It also creates a tracking box and tracking box items, which our distribution centers use to track and receive garments from a manufacturer.</p>
+<h3 id='rules-2'>Rules</h3>
+<p>All items in a shipment must be going to the same destination.  If any garment is going to another location the whole shipment fails to be created.</p>
+
+<p>Same rules apply to manufacturers.  If any item is from a different manufacturer, the shipment will fail to be created.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>GET https://api.trinity-apparel.com/v1/garments/:id/order_statuses/:order_status</code></p>
+<h3 id='query-parameters-5'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>garment_id[]</td>
+<td>N/A</td>
+<td>An array of garment ids.  All garments must be included when the shipment is created</td>
+</tr>
+<tr>
+<td>tracking_number</td>
+<td>null</td>
+<td>Optional. The tracking number for the shipping carrier (E.g., FedEx, DHL, etc)</td>
+</tr>
+</tbody></table>
+<h3 id='other-5'>Other</h3>
+<ul>
+<li>Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.</li>
+<li>Pagination: N/A</li>
+</ul>
+<h3 id='responses-2'>Responses</h3>
+<table><thead>
+<tr>
+<th>Response Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>201</td>
+<td>Garment Order status was successfully changed</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Not Authorized - You&#39;re not a factory or the garment isn&#39;t from your factory</td>
+</tr>
+<tr>
+<td>409</td>
+<td>Unable to move to a different status. Reason provided in JSON</td>
+</tr>
+</tbody></table>
+<h2 id='get-shipment-detail'>Get Shipment Detail</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://api.trinity-apparel.com/v1/shipments/:id"</span>
+  -H <span class="s2">"Authorization Bearer: swaledale"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns a JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">351907</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK Shirts - May 22 #6 from iD Shirts"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"received"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Worldwide Express"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"carrier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FedEx"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tracking_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"485590026995"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"create_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-22T06:58:58.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ship_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-22T02:52:14.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"receive_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-29T08:12:59.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"login_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1026</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1222</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Trinity UK Shipping"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"street1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8 George St."</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"street2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"street3"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alderley Edge"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SK9 7EJ"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"U.K."</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"shipment_items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1819962</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">996625</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-22T06:58:58.000Z"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1819965</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">996626</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-22T06:58:58.000Z"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1819963</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">996627</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-22T06:58:58.000Z"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1819969</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">996630</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-22T06:58:58.000Z"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='description-3'>Description</h3>
+<p>Returns detail on a shipment, which includes the tracking number and destination.  It also includes a full list of shipment items.</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>GET https://api.trinity-apparel.com/v1/shipments/:id</code></p>
+<h3 id='query-parameters-6'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>N/A</td>
+<td>Lookup id for the shipment</td>
+</tr>
+</tbody></table>
+<h3 id='other-6'>Other</h3>
+<ul>
+<li>Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.</li>
+<li>Pagination: N/A</li>
 </ul>
 
       </div>
