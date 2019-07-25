@@ -46,12 +46,12 @@ Sometimes a garment gets delayed during production. We categorize the reason for
 
 Description of what the different garment type codes mean:
 
-| Garment Type | Description             |
+| Garment Type | Description             | 
 | ------------ | ----------------------- |
 | CSC          | Coat                    |
 | CV           | Vest                    |
 | CT           | Pant                    |
-| CCP          | Coat & Pant             |
+| CCP          | Coat & Pant             | 
 | CCVP         | Coat, Vest & Pant       |
 | CSHT         | Shirt                   |
 | CCPP         | Coat, Pant, & Pant      |

@@ -9,20 +9,25 @@ The Trinity Fabrics API provides detailed information on fabrics and collections
 ```json
 # Standard Object - Used in a resource collection
 {
-    "id": 61189,
+    "id": 25600,
     "active": true,
     "in_stock": 1,
     "restock_date": null,
-    "description": "Black solid",
-    "supplier_fabric_number": "53145",
-    "trinity_fabric_number": "XG-3861189",
-    "url": "https://s7d4.scene7.com/is/image/trinityapparel/XG-3861189",
-    "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=XG-3861189&res=300",
+    "description": "Fawn Solid",
+    "supplier_fabric_number": "8427",
+    "trinity_fabric_number": "U7-3025600",
+    "url": "https://s7d4.scene7.com/is/image/trinityapparel/U7-3025600",
+    "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=U7-3025600&res=300",
     "inventory_status": "In Stock",
     "pattern_id": 1,
     "weave_id": null,
-    "price_tier": 4,
-    "has_image": false
+    "price_tier": 3,
+    "discount": null,
+    "has_image": false,
+    "availability": "single-cut",
+    "favorite_id": null,
+    "fabric_garment_type": 199,
+    "trim_garment_type": 0
 }
 ```
 
@@ -43,38 +48,52 @@ Standard Attributes
 | pattern_id <br> <span>integer</span>            | The unique ID for the pattern of the fabric.                                                                                                                                                                                 |
 | weave_id <br> <span>integer</span>              | The unique ID for the weave of the fabric.                                                                                                                                                                                   |
 | price_tier <br> <span>integer</span>            | If set, will be a ranking between 1-4 of how expensive the fabric is (1 being least expensive, 4 being most expensive).                                                                                                      |
+| discount <br> <span>integer</span>              | If present, will be the percentage off the price of the fabric.                                                                                                                                                              |
 | has_image <br> <span>boolean</span>             | If true, the fabric image url will actually return an image of the fabric.                                                                                                                                                   |
+| availability <br> <span>string</span>           | One of: "At Once", meaning the fabric is ready (4-5 week delivery for clothing, 2-3 week delivery for shirts), or "Single Cut", meaning the fabric is not yet at the factory (5-6 weeks for clothing, 3-5 weeks for shirts), "Temp Out", meaning the fabrics have been reordered but will not be restocked for some time, or "Sold Out", meaning the fabrics are neither stocked nor reordered.|
+| favorite_id <br> <span>integer</span>           | If set, the fabric has been favorited by the client in fabrics explorer. ID can be used to unfavorite a fabric.                                                                                                              |
+| fabric_garment_type <br> <span>integer</span>   | A bitmask describing what types of garments the fabric can be used for. See advanced queries.                                                                                                                                |
+| trim_garment_type <br> <span>integer</span>     | A bitmask describing what types of linings the fabric can be used for. See advanced queries.                                                                                                                                 |
 
 ```json
 # Extended Object
 {
-    "id": 40985,
+    "id": 61189,
     "active": true,
     "in_stock": 1,
     "restock_date": null,
-    "description": "Lavender Dobby",
-    "supplier_fabric_number": "P39315/02",
-    "trinity_fabric_number": "S2-3540985",
-    "url": "https://s7d4.scene7.com/is/image/trinityapparel/S2-3540985",
-    "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=S2-3540985&res=300",
+    "description": "Black solid",
+    "supplier_fabric_number": "53145",
+    "trinity_fabric_number": "XG-3861189",
+    "url": "https://s7d4.scene7.com/is/image/trinityapparel/XG-3861189",
+    "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=XG-3861189&res=300",
     "inventory_status": "In Stock",
-    "pattern_id": null,
-    "weave_id": 3,
-    "price_tier": 3,
+    "pattern_id": 1,
+    "weave_id": null,
+    "price_tier": 4,
+    "discount": null,
     "has_image": false,
+    "availability": "single-cut",
+    "favorite_id": null,
+    "fabric_type": null,
+    "fabric_garment_type": 231,
+    "trim_garment_type": 0,
     "country_origin": "International",
-    "fabric_grouping": "shirts",
+    "fabric_grouping": "black",
+    "pattern": "solid",
     "usage": "Garments",
-    "last_stock_edit_date": "2018-01-19T18:36:51.000Z",
-    "fabric_year": 2017,
+    "last_stock_edit_date": null,
+    "fabric_year": 2019,
     "fabric_garment_types": ...,
     "trim_garment_types": ...,
-    "weight": 125,
-    "lead_time": "Stocked",
+    "weight": 212,
+    "lead_time": "3 - 10 days",
     "alternate_images": ...,
+    "related_trim": null,
+    "identical_fabrics": [],
     "collection": ...,
-    "pattern": ...,
-    "weave": ...,
+    "fabric_pattern": ...,
+    "fabric_weave": ...,
     "price_code": ...,
     "supplier": ...,
     "composition": ...
@@ -95,9 +114,11 @@ Extended attributes
 | weight <br> <span>integer</span>                   | Weight in grams per square meter.                                     |
 | lead_time <br> <span>string</span>                 | If the fabric is in stock or the estimated time until it is in stock. |
 | alternate_images <br> <span>subresource</span>     | An array of alternate images for a fabric.                            |
+| related_trim <br> <span>subresource</span>         | A fabric subresource detailing the trim/lining related to the fabric. |
+| identical_fabrics <br> <span>subresource</span>    | An array of fabrics identical to this one.                            |
 | collection <br> <span>subresource</span>           | The collection in which the fabric was released.                      |
-| weave <br> <span>subresource</span>                | Information about the weave of a fabric.                              |
-| pattern <br> <span>subresource</span>              | Information about the pattern of a fabric, such as `stripe`, `check`, and `solid`. |
+| fabric_pattern <br> <span>subresource</span>       | Information about the pattern of a fabric, such as `stripe`, `check`, and `solid`. |
+| fabric_weave <br> <span>subresource</span>         | Information about the weave of a fabric.                              |
 | price_code <br> <span>subresource</span>           | Information about the price code for the fabric.                      |
 | supplier <br> <span>subresource</span>             | Information about the supplier of the fabric.                         |
 | composition <br> <span>subresource</span>          | The material composition of the fabric (E.g, 100% Wool).              |
@@ -176,27 +197,6 @@ Standard Attributes
 | description <br> <span>string</span> | A human readable description of the alternate image. |
 | url <br> <span>integer</span>        | The url for the image itself.                        |
 
-### Weave
-
-```json
-# Standard Object - Used in a resource collection
-{
-    "id": 4,
-    "name": "poplin",
-    "position": 4,
-    "parent_weave_id": null
-}
-```
-
-Standard Attributes
-
-| Attribute                          | Description                       |
-| ---------------------------------- | --------------------------------- |
-| id <br> <span>integer</span>       | Unique identifier for the object. |
-| name <br> <span>string</span>      | The name of the weave.            |
-| position <br> <span>integer</span> | The ordering of the weave in a list. |
-| parent_weave_id <br> <span>integer</span> | Points to a higher level grouping of weaves |
-
 ### Pattern
 
 ```json
@@ -217,6 +217,27 @@ Standard Attributes
 | name <br> <span>string</span>      | The name of the pattern.            |
 | position <br> <span>integer</span> | The ordering of the pattern in a list. |
 | parent_pattern_id <br> <span>integer</span> | Points to a higher level grouping of patterns, such as checks.  For example, a child could be Club Check. |
+
+### Weave
+
+```json
+# Standard Object - Used in a resource collection
+{
+    "id": 4,
+    "name": "poplin",
+    "position": 4,
+    "parent_weave_id": null
+}
+```
+
+Standard Attributes
+
+| Attribute                          | Description                       |
+| ---------------------------------- | --------------------------------- |
+| id <br> <span>integer</span>       | Unique identifier for the object. |
+| name <br> <span>string</span>      | The name of the weave.            |
+| position <br> <span>integer</span> | The ordering of the weave in a list. |
+| parent_weave_id <br> <span>integer</span> | Points to a higher level grouping of weaves |
 
 ### Price Code
 
@@ -247,7 +268,7 @@ Standard Attributes
     "title": "Derby Performance Cornerstone Suitings",
     "datecode": "V17011",
     "image": "https://s7d4.scene7.com/is/image/trinityapparel/Derby_Performance_Cornerstone_Suitings_V17011?&hei=100",
-    "featured_fabric": ...
+    "digital_pdf_url": "https://workflow.trinity-apparel.com/share/view_document.php?use_ltype=trinity&document_id=281&download=1&filename=Derby_Performance_Cornerstone_V17011.pdf"
 }
 ```
 
@@ -260,7 +281,7 @@ Standard Attributes
 | title <br> <span>string</span>                | The name of the collection without the datecode.                                                                                                                                                            |
 | datecode <br> <span>string</span>             | The datecode of the collection (E.g., v18011). The first two digits are the year (2018), the next two are the month (01 = January), and the last one is which release we did during that month (1 = first). |
 | image <br> <span>string</span>                | URL to a thumbnail image for the collection. Image size is 105x100 px.                                                                                                                                      |
-| featured_fabric <br> <span>subresource</span> | The featured fabric is shown in collection previews. It is typically the first fabric in the collection.                                                                                                    |
+| digital_pdf_url <br> <span>string</span>      | URL to a pdf booklet of the collection.                                                                                          |
 
 ```json
 # Extended Object
@@ -271,8 +292,8 @@ Standard Attributes
     "title": "Outerwear",
     "datecode": "V18082",
     "image": "https://s7d4.scene7.com/is/image/trinityapparel/Outerwear_V18082?&hei=100",
+    "digital_pdf_url": "https://trinity-apparel.s3.amazonaws.com/assets/digital_collection_outerwear_18082.pdf",
     "description": "",
-    "featured_fabric": ...,
     "fabrics": [...]
 }
 ```
@@ -339,214 +360,205 @@ curl "https://api.trinity-apparel.com/v1/collections"
 ```json
 [
     {
-        "id": 1309,
-        "name": "Derby Performance Cornerstone Suitings V17011",
-        "title": "Derby Performance Cornerstone Suitings",
-        "datecode": "V17011",
-        "image": "https://s7d4.scene7.com/is/image/trinityapparel/Derby_Performance_Cornerstone_Suitings_V17011?&hei=100",
-        "featured_fabric": {
-            "id": 37087,
-            "active": true,
-            "in_stock": 1,
-            "restock_date": null,
-            "description": "Lt Grey Blue Glenplaid",
-            "supplier_fabric_number": "59918-2",
-            "trinity_fabric_number": "C6-3337087",
-            "url": "https://s7d4.scene7.com/is/image/trinityapparel/C6-3337087",
-            "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=C6-3337087&res=300",
-            "inventory_status": "In Stock"
-        }
+        "id": 2,
+        "name": "07 FW Bellagio",
+        "title": "07 FW Bellagio",
+        "datecode": "",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/07_FW_Bellagio?&hei=100",
+        "digital_pdf_url": null
     },
     {
-        "id": 1312,
-        "name": "Sartorial Dress V17011",
-        "title": "Sartorial Dress",
-        "datecode": "V17011",
-        "image": "https://s7d4.scene7.com/is/image/trinityapparel/Sartorial_Dress_V17011?&hei=100",
-        "featured_fabric": {
-            "id": 36835,
-            "active": true,
-            "in_stock": 1,
-            "restock_date": null,
-            "description": "Oxford Gray Solid",
-            "supplier_fabric_number": "107707",
-            "trinity_fabric_number": "C6-3336835",
-            "url": "https://s7d4.scene7.com/is/image/trinityapparel/C6-3336835",
-            "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=C6-3336835&res=300",
-            "inventory_status": "In Stock"
-        }
+        "id": 3,
+        "name": "07 FW Governors",
+        "title": "07 FW Governors",
+        "datecode": "",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/07_FW_Governors?&hei=100",
+        "digital_pdf_url": null
     },
     {
-        "id": 1317,
-        "name": "Derby Performance Contemporary Suitings V17011",
-        "title": "Derby Performance Contemporary Suitings",
-        "datecode": "V17011",
-        "image": "https://s7d4.scene7.com/is/image/trinityapparel/Derby_Performance_Contemporary_Suitings_V17011?&hei=100",
-        "featured_fabric": {
-            "id": 37022,
-            "active": true,
-            "in_stock": 1,
-            "restock_date": null,
-            "description": "Grey Pink Plaid",
-            "supplier_fabric_number": "59905-1",
-            "trinity_fabric_number": "C6-3337022",
-            "url": "https://s7d4.scene7.com/is/image/trinityapparel/C6-3337022",
-            "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=C6-3337022&res=300",
-            "inventory_status": "In Stock"
-        }
+        "id": 4,
+        "name": "07 FW Heritage Classic",
+        "title": "07 FW Heritage Classic",
+        "datecode": "",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/07_FW_Heritage_Classic?&hei=100",
+        "digital_pdf_url": null
     },
     {
-        "id": 1318,
-        "name": "Kensington Brighton Sport Coats V17011",
-        "title": "Kensington Brighton Sport Coats",
-        "datecode": "V17011",
-        "image": "https://s7d4.scene7.com/is/image/trinityapparel/Kensington_Brighton_Sport_Coats_V17011?&hei=100",
-        "featured_fabric": {
-            "id": 36961,
-            "active": true,
-            "in_stock": 1,
-            "restock_date": null,
-            "description": "Blue Red Windowpane",
-            "supplier_fabric_number": "25002-2",
-            "trinity_fabric_number": "K4-3336961",
-            "url": "https://s7d4.scene7.com/is/image/trinityapparel/K4-3336961",
-            "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=K4-3336961&res=300",
-            "inventory_status": "In Stock"
-        }
+        "id": 5,
+        "name": "07 FW Heritage Fashion",
+        "title": "07 FW Heritage Fashion",
+        "datecode": "",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/07_FW_Heritage_Fashion?&hei=100",
+        "digital_pdf_url": null
     },
     {
-        "id": 1319,
-        "name": "Dormeuil Iconik Nano 704 V17011",
-        "title": "Dormeuil Iconik Nano 704",
-        "datecode": "V17011",
-        "image": "https://s7d4.scene7.com/is/image/trinityapparel/Dormeuil_Iconik_Nano_704_V17011?&hei=100",
-        "featured_fabric": {
-            "id": 37152,
-            "active": true,
-            "in_stock": 0,
-            "restock_date": "null",
-            "description": "Grey Rope Stripe",
-            "supplier_fabric_number": "264001",
-            "trinity_fabric_number": "Y4-3437152",
-            "url": "https://s7d4.scene7.com/is/image/trinityapparel/Y4-3437152",
-            "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Y4-3437152&res=300",
-            "inventory_status": "Sold Out"
-        }
+        "id": 6,
+        "name": "07 FW Kensington I",
+        "title": "07 FW Kensington I",
+        "datecode": "",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/07_FW_Kensington_I?&hei=100",
+        "digital_pdf_url": null
     },
     {
-        "id": 1320,
-        "name": "Dormeuil Amadeus Jacketings 365 No.702 V17011",
-        "title": "Dormeuil Amadeus Jacketings 365 No.702",
-        "datecode": "V17011",
-        "image": "https://s7d4.scene7.com/is/image/trinityapparel/Dormeuil_Amadeus_Jacketings_365_No.702_V17011?&hei=100",
-        "featured_fabric": {
-            "id": 37217,
-            "active": true,
-            "in_stock": 1,
-            "restock_date": null,
-            "description": "Burgundy Plaid",
-            "supplier_fabric_number": "420083",
-            "trinity_fabric_number": "Y4-3437217",
-            "url": "https://s7d4.scene7.com/is/image/trinityapparel/Y4-3437217",
-            "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Y4-3437217&res=300",
-            "inventory_status": "In Stock"
-        }
+        "id": 7,
+        "name": "07 FW Kensington II",
+        "title": "07 FW Kensington II",
+        "datecode": "",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/07_FW_Kensington_II?&hei=100",
+        "digital_pdf_url": null
     },
     {
-        "id": 1321,
-        "name": "Sartorial Volume 1 V17011",
-        "title": "Sartorial Volume 1",
-        "datecode": "V17011",
-        "image": "https://s7d4.scene7.com/is/image/trinityapparel/Sartorial_Volume_1_V17011?&hei=100",
-        "featured_fabric": {
-            "id": 37261,
-            "active": true,
-            "in_stock": 1,
-            "restock_date": null,
-            "description": "White Solid",
-            "supplier_fabric_number": "65167",
-            "trinity_fabric_number": "C4-3337261",
-            "url": "https://s7d4.scene7.com/is/image/trinityapparel/C4-3337261",
-            "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=C4-3337261&res=300",
-            "inventory_status": "In Stock"
-        }
+        "id": 8,
+        "name": "07 FW Lords",
+        "title": "07 FW Lords",
+        "datecode": "",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/07_FW_Lords?&hei=100",
+        "digital_pdf_url": null
     },
     {
-        "id": 1322,
-        "name": "Derby Performance Corinthian Sport Coats V17011",
-        "title": "Derby Performance Corinthian Sport Coats",
-        "datecode": "V17011",
-        "image": "https://s7d4.scene7.com/is/image/trinityapparel/Derby_Performance_Corinthian_Sport_Coats_V17011?&hei=100",
-        "featured_fabric": {
-            "id": 37619,
-            "active": true,
-            "in_stock": 1,
-            "restock_date": null,
-            "description": "Lavender Grey Black Check",
-            "supplier_fabric_number": "59510-2",
-            "trinity_fabric_number": "C6-3337619",
-            "url": "https://s7d4.scene7.com/is/image/trinityapparel/C6-3337619",
-            "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=C6-3337619&res=300",
-            "inventory_status": "In Stock"
-        }
+        "id": 9,
+        "name": "07 FW Trofeo",
+        "title": "07 FW Trofeo",
+        "datecode": "",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/07_FW_Trofeo?&hei=100",
+        "digital_pdf_url": null
     },
     {
-        "id": 1323,
-        "name": "Zenith Riviera V17011",
-        "title": "Zenith Riviera",
-        "datecode": "V17011",
-        "image": "https://s7d4.scene7.com/is/image/trinityapparel/Zenith_Riviera_V17011?&hei=100",
-        "featured_fabric": {
-            "id": 37725,
-            "active": true,
-            "in_stock": 1,
-            "restock_date": null,
-            "description": "Blue  Lt Blue Check",
-            "supplier_fabric_number": "609 042 900",
-            "trinity_fabric_number": "Z4-3337725",
-            "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z4-3337725",
-            "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z4-3337725&res=300",
-            "inventory_status": "In Stock"
-        }
+        "id": 10,
+        "name": "07 FW Zenith Cashmere",
+        "title": "07 FW Zenith Cashmere",
+        "datecode": "",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/07_FW_Zenith_Cashmere?&hei=100",
+        "digital_pdf_url": null
     },
     {
-        "id": 1324,
-        "name": "Norwich TravelEase V17011",
-        "title": "Norwich TravelEase",
-        "datecode": "V17011",
-        "image": "https://s7d4.scene7.com/is/image/trinityapparel/Norwich_TravelEase_V17011?&hei=100",
-        "featured_fabric": {
-            "id": 37790,
-            "active": true,
-            "in_stock": 1,
-            "restock_date": null,
-            "description": "Charles Herringbone White",
-            "supplier_fabric_number": "D#3-C/#11",
-            "trinity_fabric_number": "N3-3337790",
-            "url": "https://s7d4.scene7.com/is/image/trinityapparel/N3-3337790",
-            "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=N3-3337790&res=300",
-            "inventory_status": "In Stock"
-        }
+        "id": 11,
+        "name": "07 SS Cambridge",
+        "title": "07 SS Cambridge",
+        "datecode": "",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/07_SS_Cambridge?&hei=100",
+        "digital_pdf_url": null
     },
     {
-        "id": 1325,
-        "name": "Dormeuil 703 D Philosphy V17011V",
-        "title": "Dormeuil 703 D Philosphy V",
-        "datecode": "V17011",
-        "image": "https://s7d4.scene7.com/is/image/trinityapparel/Dormeuil_703_D_Philosphy_V17011V?&hei=100",
-        "featured_fabric": {
-            "id": 37828,
-            "active": true,
-            "in_stock": 0,
-            "restock_date": "null",
-            "description": "Green  Blue Check",
-            "supplier_fabric_number": "412001",
-            "trinity_fabric_number": "Y4-3437828",
-            "url": "https://s7d4.scene7.com/is/image/trinityapparel/Y4-3437828",
-            "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Y4-3437828&res=300",
-            "inventory_status": "Sold Out"
-        }
+        "id": 12,
+        "name": "07 SS Governors",
+        "title": "07 SS Governors",
+        "datecode": "",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/07_SS_Governors?&hei=100",
+        "digital_pdf_url": null
     },
+    {
+        "id": 13,
+        "name": "07 SS Heritage Classic",
+        "title": "07 SS Heritage Classic",
+        "datecode": "",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/07_SS_Heritage_Classic?&hei=100",
+        "digital_pdf_url": null
+    },
+    {
+        "id": 14,
+        "name": "07 SS Heritage Fashion",
+        "title": "07 SS Heritage Fashion",
+        "datecode": "",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/07_SS_Heritage_Fashion?&hei=100",
+        "digital_pdf_url": null
+    },
+    {
+        "id": 15,
+        "name": "07 SS Lords",
+        "title": "07 SS Lords",
+        "datecode": "",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/07_SS_Lords?&hei=100",
+        "digital_pdf_url": null
+    },
+    {
+        "id": 16,
+        "name": "07 SS Queensborough",
+        "title": "07 SS Queensborough",
+        "datecode": "",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/07_SS_Queensborough?&hei=100",
+        "digital_pdf_url": null
+    },
+    {
+        "id": 17,
+        "name": "07 SS Thomas",
+        "title": "07 SS Thomas",
+        "datecode": "",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/07_SS_Thomas?&hei=100",
+        "digital_pdf_url": null
+    },
+    {
+        "id": 18,
+        "name": "07 SS Yorkshire",
+        "title": "07 SS Yorkshire",
+        "datecode": "",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/07_SS_Yorkshire?&hei=100",
+        "digital_pdf_url": null
+    },
+    {
+        "id": 19,
+        "name": "07 SS Zenith",
+        "title": "07 SS Zenith",
+        "datecode": "",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/07_SS_Zenith?&hei=100",
+        "digital_pdf_url": null
+    },
+    {
+        "id": 20,
+        "name": "08 SS Barberis",
+        "title": "08 SS Barberis",
+        "datecode": "",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/08_SS_Barberis?&hei=100",
+        "digital_pdf_url": null
+    },
+    {
+        "id": 21,
+        "name": "08 SS Florence Cottons",
+        "title": "08 SS Florence Cottons",
+        "datecode": "",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/08_SS_Florence_Cottons?&hei=100",
+        "digital_pdf_url": null
+    },
+    {
+        "id": 22,
+        "name": "08 SS Florence Gabardines",
+        "title": "08 SS Florence Gabardines",
+        "datecode": "",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/08_SS_Florence_Gabardines?&hei=100",
+        "digital_pdf_url": null
+    },
+    {
+        "id": 23,
+        "name": "08 SS Heritage I",
+        "title": "08 SS Heritage I",
+        "datecode": "",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/08_SS_Heritage_I?&hei=100",
+        "digital_pdf_url": null
+    },
+    {
+        "id": 24,
+        "name": "08 SS Heritage II",
+        "title": "08 SS Heritage II",
+        "datecode": "",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/08_SS_Heritage_II?&hei=100",
+        "digital_pdf_url": null
+    },
+    {
+        "id": 25,
+        "name": "08 SS Jamison Fancies",
+        "title": "08 SS Jamison Fancies",
+        "datecode": "",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/08_SS_Jamison_Fancies?&hei=100",
+        "digital_pdf_url": null
+    },
+    {
+        "id": 26,
+        "name": "08 SS Jamison Flannels",
+        "title": "08 SS Jamison Flannels",
+        "datecode": "",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/08_SS_Jamison_Flannels?&hei=100",
+        "digital_pdf_url": null
+    }
 ]
 ```
 
@@ -585,139 +597,55 @@ curl "https://api.trinity-apparel.com/v1/collections/1854"
     "title": "Outerwear",
     "datecode": "V18082",
     "image": "https://s7d4.scene7.com/is/image/trinityapparel/Outerwear_V18082?&hei=100",
-    "description": "",
-    "featured_fabric": {
-        "id": 54875,
-        "active": false,
-        "in_stock": 1,
-        "restock_date": null,
-        "description": "Blue Navy Plaid",
-        "supplier_fabric_number": "BT65151-1",
-        "trinity_fabric_number": "C4-3754875",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/C4-3754875",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=C4-3754875&res=300",
-        "inventory_status": "In Stock"
-    },
+    "digital_pdf_url": "https://trinity-apparel.s3.amazonaws.com/assets/digital_collection_outerwear_18082.pdf",
+    "description": null,
     "fabrics": [
         {
-            "id": 54875,
-            "active": false,
-            "in_stock": 1,
+            "id": 54921,
+            "active": true,
+            "in_stock": 0,
             "restock_date": null,
             "description": "Blue Navy Plaid",
             "supplier_fabric_number": "BT65151-1",
-            "trinity_fabric_number": "C4-3754875",
-            "url": "https://s7d4.scene7.com/is/image/trinityapparel/C4-3754875",
-            "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=C4-3754875&res=300",
-            "inventory_status": "In Stock"
+            "trinity_fabric_number": "C4-3754921",
+            "url": "https://s7d4.scene7.com/is/image/trinityapparel/C4-3754921",
+            "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=C4-3754921&res=300",
+            "inventory_status": "Sold Out",
+            "pattern_id": 4,
+            "weave_id": null,
+            "price_tier": 1,
+            "discount": null,
+            "has_image": true,
+            "availability": "out of stock",
+            "favorite_id": null,
+            "fabric_type": null,
+            "fabric_garment_type": 231,
+            "trim_garment_type": 0
         },
+        .
+        .
+        .,
         {
-            "id": 54876,
-            "active": false,
+            "id": 54966,
+            "active": true,
             "in_stock": 1,
             "restock_date": null,
-            "description": "Charcoal Black Plaid",
-            "supplier_fabric_number": "BT65151-2",
-            "trinity_fabric_number": "C4-3754876",
-            "url": "https://s7d4.scene7.com/is/image/trinityapparel/C4-3754876",
-            "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=C4-3754876&res=300",
-            "inventory_status": "In Stock"
-        },
-        {
-            "id": 54877,
-            "active": false,
-            "in_stock": 1,
-            "restock_date": null,
-            "description": "Black White Herringbone",
-            "supplier_fabric_number": "BT65139-1",
-            "trinity_fabric_number": "C4-3754877",
-            "url": "https://s7d4.scene7.com/is/image/trinityapparel/C4-3754877",
-            "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=C4-3754877&res=300",
-            "inventory_status": "In Stock"
-        },
-        {
-            "id": 54878,
-            "active": false,
-            "in_stock": 1,
-            "restock_date": null,
-            "description": "Blue Navy Herringbone",
-            "supplier_fabric_number": "BT65139-3",
-            "trinity_fabric_number": "C4-3754878",
-            "url": "https://s7d4.scene7.com/is/image/trinityapparel/C4-3754878",
-            "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=C4-3754878&res=300",
-            "inventory_status": "In Stock"
-        },
-        {
-            "id": 54879,
-            "active": false,
-            "in_stock": 1,
-            "restock_date": null,
-            "description": "Grey Charcoal Herringbone",
-            "supplier_fabric_number": "BT65139-5",
-            "trinity_fabric_number": "C4-3754879",
-            "url": "https://s7d4.scene7.com/is/image/trinityapparel/C4-3754879",
-            "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=C4-3754879&res=300",
-            "inventory_status": "In Stock"
-        },
-        {
-            "id": 54880,
-            "active": false,
-            "in_stock": 1,
-            "restock_date": null,
-            "description": "Grey Charcoal Twill",
-            "supplier_fabric_number": "BT65153-7",
-            "trinity_fabric_number": "C4-3754880",
-            "url": "https://s7d4.scene7.com/is/image/trinityapparel/C4-3754880",
-            "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=C4-3754880&res=300",
-            "inventory_status": "In Stock"
-        },
-        {
-            "id": 54881,
-            "active": false,
-            "in_stock": 1,
-            "restock_date": null,
-            "description": "Brown Black Twill",
-            "supplier_fabric_number": "BT65153-10",
-            "trinity_fabric_number": "C4-3754881",
-            "url": "https://s7d4.scene7.com/is/image/trinityapparel/C4-3754881",
-            "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=C4-3754881&res=300",
-            "inventory_status": "In Stock"
-        },
-        {
-            "id": 54882,
-            "active": false,
-            "in_stock": 1,
-            "restock_date": null,
-            "description": "Blue Navy Twill",
-            "supplier_fabric_number": "BT65153-11",
-            "trinity_fabric_number": "C4-3754882",
-            "url": "https://s7d4.scene7.com/is/image/trinityapparel/C4-3754882",
-            "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=C4-3754882&res=300",
-            "inventory_status": "In Stock"
-        },
-        {
-            "id": 54883,
-            "active": false,
-            "in_stock": 1,
-            "restock_date": null,
-            "description": "Charcoal Grey Expanded Plaid",
-            "supplier_fabric_number": "340028",
-            "trinity_fabric_number": "Z6-3754883",
-            "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z6-3754883",
-            "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z6-3754883&res=300",
-            "inventory_status": "In Stock"
-        },
-        {
-            "id": 54884,
-            "active": false,
-            "in_stock": 1,
-            "restock_date": null,
-            "description": "Navy  Expanded Herringbone",
-            "supplier_fabric_number": "340032",
-            "trinity_fabric_number": "Z6-3754884",
-            "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z6-3754884",
-            "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z6-3754884&res=300",
-            "inventory_status": "In Stock"
+            "description": "Black Solid",
+            "supplier_fabric_number": "9901-7",
+            "trinity_fabric_number": "K3-3754966",
+            "url": "https://s7d4.scene7.com/is/image/trinityapparel/K3-3754966",
+            "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=K3-3754966&res=300",
+            "inventory_status": "In Stock",
+            "pattern_id": 1,
+            "weave_id": null,
+            "price_tier": 3,
+            "discount": null,
+            "has_image": true,
+            "availability": "single-cut",
+            "favorite_id": null,
+            "fabric_type": null,
+            "fabric_garment_type": 231,
+            "trim_garment_type": 0
         }
     ]
 }
@@ -752,164 +680,73 @@ curl "https://api.trinity-apparel.com/v1/fabrics"
 ```json
 [
     {
-        "id": 53401,
+        "id": 25600,
         "active": true,
         "in_stock": 1,
         "restock_date": null,
-        "description": "Blue Broadcloth Stripe",
-        "supplier_fabric_number": "1415570-6",
-        "trinity_fabric_number": "N1-3653401",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/N1-3653401",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=N1-3653401&res=300",
+        "description": "Fawn Solid",
+        "supplier_fabric_number": "8427",
+        "trinity_fabric_number": "U7-3025600",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/U7-3025600",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=U7-3025600&res=300",
         "inventory_status": "In Stock",
-        "pattern_id": 2,
-        "weave_id": 5,
-        "price_tier": 1,
-        "has_image": true
+        "pattern_id": 1,
+        "weave_id": null,
+        "price_tier": 3,
+        "discount": null,
+        "has_image": false,
+        "availability": "single-cut",
+        "favorite_id": null,
+        "fabric_type": null,
+        "fabric_garment_type": 199,
+        "trim_garment_type": 0
     },
     {
-        "id": 53402,
+        "id": 26880,
         "active": true,
         "in_stock": 1,
         "restock_date": null,
-        "description": "Violet Broadcloth Stripe",
-        "supplier_fabric_number": "1415570-7",
-        "trinity_fabric_number": "N1-3653402",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/N1-3653402",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=N1-3653402&res=300",
+        "description": "Taupe Paisley",
+        "supplier_fabric_number": "CH-1898-27",
+        "trinity_fabric_number": "L2-3026880",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/L2-3026880",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=L2-3026880&res=300",
         "inventory_status": "In Stock",
-        "pattern_id": 2,
-        "weave_id": 5,
+        "pattern_id": 36,
+        "weave_id": null,
         "price_tier": 1,
-        "has_image": true
+        "discount": null,
+        "has_image": true,
+        "availability": "at once",
+        "favorite_id": null,
+        "fabric_type": null,
+        "fabric_garment_type": 247,
+        "trim_garment_type": 759
     },
+    .
+    .
+    .,
     {
-        "id": 53403,
+        "id": 39936,
         "active": true,
         "in_stock": 1,
         "restock_date": null,
-        "description": "Pink Broadcloth Stripe",
-        "supplier_fabric_number": "1415570-1",
-        "trinity_fabric_number": "N1-3653403",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/N1-3653403",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=N1-3653403&res=300",
+        "description": "Pink Woven Herringbone",
+        "supplier_fabric_number": "ST 64486-85",
+        "trinity_fabric_number": "S3-3339936",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/S3-3339936",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=S3-3339936&res=300",
         "inventory_status": "In Stock",
-        "pattern_id": 2,
-        "weave_id": 5,
-        "price_tier": 1,
-        "has_image": true
-    },
-    {
-        "id": 53404,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": null,
-        "description": "Grey Broadcloth Stripe",
-        "supplier_fabric_number": "1415570-3",
-        "trinity_fabric_number": "N1-3653404",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/N1-3653404",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=N1-3653404&res=300",
-        "inventory_status": "In Stock",
-        "pattern_id": 2,
-        "weave_id": 5,
-        "price_tier": 1,
-        "has_image": true
-    },
-    {
-        "id": 53405,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": null,
-        "description": "Lt Blue Broadcloth Graph Check",
-        "supplier_fabric_number": "CM0022LBU",
-        "trinity_fabric_number": "N1-3653405",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/N1-3653405",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=N1-3653405&res=300",
-        "inventory_status": "In Stock",
-        "pattern_id": 20,
-        "weave_id": 5,
-        "price_tier": 1,
-        "has_image": true
-    },
-    {
-        "id": 53406,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": null,
-        "description": "Blue Broadcloth Graph Check",
-        "supplier_fabric_number": "CM0022MBU",
-        "trinity_fabric_number": "N1-3653406",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/N1-3653406",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=N1-3653406&res=300",
-        "inventory_status": "In Stock",
-        "pattern_id": 20,
-        "weave_id": 5,
-        "price_tier": 1,
-        "has_image": true
-    },
-    {
-        "id": 53407,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": null,
-        "description": "Pink Broadcloth Graph Check",
-        "supplier_fabric_number": "CM0022PNK",
-        "trinity_fabric_number": "N1-3653407",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/N1-3653407",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=N1-3653407&res=300",
-        "inventory_status": "In Stock",
-        "pattern_id": 20,
-        "weave_id": 5,
-        "price_tier": 1,
-        "has_image": true
-    },
-    {
-        "id": 53408,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": null,
-        "description": "Red Broadcloth Graph Check",
-        "supplier_fabric_number": "CM0022DRD",
-        "trinity_fabric_number": "N1-3653408",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/N1-3653408",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=N1-3653408&res=300",
-        "inventory_status": "In Stock",
-        "pattern_id": 20,
-        "weave_id": 5,
-        "price_tier": 1,
-        "has_image": true
-    },
-    {
-        "id": 53409,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": null,
-        "description": "Violet Broadcloth Graph Check",
-        "supplier_fabric_number": "CM0022DPR",
-        "trinity_fabric_number": "N1-3653409",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/N1-3653409",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=N1-3653409&res=300",
-        "inventory_status": "In Stock",
-        "pattern_id": 20,
-        "weave_id": 5,
-        "price_tier": 1,
-        "has_image": true
-    },
-    {
-        "id": 53410,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": null,
-        "description": "Blue Broadcloth Graph Check",
-        "supplier_fabric_number": "CM0063MBU",
-        "trinity_fabric_number": "N1-3653410",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/N1-3653410",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=N1-3653410&res=300",
-        "inventory_status": "In Stock",
-        "pattern_id": 20,
-        "weave_id": 5,
-        "price_tier": 1,
-        "has_image": true
+        "pattern_id": null,
+        "weave_id": 2,
+        "price_tier": 3,
+        "discount": null,
+        "has_image": true,
+        "availability": "single-cut",
+        "favorite_id": null,
+        "fabric_type": null,
+        "fabric_garment_type": 8,
+        "trim_garment_type": 0
     }
 ]
 ```
@@ -943,6 +780,7 @@ Use this API call to lookup a fabric by trinity fabric number or supplier fabric
 | show_archived          | false   | By default archived fabrics (not active, not in stock or temp out) are not returned.  Set this to true in order to show all fabrics.                                     |
 | reverse_sort           | N/A     | If this parameter is set, fabrics will be sorted descending by fabric_id.                                                                                                |
 | extended               | false   | If set to true, the API call returns extended objects which include a complete set of attributes and subresources.                                                       |
+| in_stock               | N/A     | If set, filters by fabric availability; 0, 1, and 2 meaning Sold Out, In Stock, and Temp Out respectively.                                                               |
 
 ### Other
 
@@ -983,10 +821,16 @@ curl "https://api.trinity-apparel.com/v1/fabrics/40985"
     "pattern_id": null,
     "weave_id": 3,
     "price_tier": 3,
+    "discount": null,
     "has_image": false,
+    "availability": "at once",
+    "favorite_id": null,
+    "fabric_type": null,
+    "fabric_garment_type": 8,
+    "trim_garment_type": 0,
     "country_origin": "International",
     "fabric_grouping": "shirts",
-    "pattern": null,
+    "pattern": "solid",
     "usage": "Garments",
     "last_stock_edit_date": "2018-01-19T18:36:51.000Z",
     "fabric_year": 2017,
@@ -998,11 +842,14 @@ curl "https://api.trinity-apparel.com/v1/fabrics/40985"
     "lead_time": "Stocked",
     "alternate_images": [
         {
-            "name": "CSHT",
+            "name": "Shirt",
+            "code": "CSHT",
             "description": "Shirt Laydown",
             "url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/CSHT-AS-FC4AMF-4x4?&obj=CSHT/Fabric&src=S2-3540985&res=300&obj=CSHT/Buttons&color=235,230,214&obj=CSHT/Thread&color=244,241,244&obj=CSHT/Fabric/Neckband_In&src=S2-3540985&res=300&obj=CSHT/Fabric/Collar&src=S2-3540985&res=300&obj=CSHT/Fabric/Yoke_In&src=S2-3540985&res=300&obj=CSHT/Fabric/Cuff_Out&src=S2-3540985&res=300&obj=CSHT/Fabric/Fronts/Placket&src=S2-3540985&res=300"
         }
     ],
+    "related_trim": null,
+    "identical_fabrics": [],
     "collection": {
         "id": 1520,
         "name": "Soktas Bespoke V17082",
@@ -1011,7 +858,8 @@ curl "https://api.trinity-apparel.com/v1/fabrics/40985"
         "image": "https://s7d4.scene7.com/is/image/trinityapparel/Soktas_Bespoke_V17082?&hei=100",
         "digital_pdf_url": null
     },
-    "weave": {
+    "fabric_pattern": null,
+    "fabric_weave": {
         "id": 3,
         "name": "dobby",
         "position": 3
@@ -1053,6 +901,147 @@ Returns details on a specific fabric.
 - Permissions: All
 - Pagination: N/A
 
+## Advanced Fabric Queries
+
+```shell
+curl "https://api.trinity-apparel.com/v1/fabrics?in_stock=2&collection_id=1812"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns Temp Out fabrics from collection 1812
+
+```shell
+curl "https://api.trinity-apparel.com/v1/fabrics?in_stock=1&price_tier=4"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns all expensive in stock fabrics
+
+
+```shell
+curl "https://api.trinity-apparel.com/v1/fabrics?garment_type=5&usage=1"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns Suiting, i.e. Coat (1) + Pant (4) = 5, usage Garment (1)
+
+```shell
+curl "https://api.trinity-apparel.com/v1/fabrics?trim_garment_type=1&usage=4"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns Lining, i.e. Jackets (1), usage Clothing Trim (4)
+
+```shell
+curl "https://api.trinity-apparel.com/v1/fabrics?garment_type=8&usage=1"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns Shirting, i.e. Shirts (8), usage Garment (1)
+
+```shell
+curl "https://api.trinity-apparel.com/v1/fabrics?trim_garment_type=8&usage=2"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns Shirt trims, i.e. Shirts (8), usage Shirt Trims (2)
+
+```shell
+curl "https://api.trinity-apparel.com/v1/fabrics?garment_type=32&usage=1"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns Outerwear, i.e. Outerwear (32), usage Garment (1)
+
+```shell
+curl "https://api.trinity-apparel.com/v1/fabrics?pattern_id=5"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns fabrics of the "print" pattern
+
+```shell
+curl "https://api.trinity-apparel.com/v1/fabrics?weave_id=2"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns fabrics of the "herrinbone" weave
+
+Search by garment type, usage, stock availability, and price tier.
+
+### Query Parameters
+
+| Parameter           | Description                                                                       |
+| ------------------- | --------------------------------------------------------------------------------- |
+| garment_type        | A bitmask to search for fabrics that are used by particular garment types         |
+| trim_garment_type   | A bitmask to search for fabrics that are used as trim in particular garment types |
+| usage               | A bitmask to search fabrics by usage, e.g. garment, shirt trim, or clothing trim  |
+| in_stock            | Either 0, sold out, 1, in stock, or 2, temp out                                   |
+| price_tier          | 1-4, 4 being most expensive                                                       |
+| pattern_id          | Filter by pattern, see table below                                                |
+| weave_id            | Filter by weave, see table below                                                  |
+
+### Garment Bitmask
+
+Works the same for trims.
+
+| Garment Type        | Bitmask |
+| ------------------- | ------- |
+| GARMENT_COAT        | 1       |
+| GARMENT_VEST        | 2       |
+| GARMENT_PANT        | 4       |
+| GARMENT_SHIRT       | 8       |
+| GARMENT_PANT2       | 16      |
+| GARMENT_TOPCOAT     | 32      |
+| GARMENT_SHORT       | 64      |
+| GARMENT_BREEK       | 128     |
+| GARMENT_TIE         | 256     |
+| GARMENT_SWK         | 512     |
+| GARMENT_ALLSUIT     | GARMENT_COAT OR GARMENT_VEST OR GARMENT_PANT OR GARMENT_SHORT OR GARMENT_BREEK OR GARMENT_SWK |
+| GARMENT_ALL         | GARMENT_COAT OR GARMENT_VEST OR GARMENT_PANT OR GARMENT_TOPCOAT OR GARMENT_SHORT OR GARMENT_BREEK OR GARMENT_SHIRT OR GARMENT_SWK |
+| GARMENT_ALLPANT     | GARMENT_PANT OR GARMENT_SHORT OR GARMENT_BREEK |
+| GARMENT_ALLCOAT     | GARMENT_COAT OR GARMENT_TOPCOAT |
+| GARMENT_ALLCLOTHING | GARMENT_ALLSUIT OR GARMENT_TOPCOAT OR GARMENT_PANT2 |
+
+(OR here is Bitwise OR)
+
+### Fabric Usage Bitmask
+
+| Usage           | Bitmask |
+|-----------------|---------|
+| USAGE_GARMENT   | 1       |
+| USAGE_SHIRT_TRIM | 2      |
+| USAGE_CLOTHING_TRIM | 4   |
+| USAGE_ALL       | USAGE_GARMENT OR USAGE_SHIRT_TRIM OR USAGE_CLOTHING_TRIM | 
+
+(OR here is Bitwise OR)
+
+### Patterns to Use
+
+| Pattern         | ID   |
+|-----------------|------|
+| solid           | 1    |
+| stripe          | 2    |
+| check           | 3    |
+| plaid           | 4    |
+| print           | 5    |
+| windowpane      | 6    |
+| other           | 7    |
+
+### Weaves to Use
+
+| Weave           | ID   |
+|-----------------|------|
+| plain           | 1    |
+| herringbone     | 2    |
+| dobby           | 3    |
+| poplin          | 4    |
+| broadcloth      | 5    |
+| chambray        | 6    |
+| twill           | 7    |
+| basket          | 8    |
+| other           | 9    |
+
 ## Get Related Fabrics
 
 ```shell
@@ -1064,6 +1053,28 @@ curl "https://api.trinity-apparel.com/v1/fabrics/39001/related"
 
 ```json
 [
+    {
+        "id": 39000,
+        "active": true,
+        "in_stock": 1,
+        "restock_date": null,
+        "description": "Linen Blue Dot",
+        "supplier_fabric_number": "55699-16",
+        "trinity_fabric_number": "Z8-3339000",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z8-3339000",
+        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z8-3339000&res=300",
+        "inventory_status": "In Stock",
+        "pattern_id": 44,
+        "weave_id": null,
+        "price_tier": 4,
+        "discount": null,
+        "has_image": true,
+        "availability": "single-cut",
+        "favorite_id": null,
+        "fabric_type": null,
+        "fabric_garment_type": 8,
+        "trim_garment_type": 0
+    },
     {
         "id": 38992,
         "active": true,
@@ -1078,7 +1089,13 @@ curl "https://api.trinity-apparel.com/v1/fabrics/39001/related"
         "pattern_id": 1,
         "weave_id": null,
         "price_tier": 4,
-        "has_image": true
+        "discount": null,
+        "has_image": true,
+        "availability": "single-cut",
+        "favorite_id": null,
+        "fabric_type": null,
+        "fabric_garment_type": 8,
+        "trim_garment_type": 0
     },
     {
         "id": 38993,
@@ -1094,7 +1111,13 @@ curl "https://api.trinity-apparel.com/v1/fabrics/39001/related"
         "pattern_id": 18,
         "weave_id": null,
         "price_tier": 4,
-        "has_image": true
+        "discount": null,
+        "has_image": true,
+        "availability": "single-cut",
+        "favorite_id": null,
+        "fabric_type": null,
+        "fabric_garment_type": 8,
+        "trim_garment_type": 0
     },
     {
         "id": 38994,
@@ -1110,23 +1133,13 @@ curl "https://api.trinity-apparel.com/v1/fabrics/39001/related"
         "pattern_id": 18,
         "weave_id": null,
         "price_tier": 4,
-        "has_image": true
-    },
-    {
-        "id": 39000,
-        "active": true,
-        "in_stock": 1,
-        "restock_date": null,
-        "description": "Linen Blue Dot",
-        "supplier_fabric_number": "55699-16",
-        "trinity_fabric_number": "Z8-3339000",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z8-3339000",
-        "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z8-3339000&res=300",
-        "inventory_status": "In Stock",
-        "pattern_id": 44,
-        "weave_id": null,
-        "price_tier": 4,
-        "has_image": true
+        "discount": null,
+        "has_image": true,
+        "availability": "single-cut",
+        "favorite_id": null,
+        "fabric_type": null,
+        "fabric_garment_type": 8,
+        "trim_garment_type": 0
     },
     {
         "id": 38979,
@@ -1142,7 +1155,13 @@ curl "https://api.trinity-apparel.com/v1/fabrics/39001/related"
         "pattern_id": 2,
         "weave_id": null,
         "price_tier": 4,
-        "has_image": true
+        "discount": null,
+        "has_image": true,
+        "availability": "single-cut",
+        "favorite_id": null,
+        "fabric_type": null,
+        "fabric_garment_type": 8,
+        "trim_garment_type": 0
     },
     {
         "id": 38984,
@@ -1158,7 +1177,13 @@ curl "https://api.trinity-apparel.com/v1/fabrics/39001/related"
         "pattern_id": 2,
         "weave_id": null,
         "price_tier": 4,
-        "has_image": true
+        "discount": null,
+        "has_image": true,
+        "availability": "single-cut",
+        "favorite_id": null,
+        "fabric_type": null,
+        "fabric_garment_type": 8,
+        "trim_garment_type": 0
     },
     {
         "id": 38985,
@@ -1174,7 +1199,13 @@ curl "https://api.trinity-apparel.com/v1/fabrics/39001/related"
         "pattern_id": 22,
         "weave_id": null,
         "price_tier": 4,
-        "has_image": true
+        "discount": null,
+        "has_image": true,
+        "availability": "single-cut",
+        "favorite_id": null,
+        "fabric_type": null,
+        "fabric_garment_type": 8,
+        "trim_garment_type": 0
     },
     {
         "id": 38991,
@@ -1190,7 +1221,13 @@ curl "https://api.trinity-apparel.com/v1/fabrics/39001/related"
         "pattern_id": 1,
         "weave_id": null,
         "price_tier": 4,
-        "has_image": true
+        "discount": null,
+        "has_image": true,
+        "availability": "single-cut",
+        "favorite_id": null,
+        "fabric_type": null,
+        "fabric_garment_type": 8,
+        "trim_garment_type": 0
     },
     {
         "id": 38980,
@@ -1206,7 +1243,13 @@ curl "https://api.trinity-apparel.com/v1/fabrics/39001/related"
         "pattern_id": 2,
         "weave_id": null,
         "price_tier": 4,
-        "has_image": true
+        "discount": null,
+        "has_image": true,
+        "availability": "single-cut",
+        "favorite_id": null,
+        "fabric_type": null,
+        "fabric_garment_type": 8,
+        "trim_garment_type": 0
     },
     {
         "id": 38981,
@@ -1222,7 +1265,13 @@ curl "https://api.trinity-apparel.com/v1/fabrics/39001/related"
         "pattern_id": 2,
         "weave_id": null,
         "price_tier": 4,
-        "has_image": true
+        "discount": null,
+        "has_image": true,
+        "availability": "single-cut",
+        "favorite_id": null,
+        "fabric_type": null,
+        "fabric_garment_type": 8,
+        "trim_garment_type": 0
     }
 ]
 ```
