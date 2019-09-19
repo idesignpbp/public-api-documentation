@@ -6,7 +6,7 @@ This includes:
 
 - [Download Garments](#download-garments) - a list of new garment orders that are ready to be produced by the factory
 - [Garment Detail](#get-a-specific-garment)
-- [Garment Properties](#garment-properties) - Get Options and Measurements for a specific garment
+- [Garment Properties](#garment-properties) - Get Options and Measurements for a specific garment [**Recently Updated**]
 - [Garment Fabrics](#get-garment-fabrics) - Get a list of fabrics needed, what they are used for (shell, lining, trims, etc), and see their measurments and status
 - [Set Order Status](#set-order-status) - E.g., Move a garment from Ready to Production
 - [Create Shipment](#create-shipment) - Add garments to a new shipment
@@ -322,10 +322,10 @@ Returns garments #1001234, #1002345, and #1003456 as long as they are in `Ready`
 
 ## Garment Properties
 
-**NOTE**: This is a temporary url that will change in the next few weeks
+**NOTE**: UPDATED 17 SEP 2019!
 
 ```shell
-curl "https://dev.trinity-apparel.com/properties/v1/garment_properties/:id"
+curl "https://api.trinity-apparel.com/v1/garments/:id/properties"
 ```
 
 > The above command returns JSON structured like this:
@@ -337,31 +337,64 @@ curl "https://dev.trinity-apparel.com/properties/v1/garment_properties/:id"
       "id": 2,
       "name": "height",
       "description": "Height",
-      "value": 182.9,
-      "last_modified": "2019-07-06 04:43:30 UTC"
+      "value": 182.88,
+      "last_modified": "2019-06-27 14:05:57 UTC",
+      "garment_type": 7,
+      "garment_types": [
+        "csc",
+        "cv",
+        "ct"
+      ]
     },
     {
       "id": 3,
       "name": "weight",
       "description": "Weight",
-      "value": 533.4,
-      "last_modified": "2019-07-06 04:43:30 UTC"
+      "value": 78.46,
+      "last_modified": "2019-06-27 14:05:57 UTC",
+      "garment_type": 7,
+      "garment_types": [
+        "csc",
+        "cv",
+        "ct"
+      ]
     },
     {
       "id": 6,
       "name": "coat_fit",
       "description": "Coat Fit",
       "value": "trim",
-      "last_modified": "2019-07-06 04:43:30 UTC"
+      "last_modified": "2019-06-27 14:05:57 UTC",
+      "garment_type": 1,
+      "garment_types": [
+        "csc"
+      ]
+    },
+
+    ...
+
+    {
+      "id": 276,
+      "name": "round_back",
+      "description": "Round Back",
+      "value": "",
+      "last_modified": "2019-06-27 14:05:57 UTC",
+      "garment_type": 1,
+      "garment_types": [
+        "csc"
+      ]
     },
     {
-      "id": 7,
-      "name": "perkins_incline",
-      "description": "Incline Reading",
-      "value": 8.3,
-      "last_modified": "2019-07-06 04:43:30 UTC"
-    },
-    ...
+      "id": 289,
+      "name": "lower_back_crotch",
+      "description": "Lower Back Crotch",
+      "value": "normal",
+      "last_modified": "2019-06-27 14:05:57 UTC",
+      "garment_type": 4,
+      "garment_types": [
+        "ct"
+      ]
+    }
   ],
   "options": [
     {
@@ -373,8 +406,12 @@ curl "https://dev.trinity-apparel.com/properties/v1/garment_properties/:id"
       "option_value": {
         "id": 374,
         "value": "dealer_label",
-        "description": "Dealer Private Label"
-      }
+        "description": "用客供商标"
+      },
+      "garment_type": 1,
+      "garment_types": [
+        "csc"
+      ]
     },
     {
       "option": {
@@ -385,8 +422,12 @@ curl "https://dev.trinity-apparel.com/properties/v1/garment_properties/:id"
       "option_value": {
         "id": 7,
         "value": "side_vent",
-        "description": "Side Vents"
-      }
+        "description": "双开衩-标准24cm"
+      },
+      "garment_type": 1,
+      "garment_types": [
+        "csc"
+      ]
     },
     {
       "option": {
@@ -397,32 +438,62 @@ curl "https://dev.trinity-apparel.com/properties/v1/garment_properties/:id"
       "option_value": {
         "id": 656,
         "value": "ultra_soft",
-        "description": "Ultra Soft"
-      }
-    },
-    {
-      "option": {
-        "id": 4,
-        "name": "exterior_breast_pocket",
-        "description": "Exterior Breast Pocket"
+        "description": "超薄休闲肩"
       },
-      "option_value": {
-        "id": 10,
-        "value": "welt",
-        "description": "Welt (Standard)"
-      }
+      "garment_type": 1,
+      "garment_types": [
+        "csc"
+      ]
     },
+
     ...
 
+    {
+      "option": {
+        "id": 234,
+        "name": "formal_treatment_waistband",
+        "description": "Formal Treatment Position - Waistband"
+      },
+      "option_value": {
+        "id": 1503,
+        "value": "no",
+        "description": "绸缎腰面 - 无"
+      },
+      "garment_type": 4,
+      "garment_types": [
+        "ct"
+      ]
+    },
+
+    ...
+
+    {
+      "option": {
+        "id": 611,
+        "name": "bottom_style",
+        "description": "Bottom Style"
+      },
+      "option_value": {
+        "id": 10645,
+        "value": "pointed",
+        "description": ""
+      },
+      "garment_type": 2,
+      "garment_types": [
+        "cv"
+      ]
+    }
+  ]
 }
 ```
 
 Returns an array of `measurements` and an array of `options`.
 
-All measurements are converted into the appropriate measurement units for the factory (typically CM) and measurements are adjusted to be finished.  Synthetic measurements are calculated and inserted into this list.
+### How it Works
 
-All options are shown with the option id, name and description, plus the option value name, localized description, and text (if entered by the dealer).
+All measurements are flat objects that include the measurement name and value.  We also include the description and last modified date, as well as the numeric garment type and an array of all garment types the measurement is valid used in this garment (E.g., height would be valid for each piece in a suit). When the measurement value is numeric, we convert it into the appropriate measurement units for the factory (typically metric).  Measurements are also adjusted to be finished. Synthetic measurements (measurements that the dealer did not enter) are calculated and inserted into this list.
 
+All options include the option and option value.  The option includes the id, name, and english description (there's no translation for the option). The option value includes the id, value, and a localized description (translated for the appropriate garment manufacturer).  We use the translation if available, if not we fallback to English. We also include the garment type (numeric bitmask) and an array of valid garment types (abbreviations). Synthetic options (not entered by the dealer) may also be inserted into the options list.
 
 ### HTTP Request
 
@@ -432,12 +503,20 @@ All options are shown with the option id, name and description, plus the option 
 
 | Parameter       | Default | Description                                                       |
 | --------------- | ------- | ----------------------------------------------------------------- |
-| id              | N/A     | The specific garment you want fabrics for                         |
+| id              | N/A     | The specific garment you want information on                      |
 
 ### Other
 
 - Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.
 - Pagination: No
+
+### Future Plans
+
+We will be adding materials to the garment properties call in the next few weeks.
+
+We can also add filters and allow users to toggle localization (metric units, translations) if that is important.
+
+
 
 
 ## Get Garment Fabrics
