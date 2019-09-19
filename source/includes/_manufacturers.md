@@ -326,6 +326,7 @@ Returns garments #1001234, #1002345, and #1003456 as long as they are in `Ready`
 
 ```shell
 curl "https://api.trinity-apparel.com/v1/garments/:id/properties"
+  -H "Authorization Bearer: swaledale"
 ```
 
 > The above command returns JSON structured like this:
@@ -497,7 +498,7 @@ All options include the option and option value.  The option includes the id, na
 
 ### HTTP Request
 
-`GET https://dev.trinity-apparel.com/properties/v1/garment_properties/:id`
+`GET https://api.trinity-apparel.com/v1/garments/:id/properties`
 
 ### Query Parameters
 
