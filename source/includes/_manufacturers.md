@@ -602,8 +602,8 @@ In addition to options, we also provide a list of all materials needed to make t
 
 ### Future Plans
 
+We plan to provide the quantity of materials needed at some point.  This would be the number of buttons, fabric length, etc.
 We can also add filters and allow users to toggle localization (metric units, translations) if that is important.
-
 
 
 
