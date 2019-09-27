@@ -6,7 +6,7 @@ This includes:
 
 - [Download Garments](#download-garments) - a list of new garment orders that are ready to be produced by the factory
 - [Garment Detail](#get-a-specific-garment)
-- [Garment Properties](#garment-properties) - Get Options and Measurements for a specific garment [**Recently Updated**]
+- [Garment Properties](#garment-properties) - Get Measurements, Options and Materials for a specific garment [**Recently Updated! **]
 - [Garment Fabrics](#get-garment-fabrics) - Get a list of fabrics needed, what they are used for (shell, lining, trims, etc), and see their measurments and status
 - [Set Order Status](#set-order-status) - E.g., Move a garment from Ready to Production
 - [Create Shipment](#create-shipment) - Add garments to a new shipment
@@ -322,7 +322,7 @@ Returns garments #1001234, #1002345, and #1003456 as long as they are in `Ready`
 
 ## Garment Properties
 
-**NOTE**: UPDATED 17 SEP 2019!
+**NOTE**: ADDED MATERIALS ON 27 SEP 2019!
 
 ```shell
 curl "https://api.trinity-apparel.com/v1/garments/:id/properties"
@@ -334,7 +334,7 @@ curl "https://api.trinity-apparel.com/v1/garments/:id/properties"
 ```json
 {
   "measurements": [
-    {
+{
       "id": 2,
       "name": "height",
       "description": "Height",
@@ -345,7 +345,8 @@ curl "https://api.trinity-apparel.com/v1/garments/:id/properties"
         "csc",
         "cv",
         "ct"
-      ]
+      ],
+      "units": "cm"
     },
     {
       "id": 3,
@@ -358,7 +359,8 @@ curl "https://api.trinity-apparel.com/v1/garments/:id/properties"
         "csc",
         "cv",
         "ct"
-      ]
+      ],
+      "units": "kgs"
     },
     {
       "id": 6,
@@ -398,7 +400,7 @@ curl "https://api.trinity-apparel.com/v1/garments/:id/properties"
     }
   ],
   "options": [
-    {
+{
       "option": {
         "id": 1,
         "name": "garment_label",
@@ -484,17 +486,104 @@ curl "https://api.trinity-apparel.com/v1/garments/:id/properties"
         "cv"
       ]
     }
-  ]
+  ],
+
+  "materials": {
+    "fabrics": [
+      {
+        "id": 40443,
+        "name": "L2-3540443",
+        "description": "Red Paisley Print",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/L2-3540443",
+        "options": [
+          {
+            "id": 229,
+            "name": "lining_fabric_num",
+            "description": "Lining Fabric #",
+            "garment_type": 1,
+            "garment_types": [
+              "csc"
+            ]
+          },
+          ...
+        ]
+      },
+      ...
+    "buttons": [
+      {
+        "id": 34,
+        "name": "KNJ011_Dark_Brown",
+        "description": "1-30 Dark Brown Horn",
+        "image": "http://s7d4.scene7.com/is/image/trinityapparel/1-30_Dark_Brown_Horn?wid=100",
+        "options": [
+          {
+            "id": 21,
+            "name": "button_color",
+            "description": "Button Color/Type",
+            "garment_type": 1,
+            "garment_types": [
+              "csc"
+            ]
+          },
+          ...
+        ]
+      }
+    ],
+    "threads": [
+      {
+        "id": 27,
+        "name": "silver",
+        "description": "Silver",
+        "image": "http://s7d4.scene7.com/ir/render/trinityapparelrender/buttonhole?wid=112&obj=Buttonhole/Color&color=231,231,231&fmt=png-alpha",
+        "options": [
+          {
+            "id": 225,
+            "name": "pic_stitching_lining_edge",
+            "description": "Pic Stitching - Lining Edge",
+            "garment_type": 1,
+            "garment_types": [
+              "csc"
+            ]
+          },
+          ...
+        ]
+      }
+    ],
+    "suedes": [],
+    "labels": [
+      {
+        "id": 11,
+        "name": "direct_embroider_lining",
+        "description": "Embroider Directly on Garment Lining",
+        "image": "http://s7d4.scene7.com/is/image/trinityapparel/Embroidery_Lining?wid=300",
+        "options": [
+          {
+            "id": 84,
+            "name": "customer_label",
+            "description": "Coat Name Label",
+            "garment_type": 1,
+            "garment_types": [
+              "csc"
+            ]
+          }
+        ]
+      },
+      ...
+    ],
+    "felts": []
+  }
 }
 ```
 
-Returns an array of `measurements` and an array of `options`.
+Returns an array of `measurements`, an array of `options`, and a hash of `materials`.  The materials hash includes `fabrics`, `buttons`, `threads`, `labels`, `suedes`, and `felts`, each of which contains an array of those type of materials.
 
 ### How it Works
 
-All measurements are flat objects that include the measurement name and value.  We also include the description and last modified date, as well as the numeric garment type and an array of all garment types the measurement is valid used in this garment (E.g., height would be valid for each piece in a suit). When the measurement value is numeric, we convert it into the appropriate measurement units for the factory (typically metric).  Measurements are also adjusted to be finished. Synthetic measurements (measurements that the dealer did not enter) are calculated and inserted into this list.
+All measurements are flat objects that include the measurement name and value.  We also include the description and last modified date, as well as the numeric garment type and an array of all garment types the measurement is valid used in this garment (E.g., height would be valid for each piece in a suit). When the measurement value is numeric, we convert it into the appropriate measurement units for the factory (typically SI) and list the units.  Measurements are also adjusted to be finished. Synthetic measurements (measurements that the dealer did not enter) are calculated and inserted into this list.
 
-All options include the option and option value.  The option includes the id, name, and english description (there's no translation for the option). The option value includes the id, value, and a localized description (translated for the appropriate garment manufacturer).  We use the translation if available, if not we fallback to English. We also include the garment type (numeric bitmask) and an array of valid garment types (abbreviations). Synthetic options (not entered by the dealer) may also be inserted into the options list.
+All options include the option and option value.  The option includes the id, name, and english description (there's no translation for the option). The option value includes the id, value, and a localized description (translated for the appropriate garment manufacturer for the order).  We use the translation if available, if not we fallback to English. We also include the garment type (numeric bitmask) and an array of valid garment types (abbreviations). Synthetic options (not entered by the dealer) may also be inserted into the options list.
+
+In addition to options, we also provide a list of all materials needed to make the garment.  Materials include fabrics, buttons, threads, labels, suedes, and felts.  We include information specific to that material type (Trinity fabric number, thread code, etc), id, name, description, and image, which is a web link that you can use to display the material.  Then we include a list of all options that use this material.
 
 ### HTTP Request
 
@@ -513,10 +602,8 @@ All options include the option and option value.  The option includes the id, na
 
 ### Future Plans
 
-We will be adding materials to the garment properties call in the next few weeks.
-
+We plan to provide the quantity of materials needed at some point.  This would be the number of buttons, fabric length, etc.
 We can also add filters and allow users to toggle localization (metric units, translations) if that is important.
-
 
 
 
