@@ -7,8 +7,10 @@ toc_footers:
 includes:
   - errors
   - pagination
-  - fabrics
   - orders
+  - measurements
+  - options
+  - fabrics
   - materials
   - customers
   - manufacturers
