@@ -280,6 +280,15 @@
                   <li>
                     <a href="#measurement-resources" class="toc-h2 toc-link" data-title="Measurement Resources">Measurement Resources</a>
                   </li>
+                  <li>
+                    <a href="#get-all-measurement-groups" class="toc-h2 toc-link" data-title="Get All Measurement Groups">Get All Measurement Groups</a>
+                  </li>
+                  <li>
+                    <a href="#get-all-measurements" class="toc-h2 toc-link" data-title="Get All Measurements">Get All Measurements</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-specific-measurement" class="toc-h2 toc-link" data-title="Get a Specific Measurement">Get a Specific Measurement</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -4246,12 +4255,14 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <li>Permissions: All</li>
 <li>Pagination: N/A</li>
 </ul>
-<h1 id='measurements-api'>Measurements API</h1><h2 id='measurement-resources'>Measurement Resources</h2><h3 id='measurement-group'>Measurement Group</h3><pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Standard</span><span class="w"> </span><span class="err">Object</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">Used</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">resource</span><span class="w"> </span><span class="err">collection</span><span class="w">
+<h1 id='measurements-api'>Measurements API</h1><h2 id='measurement-resources'>Measurement Resources</h2><h3 id='measurement-group'>Measurement Group</h3>
+<p>Measurement groups are the groups/folders that contain measurements and alterations for a particular garment in Workflow. There are 12 measurement groups currently available.</p>
+<pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Standard</span><span class="w"> </span><span class="err">Object</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">Used</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">resource</span><span class="w"> </span><span class="err">collection</span><span class="w">
 </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">27</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Label Options"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">623</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">230</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Body Description"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">239</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Standard Attributes</p>
@@ -4268,29 +4279,31 @@ You must replace <code>swaledale</code> with your personal JWT token.
 </tr>
 <tr>
 <td>name <br> <span>string</span></td>
-<td>The name of the option group.</td>
+<td>The name of the measurement group.</td>
 </tr>
 <tr>
-<td>garment_type <br> <span>string</span></td>
-<td>Type of garment. <a href="#garment-types">Click here</a> for more info</td>
+<td>garment_type <br> <span>integer</span></td>
+<td>A bitmask for measurement availability by garment type. <a href="#advanced-fabric-queries">Click here</a> for more info</td>
 </tr>
 <tr>
 <td>display_order <br> <span>integer</span></td>
-<td>The order in which the option is displayed in Workflow.</td>
+<td>The order in which the measurement group is displayed in Workflow.</td>
 </tr>
 </tbody></table>
-<h3 id='option'>Option</h3><pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Standard</span><span class="w"> </span><span class="err">Object</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">Used</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">resource</span><span class="w"> </span><span class="err">collection</span><span class="w">
+<h3 id='measurement'>Measurement</h3>
+<p>A measurement for a garment.  Typically these are set to a number (inches, pounds, etc) or a choice in a dropdown.  There are over 200 currently available.</p>
+<pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Standard</span><span class="w"> </span><span class="err">Object</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">Used</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">resource</span><span class="w"> </span><span class="err">collection</span><span class="w">
 </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"garment_label"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Garment Label"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">545</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"tailoring_grade"</span><span class="p">:</span><span class="w"> </span><span class="mi">895</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"order_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"option_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"interior"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"option_group"</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coat_chest"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chest"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"chinese_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"胸围"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">33</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"convunit"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"measurement_group"</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Standard Attributes</p>
@@ -4307,17 +4320,273 @@ You must replace <code>swaledale</code> with your personal JWT token.
 </tr>
 <tr>
 <td>name <br> <span>string</span></td>
-<td>The name of the option.</td>
+<td>The name of the measurement.</td>
 </tr>
 <tr>
 <td>description <br> <span>string</span></td>
-<td>A human readable description of the option.</td>
+<td>A human readable description of the measurement.</td>
+</tr>
+<tr>
+<td>chinese_description <br> <span>string</span></td>
+<td>A Chinese description of the measurement.</td>
 </tr>
 <tr>
 <td>display_order <br> <span>integer</span></td>
-<td>The order in which the option is displayed in Workflow.</td>
+<td>The order in which the measurement is displayed in Workflow.</td>
+</tr>
+<tr>
+<td>garment_type <br> <span>integer</span></td>
+<td>A bitmask for measurement availability by garment type. <a href="#garment-types">Click here</a> for more info</td>
+</tr>
+<tr>
+<td>convunit <br> <span>boolean</span></td>
+<td>Should this measurement be converted from inches to centimeters, etc?</td>
+</tr>
+<tr>
+<td>required <br> <span>boolean</span></td>
+<td>Is the measurement required when ordering?</td>
+</tr>
+<tr>
+<td>active <br> <span>boolean</span></td>
+<td>Is the measurement currently available for ordering?</td>
+</tr>
+<tr>
+<td>measurement_group <br> <span>subresource</span></td>
+<td>The measurement is a part of a single measurement group</td>
 </tr>
 </tbody></table>
+<h3 id='measurement-value'>Measurement Value</h3>
+<p>A choice for a measurement.  Example: the degree of sloping for posture. There are over 500 measurement values currently available.</p>
+<pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Standard</span><span class="w"> </span><span class="err">Object</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">Used</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">resource</span><span class="w"> </span><span class="err">collection</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sloping"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sloping"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"measurement"</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Standard Attributes</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id <br> <span>integer</span></td>
+<td>Unique identifier for the object.</td>
+</tr>
+<tr>
+<td>value <br> <span>string</span></td>
+<td>The system value for the measurement selection.</td>
+</tr>
+<tr>
+<td>description <br> <span>string</span></td>
+<td>A human readable description of the measurement value.</td>
+</tr>
+<tr>
+<td>display_order <br> <span>integer</span></td>
+<td>The order in which the measurement value is displayed in Workflow.</td>
+</tr>
+<tr>
+<td>measurement <br> <span>subresource</span></td>
+<td>The measurement value is a choice for a measurement</td>
+</tr>
+</tbody></table>
+<h2 id='get-all-measurement-groups'>Get All Measurement Groups</h2>
+<p>Coming soon ...</p>
+<h2 id='get-all-measurements'>Get All Measurements</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/measurements"</span>
+  -H <span class="s2">"Authorization Bearer: swaledale"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="err">...</span><span class="p">,</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coat_chest"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chest"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"chinese_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"胸围"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">33</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"convunit"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"measurement_group"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Coat"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coat_half_back"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1/2 Back"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"chinese_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"半背宽"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">33</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"convunit"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"measurement_group"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Coat"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coat_waist"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Coat Waist"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"chinese_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"上衣腰围"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"convunit"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"measurement_group"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Coat"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coat_half_girth"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1/2 Girth"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"chinese_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"中腰"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">33</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"convunit"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"measurement_group"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Coat"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>Returns an array of measurements.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://api.trinity-apparel.com/v1/measurements</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>active</td>
+<td>N/A</td>
+<td>If set, returns only only active or inactive measurements.</td>
+</tr>
+<tr>
+<td>q</td>
+<td>N/A</td>
+<td>If set, return all fuzzy matched measurement names and descriptions.</td>
+</tr>
+<tr>
+<td>measurement_group_id</td>
+<td>N/A</td>
+<td>If set, will return any measurements in a specific measurement group.</td>
+</tr>
+<tr>
+<td>garment_type</td>
+<td>N/A</td>
+<td>If set, returns all measurements that match a garment bitmask (E.g., 2 for Vests).</td>
+</tr>
+</tbody></table>
+<h3 id='other'>Other</h3>
+<ul>
+<li>Permissions: N/A</li>
+<li>Pagination: Yes</li>
+</ul>
+<h3 id='example-queries'>Example queries</h3><h4 id='wildcard-search'>Wildcard Search</h4>
+<p>Ex. Search for measurements mentioning &quot;girth&quot;</p>
+
+<p><code>GET https://api.trinity-apparel.com/v1/measurement?q=girth</code></p>
+<h4 id='search-by-garment-type'>Search by Garment Type</h4>
+<p>Ex. List pant measurements</p>
+
+<p><code>GET https://api.trinity-apparel.com/v1/measurements?garment_type=4</code></p>
+<h2 id='get-a-specific-measurement'>Get a Specific Measurement</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/measurements/229"</span>
+  -H <span class="s2">"Authorization Bearer: swaledale"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coat_fit"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Coat Fit"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"chinese_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"成衣效果"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">33</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"convunit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"measurement_group"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Body Description"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">239</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"measurement_values"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">84</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"regular"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Regular"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">85</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"trim"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Trim"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">86</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"easy"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Easy"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Returns details on a specific measurement, including the measurement group and any defined measurement values.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://api.trinity-apparel.com/v1/measurements/:id</code></p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id.</td>
+<td>N/A</td>
+<td>The specific id you want to see</td>
+</tr>
+</tbody></table>
+<h3 id='other-2'>Other</h3>
+<ul>
+<li>Permissions: N/A</li>
+<li>Pagination: N/A</li>
+</ul>
 <h1 id='options-api'>Options API</h1><h2 id='option-resources'>Option Resources</h2><h3 id='option-group'>Option Group</h3>
 <p>Option groups are the groups/folders that contain styling options for a particular garment in Workflow. There are 30 option groups currently available.</p>
 <pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Standard</span><span class="w"> </span><span class="err">Object</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">Used</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">resource</span><span class="w"> </span><span class="err">collection</span><span class="w">
@@ -4714,7 +4983,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <tr>
 <td>option_group_id</td>
 <td>N/A</td>
-<td>If set, will return any buttons with exact matching descriptions.</td>
+<td>If set, will return any options in a specific option group.</td>
 </tr>
 <tr>
 <td>location</td>
@@ -4766,7 +5035,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Returns details on a specific button.</p>
+<p>Returns details on a specific option.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET https://api.trinity-apparel.com/v1/options/:id</code></p>
 <h3 id='query-parameters-4'>Query Parameters</h3>
@@ -4934,7 +5203,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <tr>
 <td>option_id</td>
 <td>N/A</td>
-<td>If set, will return any buttons with exact matching descriptions.</td>
+<td>If set, will return any option values in a specific option</td>
 </tr>
 <tr>
 <td>garment_type</td>
