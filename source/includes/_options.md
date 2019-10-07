@@ -322,7 +322,7 @@ Returns an array of options.
 | --------------- | ------- | ----------------------------------------------------------------- |
 | active          | N/A     | If set, returns only only active or inactive options.             |
 | q               | N/A     | If set, return all fuzzy matched option names and descriptions.   |
-| option_group_id | N/A     | If set, will return any buttons with exact matching descriptions. |
+| option_group_id | N/A     | If set, will return any options in a specific option group.       |
 | location        | N/A     | If set, returns all options in a specific location (E.g., exterior). |
 | garment_type    | N/A     | If set, returns all options that match a garment bitmask (E.g., 2 for Vests). |
 
@@ -379,7 +379,7 @@ curl "https://api.trinity-apparel.com/v1/options/229"
 }
 ```
 
-Returns details on a specific button.
+Returns details on a specific option.
 
 ### HTTP Request
 
@@ -536,7 +536,7 @@ Returns an array of option values.
 | --------------- | ------- | ----------------------------------------------------------------- |
 | active          | N/A     | If set, returns only only active or inactive options.             |
 | q               | N/A     | If set, return all fuzzy matched option names and descriptions.   |
-| option_id       | N/A     | If set, will return any buttons with exact matching descriptions. |
+| option_id       | N/A     | If set, will return any option values in a specific option        |
 | garment_type    | N/A     | If set, returns all options that match a garment bitmask (E.g., 2 for Vests). |
 
 ### Other
