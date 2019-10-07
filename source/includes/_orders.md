@@ -46,21 +46,21 @@ Sometimes a garment gets delayed during production. We categorize the reason for
 
 Description of what the different garment type codes mean:
 
-| Garment Type | Description             | 
-| ------------ | ----------------------- |
-| CSC          | Coat                    |
-| CV           | Vest                    |
-| CT           | Pant                    |
-| CCP          | Coat & Pant             | 
-| CCVP         | Coat, Vest & Pant       |
-| CSHT         | Shirt                   |
-| CCPP         | Coat, Pant, & Pant      |
-| CCVPP        | Coat, Vest, Pant & Pant |
-| CTOPC        | Topcoat                 |
-| CSHO         | Short                   |
-| CBK          | Breek                   |
-| TIE          | Tie                     |
-| SWK          | Swacket                 |
+| Garment Type | Description             | Bitmask    |
+| ------------ | ----------------------- | ---------  |
+| CSC          | Coat                    | 1          |
+| CV           | Vest                    | 2          |
+| CT           | Pant                    | 4          |
+| CCP          | Coat & Pant             | 5 (multi)  | 
+| CCVP         | Coat, Vest & Pant       | 7 (multi)  |
+| CSHT         | Shirt                   | 8          |
+| CCPP         | Coat, Pant, & Pant      | 21 (multi) |
+| CCVPP        | Coat, Vest, Pant & Pant | 23 (multi) |
+| CTOPC        | Topcoat                 | 32         |
+| CSHO         | Short                   | 64         |
+| CBK          | Breek                   | 128        |
+| TIE          | Tie                     | 256        |
+| SWK          | Swacket                 | 512        |
 
 ## Order Resources
 
