@@ -23,7 +23,6 @@ Standard Attributes
 | id <br> <span>integer</span>            | Unique identifier for the object.                       |
 | name <br> <span>string</span>           | The name of the option group.                           |
 | garment_type <br> <span>integer</span>   | A bitmask for option availability by garment type. [Click here](#advanced-fabric-queries) for more info |
-| tailoring_grade <br> <span>integer</span>   | A bitmask for option availability by tailoring grade (defines both factory and contruction availability). |
 | display_order <br> <span>integer</span> | The order in which the option group is displayed in Workflow. |
 
 ### Option
@@ -38,8 +37,6 @@ A styling option for a garment.  Typically these are set to an option value, a f
     "description": "Garment Label",
     "display_order": 5,
     "garment_type": 545,
-    "tailoring_grade": 895,
-    "order_type": 1,
     "option_location": "interior",
     "active": true,
     "option_group": ...
@@ -48,17 +45,72 @@ A styling option for a garment.  Typically these are set to an option value, a f
 
 Standard Attributes
 
-| Attribute                                   | Description                                             |
-| ------------------------------------------- | ------------------------------------------------------- |
-| id <br> <span>integer</span>                | Unique identifier for the object.                       |
-| name <br> <span>string</span>               | The name of the option.                                 |
-| description <br> <span>string</span>        | A human readable description of the option.             |
-| display_order <br> <span>integer</span>     | The order in which the option is displayed in Workflow. |
-| garment_type <br> <span>integer</span>      | A bitmask for option availability by garment type. [Click here](#advanced-fabric-queries) for more info |
-| tailoring_grade <br> <span>integer</span>   | A bitmask for option availability by tailoring grade (defines both factory and contruction availability). |
-| order_type <br> <span>integer</span>        | TBD |
-| option_location <br> <span>string</span>    | High level grouping for options. Can be materials, interior, or exterior. |
-| active <br> <span>boolean</span>            | Is the option currently available for ordering? |
+| Attribute                               | Description                                             |
+| --------------------------------------- | ------------------------------------------------------- |
+| id <br> <span>integer</span>            | Unique identifier for the object.                       |
+| name <br> <span>string</span>           | The name of the option.                                 |
+| description <br> <span>string</span>    | A human readable description of the option.             |
+| display_order <br> <span>integer</span> | The order in which the option is displayed in Workflow. |
+| garment_type <br> <span>integer</span>  | A bitmask for option availability by garment type. [Click here](#garment-types) for more info |
+| location <br> <span>string</span>       | High level grouping for options. Can be materials, interior, or exterior. |
+| active <br> <span>boolean</span>        | Is the option currently available for ordering?         |
+| option_group <br> <span>subresource</span> | The option is a part of a single option group        |
+
+### Option Value
+
+A choice for a styling option.  Example: a specific thread for sleeve button thread color. There are 11,000 option values currently available.
+
+```json
+# Standard Object - Used in a resource collection
+{
+    "id": 1,
+    "option_value": "trinity_label",
+    "description": "Trinity Apparel Group",
+    "display_order": 3,
+    "active": true,
+    "garment_type": 545,
+    "default_value": false,
+    "option": ... ,
+    "manufacturer_option_values": [ ... ]
+}
+```
+
+Standard Attributes
+
+| Attribute                               | Description                                             |
+| --------------------------------------- | ------------------------------------------------------- |
+| id <br> <span>integer</span>            | Unique identifier for the object.                       |
+| name <br> <span>string</span>           | The name of the option.                                 |
+| description <br> <span>string</span>    | A human readable description of the option.             |
+| display_order <br> <span>integer</span> | The order in which the option is displayed in Workflow. |
+| garment_type <br> <span>integer</span>  | A bitmask for option availability by garment type. [Click here](#garment-types) for more info |
+| location <br> <span>string</span>       | High level grouping for option values. Can be materials, interior, or exterior. |
+| active <br> <span>boolean</span>        | Is the option currently available for ordering?         |
+| option <br> <span>subresource</span>    | The option value is a choice for a styling option       | 
+
+### Manufacturer Option Value
+
+Each option has a unique description for each manufacturer.  This allows for language translations and factory specific information such as a button supplier number.
+
+```json
+# Standard Object - Used in a resource collection
+{
+    "id": 17206,
+    "locale": "zh",
+    "description": "用Trinity商标",
+    "chinese_description": "用Trinity商标"
+}
+```
+
+Standard Attributes
+
+| Attribute                                    | Description                                 |
+| -------------------------------------------- | ------------------------------------------- |
+| id <br> <span>integer</span>                 | Unique identifier for the object.           |
+| locale <br> <span>string</span>              | A two character language code for the translation - [Click here](https://www.science.co.il/language/Locale-codes.php) for more info |
+| description <br> <span>string</span>         | Human readable description of the material. |
+| chinese_description <br> <span>string</span> | Human readable description of the material. |
+
 
 ## Get All Options
 
