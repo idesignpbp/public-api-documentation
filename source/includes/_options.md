@@ -191,7 +191,7 @@ Returns an array of option groups.
 
 | Parameter       | Default | Description                                                       |
 | --------------- | ------- | ----------------------------------------------------------------- |
-| garment_type    | N/A     | If set, returns all options that match a garment bitmask (E.g., 2 for Vests). |
+| garment_type    | N/A     | If set, returns all option groups that match a garment bitmask (E.g., 2 for Vests). |
 
 ### Other
 
