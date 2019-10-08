@@ -88,8 +88,142 @@ Standard Attributes
 
 ## Get All Measurement Groups
 
+```shell
+curl "https://api.trinity-apparel.com/v1/measurement_groups"
+  -H "Authorization Bearer: swaledale"
+```
 
-Coming soon ...
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+        "id": 1,
+        "name": "General",
+        "garment_type": 239,
+        "display_order": 1
+    },
+    {
+        "id": 2,
+        "name": "Body Description",
+        "garment_type": 239,
+        "display_order": 2
+    },
+    {
+        "id": 3,
+        "name": "Coat",
+        "garment_type": 35,
+        "display_order": 3
+    },
+    {
+        "id": 4,
+        "name": "Vest",
+        "garment_type": 2,
+        "display_order": 4
+    },
+    {
+        "id": 5,
+        "name": "Pant",
+        "garment_type": 231,
+        "display_order": 5
+    },
+    {
+        "id": 6,
+        "name": "Shirt",
+        "garment_type": 8,
+        "display_order": 6
+    },
+    {
+        "id": 7,
+        "name": "Coat Alterations",
+        "garment_type": 33,
+        "display_order": 7
+    },
+    {
+        "id": 8,
+        "name": "Pant Alterations",
+        "garment_type": 196,
+        "display_order": 9
+    },
+    {
+        "id": 9,
+        "name": "Shirt Alterations",
+        "garment_type": 8,
+        "display_order": 10
+    },
+    {
+        "id": 10,
+        "name": "Vest Alterations",
+        "garment_type": 2,
+        "display_order": 8
+    },
+    {
+        "id": 11,
+        "name": "Swacket",
+        "garment_type": 512,
+        "display_order": 11
+    },
+    {
+        "id": 12,
+        "name": "Topcoat",
+        "garment_type": 32,
+        "display_order": 1
+    }
+]
+```
+
+Returns an array of measurement groups.
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/measurement_groups`
+
+### Query Parameters
+
+| Parameter       | Default | Description                                                       |
+| --------------- | ------- | ----------------------------------------------------------------- |
+| garment_type    | N/A     | If set, returns all measurement groups that match a garment bitmask (E.g., 2 for Vests). |
+
+### Other
+
+- Permissions: N/A
+- Pagination: No
+
+
+## Get a Specific Measurement Group
+
+```shell
+curl "https://api.trinity-apparel.com/v1/measurement_groups/4"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "id": 3,
+    "name": "Coat",
+    "garment_type": 35,
+    "display_order": 3
+}
+```
+
+Returns details on a specific measurement group.
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/measurement_groups/:id`
+
+### Query Parameters
+
+| Parameter | Default | Description                               |
+| --------- | ------- | ----------------------------------------- |
+| id.       | N/A     | The specific id you want to see           |
+
+### Other
+
+- Permissions: N/A
+- Pagination: N/A
 
 
 ## Get All Measurements
