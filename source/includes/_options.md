@@ -537,7 +537,7 @@ Returns an array of option values.
 | active          | N/A     | If set, returns only only active or inactive options.             |
 | q               | N/A     | If set, return all fuzzy matched option names and descriptions.   |
 | option_id       | N/A     | If set, will return any option values in a specific option        |
-| garment_type    | N/A     | If set, returns all options that match a garment bitmask (E.g., 2 for Vests). |
+| garment_type    | N/A     | If set, returns all option values that match a garment bitmask (E.g., 2 for Vests). |
 
 ### Other
 

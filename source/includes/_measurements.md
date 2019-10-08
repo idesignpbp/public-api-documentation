@@ -410,3 +410,192 @@ Returns details on a specific measurement, including the measurement group and a
 
 - Permissions: N/A
 - Pagination: N/A
+
+
+## Get All Measurement Values
+
+```shell
+curl "https://api.trinity-apparel.com/v1/measurement_values"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    ...,
+    {
+        "id": 184,
+        "value": "normal",
+        "description": "Normal",
+        "display_order": 1,
+        "measurement": {
+            "id": 123,
+            "name": "posture",
+            "description": "Posture",
+            "display_order": 12
+        }
+    },
+    {
+        "id": 185,
+        "value": "erect",
+        "description": "Erect",
+        "display_order": 2,
+        "measurement": {
+            "id": 123,
+            "name": "posture",
+            "description": "Posture",
+            "display_order": 12
+        }
+    },
+    {
+        "id": 186,
+        "value": "stooping",
+        "description": "Stooping",
+        "display_order": 3,
+        "measurement": {
+            "id": 123,
+            "name": "posture",
+            "description": "Posture",
+            "display_order": 12
+        }
+    },
+    {
+        "id": 187,
+        "value": "head_forward",
+        "description": "Head Forward",
+        "display_order": 4,
+        "measurement": {
+            "id": 123,
+            "name": "posture",
+            "description": "Posture",
+            "display_order": 12
+        }
+    },
+    {
+        "id": 188,
+        "value": "erect_slightly",
+        "description": "Erect - Slightly (1/8\")",
+        "display_order": 1,
+        "measurement": {
+            "id": 124,
+            "name": "posture_amt",
+            "description": "Posture Amount",
+            "display_order": 13
+        }
+    },
+    {
+        "id": 189,
+        "value": "erect_moderately",
+        "description": "Erect - Moderately (3/8\")",
+        "display_order": 2,
+        "measurement": {
+            "id": 124,
+            "name": "posture_amt",
+            "description": "Posture Amount",
+            "display_order": 13
+        }
+    },
+    {
+        "id": 190,
+        "value": "erect_maximum",
+        "description": "Erect - Maximum (5/8\")",
+        "display_order": 3,
+        "measurement": {
+            "id": 124,
+            "name": "posture_amt",
+            "description": "Posture Amount",
+            "display_order": 13
+        }
+    },
+    ...
+]
+```
+
+Returns an array of measurement values.
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/measurement_values`
+
+### Query Parameters
+
+| Parameter       | Default | Description                                                       |
+| --------------- | ------- | ----------------------------------------------------------------- |
+| active          | N/A     | If set, returns only only active or inactive measurements.             |
+| q               | N/A     | If set, return all fuzzy matched measurement names and descriptions.   |
+| option_id       | N/A     | If set, will return any measurement values in a specific option        |
+| garment_type    | N/A     | If set, returns all measurement values that match a garment bitmask (E.g., 2 for Vests). |
+
+### Other
+
+- Permissions: N/A
+- Pagination: Yes
+
+### Example queries
+
+#### Wildcard Search
+
+Ex. Search for measurement values mentioning "easy"
+
+`GET https://api.trinity-apparel.com/v1/measurement_values?q=easy`
+
+#### Search by Garment Type
+
+Ex. List shirt measurement values
+
+`GET https://api.trinity-apparel.com/v1/measurement_values?garment_type=8`
+
+#### Search by Measurement
+
+Ex. List all values for Perkins Posturegar
+
+`GET https://api.trinity-apparel.com/v1/measurement_values?measurement_id=8`
+
+#### Wildcard Search and Garment Type 
+
+Ex. List jacket measurement values that mentioning "stooping"
+
+`GET https://api.trinity-apparel.com/v1/measurement_values?garment_type=1&q=stooping`
+
+
+## Get a Specific Measurement Value
+
+```shell
+curl "https://api.trinity-apparel.com/v1/measurement_values/10"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "id": 10,
+    "value": "extremely_sloping",
+    "description": "Extremely Sloping",
+    "display_order": 4,
+    "measurement": {
+        "id": 46,
+        "name": "shirt_shoulder_desc_r",
+        "description": "Shoulder Description (R)",
+        "display_order": 2
+    }
+}
+```
+
+Returns details on a specific measurement value, which includes the parent measurement.
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/measurement_values/:id`
+
+### Query Parameters
+
+| Parameter | Default | Description                               |
+| --------- | ------- | ----------------------------------------- |
+| id.       | N/A     | The specific id you want to see           |
+
+### Other
+
+- Permissions: N/A
+- Pagination: N/A
