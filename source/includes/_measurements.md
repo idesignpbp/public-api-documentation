@@ -520,11 +520,11 @@ Returns an array of measurement values.
 
 ### Query Parameters
 
-| Parameter       | Default | Description                                                       |
-| --------------- | ------- | ----------------------------------------------------------------- |
-| active          | N/A     | If set, returns only only active or inactive measurements.             |
-| q               | N/A     | If set, return all fuzzy matched measurement names and descriptions.   |
-| option_id       | N/A     | If set, will return any measurement values in a specific option        |
+| Parameter       | Default | Description                                                           |
+| --------------- | ------- | --------------------------------------------------------------------- |
+| active          | N/A     | If set, returns only only active or inactive measurements.            |
+| q               | N/A     | If set, return all fuzzy matched measurement names and descriptions.  |
+| measurement_id  | N/A     | If set, will return any measurement values in a specific measurement  |
 | garment_type    | N/A     | If set, returns all measurement values that match a garment bitmask (E.g., 2 for Vests). |
 
 ### Other
