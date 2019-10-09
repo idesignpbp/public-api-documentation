@@ -9532,7 +9532,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 
 <p>Returns garments #1001234, #1002345, and #1003456 as long as they are in <code>Ready</code> status and have no delays.</p>
 <h2 id='garment-properties'>Garment Properties</h2>
-<p><strong>NOTE</strong>: ADDED MATERIALS ON 27 SEP 2019!</p>
+<p><strong>NOTE</strong>: ADDED BUTTON QUANTITIES ON OCT 8TH</p>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/garments/:id/properties"</span>
   -H <span class="s2">"Authorization Bearer: swaledale"</span>
 </code></pre>
@@ -9733,7 +9733,11 @@ You must replace <code>swaledale</code> with your personal JWT token.
             </span><span class="p">]</span><span class="w">
           </span><span class="p">},</span><span class="w">
           </span><span class="err">...</span><span class="w">
-        </span><span class="p">]</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"small"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"large"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+        </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
     </span><span class="s2">"threads"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -9788,6 +9792,8 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <p>All options include the option and option value.  The option includes the id, name, and english description (there&#39;s no translation for the option). The option value includes the id, value, and a localized description (translated for the appropriate garment manufacturer for the order).  We use the translation if available, if not we fallback to English. We also include the garment type (numeric bitmask) and an array of valid garment types (abbreviations). Synthetic options (not entered by the dealer) may also be inserted into the options list.</p>
 
 <p>In addition to options, we also provide a list of all materials needed to make the garment.  Materials include fabrics, buttons, threads, labels, suedes, and felts.  We include information specific to that material type (Trinity fabric number, thread code, etc), id, name, description, and image, which is a web link that you can use to display the material.  Then we include a list of all options that use this material.</p>
+
+<p>We also include the quantity of each particular button under the <code>quantity</code> field.  The quantity includes a number for small and large buttons.  If the quantity is null, then we were unable to calculate the button count for that particular button.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET https://api.trinity-apparel.com/v1/garments/:id/properties</code></p>
 <h3 id='query-parameters-2'>Query Parameters</h3>
