@@ -322,7 +322,7 @@ Returns garments #1001234, #1002345, and #1003456 as long as they are in `Ready`
 
 ## Garment Properties
 
-**NOTE**: ADDED MATERIALS ON 27 SEP 2019!
+**NOTE**: ADDED BUTTON QUANTITIES ON OCT 8TH
 
 ```shell
 curl "https://api.trinity-apparel.com/v1/garments/:id/properties"
@@ -526,7 +526,11 @@ curl "https://api.trinity-apparel.com/v1/garments/:id/properties"
             ]
           },
           ...
-        ]
+        ],
+        "quantity": {
+          "small": 10,
+          "large": 3
+        }
       }
     ],
     "threads": [
@@ -584,6 +588,8 @@ All measurements are flat objects that include the measurement name and value.  
 All options include the option and option value.  The option includes the id, name, and english description (there's no translation for the option). The option value includes the id, value, and a localized description (translated for the appropriate garment manufacturer for the order).  We use the translation if available, if not we fallback to English. We also include the garment type (numeric bitmask) and an array of valid garment types (abbreviations). Synthetic options (not entered by the dealer) may also be inserted into the options list.
 
 In addition to options, we also provide a list of all materials needed to make the garment.  Materials include fabrics, buttons, threads, labels, suedes, and felts.  We include information specific to that material type (Trinity fabric number, thread code, etc), id, name, description, and image, which is a web link that you can use to display the material.  Then we include a list of all options that use this material.
+
+We also include the quantity of each particular button under the `quantity` field.  The quantity includes a number for small and large buttons.  If the quantity is null, then we were unable to calculate the button count for that particular button.
 
 ### HTTP Request
 
