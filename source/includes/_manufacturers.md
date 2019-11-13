@@ -7,6 +7,8 @@ This includes:
 - [Download Garments](#download-garments) - a list of new garment orders that are ready to be produced by the factory
 - [Garment Detail](#get-a-specific-garment)
 - [Garment Properties](#garment-properties) - Get Measurements, Options and Materials for a specific garment [**Recently Updated! **]
+- [Get All Embroidery](#get-all-embroidery) - Get embroidery from a specific date range or list of garments
+- [Get Specific Embroidery](#get-specific-embroidery) -Get all embroidery on a specific garment
 - [Garment Fabrics](#get-garment-fabrics) - Get a list of fabrics needed, what they are used for (shell, lining, trims, etc), and see their measurments and status
 - [Set Order Status](#set-order-status) - E.g., Move a garment from Ready to Production
 - [Create Shipment](#create-shipment) - Add garments to a new shipment
@@ -136,6 +138,91 @@ Standard Attributes
 | ordered_at <br> <span>datetime</span>        | Time that the dealer completed the checkout process and officially placed the order                                                                                                                                   |
 | created_at <br> <span>datetime</span>        | Time when the dealer first began adding garments to the order                                                                                                                                                         |
 | invoiced_at <br> <span>datetime</span>       | Time of the first invoice                                                                                                                                                                                             |
+
+
+### Embroidery
+
+| Attribute                                          | Description                                                            |
+| -------------------------------------------------- | ---------------------------------------------------------------------- |
+| garment <br> <span>subresource</span>              | Limited info on the garment                                            |
+| fabric <br> <span>subresource</span>               | Limited info on the option for text input.                             |
+| text <br> <span>string</span>                      | Text for the embroidery                                                |
+| font <br> <span>string</span>                      | Embroidery font or Monogram selected                                   |
+| color <br> <span>string</span>                     | Thread color                                                           |
+| position <br> <span>string</span>                  | Location for the embroidery; Only required for some embroidery options |
+| size <br> <span>string</span>                      | Width of the embroidery                                                |
+
+```json
+# Standard Object - Used in collections
+{
+    "garment": {
+        "id": 1081783,
+        "manufacturer_id": 4,
+        "garment_type": 1,
+        "created_at": "2019-11-03T18:47:22.000Z"
+    },
+    "option": {
+        "id": 89,
+        "name": "customer_label_text",
+        "garment_type": 1,
+        "garment_types": [
+            "csc"
+        ]
+    },
+    "text": "M Kiser",
+    "font": "Calligraphy",
+    "color": "5-01 White",
+    "position": "T4 - Left Below Breast Pkt",
+    "size": null
+}
+```
+
+
+### Embroidery Garment
+
+```json
+# Minimal Object - Used in embroidery
+{
+    "id": 1081783,
+    "manufacturer_id": 4,
+    "garment_type": 1,
+    "created_at": "2019-11-03T18:47:22.000Z"
+}
+```
+
+Standard Attributes
+
+| Attribute                                   | Description                                                                                                      |
+| ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| id <br> <span>integer</span>                | Unique identifier for the garment                                                                                |
+| manufacturer_id <br> <span>integer</span>   | The factory who made the garment                                                                                 |
+| garment_type <br> <span>integer</span>      | Garment bitmask. [Click here](#garment-types) for more info                                                      |
+| created_at <br> <span>datetime</span>       | When the garment was first created (but not ordered)                                                             |
+
+### Embroidery Option
+
+```json
+# Minimal Object - Used in embroidery
+{
+    "id": 89,
+    "name": "customer_label_text",
+    "garment_type": 1,
+    "garment_types": [
+        "csc"
+    ]
+}
+```
+
+Standard Attributes
+
+| Attribute                                   | Description                                                                                                      |
+| ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| id <br> <span>integer</span>                | Unique identifier for the option                                                                                 |
+| name <br> <span>string</span>               | Option name. Typically refers to the location of the embroidery                                                  |
+| garment_type <br> <span>integer</span>      | Garment bitmask. [Click here](#garment-types) for more info                                                      |
+| garment_types <br> <span>array</span>       | List of human readable garment types                                                                             |
+| created_at <br> <span>datetime</span>       | When the garment was first created (but not ordered)                                                             |
+
 
 
 ## Download Garments
@@ -610,6 +697,207 @@ We also include the quantity of each particular button under the `quantity` fiel
 
 We plan to provide the quantity of materials needed at some point.  This would be the number of buttons, fabric length, etc.
 We can also add filters and allow users to toggle localization (metric units, translations) if that is important.
+
+
+## Get All Embroidery
+
+```shell
+curl "https://api.trinity-apparel.com/v1/embroidery"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+        "garment": {
+            "id": 1079766,
+            "manufacturer_id": 4,
+            "garment_type": 5,
+            "order_date": "2019-10-30T09:32:14.000Z"
+        },
+        "option": {
+            "id": 89,
+            "name": "customer_label_text",
+            "garment_type": 1,
+            "garment_types": [
+                "csc"
+            ]
+        },
+        "text": "J WHITE",
+        "font": "Copper Plate",
+        "color": "5-06 Charcoal",
+        "position": "T4 - Left Below Breast Pkt",
+        "size": null
+    },
+    {
+        "garment": {
+            "id": 1079773,
+            "manufacturer_id": 4,
+            "garment_type": 5,
+            "order_date": "2019-10-30T09:43:50.000Z"
+        },
+        "option": {
+            "id": 89,
+            "name": "customer_label_text",
+            "garment_type": 1,
+            "garment_types": [
+                "csc"
+            ]
+        },
+        "text": "MWJ",
+        "font": "Calligraphy",
+        "color": "5-65 Dark Olive",
+        "position": "Undercollar Position",
+        "size": null
+    },
+    {
+        "garment": {
+            "id": 1079774,
+            "manufacturer_id": 4,
+            "garment_type": 5,
+            "order_date": "2019-10-30T09:45:37.000Z"
+        },
+        "option": {
+            "id": 89,
+            "name": "customer_label_text",
+            "garment_type": 1,
+            "garment_types": [
+                "csc"
+            ]
+        },
+        "text": "John Eden",
+        "font": "Calligraphy",
+        "color": "5-54 Gold",
+        "position": "T2 - Left Above Breast Pkt",
+        "size": null
+    },
+    {
+        "garment": {
+            "id": 1079782,
+            "manufacturer_id": 4,
+            "garment_type": 32,
+            "order_date": "2019-10-30T09:58:27.000Z"
+        },
+        "option": {
+            "id": 89,
+            "name": "customer_label_text",
+            "garment_type": 32,
+            "garment_types": [
+                "ctopc"
+            ]
+        },
+        "text": "HEPPERMANN",
+        "font": "Copper Plate",
+        "color": "5-03 Light Gray",
+        "position": "T4 - Left Below Breast Pkt",
+        "size": null
+    },
+    ...
+]
+```
+Returns an array of embroidery objects. There can be more than one embroidery per garment. The object includes minimal objects for garment and fabric, plus flattened option values for text, font, color, position and size of the embroidery.  The list is ordered by when the garments were created.
+
+[Click here](#embroidery) for details on the response objects.
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/embroidery`
+
+### Query Parameters
+
+| Parameter         | Default | Description                                                       |
+| ----------------- | ------- | ----------------------------------------------------------------- |
+| garment_id        | N/A     | One or more garment ids.  Use array style syntax `garment_id[]` for multiple. |
+| start_date        | N/A     | Start of date range. Must be ISO-8601 date (YYYY-MM-DD)           |
+| end_date          | N/A     | End of date range. Must be ISO-8601 date (YYYY-MM-DD)             |
+| order_status_code | N/A     | Filter using a single order status                                |
+
+A garment id, list of garment ids, or a date range (start and end date) must be provided.
+
+*NOTE*: If specific garment(s) are not provided AND an order status is not provided, we filter by production statuses: STATUS_READY, STATUS_BLUE_PENCIL, STATUS_CUTTING, STATUS_PRODUCTION
+
+### Other
+
+- Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.
+- Pagination: No
+
+### Examples
+
+#### Embroidery for multiple garments
+
+`GET https://api.trinity-apparel.com/v1/embroidery?garment_id[]=1001234&garment_id[]=1002345&garment_id[]=1003456`
+
+Returns garments #1001234, #1002345, and #1003456
+
+#### Embroidery for garments ordered on a specific day
+
+`GET https://api.trinity-apparel.com/v1/embroidery?start_date=2019-10-30&end_date=2019-10-30`
+
+Returns garments ordered on a specific day, October 30th.
+
+#### Embroidery for garments ordered on a specific day and order status
+
+`GET https://api.trinity-apparel.com/v1/embroidery?start_date=2019-10-30&end_date=2019-10-30&order_status_id=3`
+
+Returns garments in READY status that were ordered on a specific day, October 30th.
+
+
+
+## Get Specific Embroidery
+
+```shell
+curl "https://api.trinity-apparel.com/v1/garments/:id/embroidery"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+        "garment": {
+            "id": 1081783,
+            "manufacturer_id": 4,
+            "garment_type": 1,
+            "created_at": "2019-11-03T18:47:22.000Z"
+        },
+        "option": {
+            "id": 89,
+            "name": "customer_label_text",
+            "garment_type": 1,
+            "garment_types": [
+                "csc"
+            ]
+        },
+        "text": "M Kiser",
+        "font": "Calligraphy",
+        "color": "5-01 White",
+        "position": "T4 - Left Below Breast Pkt",
+        "size": null
+    }
+]
+```
+
+Returns an array of embroidery objects. There can be more than one embroidery per garment. The object includes minimal objects for garment and fabric, plus flattened option values for text, font, color, position and size of the embroidery.
+
+[Click here](#embroidery) for details on the response objects.
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/garments/:id/fabrics`
+
+### Query Parameters
+
+| Parameter       | Default | Description                                                       |
+| --------------- | ------- | ----------------------------------------------------------------- |
+| id              | N/A     | The specific garment you want fabrics for                         |
+
+### Other
+
+- Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.
+- Pagination: No
 
 
 
