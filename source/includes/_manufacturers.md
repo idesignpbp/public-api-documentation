@@ -812,7 +812,7 @@ Returns an array of embroidery objects. There can be more than one embroidery pe
 | garment_id        | N/A     | One or more garment ids.  Use array style syntax `garment_id[]` for multiple. |
 | start_date        | N/A     | Start of date range. Must be ISO-8601 date (YYYY-MM-DD)           |
 | end_date          | N/A     | End of date range. Must be ISO-8601 date (YYYY-MM-DD)             |
-| order_status_code | N/A     | Filter using a single order status                                |
+| order_status_code | N/A     | Filter using a single [order status](#order-statuses)             |
 
 A garment id, list of garment ids, or a date range (start and end date) must be provided.
 
@@ -839,9 +839,9 @@ Returns garments ordered on a specific day, October 30th.
 
 #### Embroidery for garments ordered on a specific day and order status
 
-`GET https://api.trinity-apparel.com/v1/embroidery?start_date=2019-10-30&end_date=2019-10-30&order_status_id=3`
+`GET https://api.trinity-apparel.com/v1/embroidery?start_date=2019-10-30&end_date=2019-10-30&order_status_code=PREP`
 
-Returns garments in READY status that were ordered on a specific day, October 30th.
+Returns garments in Blue Pencil (code = PREP) status that were ordered on a specific day, October 30th.
 
 
 
