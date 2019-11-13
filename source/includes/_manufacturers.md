@@ -715,7 +715,7 @@ curl "https://api.trinity-apparel.com/v1/embroidery"
             "id": 1079766,
             "manufacturer_id": 4,
             "garment_type": 5,
-            "order_date": "2019-10-30T09:32:14.000Z"
+            "created_at": "2019-10-30T09:32:14.000Z"
         },
         "option": {
             "id": 89,
@@ -736,7 +736,7 @@ curl "https://api.trinity-apparel.com/v1/embroidery"
             "id": 1079773,
             "manufacturer_id": 4,
             "garment_type": 5,
-            "order_date": "2019-10-30T09:43:50.000Z"
+            "created_at": "2019-10-30T09:43:50.000Z"
         },
         "option": {
             "id": 89,
@@ -757,7 +757,7 @@ curl "https://api.trinity-apparel.com/v1/embroidery"
             "id": 1079774,
             "manufacturer_id": 4,
             "garment_type": 5,
-            "order_date": "2019-10-30T09:45:37.000Z"
+            "created_at": "2019-10-30T09:45:37.000Z"
         },
         "option": {
             "id": 89,
@@ -778,7 +778,7 @@ curl "https://api.trinity-apparel.com/v1/embroidery"
             "id": 1079782,
             "manufacturer_id": 4,
             "garment_type": 32,
-            "order_date": "2019-10-30T09:58:27.000Z"
+            "created_at": "2019-10-30T09:58:27.000Z"
         },
         "option": {
             "id": 89,
