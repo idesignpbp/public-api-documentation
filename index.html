@@ -420,6 +420,12 @@
                     <a href="#garment-properties" class="toc-h2 toc-link" data-title="Garment Properties">Garment Properties</a>
                   </li>
                   <li>
+                    <a href="#get-all-embroidery" class="toc-h2 toc-link" data-title="Get All Embroidery">Get All Embroidery</a>
+                  </li>
+                  <li>
+                    <a href="#get-specific-embroidery" class="toc-h2 toc-link" data-title="Get Specific Embroidery">Get Specific Embroidery</a>
+                  </li>
+                  <li>
                     <a href="#get-garment-fabrics" class="toc-h2 toc-link" data-title="Get Garment Fabrics">Get Garment Fabrics</a>
                   </li>
                   <li>
@@ -9163,6 +9169,8 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <li><a href="#download-garments">Download Garments</a> - a list of new garment orders that are ready to be produced by the factory</li>
 <li><a href="#get-a-specific-garment">Garment Detail</a></li>
 <li><a href="#garment-properties">Garment Properties</a> - Get Measurements, Options and Materials for a specific garment [*<em>Recently Updated! *</em>]</li>
+<li><a href="#get-all-embroidery">Get All Embroidery</a> - Get embroidery from a specific date range or list of garments</li>
+<li><a href="#get-specific-embroidery">Get Specific Embroidery</a> -Get all embroidery on a specific garment</li>
 <li><a href="#get-garment-fabrics">Garment Fabrics</a> - Get a list of fabrics needed, what they are used for (shell, lining, trims, etc), and see their measurments and status</li>
 <li><a href="#set-order-status">Set Order Status</a> - E.g., Move a garment from Ready to Production</li>
 <li><a href="#create-shipment">Create Shipment</a> - Add garments to a new shipment</li>
@@ -9350,6 +9358,136 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <tr>
 <td>invoiced_at <br> <span>datetime</span></td>
 <td>Time of the first invoice</td>
+</tr>
+</tbody></table>
+<h3 id='embroidery'>Embroidery</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>garment <br> <span>subresource</span></td>
+<td>Limited info on the garment</td>
+</tr>
+<tr>
+<td>fabric <br> <span>subresource</span></td>
+<td>Limited info on the option for text input.</td>
+</tr>
+<tr>
+<td>text <br> <span>string</span></td>
+<td>Text for the embroidery</td>
+</tr>
+<tr>
+<td>font <br> <span>string</span></td>
+<td>Embroidery font or Monogram selected</td>
+</tr>
+<tr>
+<td>color <br> <span>string</span></td>
+<td>Thread color</td>
+</tr>
+<tr>
+<td>position <br> <span>string</span></td>
+<td>Location for the embroidery; Only required for some embroidery options</td>
+</tr>
+<tr>
+<td>size <br> <span>string</span></td>
+<td>Width of the embroidery</td>
+</tr>
+</tbody></table>
+<pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Standard</span><span class="w"> </span><span class="err">Object</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">Used</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">collections</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"garment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1081783</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"manufacturer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-11-03T18:47:22.000Z"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"option"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">89</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"customer_label_text"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"garment_types"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"csc"</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M Kiser"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"font"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Calligraphy"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5-01 White"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="s2">"T4 - Left Below Breast Pkt"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='embroidery-garment'>Embroidery Garment</h3><pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Minimal</span><span class="w"> </span><span class="err">Object</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">Used</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">embroidery</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1081783</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"manufacturer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-11-03T18:47:22.000Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Standard Attributes</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id <br> <span>integer</span></td>
+<td>Unique identifier for the garment</td>
+</tr>
+<tr>
+<td>manufacturer_id <br> <span>integer</span></td>
+<td>The factory who made the garment</td>
+</tr>
+<tr>
+<td>garment_type <br> <span>integer</span></td>
+<td>Garment bitmask. <a href="#garment-types">Click here</a> for more info</td>
+</tr>
+<tr>
+<td>created_at <br> <span>datetime</span></td>
+<td>When the garment was first created (but not ordered)</td>
+</tr>
+</tbody></table>
+<h3 id='embroidery-option'>Embroidery Option</h3><pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Minimal</span><span class="w"> </span><span class="err">Object</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">Used</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">embroidery</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">89</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"customer_label_text"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"garment_types"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"csc"</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Standard Attributes</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id <br> <span>integer</span></td>
+<td>Unique identifier for the option</td>
+</tr>
+<tr>
+<td>name <br> <span>string</span></td>
+<td>Option name. Typically refers to the location of the embroidery</td>
+</tr>
+<tr>
+<td>garment_type <br> <span>integer</span></td>
+<td>Garment bitmask. <a href="#garment-types">Click here</a> for more info</td>
+</tr>
+<tr>
+<td>garment_types <br> <span>array</span></td>
+<td>List of human readable garment types</td>
+</tr>
+<tr>
+<td>created_at <br> <span>datetime</span></td>
+<td>When the garment was first created (but not ordered)</td>
 </tr>
 </tbody></table>
 <h2 id='download-garments'>Download Garments</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/download_garments"</span>
@@ -9818,6 +9956,209 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <h3 id='future-plans'>Future Plans</h3>
 <p>We plan to provide the quantity of materials needed at some point.  This would be the number of buttons, fabric length, etc.
 We can also add filters and allow users to toggle localization (metric units, translations) if that is important.</p>
+<h2 id='get-all-embroidery'>Get All Embroidery</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/embroidery"</span>
+  -H <span class="s2">"Authorization Bearer: swaledale"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"garment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1079766</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"manufacturer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"order_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-30T09:32:14.000Z"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"option"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">89</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"customer_label_text"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"garment_types"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"csc"</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"J WHITE"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"font"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Copper Plate"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5-06 Charcoal"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="s2">"T4 - Left Below Breast Pkt"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"garment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1079773</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"manufacturer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"order_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-30T09:43:50.000Z"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"option"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">89</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"customer_label_text"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"garment_types"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"csc"</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MWJ"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"font"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Calligraphy"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5-65 Dark Olive"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Undercollar Position"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"garment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1079774</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"manufacturer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"order_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-30T09:45:37.000Z"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"option"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">89</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"customer_label_text"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"garment_types"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"csc"</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Eden"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"font"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Calligraphy"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5-54 Gold"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="s2">"T2 - Left Above Breast Pkt"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"garment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1079782</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"manufacturer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"order_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-30T09:58:27.000Z"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"option"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">89</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"customer_label_text"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"garment_types"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"ctopc"</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HEPPERMANN"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"font"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Copper Plate"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5-03 Light Gray"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="s2">"T4 - Left Below Breast Pkt"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>Returns an array of embroidery objects. There can be more than one embroidery per garment. The object includes minimal objects for garment and fabric, plus flattened option values for text, font, color, position and size of the embroidery.  The list is ordered by when the garments were created.</p>
+
+<p><a href="#embroidery">Click here</a> for details on the response objects.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET https://api.trinity-apparel.com/v1/embroidery</code></p>
+<h3 id='query-parameters-3'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>garment_id</td>
+<td>N/A</td>
+<td>One or more garment ids.  Use array style syntax <code>garment_id[]</code> for multiple.</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>N/A</td>
+<td>Start of date range. Must be ISO-8601 date (YYYY-MM-DD)</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>N/A</td>
+<td>End of date range. Must be ISO-8601 date (YYYY-MM-DD)</td>
+</tr>
+<tr>
+<td>order_status_code</td>
+<td>N/A</td>
+<td>Filter using a single <a href="#order-statuses">order status</a></td>
+</tr>
+</tbody></table>
+
+<p>A garment id, list of garment ids, or a date range (start and end date) must be provided.</p>
+
+<p><em>NOTE</em>: If specific garment(s) are not provided AND an order status is not provided, we filter by production statuses: STATUS_READY, STATUS_BLUE_PENCIL, STATUS_CUTTING, STATUS_PRODUCTION</p>
+<h3 id='other-3'>Other</h3>
+<ul>
+<li>Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.</li>
+<li>Pagination: No</li>
+</ul>
+<h3 id='examples-2'>Examples</h3><h4 id='embroidery-for-multiple-garments'>Embroidery for multiple garments</h4>
+<p><code>GET https://api.trinity-apparel.com/v1/embroidery?garment_id[]=1001234&amp;garment_id[]=1002345&amp;garment_id[]=1003456</code></p>
+
+<p>Returns garments #1001234, #1002345, and #1003456</p>
+<h4 id='embroidery-for-garments-ordered-on-a-specific-day'>Embroidery for garments ordered on a specific day</h4>
+<p><code>GET https://api.trinity-apparel.com/v1/embroidery?start_date=2019-10-30&amp;end_date=2019-10-30</code></p>
+
+<p>Returns garments ordered on a specific day, October 30th.</p>
+<h4 id='embroidery-for-garments-ordered-on-a-specific-day-and-order-status'>Embroidery for garments ordered on a specific day and order status</h4>
+<p><code>GET https://api.trinity-apparel.com/v1/embroidery?start_date=2019-10-30&amp;end_date=2019-10-30&amp;order_status_code=PREP</code></p>
+
+<p>Returns garments in Blue Pencil (code = PREP) status that were ordered on a specific day, October 30th.</p>
+<h2 id='get-specific-embroidery'>Get Specific Embroidery</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/garments/:id/embroidery"</span>
+  -H <span class="s2">"Authorization Bearer: swaledale"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"garment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1081783</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"manufacturer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-11-03T18:47:22.000Z"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"option"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">89</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"customer_label_text"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"garment_types"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"csc"</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M Kiser"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"font"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Calligraphy"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5-01 White"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="s2">"T4 - Left Below Breast Pkt"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>Returns an array of embroidery objects. There can be more than one embroidery per garment. The object includes minimal objects for garment and fabric, plus flattened option values for text, font, color, position and size of the embroidery.</p>
+
+<p><a href="#embroidery">Click here</a> for details on the response objects.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET https://api.trinity-apparel.com/v1/garments/:id/fabrics</code></p>
+<h3 id='query-parameters-4'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>N/A</td>
+<td>The specific garment you want fabrics for</td>
+</tr>
+</tbody></table>
+<h3 id='other-4'>Other</h3>
+<ul>
+<li>Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.</li>
+<li>Pagination: No</li>
+</ul>
 <h2 id='get-garment-fabrics'>Get Garment Fabrics</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/garments/:id/fabrics"</span>
   -H <span class="s2">"Authorization Bearer: swaledale"</span>
 </code></pre>
@@ -9996,9 +10337,9 @@ We can also add filters and allow users to toggle localization (metric units, tr
 <td>Length and width needed by CAD marker</td>
 </tr>
 </tbody></table>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='http-request-5'>HTTP Request</h3>
 <p><code>GET https://api.trinity-apparel.com/v1/garments/:id/fabrics</code></p>
-<h3 id='query-parameters-3'>Query Parameters</h3>
+<h3 id='query-parameters-5'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -10012,7 +10353,7 @@ We can also add filters and allow users to toggle localization (metric units, tr
 <td>The specific garment you want fabrics for</td>
 </tr>
 </tbody></table>
-<h3 id='other-3'>Other</h3>
+<h3 id='other-5'>Other</h3>
 <ul>
 <li>Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.</li>
 <li>Pagination: No</li>
@@ -10093,9 +10434,9 @@ We can also add filters and allow users to toggle localization (metric units, tr
 <td></td>
 </tr>
 </tbody></table>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request-6'>HTTP Request</h3>
 <p><code>GET https://api.trinity-apparel.com/v1/garments/:id/order_statuses/:order_status</code></p>
-<h3 id='query-parameters-4'>Query Parameters</h3>
+<h3 id='query-parameters-6'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -10109,7 +10450,7 @@ We can also add filters and allow users to toggle localization (metric units, tr
 <td>Can be an id number or a code. <a href="#order-statuses">Click here</a> for more info</td>
 </tr>
 </tbody></table>
-<h3 id='other-4'>Other</h3>
+<h3 id='other-6'>Other</h3>
 <ul>
 <li>Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.</li>
 <li>Pagination: N/A</li>
@@ -10179,9 +10520,9 @@ We can also add filters and allow users to toggle localization (metric units, tr
 <p>All items in a shipment must be going to the same destination.  If any garment is going to another location the whole shipment fails to be created.</p>
 
 <p>Same rules apply to manufacturers.  If any item is from a different manufacturer, the shipment will fail to be created.</p>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-7'>HTTP Request</h3>
 <p><code>POST https://api.trinity-apparel.com/v1/shipments</code></p>
-<h3 id='query-parameters-5'>Query Parameters</h3>
+<h3 id='query-parameters-7'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -10200,7 +10541,7 @@ We can also add filters and allow users to toggle localization (metric units, tr
 <td>Optional. The tracking number for the shipping carrier (E.g., FedEx, DHL, etc)</td>
 </tr>
 </tbody></table>
-<h3 id='other-5'>Other</h3>
+<h3 id='other-7'>Other</h3>
 <ul>
 <li>Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.</li>
 <li>Pagination: N/A</li>
@@ -10280,9 +10621,9 @@ We can also add filters and allow users to toggle localization (metric units, tr
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='description-3'>Description</h3>
 <p>Returns detail on a shipment, which includes the tracking number and destination.  It also includes a full list of shipment items.</p>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request-8'>HTTP Request</h3>
 <p><code>GET https://api.trinity-apparel.com/v1/shipments/:id</code></p>
-<h3 id='query-parameters-6'>Query Parameters</h3>
+<h3 id='query-parameters-8'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -10296,7 +10637,7 @@ We can also add filters and allow users to toggle localization (metric units, tr
 <td>Lookup id for the shipment</td>
 </tr>
 </tbody></table>
-<h3 id='other-6'>Other</h3>
+<h3 id='other-8'>Other</h3>
 <ul>
 <li>Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.</li>
 <li>Pagination: N/A</li>
