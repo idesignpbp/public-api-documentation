@@ -6,17 +6,18 @@ This includes:
 
 - [Download Garments](#download-garments) - a list of new garment orders that are ready to be produced by the factory
 - [Garment Detail](#get-a-specific-garment)
-- [Garment Properties](#garment-properties) - Get Measurements, Options and Materials for a specific garment [**Recently Updated! **]
-- [Get All Embroidery](#get-all-embroidery) - Get embroidery from a specific date range or list of garments
-- [Get Specific Embroidery](#get-specific-embroidery) -Get all embroidery on a specific garment
-- [Create Fabric Cut](#create-fabric-cut) - Enter CAD measurements for a single fabric used to make a garment
-- [Get Fabric Cuts](#get-fabric-cuts) - Get a list of all fabrics ready to be cut by a manufacturer
-- [Update Fabric Cut](#update-fabric-cut) - Mark a specific fabric as cut
+- [Garment Properties](#garment-properties) - Get Measurements, Options and Materials for a specific garment
+- [Get All Embroidery](#get-all-embroidery) - Get embroidery from a specific date range or list of garments [**Recently Added!**]
+- [Get Specific Embroidery](#get-specific-embroidery) -Get all embroidery on a specific garment [**Recently Added!**]
+- [Create Fabric Cut](#create-fabric-cut) - Enter CAD measurements for a single fabric used to make a garment [**Recently Added!**]
+- [Get Fabric Cuts](#get-fabric-cuts) - Get a list of all fabrics ready to be cut by a manufacturer [**Recently Added!**]
+- [Update Fabric Cut](#update-fabric-cut) - Mark a specific fabric as cut [**Recently Added!**]
 - [Set Order Status](#set-order-status) - E.g., Move a garment from Ready to Production
 - [Create Shipment](#create-shipment) - Add garments to a new shipment
 - [Get Shipment Detail](#get-shipment-detail) - Shipment details and garments in the shipment
 
 Deprecated:
+
 - [Garment Fabrics](#get-garment-fabrics) - Get a list of fabrics needed, what they are used for (shell, lining, trims, etc), and see their measurments and status
 
 
@@ -940,8 +941,6 @@ curl -X POST "https://api.trinity-apparel.com/v1/fabric_cuts"
 }
 ```
 
-> The above command returns a `201 Created` and no JSON output when it is successful.
-
 ### Description
 
 This call tracks the fabric cuts (CAD lengths) of fabrics.  Cut lengths for all shell, lining, and a few specific options for each garment need to be entered into the Trinity system.
@@ -976,6 +975,165 @@ If cut lengths are provided for all fabrics, then that garment will automaticall
 | 201             | Fabric cut entry was created                     |
 | 403             | Error: Not Authorized - You're not a factory or the garment isn't from your factory |
 | 409             | Error: Unable to create a fabric cut. Error message is provided     |
+
+
+## Get All Fabric Cuts
+
+```shell
+curl "https://api.trinity-apparel.com/v1/fabric_cuts"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+        "id": 546530,
+        "is_cut": false,
+        "created_at": "2019-11-07T03:23:42.000Z",
+        "length": 475,
+        "actual_length": 470,
+        "width": 1,
+        "garment": {
+            "id": 1015730,
+            "title": "IDUK-1015730",
+            "created_at": "2019-05-28T12:25:00.000Z",
+            "garment_type": "CCP"
+        },
+        "fabric": {
+            "id": 61257,
+            "description": "Char Blue Wine Plaid",
+            "trinity_fabric_number": "K4-3861257",
+            "url": "https://s7d4.scene7.com/is/image/trinityapparel/K4-3861257",
+            "has_image": true
+        },
+        "option": null
+    },
+    {
+        "id": 546531,
+        "is_cut": false,
+        "created_at": "2019-11-07T03:23:42.000Z",
+        "length": 165,
+        "actual_length": 160,
+        "width": 146,
+        "garment": {
+            "id": 1015730,
+            "title": "IDUK-1015730",
+            "created_at": "2019-05-28T12:25:00.000Z",
+            "garment_type": "CCP"
+        },
+        "fabric": {
+            "id": 40512,
+            "description": "Burgundy Camouflage",
+            "trinity_fabric_number": "L2-3540512",
+            "url": "https://s7d4.scene7.com/is/image/trinityapparel/L2-3540512",
+            "has_image": true
+        },
+        "option": {
+            "id": 229,
+            "name": "lining_fabric_num",
+            "description": "Lining Fabric #"
+        }
+    },
+    {
+        "id": 546307,
+        "is_cut": false,
+        "created_at": "2019-11-07T01:58:49.000Z",
+        "length": 455,
+        "actual_length": 450,
+        "width": 148,
+        "garment": {
+            "id": 1068322,
+            "title": "ID-1068322",
+            "created_at": "2019-10-04T00:14:08.000Z",
+            "garment_type": "CCVP"
+        },
+        "fabric": {
+            "id": 42243,
+            "description": "Black Pinstripe",
+            "trinity_fabric_number": "LA-3542243",
+            "url": "https://s7d4.scene7.com/is/image/trinityapparel/LA-3542243",
+            "has_image": true
+        },
+        "option": null
+    },
+    {
+        "id": 546308,
+        "is_cut": false,
+        "created_at": "2019-11-07T01:58:49.000Z",
+        "length": 390,
+        "actual_length": 385,
+        "width": 136,
+        "garment": {
+            "id": 1068322,
+            "title": "ID-1068322",
+            "created_at": "2019-10-04T00:14:08.000Z",
+            "garment_type": "CCVP"
+        },
+        "fabric": {
+            "id": 27476,
+            "description": "Black Skulls",
+            "trinity_fabric_number": "L6-3127476",
+            "url": "https://s7d4.scene7.com/is/image/trinityapparel/L6-3127476",
+            "has_image": true
+        },
+        "option": {
+            "id": 229,
+            "name": "lining_fabric_num",
+            "description": "Lining Fabric #"
+        }
+    },
+    ...
+]
+```
+Returns an array of fabric cuts.
+
+[Click here](#fabric-cuts) for details on the response objects.
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/fabric_cuts`
+
+### Query Parameters
+
+| Parameter         | Default | Description                                                       |
+| ----------------- | ------- | ----------------------------------------------------------------- |
+| manufacturer_id | N/A     | Manufacturer ID for the factory |
+| garment_id        | N/A     | One or more garment ids.  Use array style syntax `garment_id[]` for multiple. |
+| fabric_id        | N/A     | One or more fabric ids.  Use array style syntax `fabric_id[]` for multiple. |
+| is_cut | false     | Filter by if the fabric has been cut |
+| order_status_code | Read more     | Optional. Default is  `BLUE_PENCIL` and `CUTTING`. Filter using a single [order status](#order-statuses) |
+
+A manufacturer_id must be provided.
+
+*NOTE*: If order status is not provided, we filter by these statuses: STATUS_BLUE_PENCIL and STATUS_CUTTING
+
+### Other
+
+- Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.
+- Pagination: Yes, but 1000 at a time
+
+### Examples
+
+#### Fabric cuts for one factory
+
+`GET https://api.trinity-apparel.com/v1/fabric_cuts?manufacturer_id=2`
+
+Returns all fabric cuts from manufacturer 2 that are from garments in CUTTING OR BLUE PENCIL status..
+
+#### Fabric cuts for 3 specific garments
+
+`GET https://api.trinity-apparel.com/v1/fabric_cuts?garment_id[]=1001234&garment_id[]=1002345&garment_id[]=1003456`
+
+Returns all fabric cuts that came for 3 specific garments.
+
+#### Fabric cuts for a specific fabric that are in an order status
+
+`GET https://api.trinity-apparel.com/v1/fabric_cuts?fabric_id=50505&order_status_code=READY`
+
+Returns all fabric cuts for garments in Ready (code = READ) status that use a particular fabric.
+
 
 
 
