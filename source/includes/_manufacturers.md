@@ -65,7 +65,7 @@ The resources provided by the manufacturers API are almost identical to the orde
 ### Garment
 
 ```json
-# Standard Object - Used in a resource collection
+# Garment Object - Used in a resource collection
 {
     "id": 845556,
     "title": "TEST-845556",
@@ -117,7 +117,7 @@ Standard Attributes
 ### Dealer Order
 
 ```json
-# Standard Object - Used in a resource collection
+# Order Object - Used in a resource collection
 {
     "id": 386627,
     "title": "DO-386627",
@@ -151,7 +151,7 @@ Standard Attributes
 | Attribute                                          | Description                                                            |
 | -------------------------------------------------- | ---------------------------------------------------------------------- |
 | garment <br> <span>subresource</span>              | Limited info on the garment                                            |
-| fabric <br> <span>subresource</span>               | Limited info on the option for text input.                             |
+| fabric <br> <span>subresource</span>               | Limited info on the fabric                                             |
 | text <br> <span>string</span>                      | Text for the embroidery                                                |
 | font <br> <span>string</span>                      | Embroidery font or Monogram selected                                   |
 | color <br> <span>string</span>                     | Thread color                                                           |
@@ -159,7 +159,7 @@ Standard Attributes
 | size <br> <span>string</span>                      | Width of the embroidery                                                |
 
 ```json
-# Standard Object - Used in collections
+# Embroidery Object - Used in collections
 {
     "garment": {
         "id": 1081783,
@@ -187,7 +187,7 @@ Standard Attributes
 ### Embroidery Garment
 
 ```json
-# Minimal Object - Used in embroidery
+# Minimal Garment Object - Used in embroidery
 {
     "id": 1081783,
     "manufacturer_id": 4,
@@ -208,7 +208,7 @@ Standard Attributes
 ### Embroidery Option
 
 ```json
-# Minimal Object - Used in embroidery
+# Minimal Option Object - Used in embroidery
 {
     "id": 89,
     "name": "customer_label_text",
@@ -229,6 +229,50 @@ Standard Attributes
 | garment_types <br> <span>array</span>       | List of human readable garment types                                                                             |
 | created_at <br> <span>datetime</span>       | When the garment was first created (but not ordered)                                                             |
 
+
+### Fabric Cut
+
+| Attribute                                          | Description                                                            |
+| -------------------------------------------------- | ---------------------------------------------------------------------- |
+| garment <br> <span>subresource</span>              | Each garment record contains the id, title, date the garment was first entered into the system, and a garment type code |
+| fabric <br> <span>subresource</span>               | Limited info on the fabric (id, description trinity number, a url for a repeatable swatch image, and a boolean to show if the image is available) |
+| fabric <br> <span>subresource</span>               | Limited info on the option (id, name, and description). Can be null                |
+| id <br> <span>integer</span>                       | Unique identifier for the fabric cut                                                |
+| is_cut <br> <span>boolean</span>                   | Has the cut been made?                                   |
+| length <br> <span>float</span>                     | Length in centimeters (5 cm added to input, so the factory has overage)                                 |
+| actual_length <br> <span>float</span>              | Actual length in centimeters |
+| width <br> <span>float</span>                      | Width in centimeters                                                |
+| created_at <br> <span>datetime</span>              | When was the cut record added                                                |
+
+```json
+# Fabric Cut Object - Used in collections
+{
+    "id": 540803,
+    "is_cut": false,
+    "created_at": "2019-10-28T07:25:55.000Z",
+    "length": 415,
+    "actual_length": 410,
+    "width": 136,
+    "garment": {
+        "id": 1059195,
+        "title": "ID-1059195",
+        "created_at": "2019-09-13T06:23:02.000Z",
+        "garment_type": "CCVP"
+    },
+    "fabric": {
+        "id": 29938,
+        "description": "Medium Blue Paisley",
+        "trinity_fabric_number": "L6-3129938",
+        "url": "https://s7d4.scene7.com/is/image/trinityapparel/L6-3129938",
+        "has_image": true
+    },
+    "option": {
+        "id": 229,
+        "name": "lining_fabric_num",
+        "description": "Lining Fabric #"
+    }
+}
+```
 
 
 ## Download Garments
@@ -1133,6 +1177,48 @@ Returns all fabric cuts that came for 3 specific garments.
 `GET https://api.trinity-apparel.com/v1/fabric_cuts?fabric_id=50505&order_status_code=READY`
 
 Returns all fabric cuts for garments in Ready (code = READ) status that use a particular fabric.
+
+
+
+## Update Fabric Cut
+
+```shell
+curl -X POST "https://api.trinity-apparel.com/v1/fabric_cuts/:id"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns a `202 Accepted` and no JSON output when it is successful.
+
+### Description
+
+This call updates a fabric cut.  Users can only modify the `is_cut` boolean and set it to true or false.
+
+### Rules
+
+The fabric cut may only be modified while the garment is in a production status: `BLUE_PENCIL`, `CUTTING`, `READY`, or `PRODUCTION`.
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/fabric_cuts/:id`
+
+### Query Parameters
+
+| Parameter       | Default | Description                                                       |
+| --------------- | ------- | ----------------------------------------------------------------- |
+| id    | N/A     | id number for the cut |
+
+### Other
+
+- Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.
+- Pagination: N/A
+
+### Responses
+
+| Response Code   | Description                                                       |
+| --------------- | ----------------------------------------------------------------- |
+| 201             | Fabric cut was successfully changed                     |
+| 403             | Not Authorized - You're not a factory or the cut isn't from your factory |
+| 409             | Unable to update the fabric cut. Reason provided in JSON     |
 
 
 
