@@ -426,7 +426,13 @@
                     <a href="#get-specific-embroidery" class="toc-h2 toc-link" data-title="Get Specific Embroidery">Get Specific Embroidery</a>
                   </li>
                   <li>
-                    <a href="#get-garment-fabrics" class="toc-h2 toc-link" data-title="Get Garment Fabrics">Get Garment Fabrics</a>
+                    <a href="#create-fabric-cut" class="toc-h2 toc-link" data-title="Create Fabric Cut">Create Fabric Cut</a>
+                  </li>
+                  <li>
+                    <a href="#get-all-fabric-cuts" class="toc-h2 toc-link" data-title="Get All Fabric Cuts">Get All Fabric Cuts</a>
+                  </li>
+                  <li>
+                    <a href="#update-fabric-cut" class="toc-h2 toc-link" data-title="Update Fabric Cut">Update Fabric Cut</a>
                   </li>
                   <li>
                     <a href="#set-order-status" class="toc-h2 toc-link" data-title="Set Order Status">Set Order Status</a>
@@ -436,6 +442,9 @@
                   </li>
                   <li>
                     <a href="#get-shipment-detail" class="toc-h2 toc-link" data-title="Get Shipment Detail">Get Shipment Detail</a>
+                  </li>
+                  <li>
+                    <a href="#get-garment-fabrics" class="toc-h2 toc-link" data-title="Get Garment Fabrics">Get Garment Fabrics</a>
                   </li>
               </ul>
           </li>
@@ -9168,13 +9177,21 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <ul>
 <li><a href="#download-garments">Download Garments</a> - a list of new garment orders that are ready to be produced by the factory</li>
 <li><a href="#get-a-specific-garment">Garment Detail</a></li>
-<li><a href="#garment-properties">Garment Properties</a> - Get Measurements, Options and Materials for a specific garment [*<em>Recently Updated! *</em>]</li>
-<li><a href="#get-all-embroidery">Get All Embroidery</a> - Get embroidery from a specific date range or list of garments</li>
-<li><a href="#get-specific-embroidery">Get Specific Embroidery</a> -Get all embroidery on a specific garment</li>
-<li><a href="#get-garment-fabrics">Garment Fabrics</a> - Get a list of fabrics needed, what they are used for (shell, lining, trims, etc), and see their measurments and status</li>
+<li><a href="#garment-properties">Garment Properties</a> - Get Measurements, Options and Materials for a specific garment</li>
+<li><a href="#get-all-embroidery">Get All Embroidery</a> - Get embroidery from a specific date range or list of garments [<strong>Recently Added!</strong>]</li>
+<li><a href="#get-specific-embroidery">Get Specific Embroidery</a> -Get all embroidery on a specific garment [<strong>Recently Added!</strong>]</li>
+<li><a href="#create-fabric-cut">Create Fabric Cut</a> - Enter CAD measurements for a single fabric used to make a garment [<strong>Recently Added!</strong>]</li>
+<li><a href="#get-fabric-cuts">Get Fabric Cuts</a> - Get a list of all fabrics ready to be cut by a manufacturer [<strong>Recently Added!</strong>]</li>
+<li><a href="#update-fabric-cut">Update Fabric Cut</a> - Mark a specific fabric as cut [<strong>Recently Added!</strong>]</li>
 <li><a href="#set-order-status">Set Order Status</a> - E.g., Move a garment from Ready to Production</li>
 <li><a href="#create-shipment">Create Shipment</a> - Add garments to a new shipment</li>
 <li><a href="#get-shipment-detail">Get Shipment Detail</a> - Shipment details and garments in the shipment</li>
+</ul>
+
+<p>Deprecated:</p>
+
+<ul>
+<li><a href="#get-garment-fabrics">Garment Fabrics</a> - Get a list of fabrics needed, what they are used for (shell, lining, trims, etc), and see their measurments and status</li>
 </ul>
 <h2 id='order-processing-flow'>Order Processing Flow</h2>
 <p><code>Ready</code> -&gt; <code>Blue Pencil</code> -&gt; <code>Cutting</code> -&gt; <code>Production</code> -&gt; <code>Production Complete</code> -&gt; <code>International Transit</code></p>
@@ -9200,7 +9217,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <p>Trinity will take the order from here.  Once we receive the garment at a distribution center, we will move the status to final inspection.</p>
 <h2 id='resources'>Resources</h2>
 <p>The resources provided by the manufacturers API are almost identical to the orders API.  Only the garment and dealer_order objects are different. Links to download Gerber input files and the order PDFs are included.</p>
-<h3 id='garment'>Garment</h3><pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Standard</span><span class="w"> </span><span class="err">Object</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">Used</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">resource</span><span class="w"> </span><span class="err">collection</span><span class="w">
+<h3 id='garment'>Garment</h3><pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Garment</span><span class="w"> </span><span class="err">Object</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">Used</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">resource</span><span class="w"> </span><span class="err">collection</span><span class="w">
 </span><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">845556</span><span class="p">,</span><span class="w">
     </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TEST-845556"</span><span class="p">,</span><span class="w">
@@ -9302,7 +9319,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <td>The full order placed by a single customer. Includes this garment and can include more garments.</td>
 </tr>
 </tbody></table>
-<h3 id='dealer-order'>Dealer Order</h3><pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Standard</span><span class="w"> </span><span class="err">Object</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">Used</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">resource</span><span class="w"> </span><span class="err">collection</span><span class="w">
+<h3 id='dealer-order'>Dealer Order</h3><pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Order</span><span class="w"> </span><span class="err">Object</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">Used</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">resource</span><span class="w"> </span><span class="err">collection</span><span class="w">
 </span><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">386627</span><span class="p">,</span><span class="w">
     </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DO-386627"</span><span class="p">,</span><span class="w">
@@ -9373,7 +9390,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 </tr>
 <tr>
 <td>fabric <br> <span>subresource</span></td>
-<td>Limited info on the option for text input.</td>
+<td>Limited info on the fabric</td>
 </tr>
 <tr>
 <td>text <br> <span>string</span></td>
@@ -9396,7 +9413,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <td>Width of the embroidery</td>
 </tr>
 </tbody></table>
-<pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Standard</span><span class="w"> </span><span class="err">Object</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">Used</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">collections</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Embroidery</span><span class="w"> </span><span class="err">Object</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">Used</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">collections</span><span class="w">
 </span><span class="p">{</span><span class="w">
     </span><span class="s2">"garment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1081783</span><span class="p">,</span><span class="w">
@@ -9418,7 +9435,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
     </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="s2">"T4 - Left Below Breast Pkt"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='embroidery-garment'>Embroidery Garment</h3><pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Minimal</span><span class="w"> </span><span class="err">Object</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">Used</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">embroidery</span><span class="w">
+</span></code></pre><h3 id='embroidery-garment'>Embroidery Garment</h3><pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Minimal</span><span class="w"> </span><span class="err">Garment</span><span class="w"> </span><span class="err">Object</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">Used</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">embroidery</span><span class="w">
 </span><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1081783</span><span class="p">,</span><span class="w">
     </span><span class="s2">"manufacturer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
@@ -9451,7 +9468,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <td>When the garment was first created (but not ordered)</td>
 </tr>
 </tbody></table>
-<h3 id='embroidery-option'>Embroidery Option</h3><pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Minimal</span><span class="w"> </span><span class="err">Object</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">Used</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">embroidery</span><span class="w">
+<h3 id='embroidery-option'>Embroidery Option</h3><pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Minimal</span><span class="w"> </span><span class="err">Option</span><span class="w"> </span><span class="err">Object</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">Used</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">embroidery</span><span class="w">
 </span><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">89</span><span class="p">,</span><span class="w">
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"customer_label_text"</span><span class="p">,</span><span class="w">
@@ -9490,7 +9507,78 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <td>When the garment was first created (but not ordered)</td>
 </tr>
 </tbody></table>
-<h2 id='download-garments'>Download Garments</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/download_garments"</span>
+<h3 id='fabric-cut'>Fabric Cut</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>garment <br> <span>subresource</span></td>
+<td>Each garment record contains the id, title, date the garment was first entered into the system, and a garment type code</td>
+</tr>
+<tr>
+<td>fabric <br> <span>subresource</span></td>
+<td>Limited info on the fabric (id, description trinity number, a url for a repeatable swatch image, and a boolean to show if the image is available)</td>
+</tr>
+<tr>
+<td>fabric <br> <span>subresource</span></td>
+<td>Limited info on the option (id, name, and description). Can be null</td>
+</tr>
+<tr>
+<td>id <br> <span>integer</span></td>
+<td>Unique identifier for the fabric cut</td>
+</tr>
+<tr>
+<td>is_cut <br> <span>boolean</span></td>
+<td>Has the cut been made?</td>
+</tr>
+<tr>
+<td>length <br> <span>float</span></td>
+<td>Length in centimeters (5 cm added to input, so the factory has overage)</td>
+</tr>
+<tr>
+<td>actual_length <br> <span>float</span></td>
+<td>Actual length in centimeters</td>
+</tr>
+<tr>
+<td>width <br> <span>float</span></td>
+<td>Width in centimeters</td>
+</tr>
+<tr>
+<td>created_at <br> <span>datetime</span></td>
+<td>When was the cut record added</td>
+</tr>
+</tbody></table>
+<pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Fabric</span><span class="w"> </span><span class="err">Cut</span><span class="w"> </span><span class="err">Object</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">Used</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">collections</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">540803</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_cut"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-28T07:25:55.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"length"</span><span class="p">:</span><span class="w"> </span><span class="mi">415</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"actual_length"</span><span class="p">:</span><span class="w"> </span><span class="mi">410</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">136</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"garment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1059195</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-1059195"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-13T06:23:02.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"garment_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CCVP"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"fabric"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">29938</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Medium Blue Paisley"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L6-3129938"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/L6-3129938"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"option"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">229</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lining_fabric_num"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lining Fabric #"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='download-garments'>Download Garments</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/download_garments"</span>
   -H <span class="s2">"Authorization Bearer: swaledale"</span>
 </code></pre>
 <blockquote>
@@ -10159,6 +10247,600 @@ We can also add filters and allow users to toggle localization (metric units, tr
 <li>Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.</li>
 <li>Pagination: No</li>
 </ul>
+<h2 id='create-fabric-cut'>Create Fabric Cut</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://api.trinity-apparel.com/v1/fabric_cuts"</span>
+  -H <span class="s2">"Authorization Bearer: swaledale"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">546845</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_cut"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-11-14T22:09:36.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"length"</span><span class="p">:</span><span class="w"> </span><span class="mi">1342</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"actual_length"</span><span class="p">:</span><span class="w"> </span><span class="mi">1337</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"garment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1004082</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-1004082"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-30T17:23:39.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"garment_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CSC"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"fabric"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">54926</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Grey Charcoal Twill"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C4-3754926"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/C4-3754926"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"option"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='description'>Description</h3>
+<p>This call tracks the fabric cuts (CAD lengths) of fabrics.  Cut lengths for all shell, lining, and a few specific options for each garment need to be entered into the Trinity system.</p>
+<h3 id='rules'>Rules</h3>
+<p>If cut lengths are provided for all fabrics, then that garment will automatically move to CUTTING status.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>POST https://api.trinity-apparel.com/v1/fabric_cuts</code></p>
+<h3 id='query-parameters-5'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>N/A</td>
+<td>Garment ID</td>
+</tr>
+<tr>
+<td>fabric_id</td>
+<td>N/A</td>
+<td>Fabric ID. Integer not String</td>
+</tr>
+<tr>
+<td>length_m</td>
+<td>N/A</td>
+<td>Fabric length in centimeters</td>
+</tr>
+<tr>
+<td>length_m</td>
+<td>N/A</td>
+<td>Fabric width in centimeters</td>
+</tr>
+<tr>
+<td>is_cut</td>
+<td>false</td>
+<td>Boolean. Denotes if fabric has been cut</td>
+</tr>
+</tbody></table>
+<h3 id='other-5'>Other</h3>
+<ul>
+<li>Permissions: Only manufacturers can access this route.  They can only modify garments made at their factory.</li>
+<li>Pagination: N/A</li>
+</ul>
+<h3 id='responses'>Responses</h3>
+<table><thead>
+<tr>
+<th>Response Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>201</td>
+<td>Fabric cut entry was created</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Error: Not Authorized - You&#39;re not a factory or the garment isn&#39;t from your factory</td>
+</tr>
+<tr>
+<td>409</td>
+<td>Error: Unable to create a fabric cut. Error message is provided</td>
+</tr>
+</tbody></table>
+<h2 id='get-all-fabric-cuts'>Get All Fabric Cuts</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/fabric_cuts"</span>
+  -H <span class="s2">"Authorization Bearer: swaledale"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">546530</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"is_cut"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-11-07T03:23:42.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"length"</span><span class="p">:</span><span class="w"> </span><span class="mi">475</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"actual_length"</span><span class="p">:</span><span class="w"> </span><span class="mi">470</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"garment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1015730</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IDUK-1015730"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-28T12:25:00.000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"garment_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CCP"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"fabric"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">61257</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Char Blue Wine Plaid"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"K4-3861257"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/K4-3861257"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"option"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">546531</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"is_cut"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-11-07T03:23:42.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"length"</span><span class="p">:</span><span class="w"> </span><span class="mi">165</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"actual_length"</span><span class="p">:</span><span class="w"> </span><span class="mi">160</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">146</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"garment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1015730</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IDUK-1015730"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-28T12:25:00.000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"garment_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CCP"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"fabric"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">40512</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Burgundy Camouflage"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L2-3540512"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/L2-3540512"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"option"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">229</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lining_fabric_num"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lining Fabric #"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">546307</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"is_cut"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-11-07T01:58:49.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"length"</span><span class="p">:</span><span class="w"> </span><span class="mi">455</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"actual_length"</span><span class="p">:</span><span class="w"> </span><span class="mi">450</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">148</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"garment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1068322</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-1068322"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-04T00:14:08.000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"garment_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CCVP"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"fabric"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">42243</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Black Pinstripe"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LA-3542243"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/LA-3542243"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"option"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">546308</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"is_cut"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-11-07T01:58:49.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"length"</span><span class="p">:</span><span class="w"> </span><span class="mi">390</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"actual_length"</span><span class="p">:</span><span class="w"> </span><span class="mi">385</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">136</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"garment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1068322</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-1068322"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-04T00:14:08.000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"garment_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CCVP"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"fabric"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">27476</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Black Skulls"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L6-3127476"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/L6-3127476"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"option"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">229</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lining_fabric_num"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lining Fabric #"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>Returns an array of fabric cuts.</p>
+
+<p><a href="#fabric-cuts">Click here</a> for details on the response objects.</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>GET https://api.trinity-apparel.com/v1/fabric_cuts</code></p>
+<h3 id='query-parameters-6'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>manufacturer_id</td>
+<td>N/A</td>
+<td>Manufacturer ID for the factory</td>
+</tr>
+<tr>
+<td>garment_id</td>
+<td>N/A</td>
+<td>One or more garment ids.  Use array style syntax <code>garment_id[]</code> for multiple.</td>
+</tr>
+<tr>
+<td>fabric_id</td>
+<td>N/A</td>
+<td>One or more fabric ids.  Use array style syntax <code>fabric_id[]</code> for multiple.</td>
+</tr>
+<tr>
+<td>is_cut</td>
+<td>false</td>
+<td>Filter by if the fabric has been cut</td>
+</tr>
+<tr>
+<td>order_status_code</td>
+<td>Read more</td>
+<td>Optional. Default is  <code>BLUE_PENCIL</code> and <code>CUTTING</code>. Filter using a single <a href="#order-statuses">order status</a></td>
+</tr>
+</tbody></table>
+
+<p>A manufacturer_id must be provided.</p>
+
+<p><em>NOTE</em>: If order status is not provided, we filter by these statuses: STATUS_BLUE_PENCIL and STATUS_CUTTING</p>
+<h3 id='other-6'>Other</h3>
+<ul>
+<li>Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.</li>
+<li>Pagination: Yes, but 1000 at a time</li>
+</ul>
+<h3 id='examples-3'>Examples</h3><h4 id='fabric-cuts-for-one-factory'>Fabric cuts for one factory</h4>
+<p><code>GET https://api.trinity-apparel.com/v1/fabric_cuts?manufacturer_id=2</code></p>
+
+<p>Returns all fabric cuts from manufacturer 2 that are from garments in CUTTING OR BLUE PENCIL status..</p>
+<h4 id='fabric-cuts-for-3-specific-garments'>Fabric cuts for 3 specific garments</h4>
+<p><code>GET https://api.trinity-apparel.com/v1/fabric_cuts?garment_id[]=1001234&amp;garment_id[]=1002345&amp;garment_id[]=1003456</code></p>
+
+<p>Returns all fabric cuts that came for 3 specific garments.</p>
+<h4 id='fabric-cuts-for-a-specific-fabric-that-are-in-an-order-status'>Fabric cuts for a specific fabric that are in an order status</h4>
+<p><code>GET https://api.trinity-apparel.com/v1/fabric_cuts?fabric_id=50505&amp;order_status_code=READY</code></p>
+
+<p>Returns all fabric cuts for garments in Ready (code = READ) status that use a particular fabric.</p>
+<h2 id='update-fabric-cut'>Update Fabric Cut</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://api.trinity-apparel.com/v1/fabric_cuts/:id"</span>
+  -H <span class="s2">"Authorization Bearer: swaledale"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns a <code>202 Accepted</code> and no JSON output when it is successful.</p>
+</blockquote>
+<h3 id='description-2'>Description</h3>
+<p>This call updates a fabric cut.  Users can only modify the <code>is_cut</code> boolean and set it to true or false.</p>
+<h3 id='rules-2'>Rules</h3>
+<p>The fabric cut may only be modified while the garment is in a production status: <code>BLUE_PENCIL</code>, <code>CUTTING</code>, <code>READY</code>, or <code>PRODUCTION</code>.</p>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>GET https://api.trinity-apparel.com/v1/fabric_cuts/:id</code></p>
+<h3 id='query-parameters-7'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>N/A</td>
+<td>id number for the cut</td>
+</tr>
+</tbody></table>
+<h3 id='other-7'>Other</h3>
+<ul>
+<li>Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.</li>
+<li>Pagination: N/A</li>
+</ul>
+<h3 id='responses-2'>Responses</h3>
+<table><thead>
+<tr>
+<th>Response Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>201</td>
+<td>Fabric cut was successfully changed</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Not Authorized - You&#39;re not a factory or the cut isn&#39;t from your factory</td>
+</tr>
+<tr>
+<td>409</td>
+<td>Unable to update the fabric cut. Reason provided in JSON</td>
+</tr>
+</tbody></table>
+<h2 id='set-order-status'>Set Order Status</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://api.trinity-apparel.com/v1/garments/:id/order_statuses/:order_status"</span>
+  -H <span class="s2">"Authorization Bearer: swaledale"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns a <code>201 Created</code> and no JSON output when it is successful.</p>
+</blockquote>
+<h3 id='description-3'>Description</h3>
+<p>This call updates the order status of a garment and puts an entry in garment history to note when the change was made.</p>
+
+<p>Our customers, partners, and staff can see the order status for each garment. It helps us set expecations for when we can make delivery, so it is important to keep things up to date.</p>
+<h3 id='rules-3'>Rules</h3>
+<p>Trinity enforces strict validation rules so that garments can only move to a few order statuses from any given status.  Here are the valid transitions for each status:</p>
+
+<table><thead>
+<tr>
+<th>Starting Status</th>
+<th>Valid Destination Status</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Incomplete</td>
+<td>CMT Fabric Hold, Fabric Hold, Ready, Cancelled</td>
+</tr>
+<tr>
+<td>CMT Fabric Hold</td>
+<td>Fabric Hold, Ready, Cancelled</td>
+</tr>
+<tr>
+<td>Fabric Hold</td>
+<td>Ready, Cancelled</td>
+</tr>
+<tr>
+<td>Ready</td>
+<td>Blue Pencil, Cutting, Production, Cancelled</td>
+</tr>
+<tr>
+<td>Blue Pencil</td>
+<td>Cutting, Production, Production Complete, Cancelled</td>
+</tr>
+<tr>
+<td>Cutting</td>
+<td>Production, Production Complete, Cancelled</td>
+</tr>
+<tr>
+<td>Production</td>
+<td>Production Complete, International Transit, Cancelled</td>
+</tr>
+<tr>
+<td>Production Complete</td>
+<td>International Transit, Direct Ship, Cancelled</td>
+</tr>
+<tr>
+<td>International Transit</td>
+<td>Final Inspection, Shipment Processing, Direct Ship, Cancelled</td>
+</tr>
+<tr>
+<td>Final Inspection</td>
+<td>Shipment Processing, Delivery, Direct Ship, Cancelled</td>
+</tr>
+<tr>
+<td>Shipment Processing</td>
+<td>Delivery, Direct Ship, Cancelled</td>
+</tr>
+<tr>
+<td>Delivery</td>
+<td>Shipment Processing, Cancelled</td>
+</tr>
+<tr>
+<td>Direct Ship</td>
+<td>Production Complete, Cancelled</td>
+</tr>
+<tr>
+<td>Cancelled</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id='http-request-8'>HTTP Request</h3>
+<p><code>GET https://api.trinity-apparel.com/v1/garments/:id/order_statuses/:order_status</code></p>
+<h3 id='query-parameters-8'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>order_status</td>
+<td>N/A</td>
+<td>Can be an id number or a code. <a href="#order-statuses">Click here</a> for more info</td>
+</tr>
+</tbody></table>
+<h3 id='other-8'>Other</h3>
+<ul>
+<li>Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.</li>
+<li>Pagination: N/A</li>
+</ul>
+<h3 id='responses-3'>Responses</h3>
+<table><thead>
+<tr>
+<th>Response Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>201</td>
+<td>Garment Order status was successfully changed</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Not Authorized - You&#39;re not a factory or the garment isn&#39;t from your factory</td>
+</tr>
+<tr>
+<td>409</td>
+<td>Unable to move to a different status. Reason provided in JSON</td>
+</tr>
+</tbody></table>
+<h2 id='create-shipment'>Create Shipment</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://api.trinity-apparel.com/v1/shipments"</span>
+  -H <span class="s2">"Authorization Bearer: swaledale"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns a <code>201 Created</code> and returns a JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">356907</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US Shirts - July 09 #1 from iD Shirts"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transit"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Worldwide Express"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"carrier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FedEx"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tracking_number"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"create_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T10:18:07.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ship_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"receive_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"login_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1578</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Trinity USA"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"street1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"227 Marketridge Dr"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"street2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"street3"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ridgeland"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MS"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"39157"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USA"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"601-713-2628"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"shipment_items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1855007</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">941358</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T10:18:07.000Z"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='description-4'>Description</h3>
+<p>This call creates a shipment then adds every garment id that was provided to the shipment.  A shipment is just like a packing list.</p>
+
+<p>It also creates a tracking box and tracking box items, which our distribution centers use to track and receive garments from a manufacturer.</p>
+<h3 id='rules-4'>Rules</h3>
+<p>All items in a shipment must be going to the same destination.  If any garment is going to another location the whole shipment fails to be created.</p>
+
+<p>Same rules apply to manufacturers.  If any item is from a different manufacturer, the shipment will fail to be created.</p>
+<h3 id='http-request-9'>HTTP Request</h3>
+<p><code>POST https://api.trinity-apparel.com/v1/shipments</code></p>
+<h3 id='query-parameters-9'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>garment_id[]</td>
+<td>N/A</td>
+<td>An array of garment ids.  All garments must be included when the shipment is created</td>
+</tr>
+<tr>
+<td>tracking_number</td>
+<td>null</td>
+<td>Optional. The tracking number for the shipping carrier (E.g., FedEx, DHL, etc)</td>
+</tr>
+</tbody></table>
+<h3 id='other-9'>Other</h3>
+<ul>
+<li>Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.</li>
+<li>Pagination: N/A</li>
+</ul>
+<h3 id='responses-4'>Responses</h3>
+<table><thead>
+<tr>
+<th>Response Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>201</td>
+<td>Garment Order status was successfully changed</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Not Authorized - You&#39;re not a factory or the garment isn&#39;t from your factory</td>
+</tr>
+<tr>
+<td>409</td>
+<td>Unable to move to a different status. Reason provided in JSON</td>
+</tr>
+</tbody></table>
+<h2 id='get-shipment-detail'>Get Shipment Detail</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://api.trinity-apparel.com/v1/shipments/:id"</span>
+  -H <span class="s2">"Authorization Bearer: swaledale"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns a JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">351907</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK Shirts - May 22 #6 from iD Shirts"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"received"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Worldwide Express"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"carrier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FedEx"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tracking_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"485590026995"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"create_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-22T06:58:58.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ship_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-22T02:52:14.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"receive_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-29T08:12:59.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"login_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1026</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1222</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Trinity UK Shipping"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"street1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8 George St."</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"street2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"street3"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alderley Edge"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SK9 7EJ"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"U.K."</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"shipment_items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1819962</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">996625</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-22T06:58:58.000Z"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1819965</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">996626</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-22T06:58:58.000Z"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1819963</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">996627</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-22T06:58:58.000Z"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1819969</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">996630</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-22T06:58:58.000Z"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='description-5'>Description</h3>
+<p>Returns detail on a shipment, which includes the tracking number and destination.  It also includes a full list of shipment items.</p>
+<h3 id='http-request-10'>HTTP Request</h3>
+<p><code>GET https://api.trinity-apparel.com/v1/shipments/:id</code></p>
+<h3 id='query-parameters-10'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>N/A</td>
+<td>Lookup id for the shipment</td>
+</tr>
+</tbody></table>
+<h3 id='other-10'>Other</h3>
+<ul>
+<li>Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.</li>
+<li>Pagination: N/A</li>
+</ul>
 <h2 id='get-garment-fabrics'>Get Garment Fabrics</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/garments/:id/fabrics"</span>
   -H <span class="s2">"Authorization Bearer: swaledale"</span>
 </code></pre>
@@ -10337,9 +11019,9 @@ We can also add filters and allow users to toggle localization (metric units, tr
 <td>Length and width needed by CAD marker</td>
 </tr>
 </tbody></table>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-11'>HTTP Request</h3>
 <p><code>GET https://api.trinity-apparel.com/v1/garments/:id/fabrics</code></p>
-<h3 id='query-parameters-5'>Query Parameters</h3>
+<h3 id='query-parameters-11'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -10353,294 +11035,10 @@ We can also add filters and allow users to toggle localization (metric units, tr
 <td>The specific garment you want fabrics for</td>
 </tr>
 </tbody></table>
-<h3 id='other-5'>Other</h3>
+<h3 id='other-11'>Other</h3>
 <ul>
 <li>Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.</li>
 <li>Pagination: No</li>
-</ul>
-<h2 id='set-order-status'>Set Order Status</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://api.trinity-apparel.com/v1/garments/:id/order_statuses/:order_status"</span>
-  -H <span class="s2">"Authorization Bearer: swaledale"</span>
-</code></pre>
-<blockquote>
-<p>The above command returns a <code>201 Created</code> and no JSON output when it is successful.</p>
-</blockquote>
-<h3 id='description'>Description</h3>
-<p>This call updates the order status of a garment and puts an entry in garment history to note when the change was made.</p>
-
-<p>Our customers, partners, and staff can see the order status for each garment. It helps us set expecations for when we can make delivery, so it is important to keep things up to date.</p>
-<h3 id='rules'>Rules</h3>
-<p>Trinity enforces strict validation rules so that garments can only move to a few order statuses from any given status.  Here are the valid transitions for each status:</p>
-
-<table><thead>
-<tr>
-<th>Starting Status</th>
-<th>Valid Destination Status</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Incomplete</td>
-<td>CMT Fabric Hold, Fabric Hold, Ready, Cancelled</td>
-</tr>
-<tr>
-<td>CMT Fabric Hold</td>
-<td>Fabric Hold, Ready, Cancelled</td>
-</tr>
-<tr>
-<td>Fabric Hold</td>
-<td>Ready, Cancelled</td>
-</tr>
-<tr>
-<td>Ready</td>
-<td>Blue Pencil, Cutting, Production, Cancelled</td>
-</tr>
-<tr>
-<td>Blue Pencil</td>
-<td>Cutting, Production, Production Complete, Cancelled</td>
-</tr>
-<tr>
-<td>Cutting</td>
-<td>Production, Production Complete, Cancelled</td>
-</tr>
-<tr>
-<td>Production</td>
-<td>Production Complete, International Transit, Cancelled</td>
-</tr>
-<tr>
-<td>Production Complete</td>
-<td>International Transit, Direct Ship, Cancelled</td>
-</tr>
-<tr>
-<td>International Transit</td>
-<td>Final Inspection, Shipment Processing, Direct Ship, Cancelled</td>
-</tr>
-<tr>
-<td>Final Inspection</td>
-<td>Shipment Processing, Delivery, Direct Ship, Cancelled</td>
-</tr>
-<tr>
-<td>Shipment Processing</td>
-<td>Delivery, Direct Ship, Cancelled</td>
-</tr>
-<tr>
-<td>Delivery</td>
-<td>Shipment Processing, Cancelled</td>
-</tr>
-<tr>
-<td>Direct Ship</td>
-<td>Production Complete, Cancelled</td>
-</tr>
-<tr>
-<td>Cancelled</td>
-<td></td>
-</tr>
-</tbody></table>
-<h3 id='http-request-6'>HTTP Request</h3>
-<p><code>GET https://api.trinity-apparel.com/v1/garments/:id/order_statuses/:order_status</code></p>
-<h3 id='query-parameters-6'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>order_status</td>
-<td>N/A</td>
-<td>Can be an id number or a code. <a href="#order-statuses">Click here</a> for more info</td>
-</tr>
-</tbody></table>
-<h3 id='other-6'>Other</h3>
-<ul>
-<li>Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.</li>
-<li>Pagination: N/A</li>
-</ul>
-<h3 id='responses'>Responses</h3>
-<table><thead>
-<tr>
-<th>Response Code</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>201</td>
-<td>Garment Order status was successfully changed</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Not Authorized - You&#39;re not a factory or the garment isn&#39;t from your factory</td>
-</tr>
-<tr>
-<td>409</td>
-<td>Unable to move to a different status. Reason provided in JSON</td>
-</tr>
-</tbody></table>
-<h2 id='create-shipment'>Create Shipment</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://api.trinity-apparel.com/v1/shipments"</span>
-  -H <span class="s2">"Authorization Bearer: swaledale"</span>
-</code></pre>
-<blockquote>
-<p>The above command returns a <code>201 Created</code> and returns a JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">356907</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US Shirts - July 09 #1 from iD Shirts"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transit"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Worldwide Express"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"carrier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FedEx"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"tracking_number"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"create_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T10:18:07.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ship_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"receive_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"login_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1578</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Trinity USA"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"street1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"227 Marketridge Dr"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"street2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"street3"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ridgeland"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MS"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"39157"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USA"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"601-713-2628"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"shipment_items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1855007</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">941358</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T10:18:07.000Z"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='description-2'>Description</h3>
-<p>This call creates a shipment then adds every garment id that was provided to the shipment.  A shipment is just like a packing list.</p>
-
-<p>It also creates a tracking box and tracking box items, which our distribution centers use to track and receive garments from a manufacturer.</p>
-<h3 id='rules-2'>Rules</h3>
-<p>All items in a shipment must be going to the same destination.  If any garment is going to another location the whole shipment fails to be created.</p>
-
-<p>Same rules apply to manufacturers.  If any item is from a different manufacturer, the shipment will fail to be created.</p>
-<h3 id='http-request-7'>HTTP Request</h3>
-<p><code>POST https://api.trinity-apparel.com/v1/shipments</code></p>
-<h3 id='query-parameters-7'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>garment_id[]</td>
-<td>N/A</td>
-<td>An array of garment ids.  All garments must be included when the shipment is created</td>
-</tr>
-<tr>
-<td>tracking_number</td>
-<td>null</td>
-<td>Optional. The tracking number for the shipping carrier (E.g., FedEx, DHL, etc)</td>
-</tr>
-</tbody></table>
-<h3 id='other-7'>Other</h3>
-<ul>
-<li>Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.</li>
-<li>Pagination: N/A</li>
-</ul>
-<h3 id='responses-2'>Responses</h3>
-<table><thead>
-<tr>
-<th>Response Code</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>201</td>
-<td>Garment Order status was successfully changed</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Not Authorized - You&#39;re not a factory or the garment isn&#39;t from your factory</td>
-</tr>
-<tr>
-<td>409</td>
-<td>Unable to move to a different status. Reason provided in JSON</td>
-</tr>
-</tbody></table>
-<h2 id='get-shipment-detail'>Get Shipment Detail</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://api.trinity-apparel.com/v1/shipments/:id"</span>
-  -H <span class="s2">"Authorization Bearer: swaledale"</span>
-</code></pre>
-<blockquote>
-<p>The above command returns a JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">351907</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK Shirts - May 22 #6 from iD Shirts"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"received"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Worldwide Express"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"carrier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FedEx"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"tracking_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"485590026995"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"create_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-22T06:58:58.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ship_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-22T02:52:14.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"receive_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-29T08:12:59.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"login_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1026</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1222</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Trinity UK Shipping"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"street1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8 George St."</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"street2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"street3"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alderley Edge"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SK9 7EJ"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"U.K."</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"shipment_items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1819962</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">996625</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-22T06:58:58.000Z"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1819965</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">996626</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-22T06:58:58.000Z"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1819963</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">996627</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-22T06:58:58.000Z"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1819969</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">996630</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-22T06:58:58.000Z"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="err">...</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='description-3'>Description</h3>
-<p>Returns detail on a shipment, which includes the tracking number and destination.  It also includes a full list of shipment items.</p>
-<h3 id='http-request-8'>HTTP Request</h3>
-<p><code>GET https://api.trinity-apparel.com/v1/shipments/:id</code></p>
-<h3 id='query-parameters-8'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>N/A</td>
-<td>Lookup id for the shipment</td>
-</tr>
-</tbody></table>
-<h3 id='other-8'>Other</h3>
-<ul>
-<li>Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.</li>
-<li>Pagination: N/A</li>
 </ul>
 
       </div>
