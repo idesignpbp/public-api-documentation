@@ -317,7 +317,7 @@ curl "https://api.trinity-apparel.com/v1/customers/dashboard.csv"
   -H "Authorization Bearer: swaledale"
 ```
 
-> The above command returns JSON structured like this:
+> The above command returns a CSV content-type that is structured like this:
 
 ```
 id,name,created_at,company,email,street_1,street_2,city,state,zip,country,phone_cell,phone_work,phone_home,fax,first_order_date,last_order_date,total_orders,total_garments
