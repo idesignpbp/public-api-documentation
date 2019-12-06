@@ -223,6 +223,7 @@ Returns an array of your customers.
 
 | Parameter  | Default | Description                                                                                                 |
 | ---------- | ------- | ----------------------------------------------------------------------------------------------------------- |
+| q          | N/A     | Fuzzy search. If set, returns only customers with names that contain the search term. |
 | first_name | N/A     | If set, will return results with exact matching first_name.                                                 |
 | last_name  | N/A     | If set, will return results with exact matching last_name.                                                  |
 | email      | N/A     | If set, will return results with exact matching email address.                                              |
@@ -234,7 +235,7 @@ Returns an array of your customers.
 
 ### Other
 
-- Permissions: All
+- Permissions: Only includes customers for the dealer who owns the API token
 - Pagination: Yes
 
 ## Get Customers Dashboard
@@ -302,19 +303,11 @@ Returns an array of your customers with metrics.  Used in the Trinity clients pa
 
 | Parameter  | Default | Description                                                                                                 |
 | ---------- | ------- | ----------------------------------------------------------------------------------------------------------- |
-| first_name | N/A     | If set, will return results with exact matching first_name.                                                 |
-| last_name  | N/A     | If set, will return results with exact matching last_name.                                                  |
-| email      | N/A     | If set, will return results with exact matching email address.                                              |
-| city       | N/A     | If set, will return results with exact matching city.                                                       |
-| state      | N/A     | If set, will return results with exact matching state.                                                      |
-| zip        | N/A     | If set, will return results with exact matching zip code.                                                   |
-| country    | N/A     | If set, will return results with exact matching country.                                                    |
-| extended   | false   | If true, the API call returns extended objects which include a complete set of attributes and subresources. |
+| q | N/A     | Fuzzy search. If set, returns only customers with names that contain the search term.       |
 
 ### Other
 
-- Permissions: All
-- Filter: Only includes customers for the dealer who owns the API token
+- Permissions: Only includes customers for the dealer who owns the API token
 - Pagination: Yes
 
 ## Get a Specific Customer
@@ -370,5 +363,5 @@ Returns details on a specific customer.
 
 ### Other
 
-- Permissions: All
+- Permissions: Only includes the customer, if they belong to the dealer who owns the API token
 - Pagination: N/A
