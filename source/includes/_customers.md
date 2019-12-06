@@ -85,6 +85,30 @@ Extended attributes
 | notes <br> <span>string</span>                 | Notes about the customer.                            |
 | dealer_personal <br> <span>boolean</span>      | If this customer is a personal account of the dealer. |
 
+
+```json
+# Dashboard Object
+{
+    "id": 121008,
+    "first_order": null,
+    "last_order": null,
+    "name": "Rapid Replenishment",
+    "total_orders": 0,
+    "total_garments": null
+}
+```
+Dashboard attributes
+
+| Attribute                                      | Description                                          |
+| ---------------------------------------------- | ---------------------------------------------------- |
+| id <br> <span>integer</span>                   | Unique identifier for the object.                    |
+| first_order <br> <span>datetime</span>         | Date of the first order. Null if no orders exist     |
+| last_order <br> <span>datetime</span>          | Date of the last order. Null if no orders exist      |
+| name <br> <span>string</span>                  | The customers first and last name combined.          |
+| total_orders <br> <span>integer</span>         | Lifetime count of dealer orders for this customer    |
+| total_garments <br> <span>integer</span>       | Lifetime count of garments ordered by this customer  |
+
+
 ## Get All Customers
 
 ```shell
