@@ -6,12 +6,12 @@ This includes:
 
 - [Download Garments](#download-garments) - a list of new garment orders that are ready to be produced by the factory
 - [Garment Detail](#get-a-specific-garment)
-- [Garment Properties](#garment-properties) - Get Measurements, Options and Materials for a specific garment
-- [Get All Embroidery](#get-all-embroidery) - Get embroidery from a specific date range or list of garments [**Recently Added!**]
-- [Get Specific Embroidery](#get-specific-embroidery) -Get all embroidery on a specific garment [**Recently Added!**]
-- [Create Fabric Cut](#create-fabric-cut) - Enter CAD measurements for a single fabric used to make a garment [**Recently Added!**]
-- [Get Fabric Cuts](#get-fabric-cuts) - Get a list of all fabrics ready to be cut by a manufacturer [**Recently Added!**]
-- [Update Fabric Cut](#update-fabric-cut) - Mark a specific fabric as cut [**Recently Added!**]
+- [Garment Properties](#garment-properties) - Get Measurements, Options and Materials for a specific garment [**Recently Updated!**]
+- [Get All Embroidery](#get-all-embroidery) - Get embroidery from a specific date range or list of garments
+- [Get Specific Embroidery](#get-specific-embroidery) -Get all embroidery on a specific garment
+- [Create Fabric Cut](#create-fabric-cut) - Enter CAD measurements for a single fabric used to make a garment
+- [Get Fabric Cuts](#get-fabric-cuts) - Get a list of all fabrics ready to be cut by a manufacturer
+- [Update Fabric Cut](#update-fabric-cut) - Mark a specific fabric as cut
 - [Set Order Status](#set-order-status) - E.g., Move a garment from Ready to Production
 - [Create Shipment](#create-shipment) - Add garments to a new shipment
 - [Get Shipment Detail](#get-shipment-detail) - Shipment details and garments in the shipment
@@ -148,16 +148,6 @@ Standard Attributes
 
 ### Embroidery
 
-| Attribute                                          | Description                                                            |
-| -------------------------------------------------- | ---------------------------------------------------------------------- |
-| garment <br> <span>subresource</span>              | Limited info on the garment                                            |
-| fabric <br> <span>subresource</span>               | Limited info on the fabric                                             |
-| text <br> <span>string</span>                      | Text for the embroidery                                                |
-| font <br> <span>string</span>                      | Embroidery font or Monogram selected                                   |
-| color <br> <span>string</span>                     | Thread color                                                           |
-| position <br> <span>string</span>                  | Location for the embroidery; Only required for some embroidery options |
-| size <br> <span>string</span>                      | Width of the embroidery                                                |
-
 ```json
 # Embroidery Object - Used in collections
 {
@@ -182,6 +172,16 @@ Standard Attributes
     "size": null
 }
 ```
+
+| Attribute                                          | Description                                                            |
+| -------------------------------------------------- | ---------------------------------------------------------------------- |
+| garment <br> <span>subresource</span>              | Limited info on the garment                                            |
+| fabric <br> <span>subresource</span>               | Limited info on the fabric                                             |
+| text <br> <span>string</span>                      | Text for the embroidery                                                |
+| font <br> <span>string</span>                      | Embroidery font or Monogram selected                                   |
+| color <br> <span>string</span>                     | Thread color                                                           |
+| position <br> <span>string</span>                  | Location for the embroidery; Only required for some embroidery options |
+| size <br> <span>string</span>                      | Width of the embroidery                                                |
 
 
 ### Embroidery Garment
@@ -232,18 +232,6 @@ Standard Attributes
 
 ### Fabric Cut
 
-| Attribute                                          | Description                                                            |
-| -------------------------------------------------- | ---------------------------------------------------------------------- |
-| garment <br> <span>subresource</span>              | Each garment record contains the id, title, date the garment was first entered into the system, and a garment type code |
-| fabric <br> <span>subresource</span>               | Limited info on the fabric (id, description trinity number, a url for a repeatable swatch image, and a boolean to show if the image is available) |
-| fabric <br> <span>subresource</span>               | Limited info on the option (id, name, and description). Can be null                |
-| id <br> <span>integer</span>                       | Unique identifier for the fabric cut                                                |
-| is_cut <br> <span>boolean</span>                   | Has the cut been made?                                   |
-| length <br> <span>float</span>                     | Length in centimeters (5 cm added to input, so the factory has overage)                                 |
-| actual_length <br> <span>float</span>              | Actual length in centimeters |
-| width <br> <span>float</span>                      | Width in centimeters                                                |
-| created_at <br> <span>datetime</span>              | When was the cut record added                                                |
-
 ```json
 # Fabric Cut Object - Used in collections
 {
@@ -273,6 +261,18 @@ Standard Attributes
     }
 }
 ```
+
+| Attribute                                          | Description                                                            |
+| -------------------------------------------------- | ---------------------------------------------------------------------- |
+| garment <br> <span>subresource</span>              | Each garment record contains the id, title, date the garment was first entered into the system, and a garment type code |
+| fabric <br> <span>subresource</span>               | Limited info on the fabric (id, description trinity number, a url for a repeatable swatch image, and a boolean to show if the image is available) |
+| fabric <br> <span>subresource</span>               | Limited info on the option (id, name, and description). Can be null                |
+| id <br> <span>integer</span>                       | Unique identifier for the fabric cut                                                |
+| is_cut <br> <span>boolean</span>                   | Has the cut been made?                                   |
+| length <br> <span>float</span>                     | Length in centimeters (5 cm added to input, so the factory has overage)                                 |
+| actual_length <br> <span>float</span>              | Actual length in centimeters |
+| width <br> <span>float</span>                      | Width in centimeters                                                |
+| created_at <br> <span>datetime</span>              | When was the cut record added                                                |
 
 
 ## Download Garments
@@ -459,7 +459,7 @@ Returns garments #1001234, #1002345, and #1003456 as long as they are in `Ready`
 
 ## Garment Properties
 
-**NOTE**: ADDED BUTTON QUANTITIES ON OCT 8TH
+**NOTE**: ADDED POCKET BAGS ON DEC 6TH
 
 ```shell
 curl "https://api.trinity-apparel.com/v1/garments/:id/properties"
@@ -628,23 +628,44 @@ curl "https://api.trinity-apparel.com/v1/garments/:id/properties"
   "materials": {
     "fabrics": [
       {
-        "id": 40443,
-        "name": "L2-3540443",
-        "description": "Red Paisley Print",
-        "image": "https://s7d4.scene7.com/is/image/trinityapparel/L2-3540443",
+        "id": 70218,
+        "name": "TT-3970218",
+        "description": "Lt Gray Solid",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/TT-3970218",
         "options": [
           {
-            "id": 229,
-            "name": "lining_fabric_num",
-            "description": "Lining Fabric #",
-            "garment_type": 1,
+            "id": null,
+            "name": "shell",
+            "description": "Shell Fabric",
+            "garment_type": 5,
             "garment_types": [
-              "csc"
+              "csc",
+              "ct"
             ]
+          }
+        ],
+        "trinity_number": "TT-3970218",
+        "supplier_number": "GV100-10",
+        "quantity": {
+          "cad": {
+            "width": null,
+            "length": null,
+            "is_cut": null
           },
-          ...
-        ]
+          "received": {
+            "width": null,
+            "length": null,
+            "notes": null
+          },
+          "repeated_pattern": {
+            "width": null,
+            "length": null,
+            "type": null
+          }
+        }
       },
+      ...
+    ],
       ...
     "buttons": [
       {
@@ -711,7 +732,31 @@ curl "https://api.trinity-apparel.com/v1/garments/:id/properties"
       },
       ...
     ],
-    "felts": []
+    "suspender_buttons": [],
+    "pocket_bags": [
+      {
+        "id": null,
+        "name": "front_pocket_l",
+        "description": "Default Front Left Pocket Bag",
+        "image": null,
+        "options": [
+          {
+            "id": null,
+            "name": "front_pockets",
+            "description": "front_pockets",
+            "garment_type": 4,
+            "garment_types": [
+              "ct"
+            ]
+          }
+        ],
+        "quantity": {
+          "length": 14.57,
+          "width": 7.87
+        }
+      },
+      ...
+    ]
   }
 }
 ```
@@ -745,8 +790,378 @@ We also include the quantity of each particular button under the `quantity` fiel
 
 ### Future Plans
 
-We plan to provide the quantity of materials needed at some point.  This would be the number of buttons, fabric length, etc.
+We plan to provide quantities (measurements or counts) of all materials.
 We can also add filters and allow users to toggle localization (metric units, translations) if that is important.
+
+
+
+## Garment Properties - Materials
+
+Garment properties includes custom objects in the `materials` hash.  The materials object includes: fabrics, buttons, threads, suedes, felts, labels, suspender buttons, and pocket bags.
+
+### Materials Fabrics
+
+```json
+# Materials fabric object
+{
+  "id": 70218,
+  "name": "TT-3970218",
+  "description": "Lt Gray Solid",
+  "image": "https://s7d4.scene7.com/is/image/trinityapparel/TT-3970218",
+  "options": [
+    {
+      "id": null,
+      "name": "shell",
+      "description": "Shell Fabric",
+      "garment_type": 5,
+      "garment_types": [
+        "csc",
+        "ct"
+      ]
+    }
+  ],
+  "trinity_number": "TT-3970218",
+  "supplier_number": "GV100-10",
+  "quantity": {
+    "cad": {
+      "width": null,
+      "length": null,
+      "is_cut": null
+    },
+    "received": {
+      "width": null,
+      "length": null,
+      "notes": null
+    },
+    "repeated_pattern": {
+      "width": null,
+      "length": null,
+      "type": null
+    }
+  }
+}
+```
+
+Array of unique fabrics used in the garment.
+
+| Attribute                                          | Description                                                            |
+| -------------------------------------------------- | ---------------------------------------------------------------------- |
+| id <br> <span>integer</span>                       | Unique identifier for the fabric.                                      |
+| name <br> <span>string</span>                      | Trinity Fabric Number                                                  |
+| description <br> <span>string</span>               | Text describing the colors and pattern of the fabric                   |
+| image <br> <span>string</span>                     | Full url to an image of the fabric.                                    |
+| supplier_fabric_number <br> <span>string</span>    | A unique identifier / SKU according to the fabric supplier             |
+| trinity_fabric_number <br> <span>string</span>     | A unique identifier / SKU according to Trinity                         |
+| options <br> <span>subresource</span>              | List of options that the fabric is used in (shell is an option)        |
+| quantity <br> <span>subresource</span>             | An array of measurements for the fabric                                |
+
+#### Quantity Subresource
+
+CAD
+
+Length and width determined by processing the order in Gerber
+
+| Attribute                                          | Description                                                            |
+| -------------------------------------------------- | ---------------------------------------------------------------------- |
+| length <br> <span>float</span>                     | Length in centimeters                                                  |
+| width <br> <span>float</span>                      | Width in centimeters                                                   |
+| is_cut <br> <span>boolean</span>                   | Has the fabric been cut?                                               |
+
+Received
+
+Length and width are measured when a single length of fabric is received.  Does not apply to fabrics that are in factory inventory.
+
+| Attribute                                          | Description                                                            |
+| -------------------------------------------------- | ---------------------------------------------------------------------- |
+| length <br> <span>float</span>                     | Length in centimeters                                                  |
+| width <br> <span>float</span>                      | Width in centimeters                                                   |
+| notes <br> <span>string</span>                     | (optional) Notes about fabric that was received                        |
+
+Repeated Pattern
+
+Length and width of the pattern (stripe, plaid, etc) when a fabric is received.  Does not apply to fabrics that are in factory inventory.  Does not apply to solids.
+
+| Attribute                                          | Description                                                            |
+| -------------------------------------------------- | ---------------------------------------------------------------------- |
+| length <br> <span>float</span>                     | Length in centimeters                                                  |
+| width <br> <span>float</span>                      | Width in centimeters                                                   |
+| type <br> <span>string</span>                      | Types are: Solid/Paisley, Stripes, 'Check 1 - Symmetric' and 'Check 2 - Asymmetric' |
+
+
+### Materials Buttons
+
+```json
+# Material Button object
+{
+  "id": 244,
+  "name": "JD1692-D181_Medium_Gray",
+  "description": "1-03 Medium Gray",
+  "image": "http://s7d4.scene7.com/is/image/trinityapparel/1-03_Medium_Gray?wid=100",
+  "options": [
+    {
+      "id": 208,
+      "name": "sleeve_button_color",
+      "description": "Sleeve Button Color",
+      "garment_type": 1,
+      "garment_types": [
+        "csc"
+      ]
+    },
+    ...
+  ],
+  "quantity": {
+    "small": {
+      "csc": 9,
+      "ct": 0
+    },
+    "large": {
+      "csc": 3,
+      "ct": 0
+    }
+  }
+}
+```
+
+Array of unique buttons used in the garment
+
+| Attribute                                          | Description                                                            |
+| -------------------------------------------------- | ---------------------------------------------------------------------- |
+| id <br> <span>integer</span>                       | Unique identifier for the button.                                      |
+| name <br> <span>string</span>                      | Supplier Number                                                        |
+| description <br> <span>string</span>               | Description of button used in ordering system.                         |
+| image <br> <span>string</span>                     | Full url to an image of the button.                                    |
+| options <br> <span>subresource</span>              | List of options that the button is used in.                            |
+| quantity <br> <span>subresource</span>             | An array of button counts for the garment                              |
+
+There are separate quantities for small and large buttons.  Inside each button size, we list the button count needed by garment type (E.g., csc for jacket).
+
+### Materials Threads
+
+```json
+# Material Thread object
+{
+  "id": 1,
+  "name": "black",
+  "description": "Black",
+  "image": "http://s7d4.scene7.com/ir/render/trinityapparelrender/buttonhole?wid=112&obj=Buttonhole/Color&color=27,27,27&fmt=png-alpha",
+  "options": [
+    {
+      "id": 262,
+      "name": "waistband_color",
+      "description": "Waistband Fabric",
+      "garment_type": 4,
+      "garment_types": [
+        "ct"
+      ]
+    }
+  ]
+}
+```
+
+Array of unique threads used in the garment
+
+| Attribute                                          | Description                                                            |
+| -------------------------------------------------- | ---------------------------------------------------------------------- |
+| id <br> <span>integer</span>                       | Unique identifier for the thread.                                      |
+| name <br> <span>string</span>                      | Supplier Number                                                        |
+| description <br> <span>string</span>               | Description of thread used in ordering system.                         |
+| image <br> <span>string</span>                     | Full url to an image of the thread.                                    |
+| options <br> <span>subresource</span>              | List of options that the thread is used in.                            |
+
+### Materials Suedes
+
+```json
+{
+  "id": 3,
+  "name": "MS-219185_charcoal",
+  "description": "7-04 Charcoal",
+  "image": "http://s7d4.scene7.com/is/image/trinityapparel/7-04_Charcoal?&hei=100",
+  "options": [
+    {
+      "id": 447,
+      "name": "microsuede_undercollar_color",
+      "description": "Microsuede Undercollar",
+      "garment_type": 1,
+      "garment_types": [
+        "csc"
+      ]
+    }
+  ]
+}
+```
+
+Array of unique suedes used in the garment
+
+| Attribute                                          | Description                                                            |
+| -------------------------------------------------- | ---------------------------------------------------------------------- |
+| id <br> <span>integer</span>                       | Unique identifier for the suede.                                       |
+| name <br> <span>string</span>                      | Supplier Number                                                        |
+| description <br> <span>string</span>               | Description of suede used in ordering system.                          |
+| image <br> <span>string</span>                     | Full url to an image of the suede.                                     |
+| options <br> <span>subresource</span>              | List of options that the suede is used in.                             |
+
+### Materials Labels
+
+```json
+{
+  "id": 15,
+  "name": "light_gray_label",
+  "description": "Light Gray Label",
+  "image": "http://s7d4.scene7.com/is/image/trinityapparel/light_grey_label?wid=300",
+  "options": [
+    {
+      "id": 84,
+      "name": "customer_label",
+      "description": "Coat Name Label",
+      "garment_type": 1,
+      "garment_types": [
+        "csc"
+      ]
+    }
+  ]
+}
+```
+
+Array of unique labels used in the garment
+
+| Attribute                                          | Description                                                            |
+| -------------------------------------------------- | ---------------------------------------------------------------------- |
+| id <br> <span>integer</span>                       | Unique identifier for the label.                                       |
+| name <br> <span>string</span>                      | Unique string for label                                                |
+| description <br> <span>string</span>               | Description of label used in ordering system.                          |
+| image <br> <span>string</span>                     | Full url to an image of the label.                                     |
+| options <br> <span>subresource</span>              | List of options that the label is used in.                             |
+
+
+### Materials Felts
+
+```json
+# Material Felt object
+{
+  "id": 21,
+  "name": "FLD-0630_light_gray",
+  "description": "6-03 Light Gray",
+  "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-03_Light_Gray?&hei=100",
+  "options": [
+    {
+      "id": 446,
+      "name": "felt_undercollar_color",
+      "description": "Felt Undercollar",
+      "garment_type": 1,
+      "garment_types": [
+        "csc"
+      ]
+    }
+  ]
+}
+```
+
+Array of unique felts used in the garment
+
+| Attribute                                          | Description                                                            |
+| -------------------------------------------------- | ---------------------------------------------------------------------- |
+| id <br> <span>integer</span>                       | Unique identifier for the felt.                                        |
+| name <br> <span>string</span>                      | Supplier Number                                                        |
+| description <br> <span>string</span>               | Description of felt used in ordering system.                           |
+| image <br> <span>string</span>                     | Full url to an image of the felt.                                      |
+| options <br> <span>subresource</span>              | List of options that the felt is used in.                              |
+
+### Materials Suspender Buttons
+
+```json
+{
+  "id": null,
+  "name": "black",
+  "description": "Black Suspender Button",
+  "image": null,
+  "options": [
+    {
+      "id": null,
+      "name": "waistband_color",
+      "description": "waistband_color",
+      "garment_type": 4,
+      "garment_types": [
+        "ct"
+      ]
+    },
+    {
+      "id": null,
+      "name": "fly_extension",
+      "description": "fly_extension",
+      "garment_type": 4,
+      "garment_types": [
+        "ct"
+      ]
+    }
+  ],
+  "quantity": {
+    "small": {
+      "ct": 7
+    },
+    "large": null
+  }
+}
+```
+
+Suspender buttons needed in the garment.
+
+| Attribute                                          | Description                                                            |
+| -------------------------------------------------- | ---------------------------------------------------------------------- |
+| id <br> <span>integer</span>                       | Not set                                                                |
+| name <br> <span>string</span>                      | color of the suspender button                                          |
+| description <br> <span>string</span>               | Nicely worded name for the button                                      |
+| image <br> <span>string</span>                     | Not set                                                                |
+| options <br> <span>subresource</span>              | List of options that the felt is used in.                              |
+| quantity <br> <span>subresource</span>             | THe number of small and large buttons needed.                          |
+
+There are separate quantities for small and large buttons.  Inside each button size, we list the button count needed by garment type (E.g., ct for trousers).
+
+### Materials Pocket Bags
+
+```json
+# Material Pocket Bag object
+{
+  "id": null,
+  "name": "front_pocket_l",
+  "description": "Default Front Left Pocket Bag",
+  "image": null,
+  "options": [
+    {
+      "id": null,
+      "name": "front_pockets",
+      "description": "front_pockets",
+      "garment_type": 4,
+      "garment_types": [
+        "ct"
+      ]
+    }
+  ],
+  "quantity": {
+    "length": 14.57,
+    "width": 7.87
+  }
+}
+```
+
+Array of pocket bags needed in the garment
+
+| Attribute                                          | Description                                                            |
+| -------------------------------------------------- | ---------------------------------------------------------------------- |
+| id <br> <span>integer</span>                       | Not set                                                                |
+| name <br> <span>string</span>                      | Location of the pocket bag                                             |
+| description <br> <span>string</span>               | Verbose description of the pocket bag (based on pocket type)           |
+| image <br> <span>string</span>                     | Not set                                                                |
+| options <br> <span>subresource</span>              | List of options that the felt is used in.                              |
+| quantity <br> <span>subresource</span>             | Length and width of the bag in inches.                                 |
+
+There are currently four locations for pocket bags:
+
+- front_pocket_l
+- front_pocket_r
+- back_pocket_l
+- back_pocket_r
+
+Some garments will not have back pockets, so there will not always be four pocket bags in the array.
 
 
 ## Get All Embroidery
