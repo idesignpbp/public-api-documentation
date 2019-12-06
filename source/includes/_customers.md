@@ -321,15 +321,25 @@ curl "https://api.trinity-apparel.com/v1/customers/dashboard.csv"
 
 ```
 id,name,created_at,company,email,street_1,street_2,city,state,zip,country,phone_cell,phone_work,phone_home,fax,first_order_date,last_order_date,total_orders,total_garments
+
 19016,Rapid Replenishment,,,,,,,,,USA,,,,,2013-12-31 17:49:33 UTC,2016-06-30 08:37:18 UTC,2,36
+
 145015,Ben Abernathy,2019-01-05 19:30:25 UTC,,,,,,,,USA,,,,,2019-01-05 13:38:33 UTC,2019-01-05 13:38:33 UTC,1,1
+
 95861,Jeremy Abernathy,2016-10-05 20:38:37 UTC,,,,,,,,USA,,,,,2016-10-05 21:05:33 UTC,2016-10-05 21:05:33 UTC,1,3
+
 2165,Neal Abernathy,,,,,,,AL,,USA,,,,,2006-09-06 09:15:24 UTC,2019-11-15 09:02:38 UTC,26,63
+
 136184,Bill Acton,2018-07-31 16:44:51 UTC,,,,,,,,USA,,,,,2018-08-01 10:57:25 UTC,2019-03-15 15:23:43 UTC,4,8
+
 68625,Jonathon Adams,2015-06-03 15:28:58 UTC,,,,,,,,USA,,,,,2015-06-03 15:50:17 UTC,2018-09-06 15:20:34 UTC,3,5
+
 32446,Tom Addario,,,,,,,,,USA,,,,,2012-04-03 09:25:36 UTC,2013-05-06 10:01:48 UTC,2,3
+
 68169,Ralph Aldridge,2015-05-26 10:28:30 UTC,,,,,,,,USA,,,,,2015-05-29 15:37:13 UTC,2015-05-29 15:37:13 UTC,1,1
+
 105698,Greg Allen,2017-03-25 14:55:44 UTC,,,,,,,,USA,,,,,2017-03-25 15:01:47 UTC,2017-03-28 10:52:51 UTC,2,2
+
 ```
 
 Returns a CSV file that lists all of your customers with metrics.  Used on the Trinity clients page.
