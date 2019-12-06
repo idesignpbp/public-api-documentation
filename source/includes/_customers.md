@@ -237,6 +237,86 @@ Returns an array of your customers.
 - Permissions: All
 - Pagination: Yes
 
+## Get Customers Dashboard
+
+```shell
+curl "https://api.trinity-apparel.com/v1/customers/dashboard"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+        "id": 121008,
+        "first_order": null,
+        "last_order": null,
+        "name": "Rapid Replenishment",
+        "total_orders": 0,
+        "total_garments": null
+    },
+    {
+        "id": 134420,
+        "first_order": "2019-04-21T23:09:04.000Z",
+        "last_order": "2019-04-21T23:09:04.000Z",
+        "name": "Tony Stark",
+        "total_orders": 1,
+        "total_garments": 2
+    },
+    {
+        "id": 121009,
+        "first_order": "2018-12-09T01:51:41.000Z",
+        "last_order": "2019-07-10T03:32:25.000Z",
+        "name": "Steve Rogers",
+        "total_orders": 3,
+        "total_garments": 4
+    },
+    {
+        "id": 156012,
+        "first_order": null,
+        "last_order": null,
+        "name": "Dr. Bruce Banner",
+        "total_orders": 0,
+        "total_garments": null
+    },
+    {
+        "id": 122123,
+        "first_order": null,
+        "last_order": null,
+        "name": "Peter Parker",
+        "total_orders": 0,
+        "total_garments": null
+    },
+    ...
+]
+```
+
+Returns an array of your customers with metrics.  Used in the Trinity clients page.
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/customers/dashboard`
+
+### Query Parameters
+
+| Parameter  | Default | Description                                                                                                 |
+| ---------- | ------- | ----------------------------------------------------------------------------------------------------------- |
+| first_name | N/A     | If set, will return results with exact matching first_name.                                                 |
+| last_name  | N/A     | If set, will return results with exact matching last_name.                                                  |
+| email      | N/A     | If set, will return results with exact matching email address.                                              |
+| city       | N/A     | If set, will return results with exact matching city.                                                       |
+| state      | N/A     | If set, will return results with exact matching state.                                                      |
+| zip        | N/A     | If set, will return results with exact matching zip code.                                                   |
+| country    | N/A     | If set, will return results with exact matching country.                                                    |
+| extended   | false   | If true, the API call returns extended objects which include a complete set of attributes and subresources. |
+
+### Other
+
+- Permissions: All
+- Filter: Only includes customers for the dealer who owns the API token
+- Pagination: Yes
+
 ## Get a Specific Customer
 
 ```shell
