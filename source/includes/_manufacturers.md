@@ -1359,10 +1359,70 @@ Returns an array of embroidery objects. There can be more than one embroidery pe
 | --------------- | ------- | ----------------------------------------------------------------- |
 | id              | N/A     | The specific garment you want fabrics for                         |
 
+
 ### Other
 
 - Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.
 - Pagination: No
+
+
+
+## Update Fabric
+
+```shell
+curl -X POST "https://api.trinity-apparel.com/v1/fabrics/:id"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns a `202 Accepted` and no JSON output when it is successful.
+
+### Description
+
+This call updates a fabric.  Manufacturers will regularly update fabric attributes when a fabric is received.
+
+### Rules
+
+All non-CMT fabrics can be modified.
+
+Pattern Measurement rules:
+- Solids cannot have pattern width or pattern length.  Must be set to null or ""
+- Stripes must have pattern width
+- Checks (symmetric and asymmetric) must have pattern length and width
+- You must provide pattern measurements when setting the pattern_type
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/fabrics/:id`
+
+### Query Parameters
+
+| Parameter        | Default | Description                                                      |
+| ---------------- | ------- | ---------------------------------------------------------------- |
+| id               | N/A     | id number for the fabric                                         |
+| fabric_weight_grams_meter  N/A     | Weight of a meter of fabric, in grams                    |
+| cuttable_width   | N/A     | Cuttable Width in centimeters (cm)                               |
+| pattern_type     | N/A     | `solid`, `stripe`, `check_symmetric`, or `check_asymmetric`      |
+| pattern_width    | N/A     | Width of the repeated pattern in centimeters (cm)                |
+| pattern_length   | N/A     | Length of the repeated pattern in centimeters (cm)               |
+| grain_repeat     | N/A     | boolean;                                                         |
+| crosswise_repeat | N/A     | boolean;                                                         |
+| one_way_nap      | N/A     | boolean;                                                         |
+| horiz_pattern    | N/A     | boolean; Is the repeat naturally horizontal?                     |
+| non_iron         | N/A     | boolean; True if the fabric cannot be ironed.                    |
+
+### Other
+
+- Permissions: Only manufacturers can access this route.
+- Pagination: N/A
+
+### Responses
+
+| Response Code   | Description                                                       |
+| --------------- | ----------------------------------------------------------------- |
+| 201             | Fabric was successfully changed                     |
+| 403             | Not Authorized - You're not a factory |
+| 409             | Unable to update the fabric. Reason provided in JSON     |
+
 
 
 
