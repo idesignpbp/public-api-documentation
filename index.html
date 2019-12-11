@@ -11053,11 +11053,14 @@ We can also add filters and allow users to toggle localization (metric units, tr
 <h3 id='rules'>Rules</h3>
 <p>All non-CMT fabrics can be modified.</p>
 
-<p>Pattern Measurement rules:
-- Solids cannot have pattern width or pattern length.  Must be set to null or &quot;&quot;
-- Stripes must have pattern width
-- Checks (symmetric and asymmetric) must have pattern length and width
-- You must provide pattern measurements when setting the pattern_type</p>
+<p>Pattern Measurement rules:</p>
+
+<ul>
+<li>Solids cannot have pattern width or pattern length.  Must be set to null or &quot;&quot;</li>
+<li>Stripes must have pattern width</li>
+<li>Checks (symmetric and asymmetric) must have pattern length and width</li>
+<li>You must provide pattern measurements when setting the pattern_type</li>
+</ul>
 <h3 id='http-request-5'>HTTP Request</h3>
 <p><code>GET https://api.trinity-apparel.com/v1/fabrics/:id</code></p>
 <h3 id='query-parameters-5'>Query Parameters</h3>
