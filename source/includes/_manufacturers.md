@@ -1386,6 +1386,7 @@ This call updates a fabric.  Manufacturers will regularly update fabric attribut
 All non-CMT fabrics can be modified.
 
 Pattern Measurement rules:
+
 - Solids cannot have pattern width or pattern length.  Must be set to null or ""
 - Stripes must have pattern width
 - Checks (symmetric and asymmetric) must have pattern length and width
