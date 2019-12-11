@@ -1416,11 +1416,11 @@ If cut lengths are provided for all fabrics, then that garment will automaticall
 
 | Parameter       | Default | Description                                                       |
 | --------------- | ------- | ----------------------------------------------------------------- |
-| id    | N/A     | Garment ID |
-| fabric_id    | N/A     | Fabric ID. Integer not String |
-| length_m    | N/A     | Fabric length in centimeters |
-| length_m    | N/A     | Fabric width in centimeters |
-| is_cut   | false     | Boolean. Denotes if fabric has been cut |
+| id              | N/A     | Garment ID |
+| fabric_id       | N/A     | Fabric ID. Integer not String |
+| length_m        | N/A     | Fabric length in centimeters |
+| width_m         | N/A     | Fabric width in centimeters |
+| is_cut          | false   | Boolean. Denotes if fabric has been cut |
 
 ### Other
 
