@@ -9,6 +9,7 @@ This includes:
 - [Garment Properties](#garment-properties) - Get Measurements, Options and Materials for a specific garment [**Recently Updated!**]
 - [Get All Embroidery](#get-all-embroidery) - Get embroidery from a specific date range or list of garments
 - [Get Specific Embroidery](#get-specific-embroidery) -Get all embroidery on a specific garment
+- [Update Fabric](#update-fabric) - Set cuttable width, pattern type and width, and other fabric attributes.
 - [Create Fabric Cut](#create-fabric-cut) - Enter CAD measurements for a single fabric used to make a garment
 - [Get Fabric Cuts](#get-fabric-cuts) - Get a list of all fabrics ready to be cut by a manufacturer
 - [Update Fabric Cut](#update-fabric-cut) - Mark a specific fabric as cut
