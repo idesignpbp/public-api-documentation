@@ -435,6 +435,9 @@
                     <a href="#get-specific-embroidery" class="toc-h2 toc-link" data-title="Get Specific Embroidery">Get Specific Embroidery</a>
                   </li>
                   <li>
+                    <a href="#update-fabric" class="toc-h2 toc-link" data-title="Update Fabric">Update Fabric</a>
+                  </li>
+                  <li>
                     <a href="#create-fabric-cut" class="toc-h2 toc-link" data-title="Create Fabric Cut">Create Fabric Cut</a>
                   </li>
                   <li>
@@ -9382,6 +9385,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <li><a href="#garment-properties">Garment Properties</a> - Get Measurements, Options and Materials for a specific garment [<strong>Recently Updated!</strong>]</li>
 <li><a href="#get-all-embroidery">Get All Embroidery</a> - Get embroidery from a specific date range or list of garments</li>
 <li><a href="#get-specific-embroidery">Get Specific Embroidery</a> -Get all embroidery on a specific garment</li>
+<li><a href="#update-fabric">Update Fabric</a> - Set cuttable width, pattern type and width, and other fabric attributes.</li>
 <li><a href="#create-fabric-cut">Create Fabric Cut</a> - Enter CAD measurements for a single fabric used to make a garment</li>
 <li><a href="#get-fabric-cuts">Get Fabric Cuts</a> - Get a list of all fabrics ready to be cut by a manufacturer</li>
 <li><a href="#update-fabric-cut">Update Fabric Cut</a> - Mark a specific fabric as cut</li>
@@ -11038,6 +11042,113 @@ We can also add filters and allow users to toggle localization (metric units, tr
 <li>Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.</li>
 <li>Pagination: No</li>
 </ul>
+<h2 id='update-fabric'>Update Fabric</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://api.trinity-apparel.com/v1/fabrics/:id"</span>
+  -H <span class="s2">"Authorization Bearer: swaledale"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns a <code>202 Accepted</code> and no JSON output when it is successful.</p>
+</blockquote>
+<h3 id='description'>Description</h3>
+<p>This call updates a fabric.  Manufacturers will regularly update fabric attributes when a fabric is received.</p>
+<h3 id='rules'>Rules</h3>
+<p>All non-CMT fabrics can be modified.</p>
+
+<p>Pattern Measurement rules:
+- Solids cannot have pattern width or pattern length.  Must be set to null or &quot;&quot;
+- Stripes must have pattern width
+- Checks (symmetric and asymmetric) must have pattern length and width
+- You must provide pattern measurements when setting the pattern_type</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>GET https://api.trinity-apparel.com/v1/fabrics/:id</code></p>
+<h3 id='query-parameters-5'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>N/A</td>
+<td>id number for the fabric</td>
+</tr>
+<tr>
+<td>fabric_weight_grams_meter  N/A</td>
+<td>Weight of a meter of fabric, in grams</td>
+<td></td>
+</tr>
+<tr>
+<td>cuttable_width</td>
+<td>N/A</td>
+<td>Cuttable Width in centimeters (cm)</td>
+</tr>
+<tr>
+<td>pattern_type</td>
+<td>N/A</td>
+<td><code>solid</code>, <code>stripe</code>, <code>check_symmetric</code>, or <code>check_asymmetric</code></td>
+</tr>
+<tr>
+<td>pattern_width</td>
+<td>N/A</td>
+<td>Width of the repeated pattern in centimeters (cm)</td>
+</tr>
+<tr>
+<td>pattern_length</td>
+<td>N/A</td>
+<td>Length of the repeated pattern in centimeters (cm)</td>
+</tr>
+<tr>
+<td>grain_repeat</td>
+<td>N/A</td>
+<td>boolean; Are there lines parallel to the grain that repeat?</td>
+</tr>
+<tr>
+<td>crosswise_repeat</td>
+<td>N/A</td>
+<td>boolean; Are there lines perpindicular to the grain that repeat?</td>
+</tr>
+<tr>
+<td>one_way_nap</td>
+<td>N/A</td>
+<td>boolean; Does the fabric appear different from one side?  Affects corduroys and velvets.  Marker pieces can&#39;t be mirrored on a one way nap</td>
+</tr>
+<tr>
+<td>horiz_pattern</td>
+<td>N/A</td>
+<td>boolean; Is the repeat naturally horizontal?</td>
+</tr>
+<tr>
+<td>non_iron</td>
+<td>N/A</td>
+<td>boolean; True if the fabric cannot be ironed.</td>
+</tr>
+</tbody></table>
+<h3 id='other-5'>Other</h3>
+<ul>
+<li>Permissions: Only manufacturers can access this route.</li>
+<li>Pagination: N/A</li>
+</ul>
+<h3 id='responses'>Responses</h3>
+<table><thead>
+<tr>
+<th>Response Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>201</td>
+<td>Fabric was successfully changed</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Not Authorized - You&#39;re not a factory</td>
+</tr>
+<tr>
+<td>409</td>
+<td>Unable to update the fabric. Reason provided in JSON</td>
+</tr>
+</tbody></table>
 <h2 id='create-fabric-cut'>Create Fabric Cut</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://api.trinity-apparel.com/v1/fabric_cuts"</span>
   -H <span class="s2">"Authorization Bearer: swaledale"</span>
 </code></pre>
@@ -11066,13 +11177,13 @@ We can also add filters and allow users to toggle localization (metric units, tr
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"option"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='description'>Description</h3>
+</span></code></pre><h3 id='description-2'>Description</h3>
 <p>This call tracks the fabric cuts (CAD lengths) of fabrics.  Cut lengths for all shell, lining, and a few specific options for each garment need to be entered into the Trinity system.</p>
-<h3 id='rules'>Rules</h3>
+<h3 id='rules-2'>Rules</h3>
 <p>If cut lengths are provided for all fabrics, then that garment will automatically move to CUTTING status.</p>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-6'>HTTP Request</h3>
 <p><code>POST https://api.trinity-apparel.com/v1/fabric_cuts</code></p>
-<h3 id='query-parameters-5'>Query Parameters</h3>
+<h3 id='query-parameters-6'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -11106,12 +11217,12 @@ We can also add filters and allow users to toggle localization (metric units, tr
 <td>Boolean. Denotes if fabric has been cut</td>
 </tr>
 </tbody></table>
-<h3 id='other-5'>Other</h3>
+<h3 id='other-6'>Other</h3>
 <ul>
 <li>Permissions: Only manufacturers can access this route.  They can only modify garments made at their factory.</li>
 <li>Pagination: N/A</li>
 </ul>
-<h3 id='responses'>Responses</h3>
+<h3 id='responses-2'>Responses</h3>
 <table><thead>
 <tr>
 <th>Response Code</th>
@@ -11240,9 +11351,9 @@ We can also add filters and allow users to toggle localization (metric units, tr
 <p>Returns an array of fabric cuts.</p>
 
 <p><a href="#fabric-cuts">Click here</a> for details on the response objects.</p>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request-7'>HTTP Request</h3>
 <p><code>GET https://api.trinity-apparel.com/v1/fabric_cuts</code></p>
-<h3 id='query-parameters-6'>Query Parameters</h3>
+<h3 id='query-parameters-7'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -11280,7 +11391,7 @@ We can also add filters and allow users to toggle localization (metric units, tr
 <p>A manufacturer_id must be provided.</p>
 
 <p><em>NOTE</em>: If order status is not provided, we filter by these statuses: STATUS_BLUE_PENCIL and STATUS_CUTTING</p>
-<h3 id='other-6'>Other</h3>
+<h3 id='other-7'>Other</h3>
 <ul>
 <li>Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.</li>
 <li>Pagination: Yes, but 1000 at a time</li>
@@ -11303,13 +11414,13 @@ We can also add filters and allow users to toggle localization (metric units, tr
 <blockquote>
 <p>The above command returns a <code>202 Accepted</code> and no JSON output when it is successful.</p>
 </blockquote>
-<h3 id='description-2'>Description</h3>
+<h3 id='description-3'>Description</h3>
 <p>This call updates a fabric cut.  Users can only modify the <code>is_cut</code> boolean and set it to true or false.</p>
-<h3 id='rules-2'>Rules</h3>
+<h3 id='rules-3'>Rules</h3>
 <p>The fabric cut may only be modified while the garment is in a production status: <code>BLUE_PENCIL</code>, <code>CUTTING</code>, <code>READY</code>, or <code>PRODUCTION</code>.</p>
-<h3 id='http-request-7'>HTTP Request</h3>
+<h3 id='http-request-8'>HTTP Request</h3>
 <p><code>GET https://api.trinity-apparel.com/v1/fabric_cuts/:id</code></p>
-<h3 id='query-parameters-7'>Query Parameters</h3>
+<h3 id='query-parameters-8'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -11323,12 +11434,12 @@ We can also add filters and allow users to toggle localization (metric units, tr
 <td>id number for the cut</td>
 </tr>
 </tbody></table>
-<h3 id='other-7'>Other</h3>
+<h3 id='other-8'>Other</h3>
 <ul>
 <li>Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.</li>
 <li>Pagination: N/A</li>
 </ul>
-<h3 id='responses-2'>Responses</h3>
+<h3 id='responses-3'>Responses</h3>
 <table><thead>
 <tr>
 <th>Response Code</th>
@@ -11354,11 +11465,11 @@ We can also add filters and allow users to toggle localization (metric units, tr
 <blockquote>
 <p>The above command returns a <code>201 Created</code> and no JSON output when it is successful.</p>
 </blockquote>
-<h3 id='description-3'>Description</h3>
+<h3 id='description-4'>Description</h3>
 <p>This call updates the order status of a garment and puts an entry in garment history to note when the change was made.</p>
 
 <p>Our customers, partners, and staff can see the order status for each garment. It helps us set expecations for when we can make delivery, so it is important to keep things up to date.</p>
-<h3 id='rules-3'>Rules</h3>
+<h3 id='rules-4'>Rules</h3>
 <p>Trinity enforces strict validation rules so that garments can only move to a few order statuses from any given status.  Here are the valid transitions for each status:</p>
 
 <table><thead>
@@ -11424,9 +11535,9 @@ We can also add filters and allow users to toggle localization (metric units, tr
 <td></td>
 </tr>
 </tbody></table>
-<h3 id='http-request-8'>HTTP Request</h3>
+<h3 id='http-request-9'>HTTP Request</h3>
 <p><code>GET https://api.trinity-apparel.com/v1/garments/:id/order_statuses/:order_status</code></p>
-<h3 id='query-parameters-8'>Query Parameters</h3>
+<h3 id='query-parameters-9'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -11440,12 +11551,12 @@ We can also add filters and allow users to toggle localization (metric units, tr
 <td>Can be an id number or a code. <a href="#order-statuses">Click here</a> for more info</td>
 </tr>
 </tbody></table>
-<h3 id='other-8'>Other</h3>
+<h3 id='other-9'>Other</h3>
 <ul>
 <li>Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.</li>
 <li>Pagination: N/A</li>
 </ul>
-<h3 id='responses-3'>Responses</h3>
+<h3 id='responses-4'>Responses</h3>
 <table><thead>
 <tr>
 <th>Response Code</th>
@@ -11502,17 +11613,17 @@ We can also add filters and allow users to toggle localization (metric units, tr
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='description-4'>Description</h3>
+</span></code></pre><h3 id='description-5'>Description</h3>
 <p>This call creates a shipment then adds every garment id that was provided to the shipment.  A shipment is just like a packing list.</p>
 
 <p>It also creates a tracking box and tracking box items, which our distribution centers use to track and receive garments from a manufacturer.</p>
-<h3 id='rules-4'>Rules</h3>
+<h3 id='rules-5'>Rules</h3>
 <p>All items in a shipment must be going to the same destination.  If any garment is going to another location the whole shipment fails to be created.</p>
 
 <p>Same rules apply to manufacturers.  If any item is from a different manufacturer, the shipment will fail to be created.</p>
-<h3 id='http-request-9'>HTTP Request</h3>
+<h3 id='http-request-10'>HTTP Request</h3>
 <p><code>POST https://api.trinity-apparel.com/v1/shipments</code></p>
-<h3 id='query-parameters-9'>Query Parameters</h3>
+<h3 id='query-parameters-10'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -11531,12 +11642,12 @@ We can also add filters and allow users to toggle localization (metric units, tr
 <td>Optional. The tracking number for the shipping carrier (E.g., FedEx, DHL, etc)</td>
 </tr>
 </tbody></table>
-<h3 id='other-9'>Other</h3>
+<h3 id='other-10'>Other</h3>
 <ul>
 <li>Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.</li>
 <li>Pagination: N/A</li>
 </ul>
-<h3 id='responses-4'>Responses</h3>
+<h3 id='responses-5'>Responses</h3>
 <table><thead>
 <tr>
 <th>Response Code</th>
@@ -11609,11 +11720,11 @@ We can also add filters and allow users to toggle localization (metric units, tr
         </span><span class="err">...</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='description-5'>Description</h3>
+</span></code></pre><h3 id='description-6'>Description</h3>
 <p>Returns detail on a shipment, which includes the tracking number and destination.  It also includes a full list of shipment items.</p>
-<h3 id='http-request-10'>HTTP Request</h3>
+<h3 id='http-request-11'>HTTP Request</h3>
 <p><code>GET https://api.trinity-apparel.com/v1/shipments/:id</code></p>
-<h3 id='query-parameters-10'>Query Parameters</h3>
+<h3 id='query-parameters-11'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -11627,7 +11738,7 @@ We can also add filters and allow users to toggle localization (metric units, tr
 <td>Lookup id for the shipment</td>
 </tr>
 </tbody></table>
-<h3 id='other-10'>Other</h3>
+<h3 id='other-11'>Other</h3>
 <ul>
 <li>Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.</li>
 <li>Pagination: N/A</li>
@@ -11810,9 +11921,9 @@ We can also add filters and allow users to toggle localization (metric units, tr
 <td>Length and width needed by CAD marker</td>
 </tr>
 </tbody></table>
-<h3 id='http-request-11'>HTTP Request</h3>
+<h3 id='http-request-12'>HTTP Request</h3>
 <p><code>GET https://api.trinity-apparel.com/v1/garments/:id/fabrics</code></p>
-<h3 id='query-parameters-11'>Query Parameters</h3>
+<h3 id='query-parameters-12'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -11826,7 +11937,7 @@ We can also add filters and allow users to toggle localization (metric units, tr
 <td>The specific garment you want fabrics for</td>
 </tr>
 </tbody></table>
-<h3 id='other-11'>Other</h3>
+<h3 id='other-12'>Other</h3>
 <ul>
 <li>Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.</li>
 <li>Pagination: No</li>
