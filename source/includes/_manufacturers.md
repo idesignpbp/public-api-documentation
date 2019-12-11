@@ -1400,7 +1400,7 @@ Pattern Measurement rules:
 | Parameter        | Default | Description                                                      |
 | ---------------- | ------- | ---------------------------------------------------------------- |
 | id               | N/A     | id number for the fabric                                         |
-| fabric_weight_grams_meter  N/A     | Weight of a meter of fabric, in grams                    |
+| fabric_weight_grams_meter | N/A     | Weight of a meter of fabric, in grams                   |
 | cuttable_width   | N/A     | Cuttable Width in centimeters (cm)                               |
 | pattern_type     | N/A     | `solid`, `stripe`, `check_symmetric`, or `check_asymmetric`      |
 | pattern_width    | N/A     | Width of the repeated pattern in centimeters (cm)                |
