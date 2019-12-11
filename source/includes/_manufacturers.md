@@ -1405,9 +1405,9 @@ Pattern Measurement rules:
 | pattern_type     | N/A     | `solid`, `stripe`, `check_symmetric`, or `check_asymmetric`      |
 | pattern_width    | N/A     | Width of the repeated pattern in centimeters (cm)                |
 | pattern_length   | N/A     | Length of the repeated pattern in centimeters (cm)               |
-| grain_repeat     | N/A     | boolean;                                                         |
-| crosswise_repeat | N/A     | boolean;                                                         |
-| one_way_nap      | N/A     | boolean;                                                         |
+| grain_repeat     | N/A     | boolean; Are there lines parallel to the grain that repeat?      |
+| crosswise_repeat | N/A     | boolean; Are there lines perpindicular to the grain that repeat? |
+| one_way_nap      | N/A     | boolean; Does the fabric appear different from one side?  Affects corduroys and velvets.  Marker pieces can't be mirrored on a one way nap                                                |
 | horiz_pattern    | N/A     | boolean; Is the repeat naturally horizontal?                     |
 | non_iron         | N/A     | boolean; True if the fabric cannot be ironed.                    |
 
