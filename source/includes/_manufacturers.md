@@ -1771,17 +1771,29 @@ curl -X POST "https://api.trinity-apparel.com/v1/shipments"
 
 ```json
 {
-    "id": 356907,
-    "description": "US Shirts - July 09 #1 from iD Shirts",
+    "id": 371421,
+    "description": "US Shirts - December 13 #8 from iD Shirts",
     "status": "transit",
     "method": "Worldwide Express",
     "carrier": "FedEx",
     "tracking_number": null,
-    "create_date": "2019-07-09T10:18:07.000Z",
+    "create_date": "2019-12-13T07:05:37.000Z",
     "ship_date": null,
     "receive_date": null,
     "login_id": 1578,
-    "address": {
+    "source": {
+        "id": 1943,
+        "description": "Beijing iDesign Garments",
+        "street1": "No. 8, Fuqian Street",
+        "street2": "Beixiaoying County, Shunyi District",
+        "street3": null,
+        "city": null,
+        "state": "Beijing",
+        "zip": "101300",
+        "country": "People's Rep. of China",
+        "phone": "Tel:  +86 (0)10 60400433"
+    },
+    "destination": {
         "id": 1,
         "description": "Trinity USA",
         "street1": "227 Marketridge Dr",
@@ -1798,7 +1810,8 @@ curl -X POST "https://api.trinity-apparel.com/v1/shipments"
             "id": 1855007,
             "item_id": 941358,
             "created_at": "2019-07-09T10:18:07.000Z"
-        }
+        },
+        ...
     ]
 }
 ```
@@ -1861,7 +1874,19 @@ curl -X POST "https://api.trinity-apparel.com/v1/shipments/:id"
     "ship_date": "2019-05-22T02:52:14.000Z",
     "receive_date": "2019-05-29T08:12:59.000Z",
     "login_id": 1026,
-    "address": {
+    "source": {
+        "id": 1943,
+        "description": "Beijing iDesign Garments",
+        "street1": "No. 8, Fuqian Street",
+        "street2": "Beixiaoying County, Shunyi District",
+        "street3": null,
+        "city": null,
+        "state": "Beijing",
+        "zip": "101300",
+        "country": "People's Rep. of China",
+        "phone": "Tel:  +86 (0)10 60400433"
+    },
+    "destination": {
         "id": 1222,
         "description": "Trinity UK Shipping",
         "street1": "8 George St.",
