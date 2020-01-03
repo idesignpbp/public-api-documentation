@@ -11056,9 +11056,8 @@ We can also add filters and allow users to toggle localization (metric units, tr
 <p>Pattern Measurement rules:</p>
 
 <ul>
-<li>Solids cannot have pattern width or pattern length.  Must be set to null or &quot;&quot;</li>
-<li>Stripes must have pattern width</li>
-<li>Checks (symmetric and asymmetric) must have pattern length and width</li>
+<li>Solids cannot have pattern width or pattern offset.  Must be set to null or &quot;&quot;</li>
+<li>Stripes and Checks (symmetric and asymmetric) must have pattern width</li>
 <li>You must provide pattern measurements when setting the pattern_type</li>
 </ul>
 <h3 id='http-request-5'>HTTP Request</h3>
@@ -11097,9 +11096,9 @@ We can also add filters and allow users to toggle localization (metric units, tr
 <td>Width of the repeated pattern in centimeters (cm)</td>
 </tr>
 <tr>
-<td>pattern_length</td>
+<td>pattern_offset</td>
 <td>N/A</td>
-<td>Length of the repeated pattern in centimeters (cm)</td>
+<td>optional. Offset of the repeated pattern in centimeters (cm)</td>
 </tr>
 <tr>
 <td>grain_repeat</td>
@@ -11586,17 +11585,29 @@ We can also add filters and allow users to toggle localization (metric units, tr
 <p>The above command returns a <code>201 Created</code> and returns a JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">356907</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US Shirts - July 09 #1 from iD Shirts"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">371421</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US Shirts - December 13 #8 from iD Shirts"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transit"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Worldwide Express"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"carrier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FedEx"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"tracking_number"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"create_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T10:18:07.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"create_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-13T07:05:37.000Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"ship_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"receive_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"login_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1578</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1943</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beijing iDesign Garments"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"street1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"No. 8, Fuqian Street"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"street2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beixiaoying County, Shunyi District"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"street3"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beijing"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101300"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"People's Rep. of China"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tel:  +86 (0)10 60400433"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"destination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Trinity USA"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"street1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"227 Marketridge Dr"</span><span class="p">,</span><span class="w">
@@ -11613,7 +11624,8 @@ We can also add filters and allow users to toggle localization (metric units, tr
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1855007</span><span class="p">,</span><span class="w">
             </span><span class="s2">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">941358</span><span class="p">,</span><span class="w">
             </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-09T10:18:07.000Z"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="err">...</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='description-5'>Description</h3>
@@ -11687,7 +11699,19 @@ We can also add filters and allow users to toggle localization (metric units, tr
     </span><span class="s2">"ship_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-22T02:52:14.000Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"receive_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-29T08:12:59.000Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"login_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1026</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1943</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beijing iDesign Garments"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"street1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"No. 8, Fuqian Street"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"street2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beixiaoying County, Shunyi District"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"street3"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beijing"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101300"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"People's Rep. of China"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tel:  +86 (0)10 60400433"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"destination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1222</span><span class="p">,</span><span class="w">
         </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Trinity UK Shipping"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"street1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8 George St."</span><span class="p">,</span><span class="w">
