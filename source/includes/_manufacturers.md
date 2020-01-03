@@ -1387,9 +1387,8 @@ All non-CMT fabrics can be modified.
 
 Pattern Measurement rules:
 
-- Solids cannot have pattern width or pattern length.  Must be set to null or ""
-- Stripes must have pattern width
-- Checks (symmetric and asymmetric) must have pattern length and width
+- Solids cannot have pattern width or pattern offset.  Must be set to null or ""
+- Stripes and Checks (symmetric and asymmetric) must have pattern width
 - You must provide pattern measurements when setting the pattern_type
 
 ### HTTP Request
@@ -1405,7 +1404,7 @@ Pattern Measurement rules:
 | cuttable_width   | N/A     | Cuttable Width in centimeters (cm)                               |
 | pattern_type     | N/A     | `solid`, `stripe`, `check_symmetric`, or `check_asymmetric`      |
 | pattern_width    | N/A     | Width of the repeated pattern in centimeters (cm)                |
-| pattern_length   | N/A     | Length of the repeated pattern in centimeters (cm)               |
+| pattern_offset   | N/A     | optional. Offset of the repeated pattern in centimeters (cm)               |
 | grain_repeat     | N/A     | boolean; Are there lines parallel to the grain that repeat?      |
 | crosswise_repeat | N/A     | boolean; Are there lines perpindicular to the grain that repeat? |
 | one_way_nap      | N/A     | boolean; Does the fabric appear different from one side?  Affects corduroys and velvets.  Marker pieces can't be mirrored on a one way nap                                                |
@@ -1421,9 +1420,9 @@ Pattern Measurement rules:
 
 | Response Code   | Description                                                       |
 | --------------- | ----------------------------------------------------------------- |
-| 201             | Fabric was successfully changed                     |
-| 403             | Not Authorized - You're not a factory |
-| 409             | Unable to update the fabric. Reason provided in JSON     |
+| 201             | Fabric was successfully changed                                   |
+| 403             | Not Authorized - You're not a factory                             |
+| 409             | Unable to update the fabric. Reason provided in JSON              |
 
 
 
