@@ -11057,7 +11057,8 @@ We can also add filters and allow users to toggle localization (metric units, tr
 
 <ul>
 <li>Solids cannot have pattern width or pattern offset.  Must be set to null or &quot;&quot;</li>
-<li>Stripes and Checks (symmetric and asymmetric) must have pattern width</li>
+<li>Stripes must have pattern width</li>
+<li>Checks (symmetric and asymmetric) must have pattern width and length</li>
 <li>You must provide pattern measurements when setting the pattern_type</li>
 </ul>
 <h3 id='http-request-5'>HTTP Request</h3>
@@ -11093,12 +11094,22 @@ We can also add filters and allow users to toggle localization (metric units, tr
 <tr>
 <td>pattern_width</td>
 <td>N/A</td>
-<td>Width of the repeated pattern in centimeters (cm)</td>
+<td>Width of the repeated pattern in inches (in)</td>
 </tr>
 <tr>
-<td>pattern_offset</td>
+<td>width_offset</td>
 <td>N/A</td>
-<td>optional. Offset of the repeated pattern in centimeters (cm)</td>
+<td>optional. Widthwize offset of the repeated pattern in inches (in)</td>
+</tr>
+<tr>
+<td>pattern_length</td>
+<td>N/A</td>
+<td>Length of the repeated pattern in inches (in)</td>
+</tr>
+<tr>
+<td>length_offset</td>
+<td>N/A</td>
+<td>optional. Lengthwise Offset of the repeated pattern in inches (in)</td>
 </tr>
 <tr>
 <td>grain_repeat</td>
@@ -11126,6 +11137,10 @@ We can also add filters and allow users to toggle localization (metric units, tr
 <td>boolean; True if the fabric cannot be ironed.</td>
 </tr>
 </tbody></table>
+
+<ul>
+<li>Any measurement field can be reset by making an api call with a blank parameter (eg., <code>&amp;pattern_width=</code>)</li>
+</ul>
 <h3 id='other-5'>Other</h3>
 <ul>
 <li>Permissions: Only manufacturers can access this route.</li>
