@@ -1388,7 +1388,8 @@ All non-CMT fabrics can be modified.
 Pattern Measurement rules:
 
 - Solids cannot have pattern width or pattern offset.  Must be set to null or ""
-- Stripes and Checks (symmetric and asymmetric) must have pattern width
+- Stripes must have pattern width
+- Checks (symmetric and asymmetric) must have pattern width and length
 - You must provide pattern measurements when setting the pattern_type
 
 ### HTTP Request
@@ -1403,13 +1404,17 @@ Pattern Measurement rules:
 | fabric_weight_grams_meter | N/A     | Weight of a meter of fabric, in grams                   |
 | cuttable_width   | N/A     | Cuttable Width in centimeters (cm)                               |
 | pattern_type     | N/A     | `solid`, `stripe`, `check_symmetric`, or `check_asymmetric`      |
-| pattern_width    | N/A     | Width of the repeated pattern in centimeters (cm)                |
-| pattern_offset   | N/A     | optional. Offset of the repeated pattern in centimeters (cm)               |
+| pattern_width    | N/A     | Width of the repeated pattern in inches (in)                     |
+| width_offset     | N/A     | optional. Widthwize offset of the repeated pattern in inches (in) |
+| pattern_length   | N/A     | Length of the repeated pattern in inches (in)                    |
+| length_offset    | N/A     | optional. Lengthwise Offset of the repeated pattern in inches (in) |
 | grain_repeat     | N/A     | boolean; Are there lines parallel to the grain that repeat?      |
 | crosswise_repeat | N/A     | boolean; Are there lines perpindicular to the grain that repeat? |
 | one_way_nap      | N/A     | boolean; Does the fabric appear different from one side?  Affects corduroys and velvets.  Marker pieces can't be mirrored on a one way nap                                                |
 | horiz_pattern    | N/A     | boolean; Is the repeat naturally horizontal?                     |
 | non_iron         | N/A     | boolean; True if the fabric cannot be ironed.                    |
+
+* Any measurement field can be reset by making an api call with a blank parameter (eg., `&pattern_width=`)
 
 ### Other
 
