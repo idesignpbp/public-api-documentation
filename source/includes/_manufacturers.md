@@ -1402,7 +1402,7 @@ Pattern Measurement rules:
 | ---------------- | ------- | ---------------------------------------------------------------- |
 | id               | N/A     | id number for the fabric                                         |
 | fabric_weight_grams_meter | N/A     | Weight of a meter of fabric, in grams                   |
-| cuttable_width   | N/A     | Cuttable Width in centimeters (cm)                               |
+| cuttable_width   | N/A     | Cuttable Width in inches (in)                               |
 | pattern_type     | N/A     | `solid`, `stripe`, `check_symmetric`, or `check_asymmetric`      |
 | pattern_width    | N/A     | Width of the repeated pattern in inches (in)                     |
 | width_offset     | N/A     | optional. Widthwize offset of the repeated pattern in inches (in) |
