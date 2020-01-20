@@ -484,8 +484,6 @@ Returns garments #1001234, #1002345, and #1003456 as long as they are in `Ready`
 
 ## Garment Properties
 
-**NOTE**: ADDED POCKET BAGS ON DEC 6TH
-
 ```shell
 curl "https://api.trinity-apparel.com/v1/garments/:id/properties"
   -H "Authorization Bearer: swaledale"
@@ -653,10 +651,10 @@ curl "https://api.trinity-apparel.com/v1/garments/:id/properties"
   "materials": {
     "fabrics": [
       {
-        "id": 70218,
-        "name": "TT-3970218",
-        "description": "Lt Gray Solid",
-        "image": "https://s7d4.scene7.com/is/image/trinityapparel/TT-3970218",
+        "id": 73096,
+        "name": "K4-3973096",
+        "description": "Black Fancy Solid",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/K4-3973096",
         "options": [
           {
             "id": null,
@@ -669,8 +667,9 @@ curl "https://api.trinity-apparel.com/v1/garments/:id/properties"
             ]
           }
         ],
-        "trinity_number": "TT-3970218",
-        "supplier_number": "GV100-10",
+        "usage": "shell",
+        "trinity_number": "K4-3973096",
+        "supplier_number": "C21125-01",
         "quantity": {
           "cad": {
             "width": null,
@@ -794,7 +793,7 @@ All measurements are flat objects that include the measurement name and value.  
 
 All options include the option and option value.  The option includes the id, name, and english description (there's no translation for the option). The option value includes the id, value, and a localized description (translated for the appropriate garment manufacturer for the order).  We use the translation if available, if not we fallback to English. We also include the garment type (numeric bitmask) and an array of valid garment types (abbreviations). Synthetic options (not entered by the dealer) may also be inserted into the options list.
 
-In addition to options, we also provide a list of all materials needed to make the garment.  Materials include fabrics, buttons, threads, labels, suedes, and felts.  We include information specific to that material type (Trinity fabric number, thread code, etc), id, name, description, and image, which is a web link that you can use to display the material.  Then we include a list of all options that use this material.
+In addition to options, we also provide a list of all materials needed to make the garment.  Materials include fabrics, buttons, threads, labels, suedes, and felts.  We include information specific to that material type (Trinity fabric number, thread code, etc), id, name, description, and image, which is a web link that you can use to display the material. Fabrics have a usage field, which can be shell (main fabric), lining, trim, or other. We also include a list of all options that use this material.
 
 We also include the quantity of each particular button under the `quantity` field.  The quantity includes a number for small and large buttons.  If the quantity is null, then we were unable to calculate the button count for that particular button.
 
