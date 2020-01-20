@@ -246,6 +246,9 @@
                     <a href="#get-all-orders-dos" class="toc-h2 toc-link" data-title="Get All Orders (DOs)">Get All Orders (DOs)</a>
                   </li>
                   <li>
+                    <a href="#order-metrics" class="toc-h2 toc-link" data-title="Order Metrics">Order Metrics</a>
+                  </li>
+                  <li>
                     <a href="#get-a-specific-order" class="toc-h2 toc-link" data-title="Get a Specific Order">Get a Specific Order</a>
                   </li>
                   <li>
@@ -457,6 +460,26 @@
                   </li>
                   <li>
                     <a href="#get-garment-fabrics" class="toc-h2 toc-link" data-title="Get Garment Fabrics">Get Garment Fabrics</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#2020-01-20" class="toc-h2 toc-link" data-title="2020-01-20">2020-01-20</a>
+                  </li>
+                  <li>
+                    <a href="#2020-01-14" class="toc-h2 toc-link" data-title="2020-01-14">2020-01-14</a>
+                  </li>
+                  <li>
+                    <a href="#2020-01-08" class="toc-h2 toc-link" data-title="2020-01-08">2020-01-08</a>
+                  </li>
+                  <li>
+                    <a href="#2020-01-03" class="toc-h2 toc-link" data-title="2020-01-03">2020-01-03</a>
+                  </li>
+                  <li>
+                    <a href="#older-changes" class="toc-h2 toc-link" data-title="Older Changes">Older Changes</a>
                   </li>
               </ul>
           </li>
@@ -2228,6 +2251,37 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <li>Permissions: All</li>
 <li>Pagination: Yes</li>
 </ul>
+<h2 id='order-metrics'>Order Metrics</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/orders/metrics"</span>
+  -H <span class="s2">"Authorization Bearer: swaledale"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"delays"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"incompletes"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Returns the total delays and incompletes for a dealer.</p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>customer_id</td>
+<td>N/A</td>
+<td>If set, the result will only include orders from this customer</td>
+</tr>
+</tbody></table>
+<h3 id='other-2'>Other</h3>
+<ul>
+<li>Permissions: Requires dealer context. All info is filtered using the dealer&#39;s API token</li>
+<li>Pagination: No</li>
+</ul>
 <h2 id='get-a-specific-order'>Get a Specific Order</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/orders/399780"</span>
   -H <span class="s2">"Authorization Bearer: swaledale"</span>
 </code></pre>
@@ -2386,7 +2440,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <p>Returns details on a specific order and a snapshot of the garments within the order.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET https://api.trinity-apparel.com/v1/orders/:id</code></p>
-<h3 id='query-parameters-2'>Query Parameters</h3>
+<h3 id='query-parameters-3'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2400,7 +2454,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <td>The specific order id you want to see</td>
 </tr>
 </tbody></table>
-<h3 id='other-2'>Other</h3>
+<h3 id='other-3'>Other</h3>
 <ul>
 <li>Permissions: All</li>
 <li>Pagination: N/A</li>
@@ -3417,7 +3471,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <p>Returns an array of garments.  Each garment will have pricing information and order status information.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET https://api.trinity-apparel.com/v1/garments</code></p>
-<h3 id='query-parameters-3'>Query Parameters</h3>
+<h3 id='query-parameters-4'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3451,7 +3505,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <td>If set to true, the API call returns extended objects which include a complete set of attributes and subresources.</td>
 </tr>
 </tbody></table>
-<h3 id='other-3'>Other</h3>
+<h3 id='other-4'>Other</h3>
 <ul>
 <li>Permissions: All</li>
 <li>Pagination: Yes</li>
@@ -3528,7 +3582,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <p>Returns details on a specific garment.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET https://api.trinity-apparel.com/v1/garments/:id</code></p>
-<h3 id='query-parameters-4'>Query Parameters</h3>
+<h3 id='query-parameters-5'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3542,7 +3596,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <td>The specific garment id you want to see</td>
 </tr>
 </tbody></table>
-<h3 id='other-4'>Other</h3>
+<h3 id='other-5'>Other</h3>
 <ul>
 <li>Permissions: All</li>
 <li>Pagination: N/A</li>
@@ -3719,7 +3773,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <p>Returns an array of garment options and option values for a specific garment.</p>
 <h3 id='http-request-5'>HTTP Request</h3>
 <p><code>GET https://api.trinity-apparel.com/v1/garments/:id/options</code></p>
-<h3 id='query-parameters-5'>Query Parameters</h3>
+<h3 id='query-parameters-6'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3733,7 +3787,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <td>The specific garment id you want to see the options for.</td>
 </tr>
 </tbody></table>
-<h3 id='other-5'>Other</h3>
+<h3 id='other-6'>Other</h3>
 <ul>
 <li>Permissions: All</li>
 <li>Pagination: N/A</li>
@@ -4042,7 +4096,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <p>Returns an array of garment measurements and measurement values for a specific garment.</p>
 <h3 id='http-request-6'>HTTP Request</h3>
 <p><code>GET https://api.trinity-apparel.com/v1/garments/:id/measurements</code></p>
-<h3 id='query-parameters-6'>Query Parameters</h3>
+<h3 id='query-parameters-7'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -4056,7 +4110,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <td>The specific garment id you want to see the measurements for.</td>
 </tr>
 </tbody></table>
-<h3 id='other-6'>Other</h3>
+<h3 id='other-7'>Other</h3>
 <ul>
 <li>Permissions: All</li>
 <li>Pagination: N/A</li>
@@ -4138,9 +4192,9 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <p>Returns a list of all order statuses</p>
 <h3 id='http-request-7'>HTTP Request</h3>
 <p><code>GET https://api.trinity-apparel.com/v1/order_statuses</code></p>
-<h3 id='query-parameters-7'>Query Parameters</h3>
+<h3 id='query-parameters-8'>Query Parameters</h3>
 <p>None</p>
-<h3 id='other-7'>Other</h3>
+<h3 id='other-8'>Other</h3>
 <ul>
 <li>Permissions: All</li>
 <li>Pagination: N/A</li>
@@ -4164,7 +4218,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <p>Returns details on an order status</p>
 <h3 id='http-request-8'>HTTP Request</h3>
 <p><code>GET https://api.trinity-apparel.com/v1/order_statuses/:code</code></p>
-<h3 id='query-parameters-8'>Query Parameters</h3>
+<h3 id='query-parameters-9'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -4178,7 +4232,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <td>The specific order status code</td>
 </tr>
 </tbody></table>
-<h3 id='other-8'>Other</h3>
+<h3 id='other-9'>Other</h3>
 <ul>
 <li>Permissions: All</li>
 <li>Pagination: N/A</li>
@@ -4251,9 +4305,9 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <p>Returns a list of all delay statuses</p>
 <h3 id='http-request-9'>HTTP Request</h3>
 <p><code>GET https://api.trinity-apparel.com/v1/delay_statuses</code></p>
-<h3 id='query-parameters-9'>Query Parameters</h3>
+<h3 id='query-parameters-10'>Query Parameters</h3>
 <p>None</p>
-<h3 id='other-9'>Other</h3>
+<h3 id='other-10'>Other</h3>
 <ul>
 <li>Permissions: All</li>
 <li>Pagination: N/A</li>
@@ -4272,7 +4326,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <p>Returns details on a delay status. It doesn&#39;t provide that much information, as you can see.</p>
 <h3 id='http-request-10'>HTTP Request</h3>
 <p><code>GET https://api.trinity-apparel.com/v1/delay_statuses/:code</code></p>
-<h3 id='query-parameters-10'>Query Parameters</h3>
+<h3 id='query-parameters-11'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -4286,7 +4340,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <td>The specific delay status code</td>
 </tr>
 </tbody></table>
-<h3 id='other-10'>Other</h3>
+<h3 id='other-11'>Other</h3>
 <ul>
 <li>Permissions: All</li>
 <li>Pagination: N/A</li>
@@ -9792,21 +9846,21 @@ You must replace <code>swaledale</code> with your personal JWT token.
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">845546</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TEST-845546"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">386627</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1108277</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-1108277"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">509309</span><span class="p">,</span><span class="w">
         </span><span class="s2">"copied_garment_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"garment_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CTOPC"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"prefix"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TEST"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-24T20:36:53.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"garment_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CCVP"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"prefix"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1/1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-13T10:01:23.000Z"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"last_status_change_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-24T20:36:53.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_status_change_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-13T10:04:34.000Z"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"last_delay_change_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"gerber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:8080/share/order_insert.php?suit_ids[]=845546&amp;units=uscust&amp;format=gerber&amp;fabtype=both"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"order_insert"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://trinity-apparel.com/share/order_insert.php?format=pdfzip&amp;units=si&amp;suit_ids%5B%5D=845546"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"order_split"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://documents.trinity-apparel.com/order_splits?garment_id=845546&amp;locale=en"</span><span class="w">
+            </span><span class="s2">"gerber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:8080/share/order_insert.php?suit_ids[]=1108277&amp;units=uscust&amp;format=gerber&amp;fabtype=both"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"order_insert"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://trinity-apparel.com/share/order_insert.php?format=pdfzip&amp;units=si&amp;suit_ids%5B%5D=1108277"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"order_split"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://documents.trinity-apparel.com/order_splits?garment_id=1108277&amp;locale=en"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"manufacturer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
@@ -9814,25 +9868,25 @@ You must replace <code>swaledale</code> with your personal JWT token.
             </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"info@trinity-apparel.com"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"fabric"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">41803</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">70215</span><span class="p">,</span><span class="w">
             </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
             </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dark Navy White Plaid"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"641 139 900"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z4-3541803"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z4-3541803"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z4-3541803&amp;res=300"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blue Sharkskin"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100325"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TT-3970215"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/TT-3970215"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=TT-3970215&amp;res=300"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"availability"</span><span class="p">:</span><span class="w"> </span><span class="s2">"single-cut"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"availability"</span><span class="p">:</span><span class="w"> </span><span class="s2">"at once"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"favorite_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="s2">"fabric_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"fabric_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">231</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"fabric_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">711</span><span class="p">,</span><span class="w">
             </span><span class="s2">"trim_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"order_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -9845,15 +9899,27 @@ You must replace <code>swaledale</code> with your personal JWT token.
             </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Not Delayed"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"dealer_order"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">386627</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DO-386627"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"custom_order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"garment_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ship_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ground"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">509309</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DO-509309"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"custom_order_number"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"garment_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ship_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In-Store Pick-Up"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"measurement_units"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uscust"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ordered_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-24T20:36:28.000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ordered_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-13T10:04:34.000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-13T10:00:47.000Z"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"invoiced_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"outgoing_address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Trinity USA"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"street1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"227 Marketridge Dr"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"street2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"street3"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ridgeland"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MS"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"39157"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USA"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"601-713-2628"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -9919,6 +9985,18 @@ You must replace <code>swaledale</code> with your personal JWT token.
             </span><span class="s2">"ordered_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-18T12:28:50.000Z"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"invoiced_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"outgoing_address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Trinity USA"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"street1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"227 Marketridge Dr"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"street2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"street3"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ridgeland"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MS"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"39157"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USA"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"601-713-2628"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="err">...</span><span class="w">
@@ -9963,9 +10041,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <p><code>GET https://api.trinity-apparel.com/v1/download_garments?garment_id[]=1001234&amp;garment_id[]=1002345&amp;garment_id[]=1003456</code></p>
 
 <p>Returns garments #1001234, #1002345, and #1003456 as long as they are in <code>Ready</code> status and have no delays.</p>
-<h2 id='garment-properties'>Garment Properties</h2>
-<p><strong>NOTE</strong>: ADDED POCKET BAGS ON DEC 6TH</p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/garments/:id/properties"</span>
+<h2 id='garment-properties'>Garment Properties</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/garments/:id/properties"</span>
   -H <span class="s2">"Authorization Bearer: swaledale"</span>
 </code></pre>
 <blockquote>
@@ -10130,10 +10206,10 @@ You must replace <code>swaledale</code> with your personal JWT token.
   </span><span class="s2">"materials"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"fabrics"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">70218</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TT-3970218"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lt Gray Solid"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/TT-3970218"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">73096</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"K4-3973096"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Black Fancy Solid"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/K4-3973096"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -10146,8 +10222,9 @@ You must replace <code>swaledale</code> with your personal JWT token.
             </span><span class="p">]</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
-        </span><span class="s2">"trinity_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TT-3970218"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GV100-10"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shell"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"trinity_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"K4-3973096"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"supplier_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C21125-01"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="s2">"cad"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -10268,7 +10345,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 
 <p>All options include the option and option value.  The option includes the id, name, and english description (there&#39;s no translation for the option). The option value includes the id, value, and a localized description (translated for the appropriate garment manufacturer for the order).  We use the translation if available, if not we fallback to English. We also include the garment type (numeric bitmask) and an array of valid garment types (abbreviations). Synthetic options (not entered by the dealer) may also be inserted into the options list.</p>
 
-<p>In addition to options, we also provide a list of all materials needed to make the garment.  Materials include fabrics, buttons, threads, labels, suedes, and felts.  We include information specific to that material type (Trinity fabric number, thread code, etc), id, name, description, and image, which is a web link that you can use to display the material.  Then we include a list of all options that use this material.</p>
+<p>In addition to options, we also provide a list of all materials needed to make the garment.  Materials include fabrics, buttons, threads, labels, suedes, and felts.  We include information specific to that material type (Trinity fabric number, thread code, etc), id, name, description, and image, which is a web link that you can use to display the material. Fabrics have a usage field, which can be shell (main fabric), lining, trim, or other. We also include a list of all options that use this material.</p>
 
 <p>We also include the quantity of each particular button under the <code>quantity</code> field.  The quantity includes a number for small and large buttons.  If the quantity is null, then we were unable to calculate the button count for that particular button.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
@@ -11984,6 +12061,55 @@ We can also add filters and allow users to toggle localization (metric units, tr
 <li>Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.</li>
 <li>Pagination: No</li>
 </ul>
+<h1 id='changelog'>Changelog</h1>
+<p>A history of changes to the Trinity Apparel API.</p>
+<h2 id='2020-01-20'>2020-01-20</h2><pre class="highlight plaintext"><code># Documentation
+
+- Added Changelog
+- Added docs on [Order Metrics](#order-metrics) route
+- Added docs on fabric usage in garment properties and factory shipping address
+</code></pre>
+<ul>
+<li>Fabric usage
+
+<ul>
+<li>Categorize fabrics within a garment by usage (shell, lining, trim, etc)</li>
+<li>its now easier to filter fabric results</li>
+<li><em>Seen in <a href="#garment-properties">Garment Properties</a> route</em></li>
+</ul></li>
+</ul>
+<h2 id='2020-01-14'>2020-01-14</h2>
+<ul>
+<li>Factory shipping address
+
+<ul>
+<li>Show outgoing address that the factory should ship to</li>
+<li>stored under <code>outgoing_address</code> in the JSON response</li>
+<li>no more guessing based on garment prefix</li>
+<li><em>Seen in <a href="#download-garments">Download Garments</a> route</em></li>
+</ul></li>
+</ul>
+<h2 id='2020-01-08'>2020-01-08</h2>
+<ul>
+<li>UPDATE - Fabric pattern measurements
+
+<ul>
+<li>Data model changed to use pattern_type, pattern_length, length_offset, pattern_width, and width_offset fields</li>
+<li>Business rules on when pattern_length and pattern_width are required were modified</li>
+<li><em>Seen in <a href="#update-fabric">Update Fabric</a> route</em></li>
+</ul></li>
+</ul>
+<h2 id='2020-01-03'>2020-01-03</h2>
+<ul>
+<li>Order filtering
+
+<ul>
+<li>Can now filter order metrics by customer_id</li>
+<li><em>Seen in <a href="#order-metrics">Order Metrics</a> route</em></li>
+</ul></li>
+</ul>
+<h2 id='older-changes'>Older Changes</h2>
+<p>Unfortunately, there is no more changelog history at this time.</p>
 
       </div>
       <div class="dark-box">
