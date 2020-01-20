@@ -9,7 +9,7 @@ A history of changes to the Trinity Apparel API.
 
 - Added Changelog
 - Added docs on [Order Metrics](#order-metrics) route
-- Added docs on fabric usage in garment properties, factory shipping address, and fabric pattern measurements
+- Added docs on fabric usage in garment properties and factory shipping address
 ```
 
 - Fabric usage
@@ -21,6 +21,7 @@ A history of changes to the Trinity Apparel API.
 
 - Factory shipping address
   - Show outgoing address that the factory should ship to
+  - stored under `outgoing_address` in the JSON response
   - no more guessing based on garment prefix
   - *Seen in [Download Garments](#download-garments) route*
 
