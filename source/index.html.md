@@ -14,6 +14,7 @@ includes:
   - materials
   - customers
   - manufacturers
+  - changelog
 
 search: true
 ---

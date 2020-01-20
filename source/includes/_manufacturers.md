@@ -288,21 +288,21 @@ curl "https://api.trinity-apparel.com/v1/download_garments"
 ```json
 [
     {
-        "id": 845546,
-        "title": "TEST-845546",
-        "order_id": 386627,
+        "id": 1108277,
+        "title": "ID-1108277",
+        "order_id": 509309,
         "copied_garment_id": null,
-        "garment_type": "CTOPC",
-        "prefix": "TEST",
-        "index": "",
-        "created_at": "2018-04-24T20:36:53.000Z",
+        "garment_type": "CCVP",
+        "prefix": "ID",
+        "index": "1/1",
+        "created_at": "2020-01-13T10:01:23.000Z",
         "updated_at": null,
-        "last_status_change_date": "2018-04-24T20:36:53.000Z",
+        "last_status_change_date": "2020-01-13T10:04:34.000Z",
         "last_delay_change_date": null,
         "links": {
-            "gerber": "http://localhost:8080/share/order_insert.php?suit_ids[]=845546&units=uscust&format=gerber&fabtype=both",
-            "order_insert": "https://trinity-apparel.com/share/order_insert.php?format=pdfzip&units=si&suit_ids%5B%5D=845546",
-            "order_split": "https://documents.trinity-apparel.com/order_splits?garment_id=845546&locale=en"
+            "gerber": "http://localhost:8080/share/order_insert.php?suit_ids[]=1108277&units=uscust&format=gerber&fabtype=both",
+            "order_insert": "https://trinity-apparel.com/share/order_insert.php?format=pdfzip&units=si&suit_ids%5B%5D=1108277",
+            "order_split": "https://documents.trinity-apparel.com/order_splits?garment_id=1108277&locale=en"
         },
         "manufacturer": {
             "id": 5,
@@ -310,25 +310,25 @@ curl "https://api.trinity-apparel.com/v1/download_garments"
             "email": "info@trinity-apparel.com"
         },
         "fabric": {
-            "id": 41803,
+            "id": 70215,
             "active": true,
             "in_stock": 1,
             "restock_date": null,
-            "description": "Dark Navy White Plaid",
-            "supplier_fabric_number": "641 139 900",
-            "trinity_fabric_number": "Z4-3541803",
-            "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z4-3541803",
-            "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z4-3541803&res=300",
+            "description": "Blue Sharkskin",
+            "supplier_fabric_number": "100325",
+            "trinity_fabric_number": "TT-3970215",
+            "url": "https://s7d4.scene7.com/is/image/trinityapparel/TT-3970215",
+            "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=TT-3970215&res=300",
             "inventory_status": "In Stock",
-            "pattern_id": 4,
-            "weave_id": null,
-            "price_tier": 3,
+            "pattern_id": null,
+            "weave_id": 15,
+            "price_tier": null,
             "discount": null,
             "has_image": false,
-            "availability": "single-cut",
+            "availability": "at once",
             "favorite_id": null,
             "fabric_type": null,
-            "fabric_garment_type": 231,
+            "fabric_garment_type": 711,
             "trim_garment_type": 0
         },
         "order_status": {
@@ -341,15 +341,27 @@ curl "https://api.trinity-apparel.com/v1/download_garments"
             "description": "Not Delayed"
         },
         "dealer_order": {
-            "id": 386627,
-            "title": "DO-386627",
-            "custom_order_number": "",
-            "garment_count": 0,
-            "ship_type": "Ground",
+            "id": 509309,
+            "title": "DO-509309",
+            "custom_order_number": null,
+            "garment_count": 1,
+            "ship_type": "In-Store Pick-Up",
             "measurement_units": "uscust",
-            "ordered_at": null,
-            "created_at": "2018-04-24T20:36:28.000Z",
+            "ordered_at": "2020-01-13T10:04:34.000Z",
+            "created_at": "2020-01-13T10:00:47.000Z",
             "invoiced_at": null
+        },
+        "outgoing_address": {
+            "id": 1,
+            "description": "Trinity USA",
+            "street1": "227 Marketridge Dr",
+            "street2": null,
+            "street3": null,
+            "city": "Ridgeland",
+            "state": "MS",
+            "zip": "39157",
+            "country": "USA",
+            "phone": "601-713-2628"
         }
     },
     {
@@ -415,6 +427,18 @@ curl "https://api.trinity-apparel.com/v1/download_garments"
             "ordered_at": null,
             "created_at": "2018-04-18T12:28:50.000Z",
             "invoiced_at": null
+        },
+        "outgoing_address": {
+            "id": 1,
+            "description": "Trinity USA",
+            "street1": "227 Marketridge Dr",
+            "street2": null,
+            "street3": null,
+            "city": "Ridgeland",
+            "state": "MS",
+            "zip": "39157",
+            "country": "USA",
+            "phone": "601-713-2628"
         }
     },
     ...
@@ -459,8 +483,6 @@ Returns garments #1001234, #1002345, and #1003456 as long as they are in `Ready`
 
 
 ## Garment Properties
-
-**NOTE**: ADDED POCKET BAGS ON DEC 6TH
 
 ```shell
 curl "https://api.trinity-apparel.com/v1/garments/:id/properties"
@@ -629,10 +651,10 @@ curl "https://api.trinity-apparel.com/v1/garments/:id/properties"
   "materials": {
     "fabrics": [
       {
-        "id": 70218,
-        "name": "TT-3970218",
-        "description": "Lt Gray Solid",
-        "image": "https://s7d4.scene7.com/is/image/trinityapparel/TT-3970218",
+        "id": 73096,
+        "name": "K4-3973096",
+        "description": "Black Fancy Solid",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/K4-3973096",
         "options": [
           {
             "id": null,
@@ -645,8 +667,9 @@ curl "https://api.trinity-apparel.com/v1/garments/:id/properties"
             ]
           }
         ],
-        "trinity_number": "TT-3970218",
-        "supplier_number": "GV100-10",
+        "usage": "shell",
+        "trinity_number": "K4-3973096",
+        "supplier_number": "C21125-01",
         "quantity": {
           "cad": {
             "width": null,
@@ -770,7 +793,7 @@ All measurements are flat objects that include the measurement name and value.  
 
 All options include the option and option value.  The option includes the id, name, and english description (there's no translation for the option). The option value includes the id, value, and a localized description (translated for the appropriate garment manufacturer for the order).  We use the translation if available, if not we fallback to English. We also include the garment type (numeric bitmask) and an array of valid garment types (abbreviations). Synthetic options (not entered by the dealer) may also be inserted into the options list.
 
-In addition to options, we also provide a list of all materials needed to make the garment.  Materials include fabrics, buttons, threads, labels, suedes, and felts.  We include information specific to that material type (Trinity fabric number, thread code, etc), id, name, description, and image, which is a web link that you can use to display the material.  Then we include a list of all options that use this material.
+In addition to options, we also provide a list of all materials needed to make the garment.  Materials include fabrics, buttons, threads, labels, suedes, and felts.  We include information specific to that material type (Trinity fabric number, thread code, etc), id, name, description, and image, which is a web link that you can use to display the material. Fabrics have a usage field, which can be shell (main fabric), lining, trim, or other. We also include a list of all options that use this material.
 
 We also include the quantity of each particular button under the `quantity` field.  The quantity includes a number for small and large buttons.  If the quantity is null, then we were unable to calculate the button count for that particular button.
 
