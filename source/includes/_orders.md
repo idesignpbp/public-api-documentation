@@ -1188,6 +1188,37 @@ Returns an array of dealer orders (DOs).
 - Permissions: All
 - Pagination: Yes
 
+
+## Order Metrics
+
+```shell
+curl "https://api.trinity-apparel.com/v1/orders/metrics"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "delays": 2,
+    "incompletes": 1
+}
+```
+
+Returns the total delays and incompletes for a dealer.
+
+### Query Parameters
+
+| Parameter   | Default | Description                                                                                                        |
+| ----------- | ------- | ------------------------------------------------------------------------------------------------------------------ |
+| customer_id | N/A     | If set, the result will only include orders from this customer 
+
+### Other
+
+- Permissions: Requires dealer context. All info is filtered using the dealer's API token
+- Pagination: No
+
+
 ## Get a Specific Order
 
 ```shell
