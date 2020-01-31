@@ -27,9 +27,10 @@ under the License.
 <html>
   <head>
     <meta charset="utf-8">
-    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title><%= current_page.data.title || "API Documentation" %></title>
+    <meta name="description" content="Browse our styling options, measurements, and fabrics/materials. View your order history and customer details. Manufacturers can download orders and manage logistics.">
+    <title><%= current_page.data.title || "Trinity API Documentation" %></title>
 
     <style>
       <%= Rouge::Themes::MonokaiSublime.render(:scope => '.highlight') %>
@@ -47,7 +48,7 @@ under the License.
     <a href="#" id="nav-button">
       <span>
         NAV
-        <%= image_tag('navbar.png') %>
+        <%= image_tag('navbar.png', alt: 'Trinity Apparel') %>
       </span>
     </a>
     <div class="toc-wrapper">
