@@ -2,6 +2,11 @@
 
 A history of changes to the Trinity Apparel API.
 
+## 2020-02-27
+
+- Fabric Search
+  - Fabric search has been updated to only return fabrics that are connected to a manufacturer that you are set up with.  E.g., if you are not set up for MTO, you cannot see MTO fabrics.
+
 ## 2020-01-20
 
 ```
