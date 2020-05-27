@@ -94,25 +94,25 @@ The resources provided by the manufacturers API are almost identical to the orde
 
 Standard Attributes
 
-| Attribute                                   | Description                                                                                                      |
-| ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| id <br> <span>integer</span>                | Unique identifier for the object                                                                                 |
-| title <br> <span>string</span>              | Our SKU field which includes the garment id number and information about where the factory will send the garment |
-| order_id <br> <span>integer</span>          | Each garment must be a part of a specific order                                                                  |
-| copied_garment_id <br> <span>integer</span> | Garment id if this was copied from a previous order                                                              |
-| garment_type <br> <span>string</span>       | Type of garment. [Click here](#garment-types) for more info                                                      |
-| prefix <br> <span>string</span>             | First part of the title. This indicates where the order was made or where the factory will send the garment      |
-| index <br> <span>string</span>              | Sequence number (1/7, 2/7, 3/7 ...) for each garment in an order. Each item has a different index                |
-| created_at <br> <span>datetime</span>       | When the garment was first created (but not ordered)                                                             |
-| updated_at <br> <span>datetime</span>       | When the garment was last modified                                                                               |
-| last_status_change_date <br> <span>datetime</span>     | When did the order status last change to a new state                                                  |
-| last_delay_change_date  <br> <span>datetime</span>     | When did the delay status last change to a new state                                                  |
-| links <br> <span>subresource</span>         | Urls that allow the manufacturer to generate Gerber ASCII files, an Order Insert PDF, and an Order Split         | 
-| manufacturer <br> <span>subresource</span>  | Factory that made the order. [Click here](#manfacturers) for more info                                           |
-| fabric <br> <span>subresource</span>        | Shell fabric used in the order. [Click here](#fabrics) for more info                                             |
-| order_status <br> <span>subresource</span>  | Current status of the order. [Click here](#order-statuses) for more info                                         |
-| delay_status <br> <span>subresource</span>  | If garment is delayed, this will return why. [Click here](#delay-statuses) for more info                         |
-| dealer_order <br> <span>subresource</span>  | The full order placed by a single customer. Includes this garment and can include more garments.                 |
+| Attribute                                          | Description                                                                                                      |
+| -------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| id <br> <span>integer</span>                       | Unique identifier for the object                                                                                 |
+| title <br> <span>string</span>                     | Our SKU field which includes the garment id number and information about where the factory will send the garment |
+| order_id <br> <span>integer</span>                 | Each garment must be a part of a specific order                                                                  |
+| copied_garment_id <br> <span>integer</span>        | Garment id if this was copied from a previous order                                                              |
+| garment_type <br> <span>string</span>              | Type of garment. [Click here](#garment-types) for more info                                                      |
+| prefix <br> <span>string</span>                    | First part of the title. This indicates where the order was made or where the factory will send the garment      |
+| index <br> <span>string</span>                     | Sequence number (1/7, 2/7, 3/7 ...) for each garment in an order. Each item has a different index                |
+| created_at <br> <span>datetime</span>              | When the garment was first created (but not ordered)                                                             |
+| updated_at <br> <span>datetime</span>              | When the garment was last modified                                                                               |
+| last_status_change_date <br> <span>datetime</span> | When did the order status last change to a new state                                                             |
+| last_delay_change_date  <br> <span>datetime</span> | When did the delay status last change to a new state                                                             |
+| links <br> <span>subresource</span>                | Urls that allow the manufacturer to generate Gerber ASCII files, an Order Insert PDF, and an Order Split         |
+| manufacturer <br> <span>subresource</span>         | Factory that made the order. [Click here](#manfacturers) for more info                                           |
+| fabric <br> <span>subresource</span>               | Shell fabric used in the order. [Click here](#fabrics) for more info                                             |
+| order_status <br> <span>subresource</span>         | Current status of the order. [Click here](#order-statuses) for more info                                         |
+| delay_status <br> <span>subresource</span>         | If garment is delayed, this will return why. [Click here](#delay-statuses) for more info                         |
+| dealer_order <br> <span>subresource</span>         | The full order placed by a single customer. Includes this garment and can include more garments.                 |
 
 
 ### Dealer Order
@@ -134,17 +134,17 @@ Standard Attributes
 
 Standard Attributes
 
-| Attribute                                    | Description                                                                                                                                                                                                           |
-| -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| id <br> <span>string</span>                  | Unique identifier for the object                                                                                                                                                                                      |
-| title <br> <span>string</span>               | Our SKU field for orders                                                                                                                                                                                              |
-| custom_order_number <br> <span>string</span> | Dealers can set this field to whatever they want.  It is typically the dealer's SKU or a summary of the order                                                                                                         |
-| garment_count <br> <span>integer</span>      | How many garments are in the order. multi-piece garments (e.g., Suit) are counted as 1.                                                                                                                               |
-| ship_type <br> <span>string</span>           | How is the garment shipped to the final destination                                                                                                                                                                   |
-| measurement_units <br> <span>string</span>   | Units can be `uscust` for US customary units (in) or `si` for metric units (cm)                                                                                                                                       |                                                                                          |
-| ordered_at <br> <span>datetime</span>        | Time that the dealer completed the checkout process and officially placed the order                                                                                                                                   |
-| created_at <br> <span>datetime</span>        | Time when the dealer first began adding garments to the order                                                                                                                                                         |
-| invoiced_at <br> <span>datetime</span>       | Time of the first invoice                                                                                                                                                                                             |
+| Attribute                                    | Description                                                                                                   |
+| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| id <br> <span>string</span>                  | Unique identifier for the object                                                                              |
+| title <br> <span>string</span>               | Our SKU field for orders                                                                                      |
+| custom_order_number <br> <span>string</span> | Dealers can set this field to whatever they want.  It is typically the dealer's SKU or a summary of the order |
+| garment_count <br> <span>integer</span>      | How many garments are in the order. multi-piece garments (e.g., Suit) are counted as 1.                       |
+| ship_type <br> <span>string</span>           | How is the garment shipped to the final destination                                                           |
+| measurement_units <br> <span>string</span>   | Units can be `uscust` for US customary units (in) or `si` for metric units (cm)                               |  |
+| ordered_at <br> <span>datetime</span>        | Time that the dealer completed the checkout process and officially placed the order                           |
+| created_at <br> <span>datetime</span>        | Time when the dealer first began adding garments to the order                                                 |
+| invoiced_at <br> <span>datetime</span>       | Time of the first invoice                                                                                     |
 
 
 ### Embroidery
@@ -174,15 +174,15 @@ Standard Attributes
 }
 ```
 
-| Attribute                                          | Description                                                            |
-| -------------------------------------------------- | ---------------------------------------------------------------------- |
-| garment <br> <span>subresource</span>              | Limited info on the garment                                            |
-| fabric <br> <span>subresource</span>               | Limited info on the fabric                                             |
-| text <br> <span>string</span>                      | Text for the embroidery                                                |
-| font <br> <span>string</span>                      | Embroidery font or Monogram selected                                   |
-| color <br> <span>string</span>                     | Thread color                                                           |
-| position <br> <span>string</span>                  | Location for the embroidery; Only required for some embroidery options |
-| size <br> <span>string</span>                      | Width of the embroidery                                                |
+| Attribute                             | Description                                                            |
+| ------------------------------------- | ---------------------------------------------------------------------- |
+| garment <br> <span>subresource</span> | Limited info on the garment                                            |
+| fabric <br> <span>subresource</span>  | Limited info on the fabric                                             |
+| text <br> <span>string</span>         | Text for the embroidery                                                |
+| font <br> <span>string</span>         | Embroidery font or Monogram selected                                   |
+| color <br> <span>string</span>        | Thread color                                                           |
+| position <br> <span>string</span>     | Location for the embroidery; Only required for some embroidery options |
+| size <br> <span>string</span>         | Width of the embroidery                                                |
 
 
 ### Embroidery Garment
@@ -199,12 +199,12 @@ Standard Attributes
 
 Standard Attributes
 
-| Attribute                                   | Description                                                                                                      |
-| ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| id <br> <span>integer</span>                | Unique identifier for the garment                                                                                |
-| manufacturer_id <br> <span>integer</span>   | The factory who made the garment                                                                                 |
-| garment_type <br> <span>integer</span>      | Garment bitmask. [Click here](#garment-types) for more info                                                      |
-| created_at <br> <span>datetime</span>       | When the garment was first created (but not ordered)                                                             |
+| Attribute                                 | Description                                                 |
+| ----------------------------------------- | ----------------------------------------------------------- |
+| id <br> <span>integer</span>              | Unique identifier for the garment                           |
+| manufacturer_id <br> <span>integer</span> | The factory who made the garment                            |
+| garment_type <br> <span>integer</span>    | Garment bitmask. [Click here](#garment-types) for more info |
+| created_at <br> <span>datetime</span>     | When the garment was first created (but not ordered)        |
 
 ### Embroidery Option
 
@@ -222,13 +222,13 @@ Standard Attributes
 
 Standard Attributes
 
-| Attribute                                   | Description                                                                                                      |
-| ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| id <br> <span>integer</span>                | Unique identifier for the option                                                                                 |
-| name <br> <span>string</span>               | Option name. Typically refers to the location of the embroidery                                                  |
-| garment_type <br> <span>integer</span>      | Garment bitmask. [Click here](#garment-types) for more info                                                      |
-| garment_types <br> <span>array</span>       | List of human readable garment types                                                                             |
-| created_at <br> <span>datetime</span>       | When the garment was first created (but not ordered)                                                             |
+| Attribute                              | Description                                                     |
+| -------------------------------------- | --------------------------------------------------------------- |
+| id <br> <span>integer</span>           | Unique identifier for the option                                |
+| name <br> <span>string</span>          | Option name. Typically refers to the location of the embroidery |
+| garment_type <br> <span>integer</span> | Garment bitmask. [Click here](#garment-types) for more info     |
+| garment_types <br> <span>array</span>  | List of human readable garment types                            |
+| created_at <br> <span>datetime</span>  | When the garment was first created (but not ordered)            |
 
 
 ### Fabric Cut
@@ -263,17 +263,17 @@ Standard Attributes
 }
 ```
 
-| Attribute                                          | Description                                                            |
-| -------------------------------------------------- | ---------------------------------------------------------------------- |
-| garment <br> <span>subresource</span>              | Each garment record contains the id, title, date the garment was first entered into the system, and a garment type code |
-| fabric <br> <span>subresource</span>               | Limited info on the fabric (id, description trinity number, a url for a repeatable swatch image, and a boolean to show if the image is available) |
-| fabric <br> <span>subresource</span>               | Limited info on the option (id, name, and description). Can be null                |
-| id <br> <span>integer</span>                       | Unique identifier for the fabric cut                                                |
-| is_cut <br> <span>boolean</span>                   | Has the cut been made?                                   |
-| length <br> <span>float</span>                     | Length in centimeters (5 cm added to input, so the factory has overage)                                 |
-| actual_length <br> <span>float</span>              | Actual length in centimeters |
-| width <br> <span>float</span>                      | Width in centimeters                                                |
-| created_at <br> <span>datetime</span>              | When was the cut record added                                                |
+| Attribute                             | Description                                                                                                                                       |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| garment <br> <span>subresource</span> | Each garment record contains the id, title, date the garment was first entered into the system, and a garment type code                           |
+| fabric <br> <span>subresource</span>  | Limited info on the fabric (id, description trinity number, a url for a repeatable swatch image, and a boolean to show if the image is available) |
+| fabric <br> <span>subresource</span>  | Limited info on the option (id, name, and description). Can be null                                                                               |
+| id <br> <span>integer</span>          | Unique identifier for the fabric cut                                                                                                              |
+| is_cut <br> <span>boolean</span>      | Has the cut been made?                                                                                                                            |
+| length <br> <span>float</span>        | Length in centimeters (5 cm added to input, so the factory has overage)                                                                           |
+| actual_length <br> <span>float</span> | Actual length in centimeters                                                                                                                      |
+| width <br> <span>float</span>         | Width in centimeters                                                                                                                              |
+| created_at <br> <span>datetime</span> | When was the cut record added                                                                                                                     |
 
 
 ## Download Garments
@@ -457,10 +457,10 @@ We expect the manufacturer to get a list of garments, then get garment details, 
 
 ### Query Parameters
 
-| Parameter       | Default | Description                                                       |
-| --------------- | ------- | ----------------------------------------------------------------- |
+| Parameter       | Default | Description                                                                                                |
+| --------------- | ------- | ---------------------------------------------------------------------------------------------------------- |
 | garment_id      | N/A     | Filter the list to a specific garment_id or list of garment_ids (using `garment_id[]=` array style syntax) |
-| manufacturer_id | N/A     | If set, returns only garments from a specific manufacturer id     |
+| manufacturer_id | N/A     | If set, returns only garments from a specific manufacturer id                                              |
 
 ### Other
 
@@ -693,10 +693,10 @@ curl "https://api.trinity-apparel.com/v1/garments/:id/properties"
       ...
     "buttons": [
       {
-        "id": 34,
-        "name": "KNJ011_Dark_Brown",
-        "description": "1-30 Dark Brown Horn",
-        "image": "http://s7d4.scene7.com/is/image/trinityapparel/1-30_Dark_Brown_Horn?wid=100",
+        "id": 2,
+        "name": "KYKW024_Cinnamon",
+        "description": "2-11 Cinnamon Marbled Premium",
+        "image": "http://s7d4.scene7.com/is/image/trinityapparel/2-11_Cinnamon_Marbled_Premium?wid=100",
         "options": [
           {
             "id": 21,
@@ -707,11 +707,61 @@ curl "https://api.trinity-apparel.com/v1/garments/:id/properties"
               "csc"
             ]
           },
-          ...
+          {
+            "id": 244,
+            "name": "button_color",
+            "description": "Button Color/Type",
+            "garment_type": 4,
+            "garment_types": [
+              "ct"
+            ]
+          },
+          {
+            "id": 290,
+            "name": "button_color",
+            "description": "Button Color/Type",
+            "garment_type": 2,
+            "garment_types": [
+              "cv"
+            ]
+          },
+          {
+            "id": 507,
+            "name": "materials_button_color",
+            "description": "Button Color",
+            "garment_type": 1,
+            "garment_types": [
+              "csc"
+            ]
+          },
+          {
+            "id": 512,
+            "name": "materials_button_color",
+            "description": "Button Color/Type",
+            "garment_type": 2,
+            "garment_types": [
+              "cv"
+            ]
+          },
+          {
+            "id": 516,
+            "name": "materials_button_color",
+            "description": "Button Color/Type",
+            "garment_type": 4,
+            "garment_types": [
+              "ct"
+            ]
+          }
         ],
         "quantity": {
-          "small": 10,
-          "large": 3
+          "32L": {
+            "csc": 3
+          },
+          "24L": {
+            "csc": 16,
+            "cv": 8,
+            "ct": 3
+          }
         }
       }
     ],
@@ -756,7 +806,6 @@ curl "https://api.trinity-apparel.com/v1/garments/:id/properties"
       },
       ...
     ],
-    "suspender_buttons": [],
     "pocket_bags": [
       {
         "id": null,
@@ -803,9 +852,9 @@ We also include the quantity of each particular button under the `quantity` fiel
 
 ### Query Parameters
 
-| Parameter       | Default | Description                                                       |
-| --------------- | ------- | ----------------------------------------------------------------- |
-| id              | N/A     | The specific garment you want information on                      |
+| Parameter | Default | Description                                  |
+| --------- | ------- | -------------------------------------------- |
+| id        | N/A     | The specific garment you want information on |
 
 ### Other
 
@@ -821,7 +870,7 @@ We can also add filters and allow users to toggle localization (metric units, tr
 
 ## Garment Properties - Materials
 
-Garment properties includes custom objects in the `materials` hash.  The materials object includes: fabrics, buttons, threads, suedes, felts, labels, suspender buttons, and pocket bags.
+Garment properties includes custom objects in the `materials` hash.  The materials object includes: fabrics, buttons, threads, suedes, felts, labels, and pocket bags.
 
 ### Materials Fabrics
 
@@ -868,16 +917,16 @@ Garment properties includes custom objects in the `materials` hash.  The materia
 
 Array of unique fabrics used in the garment.
 
-| Attribute                                          | Description                                                            |
-| -------------------------------------------------- | ---------------------------------------------------------------------- |
-| id <br> <span>integer</span>                       | Unique identifier for the fabric.                                      |
-| name <br> <span>string</span>                      | Trinity Fabric Number                                                  |
-| description <br> <span>string</span>               | Text describing the colors and pattern of the fabric                   |
-| image <br> <span>string</span>                     | Full url to an image of the fabric.                                    |
-| supplier_fabric_number <br> <span>string</span>    | A unique identifier / SKU according to the fabric supplier             |
-| trinity_fabric_number <br> <span>string</span>     | A unique identifier / SKU according to Trinity                         |
-| options <br> <span>subresource</span>              | List of options that the fabric is used in (shell is an option)        |
-| quantity <br> <span>subresource</span>             | An array of measurements for the fabric                                |
+| Attribute                                       | Description                                                     |
+| ----------------------------------------------- | --------------------------------------------------------------- |
+| id <br> <span>integer</span>                    | Unique identifier for the fabric.                               |
+| name <br> <span>string</span>                   | Trinity Fabric Number                                           |
+| description <br> <span>string</span>            | Text describing the colors and pattern of the fabric            |
+| image <br> <span>string</span>                  | Full url to an image of the fabric.                             |
+| supplier_fabric_number <br> <span>string</span> | A unique identifier / SKU according to the fabric supplier      |
+| trinity_fabric_number <br> <span>string</span>  | A unique identifier / SKU according to Trinity                  |
+| options <br> <span>subresource</span>           | List of options that the fabric is used in (shell is an option) |
+| quantity <br> <span>subresource</span>          | An array of measurements for the fabric                         |
 
 #### Quantity Subresource
 
@@ -885,31 +934,31 @@ CAD
 
 Length and width determined by processing the order in Gerber
 
-| Attribute                                          | Description                                                            |
-| -------------------------------------------------- | ---------------------------------------------------------------------- |
-| length <br> <span>float</span>                     | Length in centimeters                                                  |
-| width <br> <span>float</span>                      | Width in centimeters                                                   |
-| is_cut <br> <span>boolean</span>                   | Has the fabric been cut?                                               |
+| Attribute                        | Description              |
+| -------------------------------- | ------------------------ |
+| length <br> <span>float</span>   | Length in centimeters    |
+| width <br> <span>float</span>    | Width in centimeters     |
+| is_cut <br> <span>boolean</span> | Has the fabric been cut? |
 
 Received
 
 Length and width are measured when a single length of fabric is received.  Does not apply to fabrics that are in factory inventory.
 
-| Attribute                                          | Description                                                            |
-| -------------------------------------------------- | ---------------------------------------------------------------------- |
-| length <br> <span>float</span>                     | Length in centimeters                                                  |
-| width <br> <span>float</span>                      | Width in centimeters                                                   |
-| notes <br> <span>string</span>                     | (optional) Notes about fabric that was received                        |
+| Attribute                      | Description                                     |
+| ------------------------------ | ----------------------------------------------- |
+| length <br> <span>float</span> | Length in centimeters                           |
+| width <br> <span>float</span>  | Width in centimeters                            |
+| notes <br> <span>string</span> | (optional) Notes about fabric that was received |
 
 Repeated Pattern
 
 Length and width of the pattern (stripe, plaid, etc) when a fabric is received.  Does not apply to fabrics that are in factory inventory.  Does not apply to solids.
 
-| Attribute                                          | Description                                                            |
-| -------------------------------------------------- | ---------------------------------------------------------------------- |
-| length <br> <span>float</span>                     | Length in centimeters                                                  |
-| width <br> <span>float</span>                      | Width in centimeters                                                   |
-| type <br> <span>string</span>                      | Types are: Solid/Paisley, Stripes, 'Check 1 - Symmetric' and 'Check 2 - Asymmetric' |
+| Attribute                      | Description                                                                         |
+| ------------------------------ | ----------------------------------------------------------------------------------- |
+| length <br> <span>float</span> | Length in centimeters                                                               |
+| width <br> <span>float</span>  | Width in centimeters                                                                |
+| type <br> <span>string</span>  | Types are: Solid/Paisley, Stripes, 'Check 1 - Symmetric' and 'Check 2 - Asymmetric' |
 
 
 ### Materials Buttons
@@ -934,11 +983,11 @@ Length and width of the pattern (stripe, plaid, etc) when a fabric is received. 
     ...
   ],
   "quantity": {
-    "small": {
+    "24L": {
       "csc": 9,
       "ct": 0
     },
-    "large": {
+    "32L": {
       "csc": 3,
       "ct": 0
     }
@@ -948,16 +997,16 @@ Length and width of the pattern (stripe, plaid, etc) when a fabric is received. 
 
 Array of unique buttons used in the garment
 
-| Attribute                                          | Description                                                            |
-| -------------------------------------------------- | ---------------------------------------------------------------------- |
-| id <br> <span>integer</span>                       | Unique identifier for the button.                                      |
-| name <br> <span>string</span>                      | Supplier Number                                                        |
-| description <br> <span>string</span>               | Description of button used in ordering system.                         |
-| image <br> <span>string</span>                     | Full url to an image of the button.                                    |
-| options <br> <span>subresource</span>              | List of options that the button is used in.                            |
-| quantity <br> <span>subresource</span>             | An array of button counts for the garment                              |
+| Attribute                              | Description                                    |
+| -------------------------------------- | ---------------------------------------------- |
+| id <br> <span>integer</span>           | Unique identifier for the button.              |
+| name <br> <span>string</span>          | Supplier Number                                |
+| description <br> <span>string</span>   | Description of button used in ordering system. |
+| image <br> <span>string</span>         | Full url to an image of the button.            |
+| options <br> <span>subresource</span>  | List of options that the button is used in.    |
+| quantity <br> <span>subresource</span> | An array of button counts for the garment      |
 
-There are separate quantities for small and large buttons.  Inside each button size, we list the button count needed by garment type (E.g., csc for jacket).
+We separate each button size by using the Ligne scale.  Inside each button size, we list the button count needed by garment type (E.g., csc for jacket).
 
 ### Materials Threads
 
@@ -984,13 +1033,13 @@ There are separate quantities for small and large buttons.  Inside each button s
 
 Array of unique threads used in the garment
 
-| Attribute                                          | Description                                                            |
-| -------------------------------------------------- | ---------------------------------------------------------------------- |
-| id <br> <span>integer</span>                       | Unique identifier for the thread.                                      |
-| name <br> <span>string</span>                      | Supplier Number                                                        |
-| description <br> <span>string</span>               | Description of thread used in ordering system.                         |
-| image <br> <span>string</span>                     | Full url to an image of the thread.                                    |
-| options <br> <span>subresource</span>              | List of options that the thread is used in.                            |
+| Attribute                             | Description                                    |
+| ------------------------------------- | ---------------------------------------------- |
+| id <br> <span>integer</span>          | Unique identifier for the thread.              |
+| name <br> <span>string</span>         | Supplier Number                                |
+| description <br> <span>string</span>  | Description of thread used in ordering system. |
+| image <br> <span>string</span>        | Full url to an image of the thread.            |
+| options <br> <span>subresource</span> | List of options that the thread is used in.    |
 
 ### Materials Suedes
 
@@ -1016,13 +1065,13 @@ Array of unique threads used in the garment
 
 Array of unique suedes used in the garment
 
-| Attribute                                          | Description                                                            |
-| -------------------------------------------------- | ---------------------------------------------------------------------- |
-| id <br> <span>integer</span>                       | Unique identifier for the suede.                                       |
-| name <br> <span>string</span>                      | Supplier Number                                                        |
-| description <br> <span>string</span>               | Description of suede used in ordering system.                          |
-| image <br> <span>string</span>                     | Full url to an image of the suede.                                     |
-| options <br> <span>subresource</span>              | List of options that the suede is used in.                             |
+| Attribute                             | Description                                   |
+| ------------------------------------- | --------------------------------------------- |
+| id <br> <span>integer</span>          | Unique identifier for the suede.              |
+| name <br> <span>string</span>         | Supplier Number                               |
+| description <br> <span>string</span>  | Description of suede used in ordering system. |
+| image <br> <span>string</span>        | Full url to an image of the suede.            |
+| options <br> <span>subresource</span> | List of options that the suede is used in.    |
 
 ### Materials Labels
 
@@ -1048,13 +1097,13 @@ Array of unique suedes used in the garment
 
 Array of unique labels used in the garment
 
-| Attribute                                          | Description                                                            |
-| -------------------------------------------------- | ---------------------------------------------------------------------- |
-| id <br> <span>integer</span>                       | Unique identifier for the label.                                       |
-| name <br> <span>string</span>                      | Unique string for label                                                |
-| description <br> <span>string</span>               | Description of label used in ordering system.                          |
-| image <br> <span>string</span>                     | Full url to an image of the label.                                     |
-| options <br> <span>subresource</span>              | List of options that the label is used in.                             |
+| Attribute                             | Description                                   |
+| ------------------------------------- | --------------------------------------------- |
+| id <br> <span>integer</span>          | Unique identifier for the label.              |
+| name <br> <span>string</span>         | Unique string for label                       |
+| description <br> <span>string</span>  | Description of label used in ordering system. |
+| image <br> <span>string</span>        | Full url to an image of the label.            |
+| options <br> <span>subresource</span> | List of options that the label is used in.    |
 
 
 ### Materials Felts
@@ -1082,63 +1131,13 @@ Array of unique labels used in the garment
 
 Array of unique felts used in the garment
 
-| Attribute                                          | Description                                                            |
-| -------------------------------------------------- | ---------------------------------------------------------------------- |
-| id <br> <span>integer</span>                       | Unique identifier for the felt.                                        |
-| name <br> <span>string</span>                      | Supplier Number                                                        |
-| description <br> <span>string</span>               | Description of felt used in ordering system.                           |
-| image <br> <span>string</span>                     | Full url to an image of the felt.                                      |
-| options <br> <span>subresource</span>              | List of options that the felt is used in.                              |
-
-### Materials Suspender Buttons
-
-```json
-{
-  "id": null,
-  "name": "black",
-  "description": "Black Suspender Button",
-  "image": null,
-  "options": [
-    {
-      "id": null,
-      "name": "waistband_color",
-      "description": "waistband_color",
-      "garment_type": 4,
-      "garment_types": [
-        "ct"
-      ]
-    },
-    {
-      "id": null,
-      "name": "fly_extension",
-      "description": "fly_extension",
-      "garment_type": 4,
-      "garment_types": [
-        "ct"
-      ]
-    }
-  ],
-  "quantity": {
-    "small": {
-      "ct": 7
-    },
-    "large": null
-  }
-}
-```
-
-Suspender buttons needed in the garment.
-
-| Attribute                                          | Description                                                            |
-| -------------------------------------------------- | ---------------------------------------------------------------------- |
-| id <br> <span>integer</span>                       | Not set                                                                |
-| name <br> <span>string</span>                      | color of the suspender button                                          |
-| description <br> <span>string</span>               | Nicely worded name for the button                                      |
-| image <br> <span>string</span>                     | Not set                                                                |
-| options <br> <span>subresource</span>              | List of options that the felt is used in.                              |
-| quantity <br> <span>subresource</span>             | THe number of small and large buttons needed.                          |
-
-There are separate quantities for small and large buttons.  Inside each button size, we list the button count needed by garment type (E.g., ct for trousers).
+| Attribute                             | Description                                  |
+| ------------------------------------- | -------------------------------------------- |
+| id <br> <span>integer</span>          | Unique identifier for the felt.              |
+| name <br> <span>string</span>         | Supplier Number                              |
+| description <br> <span>string</span>  | Description of felt used in ordering system. |
+| image <br> <span>string</span>        | Full url to an image of the felt.            |
+| options <br> <span>subresource</span> | List of options that the felt is used in.    |
 
 ### Materials Pocket Bags
 
@@ -1169,14 +1168,14 @@ There are separate quantities for small and large buttons.  Inside each button s
 
 Array of pocket bags needed in the garment
 
-| Attribute                                          | Description                                                            |
-| -------------------------------------------------- | ---------------------------------------------------------------------- |
-| id <br> <span>integer</span>                       | Not set                                                                |
-| name <br> <span>string</span>                      | Location of the pocket bag                                             |
-| description <br> <span>string</span>               | Verbose description of the pocket bag (based on pocket type)           |
-| image <br> <span>string</span>                     | Not set                                                                |
-| options <br> <span>subresource</span>              | List of options that the felt is used in.                              |
-| quantity <br> <span>subresource</span>             | Length and width of the bag in inches.                                 |
+| Attribute                              | Description                                                  |
+| -------------------------------------- | ------------------------------------------------------------ |
+| id <br> <span>integer</span>           | Not set                                                      |
+| name <br> <span>string</span>          | Location of the pocket bag                                   |
+| description <br> <span>string</span>   | Verbose description of the pocket bag (based on pocket type) |
+| image <br> <span>string</span>         | Not set                                                      |
+| options <br> <span>subresource</span>  | List of options that the felt is used in.                    |
+| quantity <br> <span>subresource</span> | Length and width of the bag in inches.                       |
 
 There are currently four locations for pocket bags:
 
@@ -1296,12 +1295,12 @@ Returns an array of embroidery objects. There can be more than one embroidery pe
 
 ### Query Parameters
 
-| Parameter         | Default | Description                                                       |
-| ----------------- | ------- | ----------------------------------------------------------------- |
+| Parameter         | Default | Description                                                                   |
+| ----------------- | ------- | ----------------------------------------------------------------------------- |
 | garment_id        | N/A     | One or more garment ids.  Use array style syntax `garment_id[]` for multiple. |
-| start_date        | N/A     | Start of date range. Must be ISO-8601 date (YYYY-MM-DD)           |
-| end_date          | N/A     | End of date range. Must be ISO-8601 date (YYYY-MM-DD)             |
-| order_status_code | N/A     | Filter using a single [order status](#order-statuses)             |
+| start_date        | N/A     | Start of date range. Must be ISO-8601 date (YYYY-MM-DD)                       |
+| end_date          | N/A     | End of date range. Must be ISO-8601 date (YYYY-MM-DD)                         |
+| order_status_code | N/A     | Filter using a single [order status](#order-statuses)                         |
 
 A garment id, list of garment ids, or a date range (start and end date) must be provided.
 
@@ -1379,9 +1378,9 @@ Returns an array of embroidery objects. There can be more than one embroidery pe
 
 ### Query Parameters
 
-| Parameter       | Default | Description                                                       |
-| --------------- | ------- | ----------------------------------------------------------------- |
-| id              | N/A     | The specific garment you want fabrics for                         |
+| Parameter | Default | Description                               |
+| --------- | ------- | ----------------------------------------- |
+| id        | N/A     | The specific garment you want fabrics for |
 
 
 ### Other
@@ -1421,21 +1420,21 @@ Pattern Measurement rules:
 
 ### Query Parameters
 
-| Parameter        | Default | Description                                                      |
-| ---------------- | ------- | ---------------------------------------------------------------- |
-| id               | N/A     | id number for the fabric                                         |
-| fabric_weight_grams_meter | N/A     | Weight of a meter of fabric, in grams                   |
-| cuttable_width   | N/A     | Cuttable Width in inches (in)                               |
-| pattern_type     | N/A     | `solid`, `stripe`, `check_symmetric`, or `check_asymmetric`      |
-| pattern_width    | N/A     | Width of the repeated pattern in inches (in)                     |
-| width_offset     | N/A     | optional. Widthwize offset of the repeated pattern in inches (in) |
-| pattern_length   | N/A     | Length of the repeated pattern in inches (in)                    |
-| length_offset    | N/A     | optional. Lengthwise Offset of the repeated pattern in inches (in) |
-| grain_repeat     | N/A     | boolean; Are there lines parallel to the grain that repeat?      |
-| crosswise_repeat | N/A     | boolean; Are there lines perpindicular to the grain that repeat? |
-| one_way_nap      | N/A     | boolean; Does the fabric appear different from one side?  Affects corduroys and velvets.  Marker pieces can't be mirrored on a one way nap                                                |
-| horiz_pattern    | N/A     | boolean; Is the repeat naturally horizontal?                     |
-| non_iron         | N/A     | boolean; True if the fabric cannot be ironed.                    |
+| Parameter                 | Default | Description                                                                                                                                |
+| ------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| id                        | N/A     | id number for the fabric                                                                                                                   |
+| fabric_weight_grams_meter | N/A     | Weight of a meter of fabric, in grams                                                                                                      |
+| cuttable_width            | N/A     | Cuttable Width in inches (in)                                                                                                              |
+| pattern_type              | N/A     | `solid`, `stripe`, `check_symmetric`, or `check_asymmetric`                                                                                |
+| pattern_width             | N/A     | Width of the repeated pattern in inches (in)                                                                                               |
+| width_offset              | N/A     | optional. Widthwize offset of the repeated pattern in inches (in)                                                                          |
+| pattern_length            | N/A     | Length of the repeated pattern in inches (in)                                                                                              |
+| length_offset             | N/A     | optional. Lengthwise Offset of the repeated pattern in inches (in)                                                                         |
+| grain_repeat              | N/A     | boolean; Are there lines parallel to the grain that repeat?                                                                                |
+| crosswise_repeat          | N/A     | boolean; Are there lines perpindicular to the grain that repeat?                                                                           |
+| one_way_nap               | N/A     | boolean; Does the fabric appear different from one side?  Affects corduroys and velvets.  Marker pieces can't be mirrored on a one way nap |
+| horiz_pattern             | N/A     | boolean; Is the repeat naturally horizontal?                                                                                               |
+| non_iron                  | N/A     | boolean; True if the fabric cannot be ironed.                                                                                              |
 
 * Any measurement field can be reset by making an api call with a blank parameter (eg., `&pattern_width=`)
 
@@ -1446,11 +1445,11 @@ Pattern Measurement rules:
 
 ### Responses
 
-| Response Code   | Description                                                       |
-| --------------- | ----------------------------------------------------------------- |
-| 201             | Fabric was successfully changed                                   |
-| 403             | Not Authorized - You're not a factory                             |
-| 409             | Unable to update the fabric. Reason provided in JSON              |
+| Response Code | Description                                          |
+| ------------- | ---------------------------------------------------- |
+| 201           | Fabric was successfully changed                      |
+| 403           | Not Authorized - You're not a factory                |
+| 409           | Unable to update the fabric. Reason provided in JSON |
 
 
 
@@ -1503,13 +1502,13 @@ If cut lengths are provided for all fabrics, then that garment will automaticall
 
 ### Query Parameters
 
-| Parameter       | Default | Description                                                       |
-| --------------- | ------- | ----------------------------------------------------------------- |
-| id              | N/A     | Garment ID |
-| fabric_id       | N/A     | Fabric ID. Integer not String |
-| length_m        | N/A     | Fabric length in centimeters |
-| width_m         | N/A     | Fabric width in centimeters |
-| is_cut          | false   | Boolean. Denotes if fabric has been cut |
+| Parameter | Default | Description                             |
+| --------- | ------- | --------------------------------------- |
+| id        | N/A     | Garment ID                              |
+| fabric_id | N/A     | Fabric ID. Integer not String           |
+| length_m  | N/A     | Fabric length in centimeters            |
+| width_m   | N/A     | Fabric width in centimeters             |
+| is_cut    | false   | Boolean. Denotes if fabric has been cut |
 
 ### Other
 
@@ -1518,11 +1517,11 @@ If cut lengths are provided for all fabrics, then that garment will automaticall
 
 ### Responses
 
-| Response Code   | Description                                                       |
-| --------------- | ----------------------------------------------------------------- |
-| 201             | Fabric cut entry was created                     |
-| 403             | Error: Not Authorized - You're not a factory or the garment isn't from your factory |
-| 409             | Error: Unable to create a fabric cut. Error message is provided     |
+| Response Code | Description                                                                         |
+| ------------- | ----------------------------------------------------------------------------------- |
+| 201           | Fabric cut entry was created                                                        |
+| 403           | Error: Not Authorized - You're not a factory or the garment isn't from your factory |
+| 409           | Error: Unable to create a fabric cut. Error message is provided                     |
 
 
 ## Get All Fabric Cuts
@@ -1645,13 +1644,13 @@ Returns an array of fabric cuts.
 
 ### Query Parameters
 
-| Parameter         | Default | Description                                                       |
-| ----------------- | ------- | ----------------------------------------------------------------- |
-| manufacturer_id | N/A     | Manufacturer ID for the factory |
-| garment_id        | N/A     | One or more garment ids.  Use array style syntax `garment_id[]` for multiple. |
-| fabric_id        | N/A     | One or more fabric ids.  Use array style syntax `fabric_id[]` for multiple. |
-| is_cut | false     | Filter by if the fabric has been cut |
-| order_status_code | Read more     | Optional. Default is  `BLUE_PENCIL` and `CUTTING`. Filter using a single [order status](#order-statuses) |
+| Parameter         | Default   | Description                                                                                              |
+| ----------------- | --------- | -------------------------------------------------------------------------------------------------------- |
+| manufacturer_id   | N/A       | Manufacturer ID for the factory                                                                          |
+| garment_id        | N/A       | One or more garment ids.  Use array style syntax `garment_id[]` for multiple.                            |
+| fabric_id         | N/A       | One or more fabric ids.  Use array style syntax `fabric_id[]` for multiple.                              |
+| is_cut            | false     | Filter by if the fabric has been cut                                                                     |
+| order_status_code | Read more | Optional. Default is  `BLUE_PENCIL` and `CUTTING`. Filter using a single [order status](#order-statuses) |
 
 A manufacturer_id must be provided.
 
@@ -1707,9 +1706,9 @@ The fabric cut may only be modified while the garment is in a production status:
 
 ### Query Parameters
 
-| Parameter       | Default | Description                                                       |
-| --------------- | ------- | ----------------------------------------------------------------- |
-| id    | N/A     | id number for the cut |
+| Parameter | Default | Description           |
+| --------- | ------- | --------------------- |
+| id        | N/A     | id number for the cut |
 
 ### Other
 
@@ -1718,11 +1717,11 @@ The fabric cut may only be modified while the garment is in a production status:
 
 ### Responses
 
-| Response Code   | Description                                                       |
-| --------------- | ----------------------------------------------------------------- |
-| 201             | Fabric cut was successfully changed                     |
-| 403             | Not Authorized - You're not a factory or the cut isn't from your factory |
-| 409             | Unable to update the fabric cut. Reason provided in JSON     |
+| Response Code | Description                                                              |
+| ------------- | ------------------------------------------------------------------------ |
+| 201           | Fabric cut was successfully changed                                      |
+| 403           | Not Authorized - You're not a factory or the cut isn't from your factory |
+| 409           | Unable to update the fabric cut. Reason provided in JSON                 |
 
 
 
@@ -1746,22 +1745,22 @@ Our customers, partners, and staff can see the order status for each garment. It
 
 Trinity enforces strict validation rules so that garments can only move to a few order statuses from any given status.  Here are the valid transitions for each status:
 
-| Starting Status | Valid Destination Status                                          |
-| --------------- | ----------------------------------------------------------------- |
-| Incomplete      | CMT Fabric Hold, Fabric Hold, Ready, Cancelled                    |
-| CMT Fabric Hold | Fabric Hold, Ready, Cancelled                                     |
-| Fabric Hold     | Ready, Cancelled                                                  |
-| Ready           | Blue Pencil, Cutting, Production, Cancelled                       |
-| Blue Pencil     | Cutting, Production, Production Complete, Cancelled               |
-| Cutting         | Production, Production Complete, Cancelled                        |
-| Production      | Production Complete, International Transit, Cancelled             |
-| Production Complete | International Transit, Direct Ship, Cancelled                 |
+| Starting Status       | Valid Destination Status                                      |
+| --------------------- | ------------------------------------------------------------- |
+| Incomplete            | CMT Fabric Hold, Fabric Hold, Ready, Cancelled                |
+| CMT Fabric Hold       | Fabric Hold, Ready, Cancelled                                 |
+| Fabric Hold           | Ready, Cancelled                                              |
+| Ready                 | Blue Pencil, Cutting, Production, Cancelled                   |
+| Blue Pencil           | Cutting, Production, Production Complete, Cancelled           |
+| Cutting               | Production, Production Complete, Cancelled                    |
+| Production            | Production Complete, International Transit, Cancelled         |
+| Production Complete   | International Transit, Direct Ship, Cancelled                 |
 | International Transit | Final Inspection, Shipment Processing, Direct Ship, Cancelled |
-| Final Inspection | Shipment Processing, Delivery, Direct Ship, Cancelled            |
-| Shipment Processing |  Delivery, Direct Ship, Cancelled                             |
-| Delivery        | Shipment Processing, Cancelled                                    |
-| Direct Ship     | Production Complete, Cancelled                                    |
-| Cancelled       |                                                                   |
+| Final Inspection      | Shipment Processing, Delivery, Direct Ship, Cancelled         |
+| Shipment Processing   | Delivery, Direct Ship, Cancelled                              |
+| Delivery              | Shipment Processing, Cancelled                                |
+| Direct Ship           | Production Complete, Cancelled                                |
+| Cancelled             |                                                               |
 
 ### HTTP Request
 
@@ -1769,9 +1768,9 @@ Trinity enforces strict validation rules so that garments can only move to a few
 
 ### Query Parameters
 
-| Parameter       | Default | Description                                                       |
-| --------------- | ------- | ----------------------------------------------------------------- |
-| order_status    | N/A     | Can be an id number or a code. [Click here](#order-statuses) for more info |
+| Parameter    | Default | Description                                                                |
+| ------------ | ------- | -------------------------------------------------------------------------- |
+| order_status | N/A     | Can be an id number or a code. [Click here](#order-statuses) for more info |
 
 ### Other
 
@@ -1780,11 +1779,11 @@ Trinity enforces strict validation rules so that garments can only move to a few
 
 ### Responses
 
-| Response Code   | Description                                                       |
-| --------------- | ----------------------------------------------------------------- |
-| 201             | Garment Order status was successfully changed                     |
-| 403             | Not Authorized - You're not a factory or the garment isn't from your factory |
-| 409             | Unable to move to a different status. Reason provided in JSON     |
+| Response Code | Description                                                                  |
+| ------------- | ---------------------------------------------------------------------------- |
+| 201           | Garment Order status was successfully changed                                |
+| 403           | Not Authorized - You're not a factory or the garment isn't from your factory |
+| 409           | Unable to move to a different status. Reason provided in JSON                |
 
 
 ## Create Shipment
@@ -1861,10 +1860,10 @@ Same rules apply to manufacturers.  If any item is from a different manufacturer
 
 ### Query Parameters
 
-| Parameter       | Default | Description                                                       |
-| --------------- | ------- | ----------------------------------------------------------------- |
+| Parameter       | Default | Description                                                                          |
+| --------------- | ------- | ------------------------------------------------------------------------------------ |
 | garment_id[]    | N/A     | An array of garment ids.  All garments must be included when the shipment is created |
-| tracking_number | null    | Optional. The tracking number for the shipping carrier (E.g., FedEx, DHL, etc) |
+| tracking_number | null    | Optional. The tracking number for the shipping carrier (E.g., FedEx, DHL, etc)       |
 
 ### Other
 
@@ -1873,11 +1872,11 @@ Same rules apply to manufacturers.  If any item is from a different manufacturer
 
 ### Responses
 
-| Response Code   | Description                                                       |
-| --------------- | ----------------------------------------------------------------- |
-| 201             | Garment Order status was successfully changed                     |
-| 403             | Not Authorized - You're not a factory or the garment isn't from your factory |
-| 409             | Unable to move to a different status. Reason provided in JSON     |
+| Response Code | Description                                                                  |
+| ------------- | ---------------------------------------------------------------------------- |
+| 201           | Garment Order status was successfully changed                                |
+| 403           | Not Authorized - You're not a factory or the garment isn't from your factory |
+| 409           | Unable to move to a different status. Reason provided in JSON                |
 
 
 ## Get Shipment Detail
@@ -1961,9 +1960,9 @@ Returns detail on a shipment, which includes the tracking number and destination
 
 ### Query Parameters
 
-| Parameter       | Default | Description                                                       |
-| --------------- | ------- | ----------------------------------------------------------------- |
-| id              | N/A     | Lookup id for the shipment                                        |
+| Parameter | Default | Description                |
+| --------- | ------- | -------------------------- |
+| id        | N/A     | Lookup id for the shipment |
 
 ### Other
 
@@ -2127,12 +2126,12 @@ curl "https://api.trinity-apparel.com/v1/garments/:id/fabrics"
 
 Returns an array of fabrics that are used to make a garment.  Under each fabric we list the options it is used for, as well as the shell fabric.  This uses a simple garment option subresource that identifies the option id, name, description, and garment types for the option.  Errors are indicated if a fabric was damaged or short. We also include information about fabric measurements.
 
-| Measurement      | Fabric Source | Description                                                      |
-| ---------------- | ------------- | --------------------------------------------------------------- |
-| estimated        | Single-Length | Estimated fabric length needed. Provided to fabric suppliers at checkout     |
+| Measurement      | Fabric Source | Description                                                              |
+| ---------------- | ------------- | ------------------------------------------------------------------------ |
+| estimated        | Single-Length | Estimated fabric length needed. Provided to fabric suppliers at checkout |
 | received         | Single-Length | Measured length and width of single-length fabric provided by a supplier |
-| repeated_pattern | Single-Length | Optional; Pattern width of stripes or length and width of check |
-| cad              | All           | Length and width needed by CAD marker                           |
+| repeated_pattern | Single-Length | Optional; Pattern width of stripes or length and width of check          |
+| cad              | All           | Length and width needed by CAD marker                                    |
 
 ### HTTP Request
 
@@ -2140,12 +2139,11 @@ Returns an array of fabrics that are used to make a garment.  Under each fabric 
 
 ### Query Parameters
 
-| Parameter       | Default | Description                                                       |
-| --------------- | ------- | ----------------------------------------------------------------- |
-| id              | N/A     | The specific garment you want fabrics for                         |
+| Parameter | Default | Description                               |
+| --------- | ------- | ----------------------------------------- |
+| id        | N/A     | The specific garment you want fabrics for |
 
 ### Other
 
 - Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.
 - Pagination: No
-
