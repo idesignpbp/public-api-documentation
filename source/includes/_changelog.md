@@ -10,6 +10,18 @@ A history of changes to the Trinity Apparel API.
   - Suspender buttons have a `type` field that indicates the color and function of the button (eg: Black Suspender Button). Suspender button quantities also use the Ligne scale.
   - The button calculator has been extended to provide button quantities for MTM Jackets, Trousers, Vests, and Shirts
 
+## 2020-04-16
+
+- User Permissions
+  - The /login route has been extended to provide dealer permissions
+  - This allows us to draw the navigation bar in React
+
+## 2020-04-10
+
+- Create Customers
+  - Added the POST `/v1/customers` route
+  - Dealers can create customers using a name and email address
+
 ## 2020-02-27
 
 - Fabric Search
