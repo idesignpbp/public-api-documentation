@@ -2,6 +2,13 @@
 
 A history of changes to the Trinity Apparel API.
 
+## 2020-05-28
+
+- Garment Properties Materials
+  - Buttons sizes have been updated to use the Ligne scale instead of small/large
+  - Suspender buttons are no longer separate from the buttons array, so they will appear alongside normal buttons.
+    - The button type will show that it is a suspender button as well as provide color (eg: Black Suspender Button).  They will also use the Ligne scale.
+
 ## 2020-02-27
 
 - Fabric Search
