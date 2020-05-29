@@ -829,12 +829,37 @@ curl "https://api.trinity-apparel.com/v1/garments/:id/properties"
         }
       },
       ...
+    ],
+    "dealer_labels": [
+      {
+        "id": "TAGDL-0264",
+        "name": "Well Suited Custom Clothiers 813-545-2700",
+        "description": "[\"7.9\", \"4\"]",
+        "image": "https://workflow.trinity-apparel.com/images/labels/TAGDL-0264.jpg",
+        "options": [
+          {
+            "id": 1,
+            "name": "garment_label",
+            "description": "Garment Label",
+            "garment_type": 1,
+            "garment_types": [
+              "csc"
+            ]
+          }
+        ],
+        "quantity": 1,
+        "dealer_id": 952,
+        "size": {
+          "width": "7.9",
+          "length": "4"
+        }
+      }
     ]
   }
 }
 ```
 
-Returns an array of `measurements`, an array of `options`, and a hash of `materials`.  The materials hash includes `fabrics`, `buttons`, `threads`, `labels`, `suedes`, and `felts`, each of which contains an array of those type of materials.
+Returns an array of `measurements`, an array of `options`, and a hash of `materials`.  The materials hash includes `fabrics`, `buttons`, `threads`, `labels`, `suedes`, `felts`, `pocket_bags`, and `dealer_labels`, each of which contains an array of those type of materials.
 
 ### How it Works
 
@@ -842,7 +867,7 @@ All measurements are flat objects that include the measurement name and value.  
 
 All options include the option and option value.  The option includes the id, name, and english description (there's no translation for the option). The option value includes the id, value, and a localized description (translated for the appropriate garment manufacturer for the order).  We use the translation if available, if not we fallback to English. We also include the garment type (numeric bitmask) and an array of valid garment types (abbreviations). Synthetic options (not entered by the dealer) may also be inserted into the options list.
 
-In addition to options, we also provide a list of all materials needed to make the garment.  Materials include fabrics, buttons, threads, labels, suedes, and felts.  We include information specific to that material type (Trinity fabric number, thread code, etc), id, name, description, and image, which is a web link that you can use to display the material. Fabrics have a usage field, which can be shell (main fabric), lining, trim, or other. We also include a list of all options that use this material.
+In addition to options, we also provide a list of all materials needed to make the garment.  Materials include fabrics, buttons, threads, labels, suedes, felts, pocket bags, and dealer labels.  We include information specific to that material type (Trinity fabric number, thread code, etc), id, name, description, and image, which is a web link that you can use to display the material. Fabrics have a usage field, which can be shell (main fabric), lining, trim, or other. We also include a list of all options that use this material.
 
 We also include the quantity of each particular button under the `quantity` field.  The quantity includes a number for small and large buttons.  If the quantity is null, then we were unable to calculate the button count for that particular button.
 
@@ -870,7 +895,7 @@ We can also add filters and allow users to toggle localization (metric units, tr
 
 ## Garment Properties - Materials
 
-Garment properties includes custom objects in the `materials` hash.  The materials object includes: fabrics, buttons, threads, suedes, felts, labels, and pocket bags.
+Garment properties includes custom objects in the `materials` hash.  The materials object includes: fabrics, buttons, threads, suedes, felts, labels, pocket bags, and dealer labels.
 
 ### Materials Fabrics
 
@@ -1186,6 +1211,47 @@ There are currently four locations for pocket bags:
 
 Some garments will not have back pockets, so there will not always be four pocket bags in the array.
 
+### Materials Dealer Labels
+
+```json
+# Material Dealer Label object
+{
+    "id": "TAGDL-0264",
+    "name": "Well Suited Custom Clothiers 813-545-2700",
+    "description": "[\"7.9\", \"4\"]",
+    "image": "https://workflow.trinity-apparel.com/images/labels/TAGDL-0264.jpg",
+    "options": [
+      {
+        "id": 1,
+        "name": "garment_label",
+        "description": "Garment Label",
+        "garment_type": 1,
+        "garment_types": [
+          "csc"
+        ]
+      }
+    ],
+    "quantity": 1,
+    "dealer_id": 952,
+    "size": {
+      "width": "7.9",
+      "length": "4"
+    }
+}
+```
+
+Array of unique felts used in the garment
+
+| Attribute                             | Description                                  |
+| ------------------------------------- | -------------------------------------------- |
+| id <br> <span>string</span>           | Unique SKU for the dealer label. Used for Trinity inventory |
+| name <br> <span>string</span>         | Dealer Name                              |
+| description <br> <span>string</span>  | Usually the size in centimeters: [length, width] |
+| image <br> <span>string</span>        | Full url to an image of the dealer label.        |
+| options <br> <span>subresource</span> | List of options that the dealer label is used in.    |
+| quantity <br> <span>integer</span> | Number of labels needed to make the garment |
+| dealer_id <br> <span>integer</span> | Trinity Dealer ID - unique per dealer |
+| size <br> <span>subresource</span> | length and width are extracted from the description field |
 
 ## Get All Embroidery
 

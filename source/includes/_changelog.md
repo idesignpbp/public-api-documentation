@@ -2,13 +2,18 @@
 
 A history of changes to the Trinity Apparel API.
 
-## 2020-05-28
+## Coming Soon :: Expected 2020-06-02
 
 - Garment Properties - Buttons
   - Buttons sizes use the Ligne scale instead of small/large
   - Suspender buttons now appear in the same array as normal buttons. They are no longer a separate key under materials.
   - Suspender buttons have a `type` field that indicates the color and function of the button (eg: Black Suspender Button). Suspender button quantities also use the Ligne scale.
   - The button calculator has been extended to provide button quantities for MTM Jackets, Trousers, Vests, and Shirts
+
+## 2020-05-28
+
+- Garment Properties
+  - Dealer labels are now included in the materials hash
 
 ## 2020-04-16
 
