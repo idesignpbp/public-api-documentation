@@ -2,7 +2,19 @@
 
 A history of changes to the Trinity Apparel API.
 
-## Coming Soon :: Expected 2020-06-02
+## Coming Soon
+
+- Shipments API
+  - `GET /shipments/:id` now also returns fabric orders related to a shipment.
+  - New route `POST /shipments/:id/receive` to recieve shipments.
+- Fabric Orders - This is an entirely new API to handle fabric orders
+  - `GET /fabric_orders/:id` - to view a fabric order
+  - `POST /fabric_orders/:id/receive` - to receive a fabric order
+  - `POST /fabric_orders/:id/accept` - to accept a fabric order
+  - `POST /fabric_orders/:id/reject` - to reject a fabric order
+  - `POST /fabric_orders/:id/errors` - to indicate errors on a received fabric order
+
+## 2020-06-02
 
 - Garment Properties - Buttons
   - Buttons sizes use the Ligne scale instead of small/large
@@ -30,7 +42,7 @@ A history of changes to the Trinity Apparel API.
 ## 2020-02-27
 
 - Fabric Search
-  - Fabric search has been updated to only return fabrics that are connected to a manufacturer that you are set up with.  E.g., if you are not set up for MTO, you cannot see MTO fabrics.
+  - Fabric search has been updated to only return fabrics that are connected to a manufacturer that you are set up with. E.g., if you are not set up for MTO, you cannot see MTO fabrics.
 
 ## 2020-01-20
 
@@ -45,7 +57,7 @@ A history of changes to the Trinity Apparel API.
 - Fabric usage
   - Categorize fabrics within a garment by usage (shell, lining, trim, etc)
   - its now easier to filter fabric results
-  - *Seen in [Garment Properties](#garment-properties) route*
+  - _Seen in [Garment Properties](#garment-properties) route_
 
 ## 2020-01-14
 
@@ -53,20 +65,20 @@ A history of changes to the Trinity Apparel API.
   - Show outgoing address that the factory should ship to
   - stored under `outgoing_address` in the JSON response
   - no more guessing based on garment prefix
-  - *Seen in [Download Garments](#download-garments) route*
+  - _Seen in [Download Garments](#download-garments) route_
 
 ## 2020-01-08
 
 - UPDATE - Fabric pattern measurements
   - Data model changed to use pattern_type, pattern_length, length_offset, pattern_width, and width_offset fields
   - Business rules on when pattern_length and pattern_width are required were modified
-  - *Seen in [Update Fabric](#update-fabric) route*
+  - _Seen in [Update Fabric](#update-fabric) route_
 
 ## 2020-01-03
 
 - Order filtering
   - Can now filter order metrics by customer_id
-  - *Seen in [Order Metrics](#order-metrics) route*
+  - _Seen in [Order Metrics](#order-metrics) route_
 
 ## Older Changes
 
