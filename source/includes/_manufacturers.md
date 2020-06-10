@@ -2353,7 +2353,7 @@ Returns details of a fabric order, including details on the fabric, address, gar
 ## Receive Fabric Order
 
 ```shell
-curl "https://api.trinity-apparel.com/v1/fabric_orders/:id/receive"
+curl -X POST "https://api.trinity-apparel.com/v1/fabric_orders/:id/receive"
   -H "Authorization Bearer: swaledale"
 ```
 
@@ -2385,13 +2385,75 @@ This updates the status of a fabric order to be received and returns the fabric 
 
 ### HTTP Request
 
-`GET https://api.trinity-apparel.com/v1/fabric_order/:id/receive`
+`POST https://api.trinity-apparel.com/v1/fabric_order/:id/receive`
 
 ### Query Parameters
 
-| Parameter | Default | Description                               |
-| --------- | ------- | ----------------------------------------- |
-| id        | N/A     | The specific fabric order you want to see |
+| Parameter | Default | Description                                   |
+| --------- | ------- | --------------------------------------------- |
+| id        | N/A     | The specific fabric order you want to receive |
+
+### Other
+
+- Permissions: Only manufacturers can access this route. They can only see garments made at their factory.
+- Pagination: No
+
+## Accept Fabric Order
+
+```shell
+curl -X POST "https://api.trinity-apparel.com/v1/fabric_orders/:id/accept"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 397950,
+  "fabric_id": 72898,
+  "garment_id": 1143878,
+  "length": "1.125",
+  "address_id": 12310,
+  "extra_fabric": false,
+  "fulfillment_failure": false,
+  "shipment_id": 385700,
+  "reason": "null",
+  "created_at": "2020-06-04T00:00:00.000Z",
+  "status": "accepted",
+  "trinity_fabric_number": "N6-4072898",
+  "supplier_fabric_number": "JT 82099-82",
+  "description": "White Solid Linen",
+  "image": "https://s7d4.scene7.com/is/image/trinityapparel/N6-4072898"
+}
+```
+
+### Description
+
+This is to accept a fabric order. This will create a Fabric Checkpoint, set the status of the fabric order to accepted, and also move the garment to the `Ready` order status (as long as all required fabrics have been received). If unsuccessful, it will return the error that was encountered. If successful, it will return the updated fabric order.
+
+### Detail
+
+The allowed fabric type codes are:
+
+| Code             | Description             |
+| ---------------- | ----------------------- |
+| check            | Check 1 - Symmetric     |
+| check_asymmetric | Check 2 - Asymmetric    |
+| solid            | Solid, Paisley or Other |
+| stripe           | Stripe                  |
+
+### HTTP Request
+
+`POST https://api.trinity-apparel.com/v1/fabric_order/:id/accept`
+
+### Query Parameters
+
+| Parameter        | Default | Description                                  |
+| ---------------- | ------- | -------------------------------------------- |
+| id               | N/A     | The specific fabric order you want to accept |
+| cuttable_length  | N/A     | The cuttable length of the fabric            |
+| cuttable_width   | N/A     | The cuttable width of the fabric             |
+| fabric_type_code | N/A     | The code for the fabric pattern (see above)  |
 
 ### Other
 
