@@ -16,6 +16,10 @@ This includes:
 - [Set Order Status](#set-order-status) - E.g., Move a garment from Ready to Production
 - [Create Shipment](#create-shipment) - Add garments to a new shipment
 - [Get Shipment Detail](#get-shipment-detail) - Shipment details and garments in the shipment
+- [Receive Shipment](#receive-shipment) - Receive a shipment.
+- [Get Fabric Order](#get-fabric-order) - Details of a fabric order.
+- [Receive Fabric Order](#receive-fabric-order) - Receive a fabric order.
+- [Accept Fabric Order](#accept-fabric-order) - Accept a fabric if it doesn't have any flaws.
 
 Deprecated:
 
@@ -2429,7 +2433,7 @@ curl -X POST "https://api.trinity-apparel.com/v1/fabric_orders/:id/accept"
 
 ### Description
 
-This is to accept a fabric order. This will create a Fabric Checkpoint, set the status of the fabric order to accepted, and also move the garment to the `Ready` order status (as long as all required fabrics have been received). If unsuccessful, it will return the error that was encountered. If successful, it will return the updated fabric order.
+This is to accept a fabric order. Fabric order must have a status of either `transit` or `recieve` to be accepted. This will create a Fabric Checkpoint, set the status of the fabric order to accepted, and also move the garment to the `Ready` order status (as long as all required fabrics have been received). If unsuccessful, it will return the error that was encountered. If successful, it will return the updated fabric order.
 
 ### Detail
 
