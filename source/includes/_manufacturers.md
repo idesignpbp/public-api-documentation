@@ -19,7 +19,8 @@ This includes:
 - [Receive Shipment](#receive-shipment) - Receive a shipment.
 - [Get Fabric Order](#get-fabric-order) - Details of a fabric order.
 - [Receive Fabric Order](#receive-fabric-order) - Receive a fabric order.
-- [Accept Fabric Order](#accept-fabric-order) - Accept a fabric if it doesn't have any flaws.
+- [Accept Fabric Order](#accept-fabric-order) - Accept a fabric order if it doesn't have any flaws.
+- [Reject Fabric Order](#reject-fabric-order) - Reject a flawed fabric order.
 
 Deprecated:
 
@@ -2458,6 +2459,86 @@ The allowed fabric type codes are:
 | cuttable_length  | N/A     | The cuttable length of the fabric            |
 | cuttable_width   | N/A     | The cuttable width of the fabric             |
 | fabric_type_code | N/A     | The code for the fabric pattern (see above)  |
+
+### Other
+
+- Permissions: Only manufacturers can access this route. They can only see garments made at their factory.
+- Pagination: No
+
+## Reject Fabric Order
+
+```shell
+curl -X POST "https://api.trinity-apparel.com/v1/fabric_orders/:id/reject"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "fabric_order": {
+    "id": 397950,
+    "status": "rejected",
+    "garment_id": 1143878,
+    "fabric_id": 72898,
+    "address_id": 12310,
+    "length": "1.125",
+    "shipment_id": 385700,
+    "login_id": 1710,
+    "extra_fabric": false,
+    "fulfillment_failure": false,
+    "reason": "null",
+    "created_at": "2020-06-04T00:00:00.000Z",
+    "updated_at": "2020-06-09T21:37:47.000Z"
+  },
+  "new_fabric_order": {
+    "id": 397968,
+    "status": "pending",
+    "fabric_id": 72898,
+    "address_id": 12310,
+    "garment_id": 1143878,
+    "length": "1.125",
+    "extra_fabric": true,
+    "fulfillment_failure": false,
+    "shipment_id": 385700,
+    "login_id": 1578,
+    "reason": "flawed",
+    "created_at": null,
+    "updated_at": null
+  }
+}
+```
+
+### Description
+
+This is to reject a fabric order. Fabric order must have a status of either `transit` or `recieved` to be rejected. This will move the garment into the correct delayed status, set the status of the fabric order to `rejected` and will create a new fabric order as long as the fabric is in stock and the reason isn't due to a fabric short. If either the fabric was short or out of stock, a fabric order will have to be placed manually. If everything was successful, you will get back an updated copy of the current fabric order as well as the newly placed fabric order. If there was an error, the error message will be returned. And if the new_fabric_order is null, that means a new order was unable to be placed automatically and will have to be done manually.
+
+### Detail
+
+The allowed reason codes are:
+
+| Code    | Description      |
+| ------- | ---------------- |
+| part    | Alteration Parts |
+| short   | Fabric Short     |
+| mistake | Factory Mistake  |
+| dirty   | Fabric Dirty     |
+| flawed  | Fabric Flawed    |
+| hole    | Fabric has Holes |
+| warped  | Fabric is Warped |
+| wrong   | Wrong Fabric     |
+
+### HTTP Request
+
+`POST https://api.trinity-apparel.com/v1/fabric_order/:id/reject`
+
+### Query Parameters
+
+| Parameter   | Default | Description                                  |
+| ----------- | ------- | -------------------------------------------- |
+| id          | N/A     | The specific fabric order you want to reject |
+| reason_code | N/A     | The reason you are rejecting the fabric      |
+| yards       | N/A     | The total yards of the fabric                |
 
 ### Other
 
