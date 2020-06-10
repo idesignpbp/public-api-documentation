@@ -21,6 +21,7 @@ This includes:
 - [Receive Fabric Order](#receive-fabric-order) - Receive a fabric order.
 - [Accept Fabric Order](#accept-fabric-order) - Accept a fabric order if it doesn't have any flaws.
 - [Reject Fabric Order](#reject-fabric-order) - Reject a flawed fabric order.
+- [Fabric Order Errors](#fabric-order-errors) - Report errors with fabric received from fabric order.
 
 Deprecated:
 
@@ -2539,6 +2540,49 @@ The allowed reason codes are:
 | id          | N/A     | The specific fabric order you want to reject |
 | reason_code | N/A     | The reason you are rejecting the fabric      |
 | yards       | N/A     | The total yards of the fabric                |
+
+### Other
+
+- Permissions: Only manufacturers can access this route. They can only see garments made at their factory.
+- Pagination: No
+
+## Fabric Order Errors
+
+```shell
+curl -X POST "https://api.trinity-apparel.com/v1/fabric_orders/:id/errors"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id_fabric_errors": 397953,
+  "position_x": 22,
+  "position_y": 12,
+  "length": 15.0,
+  "width": 17.0,
+  "id_fabric_checkpoint": 397951
+}
+```
+
+### Description
+
+This is to set errors on a fabric order. Fabric order must have a status of either `transit` or `recieved`. This will create and return a Fabric Error record that will set an unusable spot on a received fabric.
+
+### HTTP Request
+
+`POST https://api.trinity-apparel.com/v1/fabric_order/:id/errors`
+
+### Query Parameters
+
+| Parameter  | Default | Description                                         |
+| ---------- | ------- | --------------------------------------------------- |
+| id         | N/A     | The specific fabric order you want to set errors on |
+| position_x | N/A     | The X position of the error on the fabric           |
+| position_y | N/A     | The Y position of the error on the fabric           |
+| length     | N/A     | The total length of the error spot on the fabric    |
+| width      | N/A     | The total width of the error spot on the fabric     |
 
 ### Other
 
