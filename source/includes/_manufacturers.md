@@ -2217,6 +2217,8 @@ curl "https://api.trinity-apparel.com/v1/garments/:id/fabrics"
 ]
 ```
 
+### Description
+
 Returns an array of fabrics that are used to make a garment. Under each fabric we list the options it is used for, as well as the shell fabric. This uses a simple garment option subresource that identifies the option id, name, description, and garment types for the option. Errors are indicated if a fabric was damaged or short. We also include information about fabric measurements.
 
 | Measurement      | Fabric Source | Description                                                              |
@@ -2235,6 +2237,161 @@ Returns an array of fabrics that are used to make a garment. Under each fabric w
 | Parameter | Default | Description                               |
 | --------- | ------- | ----------------------------------------- |
 | id        | N/A     | The specific garment you want fabrics for |
+
+### Other
+
+- Permissions: Only manufacturers can access this route. They can only see garments made at their factory.
+- Pagination: No
+
+## Get Fabric Order
+
+```shell
+curl "https://api.trinity-apparel.com/v1/fabric_orders/:id"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 397950,
+  "fabric_id": 72898,
+  "garment_id": 1143878,
+  "length": "1.125",
+  "address_id": 12310,
+  "extra_fabric": false,
+  "fulfillment_failure": false,
+  "shipment_id": 385700,
+  "reason": "null",
+  "created_at": "2020-06-04T00:00:00.000Z",
+  "status": "transit",
+  "trinity_fabric_number": "N6-4072898",
+  "supplier_fabric_number": "JT 82099-82",
+  "description": "White Solid Linen",
+  "image": "https://s7d4.scene7.com/is/image/trinityapparel/N6-4072898",
+  "fabric": {
+    "id": 72898,
+    "active": true,
+    "in_stock": 1,
+    "restock_date": null,
+    "description": "White Solid Linen",
+    "supplier_fabric_number": "JT 82099-82",
+    "trinity_fabric_number": "N6-4072898",
+    "url": "https://s7d4.scene7.com/is/image/trinityapparel/N6-4072898",
+    "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=N6-4072898&res=300",
+    "inventory_status": "In Stock",
+    "pattern_id": 1,
+    "weave_id": null,
+    "price_tier": 2,
+    "discount": null,
+    "has_image": true,
+    "availability": "unknown",
+    "favorite_id": null,
+    "fabric_type": null,
+    "fabric_garment_type": 8,
+    "trim_garment_type": 0
+  },
+  "address": {
+    "id": 12310,
+    "description": "Tyler Jones",
+    "street1": "1102 Knox Cove",
+    "street2": null,
+    "street3": null,
+    "city": "Madison",
+    "state": "NJ",
+    "zip": "59876",
+    "country": "USA",
+    "phone": "(555)111-2345"
+  },
+  "garment": {
+    "id": 1143878,
+    "title": "IDUK-1143878",
+    "order_id": 526328,
+    "copied_garment_id": 1046085,
+    "price": "53.0",
+    "option_cost": "0.0",
+    "garment_type": "CSHT",
+    "created_at": "2020-06-03T00:40:43.000Z",
+    "updated_at": "2020-06-03T00:40:43.000Z",
+    "order_status_id": 3,
+    "delay_status_id": 4,
+    "fabric_url": "https://s7d4.scene7.com/is/image/trinityapparel/N6-4072898"
+  },
+  "shipment": {
+    "id": 385700,
+    "description": "Testing Shipping Fabric Orders",
+    "status": "received",
+    "method": "Ground",
+    "carrier": null,
+    "tracking_number": null,
+    "create_date": "2020-06-04T00:00:00.000Z",
+    "ship_date": "2020-06-04T00:00:00.000Z",
+    "receive_date": "2020-06-09T22:14:58.000Z"
+  }
+}
+```
+
+### Description
+
+Returns details of a fabric order, including details on the fabric, address, garment, and shipment attached to it.
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/fabric_order/:id`
+
+### Query Parameters
+
+| Parameter | Default | Description                               |
+| --------- | ------- | ----------------------------------------- |
+| id        | N/A     | The specific fabric order you want to see |
+
+### Other
+
+- Permissions: Only manufacturers can access this route. They can only see garments made at their factory.
+- Pagination: No
+
+## Receive Fabric Order
+
+```shell
+curl "https://api.trinity-apparel.com/v1/fabric_orders/:id/receive"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 397950,
+  "fabric_id": 72898,
+  "garment_id": 1143878,
+  "length": "1.125",
+  "address_id": 12310,
+  "extra_fabric": false,
+  "fulfillment_failure": false,
+  "shipment_id": 385700,
+  "reason": "null",
+  "created_at": "2020-06-04T00:00:00.000Z",
+  "status": "received",
+  "trinity_fabric_number": "N6-4072898",
+  "supplier_fabric_number": "JT 82099-82",
+  "description": "White Solid Linen",
+  "image": "https://s7d4.scene7.com/is/image/trinityapparel/N6-4072898"
+}
+```
+
+### Description
+
+This updates the status of a fabric order to be received and returns the fabric order.
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/fabric_order/:id/receive`
+
+### Query Parameters
+
+| Parameter | Default | Description                               |
+| --------- | ------- | ----------------------------------------- |
+| id        | N/A     | The specific fabric order you want to see |
 
 ### Other
 
