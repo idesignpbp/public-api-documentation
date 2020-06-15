@@ -2075,7 +2075,9 @@ curl -X POST "https://api.trinity-apparel.com/v1/shipments/:id/receive"
 
 ### Description
 
-Sets the status of a shipment to recieved.
+Sets the status of a shipment to recieved. The shipment must be in `transit` status.
+
+*Note*: Only fabric order shipments can be received at this time.
 
 ### HTTP Request
 
