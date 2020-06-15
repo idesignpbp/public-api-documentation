@@ -2021,6 +2021,20 @@ curl -X GET "https://api.trinity-apparel.com/v1/shipments/:id"
 
 Returns detail on a shipment, which includes the tracking number and destination. It also includes a full list of shipment items.
 
+### Types of Shipments
+
+#### Fabric Order
+
+Fabric Order shipments occur when fabrics shipped from a supplier to a factory. Fabric Orders and Supplier are only returned for fabric order shipments. There will not be any shipment items in a fabric order, since shipment items are a listing of garments in the shipment and this is only for raw materials.
+
+#### Garment Order
+
+Garment order shipments are sent from a factory to a distribution center.  The shipments from our factory to HQ are bulk and are typically part of 10-20 cartons sent each day. Each box is tracked as an individual shipment.  However, direct shipments and shipments to the UK or CA distribution centers are smaller in volume and typically are a single box.
+
+#### Dealer Order
+
+Dealer order shipments are from a distribution center to the final destination, the dealer's shipping address.  They are typically small and are almost always from the HQ distribution center in Ridgeland, MS to another address in the USA.
+
 ### HTTP Request
 
 `GET https://api.trinity-apparel.com/v1/shipments/:id`
