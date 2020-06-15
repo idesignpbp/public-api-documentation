@@ -2,17 +2,19 @@
 
 A history of changes to the Trinity Apparel API.
 
-## Coming Soon
+## 2020-06-15
 
-- Shipments API
+Manufacturers can now manage fabric orders and fabric shipments from suppliers:
+
+- Fabric Shipments
   - `GET /shipments/:id` now also returns fabric orders related to a shipment.
-  - New route `POST /shipments/:id/receive` to recieve shipments.
-- Fabric Orders - This is an entirely new API to handle fabric orders
-  - `GET /fabric_orders/:id` - to view a fabric order
-  - `POST /fabric_orders/:id/receive` - to receive a fabric order
-  - `POST /fabric_orders/:id/accept` - to accept a fabric order
-  - `POST /fabric_orders/:id/reject` - to reject a fabric order
-  - `POST /fabric_orders/:id/errors` - to indicate errors on a received fabric order
+  - `POST /shipments/:id/receive` - receive fabric shipments
+- Fabric Orders
+  - `GET /fabric_orders/:id` - view details on a fabric order
+  - `POST /fabric_orders/:id/receive` - receive a fabric order
+  - `POST /fabric_orders/:id/accept` - accept a fabric order
+  - `POST /fabric_orders/:id/reject` - reject a fabric order
+  - `POST /fabric_orders/:id/errors` - identify small errors (spots, tears) on a received fabric order
 
 ## 2020-06-02
 
