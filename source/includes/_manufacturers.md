@@ -2365,6 +2365,8 @@ curl "https://api.trinity-apparel.com/v1/fabric_orders/:id"
 
 Returns details of a fabric order, including details on the fabric, address, garment, and shipment attached to it.
 
+*Note*: Almost all fabric orders are generated at checkout. We rarely add them manually to the system.  Sometimes a fabric order will be cancelled (typically when the fabric is out of stock) and a new one will be made when the order is edited and a new fabric is chosen.
+
 ### HTTP Request
 
 `GET https://api.trinity-apparel.com/v1/fabric_order/:id`
@@ -2411,7 +2413,7 @@ curl -X POST "https://api.trinity-apparel.com/v1/fabric_orders/:id/receive"
 
 ### Description
 
-This updates the status of a fabric order to be received and returns the fabric order.
+This updates the status of a fabric order to be received and returns the fabric order. The fabric must be in the `transit` status before it can be received.
 
 ### HTTP Request
 
@@ -2459,7 +2461,9 @@ curl -X POST "https://api.trinity-apparel.com/v1/fabric_orders/:id/accept"
 
 ### Description
 
-This is to accept a fabric order. Fabric order must have a status of either `transit` or `recieve` to be accepted. This will create a Fabric Checkpoint, set the status of the fabric order to accepted, and also move the garment to the `Ready` order status (as long as all required fabrics have been received). If unsuccessful, it will return the error that was encountered. If successful, it will return the updated fabric order.
+Once a fabric has been received and has passed your inspection process, use this API call to mark it as `accepted` and to confirm the length and width of the fabric you received. We use this information to ensure that our suppliers cut fabrics to the correct dimensions.
+
+Fabric order must have a status of either `transit` or `recieve` to be accepted. This will create a Fabric Checkpoint, set the status of the fabric order to accepted, and also move the garment to the `Ready` order status (as long as all required fabrics have been received). If unsuccessful, it will return the error that was encountered. If successful, it will return the updated fabric order.
 
 ### Detail
 
@@ -2536,7 +2540,11 @@ curl -X POST "https://api.trinity-apparel.com/v1/fabric_orders/:id/reject"
 
 ### Description
 
-This is to reject a fabric order. Fabric order must have a status of either `transit` or `recieved` to be rejected. This will move the garment into the correct delayed status, set the status of the fabric order to `rejected` and will create a new fabric order as long as the fabric is in stock and the reason isn't due to a fabric short. If either the fabric was short or out of stock, a fabric order will have to be placed manually. If everything was successful, you will get back an updated copy of the current fabric order as well as the newly placed fabric order. If there was an error, the error message will be returned. And if the new_fabric_order is null, that means a new order was unable to be placed automatically and will have to be done manually.
+Use this API call after you receive a fabric and the fabric fails your inspection process. You'll mark the reason it was rejected and we can usually automatically reorder it from the supplier.
+
+Fabric orders must have a status of either `transit` or `recieved` to be rejected. This will move the garment into the correct delay status (typically no delay) and set the status of the fabric order to `rejected`. It will also create a new fabric order as long as the fabric is in stock and the reason isn't due to a fabric short. If either the fabric was short or out of stock, a fabric order will have to be placed manually.
+
+If everything was successful, you will get back an updated copy of the current fabric order as well as the newly placed fabric order. If there was an error, the error message will be returned. And if the new_fabric_order is null, that means a new order was unable to be placed automatically and will have to be done manually.
 
 ### Detail
 
