@@ -1940,6 +1940,14 @@ curl -X GET "https://api.trinity-apparel.com/v1/shipments/:id"
     "ship_date": "2019-05-22T02:52:14.000Z",
     "receive_date": "2019-05-29T08:12:59.000Z",
     "login_id": 1026,
+    "supplier": {
+        "id": 48,
+        "code": "GI",
+        "name": "Giovani",
+        "city": "",
+        "state": null,
+        "country": "Hong Kong"
+    },
     "source": {
         "id": 1943,
         "description": "Beijing iDesign Garments",
