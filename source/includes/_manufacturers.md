@@ -2540,11 +2540,14 @@ curl -X POST "https://api.trinity-apparel.com/v1/fabric_orders/:id/reject"
 
 ### Description
 
+**WARNING** This API call will automatically place a new fabric order with the vendor as long as the fabric is in stock.
+
 Use this API call after you receive a fabric and the fabric fails your inspection process. You'll mark the reason it was rejected and we can usually automatically reorder it from the supplier.
 
 Fabric orders must have a status of either `transit` or `recieved` to be rejected. This will move the garment into the correct delay status (typically no delay) and set the status of the fabric order to `rejected`. It will also create a new fabric order as long as the fabric is in stock and the reason isn't due to a fabric short. If either the fabric was short or out of stock, a fabric order will have to be placed manually.
 
-If everything was successful, you will get back an updated copy of the current fabric order as well as the newly placed fabric order. If there was an error, the error message will be returned. And if the new_fabric_order is null, that means a new order was unable to be placed automatically and will have to be done manually.
+If everything was successful, you will get back an updated copy of the current fabric order as well as the newly placed fabric order (same fabric but the length you specified). If there was an error, the error message will be returned. And if the new_fabric_order is null, that means a new order was unable to be placed automatically and will have to be done manually.
+
 
 ### Detail
 
@@ -2571,7 +2574,7 @@ The allowed reason codes are:
 | ----------- | ------- | -------------------------------------------- |
 | id          | N/A     | The specific fabric order you want to reject |
 | reason_code | N/A     | The reason you are rejecting the fabric      |
-| yards       | N/A     | The total yards of the fabric                |
+| length      | N/A     | The total yards needed when reordering (optional, only include when different from the cut you received). Default is length of the order that arrived       |
 
 ### Other
 
