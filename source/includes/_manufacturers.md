@@ -2600,7 +2600,7 @@ curl -X POST "https://api.trinity-apparel.com/v1/fabric_orders/:id/errors"
 
 ### Description
 
-This is to set errors on a fabric order. Fabric order must have a status of either `transit` or `recieved`. This will create and return a Fabric Error record that will set an unusable spot on a received fabric.
+This is to set errors found on a fabric. In order to record errors, the fabric order must be received by the factory (status of `received` or `accepted`). This will create and return a Fabric Error record that will define the coordinates for the unusable spot on the fabric.
 
 ### HTTP Request
 
