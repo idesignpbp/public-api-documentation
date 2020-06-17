@@ -16,11 +16,16 @@ This includes:
 - [Set Order Status](#set-order-status) - E.g., Move a garment from Ready to Production
 - [Create Shipment](#create-shipment) - Add garments to a new shipment
 - [Get Shipment Detail](#get-shipment-detail) - Shipment details and garments in the shipment
+- [Receive Shipment](#receive-shipment) - Receive a shipment.
+- [Get Fabric Order](#get-fabric-order) - Details of a fabric order.
+- [Receive Fabric Order](#receive-fabric-order) - Receive a fabric order.
+- [Accept Fabric Order](#accept-fabric-order) - Accept a fabric order if it doesn't have any flaws.
+- [Reject Fabric Order](#reject-fabric-order) - Reject a flawed fabric order.
+- [Fabric Order Errors](#fabric-order-errors) - Report errors with fabric received from fabric order.
 
 Deprecated:
 
 - [Garment Fabrics](#get-garment-fabrics) - Get a list of fabrics needed, what they are used for (shell, lining, trims, etc), and see their measurments and status
-
 
 ## Order Processing Flow
 
@@ -34,7 +39,7 @@ Once the garment is fully downloaded, the manufacturer should move the garment t
 
 ### Blue Pencil status
 
-In Blue Pencil status, the CAD team lays the marker, the order team puts the order in the production plan, and materials are gathered.  Once the marker is complete, the factory should input the CAD measurements into Trinity Admin on the `Fabric Cuts` page: https://admin.trinity-apparel.com/fabric_cuts
+In Blue Pencil status, the CAD team lays the marker, the order team puts the order in the production plan, and materials are gathered. Once the marker is complete, the factory should input the CAD measurements into Trinity Admin on the `Fabric Cuts` page: https://admin.trinity-apparel.com/fabric_cuts
 
 When all fabric cut lengths are entered into the system, the garment will be automatically moved into cutting.
 
@@ -44,24 +49,23 @@ Once all fabrics (shell, lining, trims, etc) have been cut, the garment should b
 
 ### Production status
 
-During the production process we print care labels and hang tags.  You will use our Windows applications to print these.  These applications require internet connectivity to hit our api and get data about the garment.
+During the production process we print care labels and hang tags. You will use our Windows applications to print these. These applications require internet connectivity to hit our api and get data about the garment.
 
-For garments with embroidery, you need to use two Windows applications.  One must be connected to a computer with the App Ethos software installed and have the App Ethos dongle.  It cannot be a server and will not allow remote desktop connections while the app is running.  Our app connects to our API and gets data about embroidery and generates an input file that app ethos uses to create a DST file.  The file can either sit on a share drive or be moved manually using a USB key.  The second embroidery app reads the DST files and provides them to a Brother embroidery machine.
+For garments with embroidery, you need to use two Windows applications. One must be connected to a computer with the App Ethos software installed and have the App Ethos dongle. It cannot be a server and will not allow remote desktop connections while the app is running. Our app connects to our API and gets data about embroidery and generates an input file that app ethos uses to create a DST file. The file can either sit on a share drive or be moved manually using a USB key. The second embroidery app reads the DST files and provides them to a Brother embroidery machine.
 
 Once production is complete and the garment is ready to ship. Please set the order status to production complete (ID=6 or code=MADE).
 
 ### Production complete status
 
-In the production complete status, we build a packing list using the create shipment call.  We can add a tracking number immediately or add one at a later time.  Once the shipment has a tracking number, we can move the garments to international transit (set status to ID=7 or code=SHIPDC).
+In the production complete status, we build a packing list using the create shipment call. We can add a tracking number immediately or add one at a later time. Once the shipment has a tracking number, we can move the garments to international transit (set status to ID=7 or code=SHIPDC).
 
 ### International Transit status
 
-Trinity will take the order from here.  Once we receive the garment at a distribution center, we will move the status to final inspection.
-
+Trinity will take the order from here. Once we receive the garment at a distribution center, we will move the status to final inspection.
 
 ## Resources
 
-The resources provided by the manufacturers API are almost identical to the orders API.  Only the garment and dealer_order objects are different. Links to download Gerber input files and the order PDFs are included.
+The resources provided by the manufacturers API are almost identical to the orders API. Only the garment and dealer_order objects are different. Links to download Gerber input files and the order PDFs are included.
 
 ### Garment
 
@@ -106,14 +110,13 @@ Standard Attributes
 | created_at <br> <span>datetime</span>              | When the garment was first created (but not ordered)                                                             |
 | updated_at <br> <span>datetime</span>              | When the garment was last modified                                                                               |
 | last_status_change_date <br> <span>datetime</span> | When did the order status last change to a new state                                                             |
-| last_delay_change_date  <br> <span>datetime</span> | When did the delay status last change to a new state                                                             |
+| last_delay_change_date <br> <span>datetime</span>  | When did the delay status last change to a new state                                                             |
 | links <br> <span>subresource</span>                | Urls that allow the manufacturer to generate Gerber ASCII files, an Order Insert PDF, and an Order Split         |
 | manufacturer <br> <span>subresource</span>         | Factory that made the order. [Click here](#manfacturers) for more info                                           |
 | fabric <br> <span>subresource</span>               | Shell fabric used in the order. [Click here](#fabrics) for more info                                             |
 | order_status <br> <span>subresource</span>         | Current status of the order. [Click here](#order-statuses) for more info                                         |
 | delay_status <br> <span>subresource</span>         | If garment is delayed, this will return why. [Click here](#delay-statuses) for more info                         |
 | dealer_order <br> <span>subresource</span>         | The full order placed by a single customer. Includes this garment and can include more garments.                 |
-
 
 ### Dealer Order
 
@@ -134,18 +137,17 @@ Standard Attributes
 
 Standard Attributes
 
-| Attribute                                    | Description                                                                                                   |
-| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| id <br> <span>string</span>                  | Unique identifier for the object                                                                              |
-| title <br> <span>string</span>               | Our SKU field for orders                                                                                      |
-| custom_order_number <br> <span>string</span> | Dealers can set this field to whatever they want.  It is typically the dealer's SKU or a summary of the order |
-| garment_count <br> <span>integer</span>      | How many garments are in the order. multi-piece garments (e.g., Suit) are counted as 1.                       |
-| ship_type <br> <span>string</span>           | How is the garment shipped to the final destination                                                           |
-| measurement_units <br> <span>string</span>   | Units can be `uscust` for US customary units (in) or `si` for metric units (cm)                               |  |
-| ordered_at <br> <span>datetime</span>        | Time that the dealer completed the checkout process and officially placed the order                           |
-| created_at <br> <span>datetime</span>        | Time when the dealer first began adding garments to the order                                                 |
-| invoiced_at <br> <span>datetime</span>       | Time of the first invoice                                                                                     |
-
+| Attribute                                    | Description                                                                                                  |
+| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| id <br> <span>string</span>                  | Unique identifier for the object                                                                             |
+| title <br> <span>string</span>               | Our SKU field for orders                                                                                     |
+| custom_order_number <br> <span>string</span> | Dealers can set this field to whatever they want. It is typically the dealer's SKU or a summary of the order |
+| garment_count <br> <span>integer</span>      | How many garments are in the order. multi-piece garments (e.g., Suit) are counted as 1.                      |
+| ship_type <br> <span>string</span>           | How is the garment shipped to the final destination                                                          |
+| measurement_units <br> <span>string</span>   | Units can be `uscust` for US customary units (in) or `si` for metric units (cm)                              |  |
+| ordered_at <br> <span>datetime</span>        | Time that the dealer completed the checkout process and officially placed the order                          |
+| created_at <br> <span>datetime</span>        | Time when the dealer first began adding garments to the order                                                |
+| invoiced_at <br> <span>datetime</span>       | Time of the first invoice                                                                                    |
 
 ### Embroidery
 
@@ -183,7 +185,6 @@ Standard Attributes
 | color <br> <span>string</span>        | Thread color                                                           |
 | position <br> <span>string</span>     | Location for the embroidery; Only required for some embroidery options |
 | size <br> <span>string</span>         | Width of the embroidery                                                |
-
 
 ### Embroidery Garment
 
@@ -230,7 +231,6 @@ Standard Attributes
 | garment_types <br> <span>array</span>  | List of human readable garment types                            |
 | created_at <br> <span>datetime</span>  | When the garment was first created (but not ordered)            |
 
-
 ### Fabric Cut
 
 ```json
@@ -274,7 +274,6 @@ Standard Attributes
 | actual_length <br> <span>float</span> | Actual length in centimeters                                                                                                                      |
 | width <br> <span>float</span>         | Width in centimeters                                                                                                                              |
 | created_at <br> <span>datetime</span> | When was the cut record added                                                                                                                     |
-
 
 ## Download Garments
 
@@ -447,9 +446,9 @@ curl "https://api.trinity-apparel.com/v1/download_garments"
 
 Returns an array of garments that are ready for download.
 
-Right after a customer places an order, Trinity validates the order and requests materials if needed.  Once the order is validated and fabric is received, it moves out of a hold status and is ready for download.  These garments are in `Ready` status and have no delay status.
+Right after a customer places an order, Trinity validates the order and requests materials if needed. Once the order is validated and fabric is received, it moves out of a hold status and is ready for download. These garments are in `Ready` status and have no delay status.
 
-We expect the manufacturer to get a list of garments, then get garment details, fabric, options and measurements info.  Once this is obtained, they will move the order status to `Blue Pencil`, which means that the factory downloaded the order and is laying the marker and putting the order into the production plan. When those tasks are completed the order moves to `Cutting` and then to `Production`.
+We expect the manufacturer to get a list of garments, then get garment details, fabric, options and measurements info. Once this is obtained, they will move the order status to `Blue Pencil`, which means that the factory downloaded the order and is laying the marker and putting the order into the production plan. When those tasks are completed the order moves to `Cutting` and then to `Production`.
 
 ### HTTP Request
 
@@ -464,10 +463,10 @@ We expect the manufacturer to get a list of garments, then get garment details, 
 
 ### Other
 
-- Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.
+- Permissions: Only manufacturers can access this route. They can only see garments made at their factory.
 - Pagination: Yes
 
-### Examples 
+### Examples
 
 #### Download from a specific manufacturer
 
@@ -480,7 +479,6 @@ Returns garments from a specific factory
 `GET https://api.trinity-apparel.com/v1/download_garments?garment_id[]=1001234&garment_id[]=1002345&garment_id[]=1003456`
 
 Returns garments #1001234, #1002345, and #1003456 as long as they are in `Ready` status and have no delays.
-
 
 ## Garment Properties
 
@@ -859,17 +857,17 @@ curl "https://api.trinity-apparel.com/v1/garments/:id/properties"
 }
 ```
 
-Returns an array of `measurements`, an array of `options`, and a hash of `materials`.  The materials hash includes `fabrics`, `buttons`, `threads`, `labels`, `suedes`, `felts`, `pocket_bags`, and `dealer_labels`, each of which contains an array of those type of materials.
+Returns an array of `measurements`, an array of `options`, and a hash of `materials`. The materials hash includes `fabrics`, `buttons`, `threads`, `labels`, `suedes`, `felts`, `pocket_bags`, and `dealer_labels`, each of which contains an array of those type of materials.
 
 ### How it Works
 
-All measurements are flat objects that include the measurement name and value.  We also include the description and last modified date, as well as the numeric garment type and an array of all garment types the measurement is valid used in this garment (E.g., height would be valid for each piece in a suit). When the measurement value is numeric, we convert it into the appropriate measurement units for the factory (typically SI) and list the units.  Measurements are also adjusted to be finished. Synthetic measurements (measurements that the dealer did not enter) are calculated and inserted into this list.
+All measurements are flat objects that include the measurement name and value. We also include the description and last modified date, as well as the numeric garment type and an array of all garment types the measurement is valid used in this garment (E.g., height would be valid for each piece in a suit). When the measurement value is numeric, we convert it into the appropriate measurement units for the factory (typically SI) and list the units. Measurements are also adjusted to be finished. Synthetic measurements (measurements that the dealer did not enter) are calculated and inserted into this list.
 
-All options include the option and option value.  The option includes the id, name, and english description (there's no translation for the option). The option value includes the id, value, and a localized description (translated for the appropriate garment manufacturer for the order).  We use the translation if available, if not we fallback to English. We also include the garment type (numeric bitmask) and an array of valid garment types (abbreviations). Synthetic options (not entered by the dealer) may also be inserted into the options list.
+All options include the option and option value. The option includes the id, name, and english description (there's no translation for the option). The option value includes the id, value, and a localized description (translated for the appropriate garment manufacturer for the order). We use the translation if available, if not we fallback to English. We also include the garment type (numeric bitmask) and an array of valid garment types (abbreviations). Synthetic options (not entered by the dealer) may also be inserted into the options list.
 
-In addition to options, we also provide a list of all materials needed to make the garment.  Materials include fabrics, buttons, threads, labels, suedes, felts, pocket bags, and dealer labels.  We include information specific to that material type (Trinity fabric number, thread code, etc), id, name, description, and image, which is a web link that you can use to display the material. Fabrics have a usage field, which can be shell (main fabric), lining, trim, or other. We also include a list of all options that use this material.
+In addition to options, we also provide a list of all materials needed to make the garment. Materials include fabrics, buttons, threads, labels, suedes, felts, pocket bags, and dealer labels. We include information specific to that material type (Trinity fabric number, thread code, etc), id, name, description, and image, which is a web link that you can use to display the material. Fabrics have a usage field, which can be shell (main fabric), lining, trim, or other. We also include a list of all options that use this material.
 
-We also include the quantity of each particular button under the `quantity` field.  The quantity includes a number for small and large buttons.  If the quantity is null, then we were unable to calculate the button count for that particular button.
+We also include the quantity of each particular button under the `quantity` field. The quantity includes a number for small and large buttons. If the quantity is null, then we were unable to calculate the button count for that particular button.
 
 ### HTTP Request
 
@@ -883,7 +881,7 @@ We also include the quantity of each particular button under the `quantity` fiel
 
 ### Other
 
-- Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.
+- Permissions: Only manufacturers can access this route. They can only see garments made at their factory.
 - Pagination: No
 
 ### Future Plans
@@ -891,11 +889,9 @@ We also include the quantity of each particular button under the `quantity` fiel
 We plan to provide quantities (measurements or counts) of all materials.
 We can also add filters and allow users to toggle localization (metric units, translations) if that is important.
 
-
-
 ## Garment Properties - Materials
 
-Garment properties includes custom objects in the `materials` hash.  The materials object includes: fabrics, buttons, threads, suedes, felts, labels, pocket bags, and dealer labels.
+Garment properties includes custom objects in the `materials` hash. The materials object includes: fabrics, buttons, threads, suedes, felts, labels, pocket bags, and dealer labels.
 
 ### Materials Fabrics
 
@@ -967,7 +963,7 @@ Length and width determined by processing the order in Gerber
 
 Received
 
-Length and width are measured when a single length of fabric is received.  Does not apply to fabrics that are in factory inventory.
+Length and width are measured when a single length of fabric is received. Does not apply to fabrics that are in factory inventory.
 
 | Attribute                      | Description                                     |
 | ------------------------------ | ----------------------------------------------- |
@@ -977,14 +973,13 @@ Length and width are measured when a single length of fabric is received.  Does 
 
 Repeated Pattern
 
-Length and width of the pattern (stripe, plaid, etc) when a fabric is received.  Does not apply to fabrics that are in factory inventory.  Does not apply to solids.
+Length and width of the pattern (stripe, plaid, etc) when a fabric is received. Does not apply to fabrics that are in factory inventory. Does not apply to solids.
 
 | Attribute                      | Description                                                                         |
 | ------------------------------ | ----------------------------------------------------------------------------------- |
 | length <br> <span>float</span> | Length in centimeters                                                               |
 | width <br> <span>float</span>  | Width in centimeters                                                                |
 | type <br> <span>string</span>  | Types are: Solid/Paisley, Stripes, 'Check 1 - Symmetric' and 'Check 2 - Asymmetric' |
-
 
 ### Materials Buttons
 
@@ -1031,7 +1026,7 @@ Array of unique buttons used in the garment
 | options <br> <span>subresource</span>  | List of options that the button is used in.    |
 | quantity <br> <span>subresource</span> | An array of button counts for the garment      |
 
-We separate each button size by using the Ligne scale.  Inside each button size, we list the button count needed by garment type (E.g., csc for jacket).
+We separate each button size by using the Ligne scale. Inside each button size, we list the button count needed by garment type (E.g., csc for jacket).
 
 ### Materials Threads
 
@@ -1080,9 +1075,7 @@ Array of unique threads used in the garment
       "name": "microsuede_undercollar_color",
       "description": "Microsuede Undercollar",
       "garment_type": 1,
-      "garment_types": [
-        "csc"
-      ]
+      "garment_types": ["csc"]
     }
   ]
 }
@@ -1112,9 +1105,7 @@ Array of unique suedes used in the garment
       "name": "customer_label",
       "description": "Coat Name Label",
       "garment_type": 1,
-      "garment_types": [
-        "csc"
-      ]
+      "garment_types": ["csc"]
     }
   ]
 }
@@ -1129,7 +1120,6 @@ Array of unique labels used in the garment
 | description <br> <span>string</span>  | Description of label used in ordering system. |
 | image <br> <span>string</span>        | Full url to an image of the label.            |
 | options <br> <span>subresource</span> | List of options that the label is used in.    |
-
 
 ### Materials Felts
 
@@ -1242,16 +1232,16 @@ Some garments will not have back pockets, so there will not always be four pocke
 
 Array of unique felts used in the garment
 
-| Attribute                             | Description                                  |
-| ------------------------------------- | -------------------------------------------- |
+| Attribute                             | Description                                                 |
+| ------------------------------------- | ----------------------------------------------------------- |
 | id <br> <span>string</span>           | Unique SKU for the dealer label. Used for Trinity inventory |
-| name <br> <span>string</span>         | Dealer Name                              |
-| description <br> <span>string</span>  | Usually the size in centimeters: [length, width] |
-| image <br> <span>string</span>        | Full url to an image of the dealer label.        |
-| options <br> <span>subresource</span> | List of options that the dealer label is used in.    |
-| quantity <br> <span>integer</span> | Number of labels needed to make the garment |
-| dealer_id <br> <span>integer</span> | Trinity Dealer ID - unique per dealer |
-| size <br> <span>subresource</span> | length and width are extracted from the description field |
+| name <br> <span>string</span>         | Dealer Name                                                 |
+| description <br> <span>string</span>  | Usually the size in centimeters: [length, width]            |
+| image <br> <span>string</span>        | Full url to an image of the dealer label.                   |
+| options <br> <span>subresource</span> | List of options that the dealer label is used in.           |
+| quantity <br> <span>integer</span>    | Number of labels needed to make the garment                 |
+| dealer_id <br> <span>integer</span>   | Trinity Dealer ID - unique per dealer                       |
+| size <br> <span>subresource</span>    | length and width are extracted from the description field   |
 
 ## Get All Embroidery
 
@@ -1351,7 +1341,8 @@ curl "https://api.trinity-apparel.com/v1/embroidery"
     ...
 ]
 ```
-Returns an array of embroidery objects. There can be more than one embroidery per garment. The object includes minimal objects for garment and fabric, plus flattened option values for text, font, color, position and size of the embroidery.  The list is ordered by when the garments were created.
+
+Returns an array of embroidery objects. There can be more than one embroidery per garment. The object includes minimal objects for garment and fabric, plus flattened option values for text, font, color, position and size of the embroidery. The list is ordered by when the garments were created.
 
 [Click here](#embroidery) for details on the response objects.
 
@@ -1361,20 +1352,20 @@ Returns an array of embroidery objects. There can be more than one embroidery pe
 
 ### Query Parameters
 
-| Parameter         | Default | Description                                                                   |
-| ----------------- | ------- | ----------------------------------------------------------------------------- |
-| garment_id        | N/A     | One or more garment ids.  Use array style syntax `garment_id[]` for multiple. |
-| start_date        | N/A     | Start of date range. Must be ISO-8601 date (YYYY-MM-DD)                       |
-| end_date          | N/A     | End of date range. Must be ISO-8601 date (YYYY-MM-DD)                         |
-| order_status_code | N/A     | Filter using a single [order status](#order-statuses)                         |
+| Parameter         | Default | Description                                                                  |
+| ----------------- | ------- | ---------------------------------------------------------------------------- |
+| garment_id        | N/A     | One or more garment ids. Use array style syntax `garment_id[]` for multiple. |
+| start_date        | N/A     | Start of date range. Must be ISO-8601 date (YYYY-MM-DD)                      |
+| end_date          | N/A     | End of date range. Must be ISO-8601 date (YYYY-MM-DD)                        |
+| order_status_code | N/A     | Filter using a single [order status](#order-statuses)                        |
 
 A garment id, list of garment ids, or a date range (start and end date) must be provided.
 
-*NOTE*: If specific garment(s) are not provided AND an order status is not provided, we filter by production statuses: STATUS_READY, STATUS_BLUE_PENCIL, STATUS_CUTTING, STATUS_PRODUCTION
+_NOTE_: If specific garment(s) are not provided AND an order status is not provided, we filter by production statuses: STATUS_READY, STATUS_BLUE_PENCIL, STATUS_CUTTING, STATUS_PRODUCTION
 
 ### Other
 
-- Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.
+- Permissions: Only manufacturers can access this route. They can only see garments made at their factory.
 - Pagination: No
 
 ### Examples
@@ -1397,8 +1388,6 @@ Returns garments ordered on a specific day, October 30th.
 
 Returns garments in Blue Pencil (code = PREP) status that were ordered on a specific day, October 30th.
 
-
-
 ## Get Specific Embroidery
 
 ```shell
@@ -1410,27 +1399,25 @@ curl "https://api.trinity-apparel.com/v1/garments/:id/embroidery"
 
 ```json
 [
-    {
-        "garment": {
-            "id": 1081783,
-            "manufacturer_id": 4,
-            "garment_type": 1,
-            "created_at": "2019-11-03T18:47:22.000Z"
-        },
-        "option": {
-            "id": 89,
-            "name": "customer_label_text",
-            "garment_type": 1,
-            "garment_types": [
-                "csc"
-            ]
-        },
-        "text": "M Kiser",
-        "font": "Calligraphy",
-        "color": "5-01 White",
-        "position": "T4 - Left Below Breast Pkt",
-        "size": null
-    }
+  {
+    "garment": {
+      "id": 1081783,
+      "manufacturer_id": 4,
+      "garment_type": 1,
+      "created_at": "2019-11-03T18:47:22.000Z"
+    },
+    "option": {
+      "id": 89,
+      "name": "customer_label_text",
+      "garment_type": 1,
+      "garment_types": ["csc"]
+    },
+    "text": "M Kiser",
+    "font": "Calligraphy",
+    "color": "5-01 White",
+    "position": "T4 - Left Below Breast Pkt",
+    "size": null
+  }
 ]
 ```
 
@@ -1448,13 +1435,10 @@ Returns an array of embroidery objects. There can be more than one embroidery pe
 | --------- | ------- | ----------------------------------------- |
 | id        | N/A     | The specific garment you want fabrics for |
 
-
 ### Other
 
-- Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.
+- Permissions: Only manufacturers can access this route. They can only see garments made at their factory.
 - Pagination: No
-
-
 
 ## Update Fabric
 
@@ -1467,7 +1451,7 @@ curl -X POST "https://api.trinity-apparel.com/v1/fabrics/:id"
 
 ### Description
 
-This call updates a fabric.  Manufacturers will regularly update fabric attributes when a fabric is received.
+This call updates a fabric. Manufacturers will regularly update fabric attributes when a fabric is received.
 
 ### Rules
 
@@ -1475,7 +1459,7 @@ All non-CMT fabrics can be modified.
 
 Pattern Measurement rules:
 
-- Solids cannot have pattern width or pattern offset.  Must be set to null or ""
+- Solids cannot have pattern width or pattern offset. Must be set to null or ""
 - Stripes must have pattern width
 - Checks (symmetric and asymmetric) must have pattern width and length
 - You must provide pattern measurements when setting the pattern_type
@@ -1486,23 +1470,23 @@ Pattern Measurement rules:
 
 ### Query Parameters
 
-| Parameter                 | Default | Description                                                                                                                                |
-| ------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| id                        | N/A     | id number for the fabric                                                                                                                   |
-| fabric_weight_grams_meter | N/A     | Weight of a meter of fabric, in grams                                                                                                      |
-| cuttable_width            | N/A     | Cuttable Width in inches (in)                                                                                                              |
-| pattern_type              | N/A     | `solid`, `stripe`, `check_symmetric`, or `check_asymmetric`                                                                                |
-| pattern_width             | N/A     | Width of the repeated pattern in inches (in)                                                                                               |
-| width_offset              | N/A     | optional. Widthwize offset of the repeated pattern in inches (in)                                                                          |
-| pattern_length            | N/A     | Length of the repeated pattern in inches (in)                                                                                              |
-| length_offset             | N/A     | optional. Lengthwise Offset of the repeated pattern in inches (in)                                                                         |
-| grain_repeat              | N/A     | boolean; Are there lines parallel to the grain that repeat?                                                                                |
-| crosswise_repeat          | N/A     | boolean; Are there lines perpindicular to the grain that repeat?                                                                           |
-| one_way_nap               | N/A     | boolean; Does the fabric appear different from one side?  Affects corduroys and velvets.  Marker pieces can't be mirrored on a one way nap |
-| horiz_pattern             | N/A     | boolean; Is the repeat naturally horizontal?                                                                                               |
-| non_iron                  | N/A     | boolean; True if the fabric cannot be ironed.                                                                                              |
+| Parameter                 | Default | Description                                                                                                                              |
+| ------------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| id                        | N/A     | id number for the fabric                                                                                                                 |
+| fabric_weight_grams_meter | N/A     | Weight of a meter of fabric, in grams                                                                                                    |
+| cuttable_width            | N/A     | Cuttable Width in inches (in)                                                                                                            |
+| pattern_type              | N/A     | `solid`, `stripe`, `check_symmetric`, or `check_asymmetric`                                                                              |
+| pattern_width             | N/A     | Width of the repeated pattern in inches (in)                                                                                             |
+| width_offset              | N/A     | optional. Widthwize offset of the repeated pattern in inches (in)                                                                        |
+| pattern_length            | N/A     | Length of the repeated pattern in inches (in)                                                                                            |
+| length_offset             | N/A     | optional. Lengthwise Offset of the repeated pattern in inches (in)                                                                       |
+| grain_repeat              | N/A     | boolean; Are there lines parallel to the grain that repeat?                                                                              |
+| crosswise_repeat          | N/A     | boolean; Are there lines perpindicular to the grain that repeat?                                                                         |
+| one_way_nap               | N/A     | boolean; Does the fabric appear different from one side? Affects corduroys and velvets. Marker pieces can't be mirrored on a one way nap |
+| horiz_pattern             | N/A     | boolean; Is the repeat naturally horizontal?                                                                                             |
+| non_iron                  | N/A     | boolean; True if the fabric cannot be ironed.                                                                                            |
 
-* Any measurement field can be reset by making an api call with a blank parameter (eg., `&pattern_width=`)
+- Any measurement field can be reset by making an api call with a blank parameter (eg., `&pattern_width=`)
 
 ### Other
 
@@ -1517,9 +1501,6 @@ Pattern Measurement rules:
 | 403           | Not Authorized - You're not a factory                |
 | 409           | Unable to update the fabric. Reason provided in JSON |
 
-
-
-
 ## Create Fabric Cut
 
 ```shell
@@ -1531,32 +1512,32 @@ curl -X POST "https://api.trinity-apparel.com/v1/fabric_cuts"
 
 ```json
 {
-    "id": 546845,
-    "is_cut": false,
-    "created_at": "2019-11-14T22:09:36.000Z",
-    "length": 1342,
-    "actual_length": 1337,
-    "width": 13,
-    "garment": {
-        "id": 1004082,
-        "title": "ID-1004082",
-        "created_at": "2019-04-30T17:23:39.000Z",
-        "garment_type": "CSC"
-    },
-    "fabric": {
-        "id": 54926,
-        "description": "Grey Charcoal Twill",
-        "trinity_fabric_number": "C4-3754926",
-        "url": "https://s7d4.scene7.com/is/image/trinityapparel/C4-3754926",
-        "has_image": true
-    },
-    "option": null
+  "id": 546845,
+  "is_cut": false,
+  "created_at": "2019-11-14T22:09:36.000Z",
+  "length": 1342,
+  "actual_length": 1337,
+  "width": 13,
+  "garment": {
+    "id": 1004082,
+    "title": "ID-1004082",
+    "created_at": "2019-04-30T17:23:39.000Z",
+    "garment_type": "CSC"
+  },
+  "fabric": {
+    "id": 54926,
+    "description": "Grey Charcoal Twill",
+    "trinity_fabric_number": "C4-3754926",
+    "url": "https://s7d4.scene7.com/is/image/trinityapparel/C4-3754926",
+    "has_image": true
+  },
+  "option": null
 }
 ```
 
 ### Description
 
-This call tracks the fabric cuts (CAD lengths) of fabrics.  Cut lengths for all shell, lining, and a few specific options for each garment need to be entered into the Trinity system.
+This call tracks the fabric cuts (CAD lengths) of fabrics. Cut lengths for all shell, lining, and a few specific options for each garment need to be entered into the Trinity system.
 
 ### Rules
 
@@ -1578,7 +1559,7 @@ If cut lengths are provided for all fabrics, then that garment will automaticall
 
 ### Other
 
-- Permissions: Only manufacturers can access this route.  They can only modify garments made at their factory.
+- Permissions: Only manufacturers can access this route. They can only modify garments made at their factory.
 - Pagination: N/A
 
 ### Responses
@@ -1588,7 +1569,6 @@ If cut lengths are provided for all fabrics, then that garment will automaticall
 | 201           | Fabric cut entry was created                                                        |
 | 403           | Error: Not Authorized - You're not a factory or the garment isn't from your factory |
 | 409           | Error: Unable to create a fabric cut. Error message is provided                     |
-
 
 ## Get All Fabric Cuts
 
@@ -1700,6 +1680,7 @@ curl "https://api.trinity-apparel.com/v1/fabric_cuts"
     ...
 ]
 ```
+
 Returns an array of fabric cuts.
 
 [Click here](#fabric-cuts) for details on the response objects.
@@ -1710,21 +1691,21 @@ Returns an array of fabric cuts.
 
 ### Query Parameters
 
-| Parameter         | Default   | Description                                                                                              |
-| ----------------- | --------- | -------------------------------------------------------------------------------------------------------- |
-| manufacturer_id   | N/A       | Manufacturer ID for the factory                                                                          |
-| garment_id        | N/A       | One or more garment ids.  Use array style syntax `garment_id[]` for multiple.                            |
-| fabric_id         | N/A       | One or more fabric ids.  Use array style syntax `fabric_id[]` for multiple.                              |
-| is_cut            | false     | Filter by if the fabric has been cut                                                                     |
-| order_status_code | Read more | Optional. Default is  `BLUE_PENCIL` and `CUTTING`. Filter using a single [order status](#order-statuses) |
+| Parameter         | Default   | Description                                                                                             |
+| ----------------- | --------- | ------------------------------------------------------------------------------------------------------- |
+| manufacturer_id   | N/A       | Manufacturer ID for the factory                                                                         |
+| garment_id        | N/A       | One or more garment ids. Use array style syntax `garment_id[]` for multiple.                            |
+| fabric_id         | N/A       | One or more fabric ids. Use array style syntax `fabric_id[]` for multiple.                              |
+| is_cut            | false     | Filter by if the fabric has been cut                                                                    |
+| order_status_code | Read more | Optional. Default is `BLUE_PENCIL` and `CUTTING`. Filter using a single [order status](#order-statuses) |
 
 A manufacturer_id must be provided.
 
-*NOTE*: If order status is not provided, we filter by these statuses: STATUS_BLUE_PENCIL and STATUS_CUTTING
+_NOTE_: If order status is not provided, we filter by these statuses: STATUS_BLUE_PENCIL and STATUS_CUTTING
 
 ### Other
 
-- Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.
+- Permissions: Only manufacturers can access this route. They can only see garments made at their factory.
 - Pagination: Yes, but 1000 at a time
 
 ### Examples
@@ -1747,8 +1728,6 @@ Returns all fabric cuts that came for 3 specific garments.
 
 Returns all fabric cuts for garments in Ready (code = READ) status that use a particular fabric.
 
-
-
 ## Update Fabric Cut
 
 ```shell
@@ -1760,7 +1739,7 @@ curl -X POST "https://api.trinity-apparel.com/v1/fabric_cuts/:id"
 
 ### Description
 
-This call updates a fabric cut.  Users can only modify the `is_cut` boolean and set it to true or false.
+This call updates a fabric cut. Users can only modify the `is_cut` boolean and set it to true or false.
 
 ### Rules
 
@@ -1778,7 +1757,7 @@ The fabric cut may only be modified while the garment is in a production status:
 
 ### Other
 
-- Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.
+- Permissions: Only manufacturers can access this route. They can only see garments made at their factory.
 - Pagination: N/A
 
 ### Responses
@@ -1788,9 +1767,6 @@ The fabric cut may only be modified while the garment is in a production status:
 | 201           | Fabric cut was successfully changed                                      |
 | 403           | Not Authorized - You're not a factory or the cut isn't from your factory |
 | 409           | Unable to update the fabric cut. Reason provided in JSON                 |
-
-
-
 
 ## Set Order Status
 
@@ -1809,7 +1785,7 @@ Our customers, partners, and staff can see the order status for each garment. It
 
 ### Rules
 
-Trinity enforces strict validation rules so that garments can only move to a few order statuses from any given status.  Here are the valid transitions for each status:
+Trinity enforces strict validation rules so that garments can only move to a few order statuses from any given status. Here are the valid transitions for each status:
 
 | Starting Status       | Valid Destination Status                                      |
 | --------------------- | ------------------------------------------------------------- |
@@ -1840,7 +1816,7 @@ Trinity enforces strict validation rules so that garments can only move to a few
 
 ### Other
 
-- Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.
+- Permissions: Only manufacturers can access this route. They can only see garments made at their factory.
 - Pagination: N/A
 
 ### Responses
@@ -1850,7 +1826,6 @@ Trinity enforces strict validation rules so that garments can only move to a few
 | 201           | Garment Order status was successfully changed                                |
 | 403           | Not Authorized - You're not a factory or the garment isn't from your factory |
 | 409           | Unable to move to a different status. Reason provided in JSON                |
-
 
 ## Create Shipment
 
@@ -1910,15 +1885,15 @@ curl -X POST "https://api.trinity-apparel.com/v1/shipments"
 
 ### Description
 
-This call creates a shipment then adds every garment id that was provided to the shipment.  A shipment is just like a packing list.
+This call creates a shipment then adds every garment id that was provided to the shipment. A shipment is just like a packing list.
 
 It also creates a tracking box and tracking box items, which our distribution centers use to track and receive garments from a manufacturer.
 
 ### Rules
 
-All items in a shipment must be going to the same destination.  If any garment is going to another location the whole shipment fails to be created.
+All items in a shipment must be going to the same destination. If any garment is going to another location the whole shipment fails to be created.
 
-Same rules apply to manufacturers.  If any item is from a different manufacturer, the shipment will fail to be created.
+Same rules apply to manufacturers. If any item is from a different manufacturer, the shipment will fail to be created.
 
 ### HTTP Request
 
@@ -1926,14 +1901,14 @@ Same rules apply to manufacturers.  If any item is from a different manufacturer
 
 ### Query Parameters
 
-| Parameter       | Default | Description                                                                          |
-| --------------- | ------- | ------------------------------------------------------------------------------------ |
-| garment_id[]    | N/A     | An array of garment ids.  All garments must be included when the shipment is created |
-| tracking_number | null    | Optional. The tracking number for the shipping carrier (E.g., FedEx, DHL, etc)       |
+| Parameter       | Default | Description                                                                         |
+| --------------- | ------- | ----------------------------------------------------------------------------------- |
+| garment_id[]    | N/A     | An array of garment ids. All garments must be included when the shipment is created |
+| tracking_number | null    | Optional. The tracking number for the shipping carrier (E.g., FedEx, DHL, etc)      |
 
 ### Other
 
-- Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.
+- Permissions: Only manufacturers can access this route. They can only see garments made at their factory.
 - Pagination: N/A
 
 ### Responses
@@ -1944,11 +1919,10 @@ Same rules apply to manufacturers.  If any item is from a different manufacturer
 | 403           | Not Authorized - You're not a factory or the garment isn't from your factory |
 | 409           | Unable to move to a different status. Reason provided in JSON                |
 
-
 ## Get Shipment Detail
 
 ```shell
-curl -X POST "https://api.trinity-apparel.com/v1/shipments/:id"
+curl -X GET "https://api.trinity-apparel.com/v1/shipments/:id"
   -H "Authorization Bearer: swaledale"
 ```
 
@@ -1966,6 +1940,14 @@ curl -X POST "https://api.trinity-apparel.com/v1/shipments/:id"
     "ship_date": "2019-05-22T02:52:14.000Z",
     "receive_date": "2019-05-29T08:12:59.000Z",
     "login_id": 1026,
+    "supplier": {
+        "id": 48,
+        "code": "GI",
+        "name": "Giovani",
+        "city": "",
+        "state": null,
+        "country": "Hong Kong"
+    },
     "source": {
         "id": 1943,
         "description": "Beijing iDesign Garments",
@@ -2012,13 +1994,46 @@ curl -X POST "https://api.trinity-apparel.com/v1/shipments/:id"
             "created_at": "2019-05-22T06:58:58.000Z"
         },
         ...
-    }
+    ],
+    "fabric_orders": [
+        {
+            "id": 397950,
+            "fabric_id": 72898,
+            "garment_id": 1143878,
+            "length": "1.125",
+            "address_id": 12310,
+            "extra_fabric": false,
+            "fulfillment_failure": false,
+            "shipment_id": 385700,
+            "reason": "null",
+            "created_at": "2020-06-04T00:00:00.000Z",
+            "status": "rejected",
+            "trinity_fabric_number": "N6-4072898",
+            "supplier_fabric_number": "JT 82099-82",
+            "description": "White Solid Linen",
+            "image": "https://s7d4.scene7.com/is/image/trinityapparel/N6-4072898"
+        }
+    ]
 }
 ```
 
 ### Description
 
-Returns detail on a shipment, which includes the tracking number and destination.  It also includes a full list of shipment items.
+Returns detail on a shipment, which includes the tracking number and destination. It also includes a full list of shipment items.
+
+### Types of Shipments
+
+#### Fabric Order
+
+Fabric Order shipments occur when fabrics shipped from a supplier to a factory. Fabric Orders and Supplier are only returned for fabric order shipments. There will not be any shipment items in a fabric order, since shipment items are a listing of garments in the shipment and this is only for raw materials.
+
+#### Garment Order
+
+Garment order shipments are sent from a factory to a distribution center.  The shipments from our factory to HQ are bulk and are typically part of 10-20 cartons sent each day. Each box is tracked as an individual shipment.  However, direct shipments and shipments to the UK or CA distribution centers are smaller in volume and typically are a single box.
+
+#### Dealer Order
+
+Dealer order shipments are from a distribution center to the final destination, the dealer's shipping address.  They are typically small and are almost always from the HQ distribution center in Ridgeland, MS to another address in the USA.
 
 ### HTTP Request
 
@@ -2032,10 +2047,52 @@ Returns detail on a shipment, which includes the tracking number and destination
 
 ### Other
 
-- Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.
+- Permissions: Only manufacturers can access this route. They can only see garments made at their factory.
 - Pagination: N/A
 
+## Receive Shipment
 
+```shell
+curl -X POST "https://api.trinity-apparel.com/v1/shipments/:id/receive"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns a JSON structured like this:
+
+```json
+{
+  "id": 385700,
+  "description": "Testing Shipping Fabric Orders",
+  "status": "received",
+  "method": "Ground",
+  "carrier": null,
+  "tracking_number": null,
+  "create_date": "2020-06-04T00:00:00.000Z",
+  "ship_date": "2020-06-04T00:00:00.000Z",
+  "receive_date": "2020-06-09T22:14:58.000Z"
+}
+```
+
+### Description
+
+Sets the status of a shipment to recieved. The shipment must be in `transit` status.
+
+*Note*: Only fabric order shipments can be received at this time.
+
+### HTTP Request
+
+`POST https://api.trinity-apparel.com/v1/shipments/:id/receive`
+
+### Query Parameters
+
+| Parameter | Default | Description                |
+| --------- | ------- | -------------------------- |
+| id        | N/A     | Lookup id for the shipment |
+
+### Other
+
+- Permissions: Only manufacturers can access this route. They can only see garments made at their factory.
+- Pagination: N/A
 
 ## Get Garment Fabrics
 
@@ -2048,149 +2105,151 @@ curl "https://api.trinity-apparel.com/v1/garments/:id/fabrics"
 
 ```json
 [
-    {
-        "fabric": {
-            "id": 39988,
-            "active": true,
-            "in_stock": 1,
-            "restock_date": null,
-            "description": "Blue Sharkskin",
-            "supplier_fabric_number": "223.046/44",
-            "trinity_fabric_number": "Z2-3339988",
-            "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z2-3339988",
-            "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z2-3339988&res=300",
-            "inventory_status": "In Stock",
-            "pattern_id": null,
-            "weave_id": 15,
-            "price_tier": 3,
-            "discount": null,
-            "has_image": true,
-            "availability": "at once",
-            "favorite_id": null,
-            "fabric_type": null,
-            "fabric_garment_type": 199,
-            "trim_garment_type": 0
-        },
-        "options": [
-            {
-                "option_id": null,
-                "name": "shell",
-                "description": "Shell Fabric",
-                "garment_types": [
-                    {
-                        "name": "Coat",
-                        "abbreviation": "CSC",
-                        "garment_type": 1
-                    },
-                    {
-                        "name": "Pant",
-                        "abbreviation": "CT",
-                        "garment_type": 4
-                    }
-                ]
-            }
-        ],
-        "errors": [],
-        "measurements": {
-            "estimated": {
-                "width": null,
-                "length": null,
-                "type": null
-            },
-            "cad": {
-                "width": 146,
-                "length": 320,
-                "is_cut": false
-            },
-            "received": {
-                "width": null,
-                "length": null,
-                "notes": null
-            },
-            "repeated_pattern": {
-                "width": null,
-                "length": null,
-                "type": null
-            }
-        }
+  {
+    "fabric": {
+      "id": 39988,
+      "active": true,
+      "in_stock": 1,
+      "restock_date": null,
+      "description": "Blue Sharkskin",
+      "supplier_fabric_number": "223.046/44",
+      "trinity_fabric_number": "Z2-3339988",
+      "url": "https://s7d4.scene7.com/is/image/trinityapparel/Z2-3339988",
+      "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=Z2-3339988&res=300",
+      "inventory_status": "In Stock",
+      "pattern_id": null,
+      "weave_id": 15,
+      "price_tier": 3,
+      "discount": null,
+      "has_image": true,
+      "availability": "at once",
+      "favorite_id": null,
+      "fabric_type": null,
+      "fabric_garment_type": 199,
+      "trim_garment_type": 0
     },
-    {
-        "fabric": {
-            "id": 40676,
-            "active": true,
-            "in_stock": 1,
-            "restock_date": null,
-            "description": "Royal Blue Fancy",
-            "supplier_fabric_number": "L4-3540676",
-            "trinity_fabric_number": "L4-3540676",
-            "url": "https://s7d4.scene7.com/is/image/trinityapparel/L4-3540676",
-            "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=L4-3540676&res=300",
-            "inventory_status": "In Stock",
-            "pattern_id": 35,
-            "weave_id": null,
-            "price_tier": 3,
-            "discount": null,
-            "has_image": true,
-            "availability": "at once",
-            "favorite_id": null,
-            "fabric_type": null,
-            "fabric_garment_type": 0,
-            "trim_garment_type": 759
-        },
-        "options": [
-            {
-                "option_id": 510,
-                "name": "materials_lining_fabric_num",
-                "description": "Lining Fabric #",
-                "garment_types": [
-                    {
-                        "name": "Coat",
-                        "abbreviation": "CSC",
-                        "garment_type": 1
-                    }
-                ]
-            },
-            {
-                "option_id": 229,
-                "name": "lining_fabric_num",
-                "description": "Lining Fabric #",
-                "garment_types": [
-                    {
-                        "name": "Coat",
-                        "abbreviation": "CSC",
-                        "garment_type": 1
-                    }
-                ]
-            }
-        ],
-        "errors": [],
-        "measurements": {
-            "estimated": {
-                "width": null,
-                "length": null,
-                "type": null
-            },
-            "cad": {
-                "width": null,
-                "length": null,
-                "is_cut": null
-            },
-            "received": {
-                "width": null,
-                "length": null,
-                "notes": null
-            },
-            "repeated_pattern": {
-                "width": null,
-                "length": null,
-                "type": null
-            }
-        }
+    "options": [
+      {
+        "option_id": null,
+        "name": "shell",
+        "description": "Shell Fabric",
+        "garment_types": [
+          {
+            "name": "Coat",
+            "abbreviation": "CSC",
+            "garment_type": 1
+          },
+          {
+            "name": "Pant",
+            "abbreviation": "CT",
+            "garment_type": 4
+          }
+        ]
+      }
+    ],
+    "errors": [],
+    "measurements": {
+      "estimated": {
+        "width": null,
+        "length": null,
+        "type": null
+      },
+      "cad": {
+        "width": 146,
+        "length": 320,
+        "is_cut": false
+      },
+      "received": {
+        "width": null,
+        "length": null,
+        "notes": null
+      },
+      "repeated_pattern": {
+        "width": null,
+        "length": null,
+        "type": null
+      }
     }
+  },
+  {
+    "fabric": {
+      "id": 40676,
+      "active": true,
+      "in_stock": 1,
+      "restock_date": null,
+      "description": "Royal Blue Fancy",
+      "supplier_fabric_number": "L4-3540676",
+      "trinity_fabric_number": "L4-3540676",
+      "url": "https://s7d4.scene7.com/is/image/trinityapparel/L4-3540676",
+      "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=L4-3540676&res=300",
+      "inventory_status": "In Stock",
+      "pattern_id": 35,
+      "weave_id": null,
+      "price_tier": 3,
+      "discount": null,
+      "has_image": true,
+      "availability": "at once",
+      "favorite_id": null,
+      "fabric_type": null,
+      "fabric_garment_type": 0,
+      "trim_garment_type": 759
+    },
+    "options": [
+      {
+        "option_id": 510,
+        "name": "materials_lining_fabric_num",
+        "description": "Lining Fabric #",
+        "garment_types": [
+          {
+            "name": "Coat",
+            "abbreviation": "CSC",
+            "garment_type": 1
+          }
+        ]
+      },
+      {
+        "option_id": 229,
+        "name": "lining_fabric_num",
+        "description": "Lining Fabric #",
+        "garment_types": [
+          {
+            "name": "Coat",
+            "abbreviation": "CSC",
+            "garment_type": 1
+          }
+        ]
+      }
+    ],
+    "errors": [],
+    "measurements": {
+      "estimated": {
+        "width": null,
+        "length": null,
+        "type": null
+      },
+      "cad": {
+        "width": null,
+        "length": null,
+        "is_cut": null
+      },
+      "received": {
+        "width": null,
+        "length": null,
+        "notes": null
+      },
+      "repeated_pattern": {
+        "width": null,
+        "length": null,
+        "type": null
+      }
+    }
+  }
 ]
 ```
 
-Returns an array of fabrics that are used to make a garment.  Under each fabric we list the options it is used for, as well as the shell fabric.  This uses a simple garment option subresource that identifies the option id, name, description, and garment types for the option.  Errors are indicated if a fabric was damaged or short. We also include information about fabric measurements.
+### Description
+
+Returns an array of fabrics that are used to make a garment. Under each fabric we list the options it is used for, as well as the shell fabric. This uses a simple garment option subresource that identifies the option id, name, description, and garment types for the option. Errors are indicated if a fabric was damaged or short. We also include information about fabric measurements.
 
 | Measurement      | Fabric Source | Description                                                              |
 | ---------------- | ------------- | ------------------------------------------------------------------------ |
@@ -2211,5 +2270,356 @@ Returns an array of fabrics that are used to make a garment.  Under each fabric 
 
 ### Other
 
-- Permissions: Only manufacturers can access this route.  They can only see garments made at their factory.
+- Permissions: Only manufacturers can access this route. They can only see garments made at their factory.
+- Pagination: No
+
+## Get Fabric Order
+
+```shell
+curl "https://api.trinity-apparel.com/v1/fabric_orders/:id"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 397950,
+  "fabric_id": 72898,
+  "garment_id": 1143878,
+  "length": "1.125",
+  "address_id": 12310,
+  "extra_fabric": false,
+  "fulfillment_failure": false,
+  "shipment_id": 385700,
+  "reason": "null",
+  "created_at": "2020-06-04T00:00:00.000Z",
+  "status": "transit",
+  "trinity_fabric_number": "N6-4072898",
+  "supplier_fabric_number": "JT 82099-82",
+  "description": "White Solid Linen",
+  "image": "https://s7d4.scene7.com/is/image/trinityapparel/N6-4072898",
+  "fabric": {
+    "id": 72898,
+    "active": true,
+    "in_stock": 1,
+    "restock_date": null,
+    "description": "White Solid Linen",
+    "supplier_fabric_number": "JT 82099-82",
+    "trinity_fabric_number": "N6-4072898",
+    "url": "https://s7d4.scene7.com/is/image/trinityapparel/N6-4072898",
+    "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=N6-4072898&res=300",
+    "inventory_status": "In Stock",
+    "pattern_id": 1,
+    "weave_id": null,
+    "price_tier": 2,
+    "discount": null,
+    "has_image": true,
+    "availability": "unknown",
+    "favorite_id": null,
+    "fabric_type": null,
+    "fabric_garment_type": 8,
+    "trim_garment_type": 0
+  },
+  "address": {
+    "id": 12310,
+    "description": "Tyler Jones",
+    "street1": "1102 Knox Cove",
+    "street2": null,
+    "street3": null,
+    "city": "Madison",
+    "state": "NJ",
+    "zip": "59876",
+    "country": "USA",
+    "phone": "(555)111-2345"
+  },
+  "garment": {
+    "id": 1143878,
+    "title": "IDUK-1143878",
+    "order_id": 526328,
+    "copied_garment_id": 1046085,
+    "price": "53.0",
+    "option_cost": "0.0",
+    "garment_type": "CSHT",
+    "created_at": "2020-06-03T00:40:43.000Z",
+    "updated_at": "2020-06-03T00:40:43.000Z",
+    "order_status_id": 3,
+    "delay_status_id": 4,
+    "fabric_url": "https://s7d4.scene7.com/is/image/trinityapparel/N6-4072898"
+  },
+  "shipment": {
+    "id": 385700,
+    "description": "Testing Shipping Fabric Orders",
+    "status": "received",
+    "method": "Ground",
+    "carrier": null,
+    "tracking_number": null,
+    "create_date": "2020-06-04T00:00:00.000Z",
+    "ship_date": "2020-06-04T00:00:00.000Z",
+    "receive_date": "2020-06-09T22:14:58.000Z"
+  }
+}
+```
+
+### Description
+
+Returns details of a fabric order, including details on the fabric, address, garment, and shipment attached to it.
+
+*Note*: Almost all fabric orders are generated at checkout. We rarely add them manually to the system.  Sometimes a fabric order will be cancelled (typically when the fabric is out of stock) and a new one will be made when the order is edited and a new fabric is chosen.
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/fabric_order/:id`
+
+### Query Parameters
+
+| Parameter | Default | Description                               |
+| --------- | ------- | ----------------------------------------- |
+| id        | N/A     | The specific fabric order you want to see |
+
+### Other
+
+- Permissions: Only manufacturers can access this route. They can only see garments made at their factory.
+- Pagination: No
+
+## Receive Fabric Order
+
+```shell
+curl -X POST "https://api.trinity-apparel.com/v1/fabric_orders/:id/receive"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 397950,
+  "fabric_id": 72898,
+  "garment_id": 1143878,
+  "length": "1.125",
+  "address_id": 12310,
+  "extra_fabric": false,
+  "fulfillment_failure": false,
+  "shipment_id": 385700,
+  "reason": "null",
+  "created_at": "2020-06-04T00:00:00.000Z",
+  "status": "received",
+  "trinity_fabric_number": "N6-4072898",
+  "supplier_fabric_number": "JT 82099-82",
+  "description": "White Solid Linen",
+  "image": "https://s7d4.scene7.com/is/image/trinityapparel/N6-4072898"
+}
+```
+
+### Description
+
+This updates the status of a fabric order to be received and returns the fabric order. The fabric must be in the `transit` status before it can be received.
+
+### HTTP Request
+
+`POST https://api.trinity-apparel.com/v1/fabric_order/:id/receive`
+
+### Query Parameters
+
+| Parameter | Default | Description                                   |
+| --------- | ------- | --------------------------------------------- |
+| id        | N/A     | The specific fabric order you want to receive |
+
+### Other
+
+- Permissions: Only manufacturers can access this route. They can only see garments made at their factory.
+- Pagination: No
+
+## Accept Fabric Order
+
+```shell
+curl -X POST "https://api.trinity-apparel.com/v1/fabric_orders/:id/accept"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 397950,
+  "fabric_id": 72898,
+  "garment_id": 1143878,
+  "length": "1.125",
+  "address_id": 12310,
+  "extra_fabric": false,
+  "fulfillment_failure": false,
+  "shipment_id": 385700,
+  "reason": "null",
+  "created_at": "2020-06-04T00:00:00.000Z",
+  "status": "accepted",
+  "trinity_fabric_number": "N6-4072898",
+  "supplier_fabric_number": "JT 82099-82",
+  "description": "White Solid Linen",
+  "image": "https://s7d4.scene7.com/is/image/trinityapparel/N6-4072898"
+}
+```
+
+### Description
+
+Once a fabric has been received and has passed your inspection process, use this API call to mark it as `accepted` and to confirm the length and width of the fabric you received. We use this information to ensure that our suppliers cut fabrics to the correct dimensions.
+
+Fabric order must have a status of either `transit` or `recieve` to be accepted. This will create a Fabric Checkpoint, set the status of the fabric order to accepted, and also move the garment to the `Ready` order status (as long as all required fabrics have been received). If unsuccessful, it will return the error that was encountered. If successful, it will return the updated fabric order.
+
+### Detail
+
+The allowed fabric type codes are:
+
+| Code             | Description             |
+| ---------------- | ----------------------- |
+| check            | Check 1 - Symmetric     |
+| check_asymmetric | Check 2 - Asymmetric    |
+| solid            | Solid, Paisley or Other |
+| stripe           | Stripe                  |
+
+### HTTP Request
+
+`POST https://api.trinity-apparel.com/v1/fabric_order/:id/accept`
+
+### Query Parameters
+
+| Parameter        | Default | Description                                  |
+| ---------------- | ------- | -------------------------------------------- |
+| id               | N/A     | The specific fabric order you want to accept |
+| cuttable_length  | N/A     | The cuttable length of the fabric            |
+| cuttable_width   | N/A     | The cuttable width of the fabric             |
+| fabric_type_code | N/A     | The code for the fabric pattern (see above)  |
+
+### Other
+
+- Permissions: Only manufacturers can access this route. They can only see garments made at their factory.
+- Pagination: No
+
+## Reject Fabric Order
+
+```shell
+curl -X POST "https://api.trinity-apparel.com/v1/fabric_orders/:id/reject"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "fabric_order": {
+    "id": 397950,
+    "status": "rejected",
+    "garment_id": 1143878,
+    "fabric_id": 72898,
+    "address_id": 12310,
+    "length": "1.125",
+    "shipment_id": 385700,
+    "login_id": 1710,
+    "extra_fabric": false,
+    "fulfillment_failure": false,
+    "reason": "null",
+    "created_at": "2020-06-04T00:00:00.000Z",
+    "updated_at": "2020-06-09T21:37:47.000Z"
+  },
+  "new_fabric_order": {
+    "id": 397968,
+    "status": "pending",
+    "fabric_id": 72898,
+    "address_id": 12310,
+    "garment_id": 1143878,
+    "length": "1.125",
+    "extra_fabric": true,
+    "fulfillment_failure": false,
+    "shipment_id": 385700,
+    "login_id": 1578,
+    "reason": "flawed",
+    "created_at": null,
+    "updated_at": null
+  }
+}
+```
+
+### Description
+
+**WARNING** This API call will automatically place a new fabric order with the vendor as long as the fabric is in stock.
+
+Use this API call after you receive a fabric and the fabric fails your inspection process. You'll mark the reason it was rejected and we can usually automatically reorder it from the supplier.
+
+Fabric orders must have a status of either `transit` or `recieved` to be rejected. This will move the garment into the correct delay status (typically no delay) and set the status of the fabric order to `rejected`. It will also create a new fabric order as long as the fabric is in stock and the reason isn't due to a fabric short. If either the fabric was short or out of stock, a fabric order will have to be placed manually.
+
+If everything was successful, you will get back an updated copy of the current fabric order as well as the newly placed fabric order (same fabric but the length you specified). If there was an error, the error message will be returned. And if the new_fabric_order is null, that means a new order was unable to be placed automatically and will have to be done manually.
+
+
+### Detail
+
+The allowed reason codes are:
+
+| Code    | Description      |
+| ------- | ---------------- |
+| part    | Alteration Parts |
+| short   | Fabric Short     |
+| mistake | Factory Mistake  |
+| dirty   | Fabric Dirty     |
+| flawed  | Fabric Flawed    |
+| hole    | Fabric has Holes |
+| warped  | Fabric is Warped |
+| wrong   | Wrong Fabric     |
+
+### HTTP Request
+
+`POST https://api.trinity-apparel.com/v1/fabric_order/:id/reject`
+
+### Query Parameters
+
+| Parameter   | Default | Description                                  |
+| ----------- | ------- | -------------------------------------------- |
+| id          | N/A     | The specific fabric order you want to reject |
+| reason_code | N/A     | The reason you are rejecting the fabric      |
+| length      | N/A     | The total yards needed when reordering (optional, only include when different from the cut you received). Default is length of the order that arrived       |
+
+### Other
+
+- Permissions: Only manufacturers can access this route. They can only see garments made at their factory.
+- Pagination: No
+
+## Fabric Order Errors
+
+```shell
+curl -X POST "https://api.trinity-apparel.com/v1/fabric_orders/:id/errors"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id_fabric_errors": 397953,
+  "position_x": 22,
+  "position_y": 12,
+  "length": 15.0,
+  "width": 17.0,
+  "id_fabric_checkpoint": 397951
+}
+```
+
+### Description
+
+This is to set errors found on a fabric. In order to record errors, the fabric order must be received by the factory (status of `received` or `accepted`). This will create and return a Fabric Error record that will define the coordinates for the unusable spot on the fabric.
+
+### HTTP Request
+
+`POST https://api.trinity-apparel.com/v1/fabric_order/:id/errors`
+
+### Query Parameters
+
+| Parameter  | Default | Description                                         |
+| ---------- | ------- | --------------------------------------------------- |
+| id         | N/A     | The specific fabric order you want to set errors on |
+| position_x | N/A     | The X position of the error on the fabric           |
+| position_y | N/A     | The Y position of the error on the fabric           |
+| length     | N/A     | The total length of the error spot on the fabric    |
+| width      | N/A     | The total width of the error spot on the fabric     |
+
+### Other
+
+- Permissions: Only manufacturers can access this route. They can only see garments made at their factory.
 - Pagination: No
