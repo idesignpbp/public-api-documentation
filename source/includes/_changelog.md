@@ -4,7 +4,7 @@ A history of changes to the Trinity Apparel API.
 
 ## 2020-06-17
 
-Manufacturers can now manage fabric orders and fabric shipments from suppliers:
+Manufacturers can now manage fabric orders and fabric shipments from suppliers using the new Shipments API:
 
 - Fabric Shipments
   - `GET /shipments/:id` now also returns fabric orders related to a shipment.

@@ -14,6 +14,7 @@ includes:
   - materials
   - customers
   - manufacturers
+  - shipping
   - changelog
 
 search: true
@@ -21,7 +22,20 @@ search: true
 
 # Introduction
 
-Welcome to the Trinity Apparel API! You can use our API to get information on all of our endpoints, such as the **Fabrics API** and the **Orders API**.
+Welcome to the Trinity Apparel API!
+
+Our RESTful API is used for our internal apps, dealers, and manufacturers.  Here is an overview of our sections:
+
+| API Name                            | Description                                 |
+| ----------------------------------- | ------------------------------------------- |
+| Orders API <br> <span>readonly</span> | Dealers can review their orders and all garments in those orders |
+| Measurements API <br> <span>readonly</span> | Explore Options |
+| Options API <br> <span>readonly</span> | Explore Options |
+| Fabrics API <br> <span>readonly</span> | Search and Explore Fabrics |
+| Materials API <br> <span>readonly</span> | Explore buttons, threads, felts, etc |
+| Customers API <br> <span>write</span> | Explore your customers and add basic customer records |
+| Manufacturers API <br> <span>write</span> | Manage orders at a factory |
+| Shipping API <br> <span>write</span> | Receive and manage shipments at a factory |
 
 # Authorization
 
