@@ -507,7 +507,7 @@ Returns details of a fabric order, including details on the fabric, address, gar
 
 ### HTTP Request
 
-`GET https://api.trinity-apparel.com/v1/fabric_order/:id`
+`GET https://api.trinity-apparel.com/v1/fabric_orders/:id`
 
 ### Query Parameters
 
@@ -555,7 +555,7 @@ This updates the status of a fabric order to be received and returns the fabric 
 
 ### HTTP Request
 
-`POST https://api.trinity-apparel.com/v1/fabric_order/:id/receive`
+`POST https://api.trinity-apparel.com/v1/fabric_orders/:id/receive`
 
 ### Query Parameters
 
@@ -616,7 +616,7 @@ The allowed fabric type codes are:
 
 ### HTTP Request
 
-`POST https://api.trinity-apparel.com/v1/fabric_order/:id/accept`
+`POST https://api.trinity-apparel.com/v1/fabric_orders/:id/accept`
 
 ### Query Parameters
 
@@ -704,7 +704,7 @@ The allowed reason codes are:
 
 ### HTTP Request
 
-`POST https://api.trinity-apparel.com/v1/fabric_order/:id/reject`
+`POST https://api.trinity-apparel.com/v1/fabric_orders/:id/reject`
 
 ### Query Parameters
 
@@ -745,7 +745,7 @@ This is to set errors found on a fabric. In order to record errors, the fabric o
 
 ### HTTP Request
 
-`POST https://api.trinity-apparel.com/v1/fabric_order/:id/errors`
+`POST https://api.trinity-apparel.com/v1/fabric_orders/:id/errors`
 
 ### Query Parameters
 
