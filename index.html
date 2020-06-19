@@ -468,6 +468,9 @@
                     <a href="#receive-shipment" class="toc-h2 toc-link" data-title="Receive Shipment">Receive Shipment</a>
                   </li>
                   <li>
+                    <a href="#get-all-fabric-orders" class="toc-h2 toc-link" data-title="Get All Fabric Orders">Get All Fabric Orders</a>
+                  </li>
+                  <li>
                     <a href="#get-fabric-order" class="toc-h2 toc-link" data-title="Get Fabric Order">Get Fabric Order</a>
                   </li>
                   <li>
@@ -11824,6 +11827,7 @@ We can also add filters and allow users to toggle localization (metric units, tr
 <li><a href="#create-shipment">Create Shipment</a> - Add garments to a new shipment</li>
 <li><a href="#get-shipment-detail">Get Shipment Detail</a> - Shipment details and garments in the shipment</li>
 <li><a href="#receive-shipment">Receive Shipment</a> - Receive a shipment.</li>
+<li><a href="#get-all-fabric-orders">Get All Fabric Orders</a> - Get all fabric orders for a specific garment.</li>
 <li><a href="#get-fabric-order">Get Fabric Order</a> - Details of a fabric order.</li>
 <li><a href="#receive-fabric-order">Receive Fabric Order</a> - Receive a fabric order.</li>
 <li><a href="#accept-fabric-order">Accept Fabric Order</a> - Accept a fabric order if it doesn&#39;t have any flaws.</li>
@@ -12097,6 +12101,132 @@ We can also add filters and allow users to toggle localization (metric units, tr
 <li>Permissions: Only manufacturers can access this route. They can only see garments made at their factory.</li>
 <li>Pagination: N/A</li>
 </ul>
+<h2 id='get-all-fabric-orders'>Get All Fabric Orders</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/garments/:id/fabric_orders"</span>
+  -H <span class="s2">"Authorization Bearer: swaledale"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">320723</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fabric_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">29888</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"garment_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1100503</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.75"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1943</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"extra_fabric"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fulfillment_failure"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"shipment_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"reason"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-17T17:35:11.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"received"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L6-3129888"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"360072"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Antique Golfers"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/L6-3129888"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fabric"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">29888</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Antique Golfers"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"360072"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L6-3129888"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/L6-3129888"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=L6-3129888&amp;res=300"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"availability"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"favorite_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"fabric_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"fabric_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"trim_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">759</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1943</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beijing iDesign Garments"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"street1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"No. 8, Fuqian Street"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"street2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beixiaoying County, Shunyi District"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"street3"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beijing"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101300"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"People's Rep. of China"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tel:  +86 (0)10 60400433"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"garment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1100503</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID-1100503"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">505484</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"copied_garment_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"832.0"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"option_cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"garment_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CCP"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-17T17:35:11.000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"order_status_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"delay_status_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"fabric_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"shipment"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">320724</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fabric_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">58067</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"garment_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1100503</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4.5"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1943</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"extra_fabric"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fulfillment_failure"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"shipment_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"reason"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-17T17:35:11.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"accepted"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y4-3858067"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"290015"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Slate Puppytooth"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Y4-3858067"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fabric"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="err">...</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="err">...</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"garment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="err">...</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"shipment"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='description-4'>Description</h3>
+<p>Returns an array of fabric orders for a specific garment. Each fabric order includes details on the fabric, address, garment, and shipment attached to it.</p>
+
+<p><em>Note</em>: Almost all fabric orders are generated at checkout. We rarely add them manually to the system.  Sometimes a fabric order will be cancelled (typically when the fabric is out of stock) and a new one will be made when the order is edited and a new fabric is chosen.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET https://api.trinity-apparel.com/v1/garments/:id/fabric_orders</code></p>
+<h3 id='query-parameters-4'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>N/A</td>
+<td>The specific garment you want to get fabric orders for</td>
+</tr>
+</tbody></table>
+<h3 id='other-4'>Other</h3>
+<ul>
+<li>Permissions: Only manufacturers can access this route. They can only see garments made at their factory.</li>
+<li>Pagination: No</li>
+</ul>
 <h2 id='get-fabric-order'>Get Fabric Order</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/fabric_orders/:id"</span>
   -H <span class="s2">"Authorization Bearer: swaledale"</span>
 </code></pre>
@@ -12179,13 +12309,13 @@ We can also add filters and allow users to toggle localization (metric units, tr
     </span><span class="s2">"receive_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-06-09T22:14:58.000Z"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='description-4'>Description</h3>
+</span></code></pre><h3 id='description-5'>Description</h3>
 <p>Returns details of a fabric order, including details on the fabric, address, garment, and shipment attached to it.</p>
 
 <p><em>Note</em>: Almost all fabric orders are generated at checkout. We rarely add them manually to the system.  Sometimes a fabric order will be cancelled (typically when the fabric is out of stock) and a new one will be made when the order is edited and a new fabric is chosen.</p>
-<h3 id='http-request-4'>HTTP Request</h3>
-<p><code>GET https://api.trinity-apparel.com/v1/fabric_order/:id</code></p>
-<h3 id='query-parameters-4'>Query Parameters</h3>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>GET https://api.trinity-apparel.com/v1/fabric_orders/:id</code></p>
+<h3 id='query-parameters-5'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -12199,7 +12329,7 @@ We can also add filters and allow users to toggle localization (metric units, tr
 <td>The specific fabric order you want to see</td>
 </tr>
 </tbody></table>
-<h3 id='other-4'>Other</h3>
+<h3 id='other-5'>Other</h3>
 <ul>
 <li>Permissions: Only manufacturers can access this route. They can only see garments made at their factory.</li>
 <li>Pagination: No</li>
@@ -12227,11 +12357,11 @@ We can also add filters and allow users to toggle localization (metric units, tr
   </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"White Solid Linen"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/N6-4072898"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='description-5'>Description</h3>
+</span></code></pre><h3 id='description-6'>Description</h3>
 <p>This updates the status of a fabric order to be received and returns the fabric order. The fabric must be in the <code>transit</code> status before it can be received.</p>
-<h3 id='http-request-5'>HTTP Request</h3>
-<p><code>POST https://api.trinity-apparel.com/v1/fabric_order/:id/receive</code></p>
-<h3 id='query-parameters-5'>Query Parameters</h3>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>POST https://api.trinity-apparel.com/v1/fabric_orders/:id/receive</code></p>
+<h3 id='query-parameters-6'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -12245,7 +12375,7 @@ We can also add filters and allow users to toggle localization (metric units, tr
 <td>The specific fabric order you want to receive</td>
 </tr>
 </tbody></table>
-<h3 id='other-5'>Other</h3>
+<h3 id='other-6'>Other</h3>
 <ul>
 <li>Permissions: Only manufacturers can access this route. They can only see garments made at their factory.</li>
 <li>Pagination: No</li>
@@ -12273,7 +12403,7 @@ We can also add filters and allow users to toggle localization (metric units, tr
   </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"White Solid Linen"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/N6-4072898"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='description-6'>Description</h3>
+</span></code></pre><h3 id='description-7'>Description</h3>
 <p>Once a fabric has been received and has passed your inspection process, use this API call to mark it as <code>accepted</code> and to confirm the length and width of the fabric you received. We use this information to ensure that our suppliers cut fabrics to the correct dimensions.</p>
 
 <p>Fabric order must have a status of either <code>transit</code> or <code>recieve</code> to be accepted. This will create a Fabric Checkpoint, set the status of the fabric order to accepted, and also move the garment to the <code>Ready</code> order status (as long as all required fabrics have been received). If unsuccessful, it will return the error that was encountered. If successful, it will return the updated fabric order.</p>
@@ -12303,9 +12433,9 @@ We can also add filters and allow users to toggle localization (metric units, tr
 <td>Stripe</td>
 </tr>
 </tbody></table>
-<h3 id='http-request-6'>HTTP Request</h3>
-<p><code>POST https://api.trinity-apparel.com/v1/fabric_order/:id/accept</code></p>
-<h3 id='query-parameters-6'>Query Parameters</h3>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>POST https://api.trinity-apparel.com/v1/fabric_orders/:id/accept</code></p>
+<h3 id='query-parameters-7'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -12334,7 +12464,7 @@ We can also add filters and allow users to toggle localization (metric units, tr
 <td>The code for the fabric pattern (see above)</td>
 </tr>
 </tbody></table>
-<h3 id='other-6'>Other</h3>
+<h3 id='other-7'>Other</h3>
 <ul>
 <li>Permissions: Only manufacturers can access this route. They can only see garments made at their factory.</li>
 <li>Pagination: No</li>
@@ -12377,7 +12507,7 @@ We can also add filters and allow users to toggle localization (metric units, tr
     </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='description-7'>Description</h3>
+</span></code></pre><h3 id='description-8'>Description</h3>
 <p><strong>WARNING</strong> This API call will automatically place a new fabric order with the vendor as long as the fabric is in stock.</p>
 
 <p>Use this API call after you receive a fabric and the fabric fails your inspection process. You&#39;ll mark the reason it was rejected and we can usually automatically reorder it from the supplier.</p>
@@ -12427,9 +12557,9 @@ We can also add filters and allow users to toggle localization (metric units, tr
 <td>Wrong Fabric</td>
 </tr>
 </tbody></table>
-<h3 id='http-request-7'>HTTP Request</h3>
-<p><code>POST https://api.trinity-apparel.com/v1/fabric_order/:id/reject</code></p>
-<h3 id='query-parameters-7'>Query Parameters</h3>
+<h3 id='http-request-8'>HTTP Request</h3>
+<p><code>POST https://api.trinity-apparel.com/v1/fabric_orders/:id/reject</code></p>
+<h3 id='query-parameters-8'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -12453,7 +12583,7 @@ We can also add filters and allow users to toggle localization (metric units, tr
 <td>The total yards needed when reordering (optional, only include when different from the cut you received). Default is length of the order that arrived</td>
 </tr>
 </tbody></table>
-<h3 id='other-7'>Other</h3>
+<h3 id='other-8'>Other</h3>
 <ul>
 <li>Permissions: Only manufacturers can access this route. They can only see garments made at their factory.</li>
 <li>Pagination: No</li>
@@ -12472,11 +12602,11 @@ We can also add filters and allow users to toggle localization (metric units, tr
   </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mf">17.0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"id_fabric_checkpoint"</span><span class="p">:</span><span class="w"> </span><span class="mi">397951</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='description-8'>Description</h3>
+</span></code></pre><h3 id='description-9'>Description</h3>
 <p>This is to set errors found on a fabric. In order to record errors, the fabric order must be received by the factory (status of <code>received</code> or <code>accepted</code>). This will create and return a Fabric Error record that will define the coordinates for the unusable spot on the fabric.</p>
-<h3 id='http-request-8'>HTTP Request</h3>
-<p><code>POST https://api.trinity-apparel.com/v1/fabric_order/:id/errors</code></p>
-<h3 id='query-parameters-8'>Query Parameters</h3>
+<h3 id='http-request-9'>HTTP Request</h3>
+<p><code>POST https://api.trinity-apparel.com/v1/fabric_orders/:id/errors</code></p>
+<h3 id='query-parameters-9'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -12510,7 +12640,7 @@ We can also add filters and allow users to toggle localization (metric units, tr
 <td>The total width of the error spot on the fabric</td>
 </tr>
 </tbody></table>
-<h3 id='other-8'>Other</h3>
+<h3 id='other-9'>Other</h3>
 <ul>
 <li>Permissions: Only manufacturers can access this route. They can only see garments made at their factory.</li>
 <li>Pagination: No</li>
