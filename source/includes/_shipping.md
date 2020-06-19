@@ -7,6 +7,7 @@ This includes:
 - [Create Shipment](#create-shipment) - Add garments to a new shipment
 - [Get Shipment Detail](#get-shipment-detail) - Shipment details and garments in the shipment
 - [Receive Shipment](#receive-shipment) - Receive a shipment.
+- [Get All Fabric Orders](#get-all-fabric-orders) - Get all fabric orders for a specific garment.
 - [Get Fabric Order](#get-fabric-order) - Details of a fabric order.
 - [Receive Fabric Order](#receive-fabric-order) - Receive a fabric order.
 - [Accept Fabric Order](#accept-fabric-order) - Accept a fabric order if it doesn't have any flaws.
@@ -281,6 +282,134 @@ Sets the status of a shipment to recieved. The shipment must be in `transit` sta
 - Permissions: Only manufacturers can access this route. They can only see garments made at their factory.
 - Pagination: N/A
 
+
+## Get All Fabric Orders
+
+```shell
+curl "https://api.trinity-apparel.com/v1/garments/:id/fabric_orders"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+        "id": 320723,
+        "fabric_id": 29888,
+        "garment_id": 1100503,
+        "length": "3.75",
+        "address_id": 1943,
+        "extra_fabric": false,
+        "fulfillment_failure": false,
+        "shipment_id": null,
+        "reason": null,
+        "created_at": "2019-12-17T17:35:11.000Z",
+        "status": "received",
+        "trinity_fabric_number": "L6-3129888",
+        "supplier_fabric_number": "360072",
+        "description": "Antique Golfers",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/L6-3129888",
+        "fabric": {
+            "id": 29888,
+            "active": true,
+            "in_stock": 1,
+            "restock_date": null,
+            "description": "Antique Golfers",
+            "supplier_fabric_number": "360072",
+            "trinity_fabric_number": "L6-3129888",
+            "url": "https://s7d4.scene7.com/is/image/trinityapparel/L6-3129888",
+            "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=L6-3129888&res=300",
+            "inventory_status": "In Stock",
+            "pattern_id": null,
+            "weave_id": null,
+            "price_tier": 4,
+            "discount": null,
+            "has_image": true,
+            "availability": "unknown",
+            "favorite_id": null,
+            "fabric_type": null,
+            "fabric_garment_type": 0,
+            "trim_garment_type": 759
+        },
+        "address": {
+            "id": 1943,
+            "description": "Beijing iDesign Garments",
+            "street1": "No. 8, Fuqian Street",
+            "street2": "Beixiaoying County, Shunyi District",
+            "street3": null,
+            "city": null,
+            "state": "Beijing",
+            "zip": "101300",
+            "country": "People's Rep. of China",
+            "phone": "Tel:  +86 (0)10 60400433"
+        },
+        "garment": {
+            "id": 1100503,
+            "title": "ID-1100503",
+            "order_id": 505484,
+            "copied_garment_id": null,
+            "price": "832.0",
+            "option_cost": "100.0",
+            "garment_type": "CCP",
+            "created_at": "2019-12-17T17:35:11.000Z",
+            "updated_at": null,
+            "order_status_id": 9,
+            "delay_status_id": 1,
+            "fabric_url": null
+        },
+        "shipment": null
+    },
+    {
+        "id": 320724,
+        "fabric_id": 58067,
+        "garment_id": 1100503,
+        "length": "4.5",
+        "address_id": 1943,
+        "extra_fabric": false,
+        "fulfillment_failure": false,
+        "shipment_id": null,
+        "reason": null,
+        "created_at": "2019-12-17T17:35:11.000Z",
+        "status": "accepted",
+        "trinity_fabric_number": "Y4-3858067",
+        "supplier_fabric_number": "290015",
+        "description": "Slate Puppytooth",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/Y4-3858067",
+        "fabric": {
+            ...
+        },
+        "address": {
+            ...
+        },
+        "garment": {
+            ...
+        },
+        "shipment": null
+    }
+]
+```
+
+### Description
+
+Returns an array of fabric orders for a specific garment. Each fabric order includes details on the fabric, address, garment, and shipment attached to it.
+
+*Note*: Almost all fabric orders are generated at checkout. We rarely add them manually to the system.  Sometimes a fabric order will be cancelled (typically when the fabric is out of stock) and a new one will be made when the order is edited and a new fabric is chosen.
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/garments/:id/fabric_orders`
+
+### Query Parameters
+
+| Parameter | Default | Description                               |
+| --------- | ------- | ----------------------------------------- |
+| id        | N/A     | The specific garment you want to get fabric orders for |
+
+### Other
+
+- Permissions: Only manufacturers can access this route. They can only see garments made at their factory.
+- Pagination: No
 
 ## Get Fabric Order
 
