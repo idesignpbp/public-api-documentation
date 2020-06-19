@@ -1,3 +1,16 @@
+## Note from Harper
+
+1. When you merge a branch, github by default sets it to the original slate repo. You ahve to change this to the master branch of our fork of the repo.
+
+2. Use ./deploy.sh to launch this on our github pages site
+
+The script has a bug where it deletes the CNAME for docs.trinity-apparel.com every time you run it.  So you have to go to github and pull up settings at https://github.com/idesignpbp/public-api-documentation/settings
+
+3. Then you must set the custom domain to "docs.trinity-apparel.com" if it is blank.
+
+
+## Standard docs
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/lord/img/master/logo-slate.png" alt="Slate: API Documentation Generator" width="226">
   <br>
