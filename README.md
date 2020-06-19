@@ -1,6 +1,6 @@
 ## Note from Harper
 
-1. When you merge a branch, github by default sets it to the original slate repo. You ahve to change this to the master branch of our fork of the repo.
+1. When you merge a branch, github by default sets it to the original slate repo. You have to change this to the master branch of our fork of the repo.
 
 2. Use ./deploy.sh to launch this on our github pages site
 
