@@ -2,6 +2,10 @@
 
 A history of changes to the Trinity Apparel API.
 
+## 2020-07-22
+
+Added Fabric Composition to `GET /fabric_orders/:id`
+
 ## 2020-06-17
 
 Manufacturers can now manage fabric orders and fabric shipments from suppliers using the new Shipments API:
