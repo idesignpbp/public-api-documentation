@@ -402,8 +402,8 @@ Returns an array of fabric orders for a specific garment. Each fabric order incl
 
 ### Query Parameters
 
-| Parameter | Default | Description                               |
-| --------- | ------- | ----------------------------------------- |
+| Parameter | Default | Description                                            |
+| --------- | ------- | ------------------------------------------------------ |
 | id        | N/A     | The specific garment you want to get fabric orders for |
 
 ### Other
@@ -437,6 +437,7 @@ curl "https://api.trinity-apparel.com/v1/fabric_orders/:id"
   "supplier_fabric_number": "JT 82099-82",
   "description": "White Solid Linen",
   "image": "https://s7d4.scene7.com/is/image/trinityapparel/N6-4072898",
+  "fabric_composition": "100% Bamboo",
   "fabric": {
     "id": 72898,
     "active": true,
@@ -708,11 +709,11 @@ The allowed reason codes are:
 
 ### Query Parameters
 
-| Parameter   | Default | Description                                  |
-| ----------- | ------- | -------------------------------------------- |
-| id          | N/A     | The specific fabric order you want to reject |
-| reason_code | N/A     | The reason you are rejecting the fabric      |
-| length      | N/A     | The total yards needed when reordering (optional, only include when different from the cut you received). Default is length of the order that arrived       |
+| Parameter   | Default | Description                                                                                                                                           |
+| ----------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| id          | N/A     | The specific fabric order you want to reject                                                                                                          |
+| reason_code | N/A     | The reason you are rejecting the fabric                                                                                                               |
+| length      | N/A     | The total yards needed when reordering (optional, only include when different from the cut you received). Default is length of the order that arrived |
 
 ### Other
 
