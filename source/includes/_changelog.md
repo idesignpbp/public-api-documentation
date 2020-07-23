@@ -2,6 +2,10 @@
 
 A history of changes to the Trinity Apparel API.
 
+## 2020-07-23
+
+Added missing params for accepting a fabric order and added explantion on when they need to be included.
+
 ## 2020-07-22
 
 Added Fabric Composition to `GET /fabric_orders/:id`

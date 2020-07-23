@@ -604,6 +604,8 @@ Once a fabric has been received and has passed your inspection process, use this
 
 Fabric order must have a status of either `transit` or `recieve` to be accepted. This will create a Fabric Checkpoint, set the status of the fabric order to accepted, and also move the garment to the `Ready` order status (as long as all required fabrics have been received). If unsuccessful, it will return the error that was encountered. If successful, it will return the updated fabric order.
 
+If the pattern is solid, you will only need to pass the `cuttable_width`, `cuttable_length` and `fabric_type_code` params.  If the pattern is stripe or check, you will also need to include the `fabric_type_width`.  If the pattern is check, you will also need `fabric_type_length`.
+
 ### Detail
 
 The allowed fabric type codes are:
@@ -621,12 +623,14 @@ The allowed fabric type codes are:
 
 ### Query Parameters
 
-| Parameter        | Default | Description                                  |
-| ---------------- | ------- | -------------------------------------------- |
-| id               | N/A     | The specific fabric order you want to accept |
-| cuttable_length  | N/A     | The cuttable length of the fabric            |
-| cuttable_width   | N/A     | The cuttable width of the fabric             |
-| fabric_type_code | N/A     | The code for the fabric pattern (see above)  |
+| Parameter          | Default | Description                                                                                   |
+| ------------------ | ------- | --------------------------------------------------------------------------------------------- |
+| id                 | N/A     | The specific fabric order you want to accept                                                  |
+| cuttable_length    | N/A     | The cuttable length of the fabric                                                             |
+| cuttable_width     | N/A     | The cuttable width of the fabric                                                              |
+| fabric_type_code   | N/A     | The code for the fabric pattern (see above)                                                   |
+| fabric_type_length | N/A     | The length of the fabric pattern (only needed for check and check_asymmetric patterns)        |
+| fabric_type_width  | N/A     | The width of the fabric pattern (only needed for stripe, check and check_asymmetric patterns) |
 
 ### Other
 
