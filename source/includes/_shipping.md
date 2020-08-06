@@ -7,13 +7,13 @@ This includes:
 - [Create Shipment](#create-shipment) - Add garments to a new shipment
 - [Get Shipment Detail](#get-shipment-detail) - Shipment details and garments in the shipment
 - [Receive Shipment](#receive-shipment) - Receive a shipment.
+- [Get All Fabric Shipments](#get-fabric-shipments) - Shipment details for ONLY shipments containing fabric orders.
 - [Get All Fabric Orders](#get-all-fabric-orders) - Get all fabric orders for a specific garment.
 - [Get Fabric Order](#get-fabric-order) - Details of a fabric order.
 - [Receive Fabric Order](#receive-fabric-order) - Receive a fabric order.
 - [Accept Fabric Order](#accept-fabric-order) - Accept a fabric order if it doesn't have any flaws.
 - [Reject Fabric Order](#reject-fabric-order) - Reject a flawed fabric order.
 - [Fabric Order Errors](#fabric-order-errors) - Report errors with fabric received from fabric order.
-
 
 ## Create Shipment
 
@@ -217,11 +217,11 @@ Fabric Order shipments occur when fabrics shipped from a supplier to a factory. 
 
 #### Garment Order
 
-Garment order shipments are sent from a factory to a distribution center.  The shipments from our factory to HQ are bulk and are typically part of 10-20 cartons sent each day. Each box is tracked as an individual shipment.  However, direct shipments and shipments to the UK or CA distribution centers are smaller in volume and typically are a single box.
+Garment order shipments are sent from a factory to a distribution center. The shipments from our factory to HQ are bulk and are typically part of 10-20 cartons sent each day. Each box is tracked as an individual shipment. However, direct shipments and shipments to the UK or CA distribution centers are smaller in volume and typically are a single box.
 
 #### Dealer Order
 
-Dealer order shipments are from a distribution center to the final destination, the dealer's shipping address.  They are typically small and are almost always from the HQ distribution center in Ridgeland, MS to another address in the USA.
+Dealer order shipments are from a distribution center to the final destination, the dealer's shipping address. They are typically small and are almost always from the HQ distribution center in Ridgeland, MS to another address in the USA.
 
 ### HTTP Request
 
@@ -265,7 +265,7 @@ curl -X POST "https://api.trinity-apparel.com/v1/shipments/:id/receive"
 
 Sets the status of a shipment to recieved. The shipment must be in `transit` status.
 
-*Note*: Only fabric order shipments can be received at this time.
+_Note_: Only fabric order shipments can be received at this time.
 
 ### HTTP Request
 
@@ -282,6 +282,314 @@ Sets the status of a shipment to recieved. The shipment must be in `transit` sta
 - Permissions: Only manufacturers can access this route. They can only see garments made at their factory.
 - Pagination: N/A
 
+## Get Fabric Shipments
+
+```shell
+curl -X GET "https://api.trinity-apparel.com/v1/fabric_shipments"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns a JSON structured like this:
+
+```json
+[
+  {
+    "id": 388757,
+    "description": "Fabric Orders 07/16/20 from Giovani to Trinity USA",
+    "status": "received",
+    "method": null,
+    "carrier": "DHL",
+    "tracking_number": "8341286236",
+    "create_date": "2020-07-16T04:31:51.000Z",
+    "ship_date": "2020-07-16T04:33:15.000Z",
+    "receive_date": "2020-07-23T06:26:27.000Z",
+    "login_id": 2,
+    "packing_list_url": "https://workflow.trinity-apparel.com/supplier/shipment_packing_list.php?shipment_id=388757&token=eyJhbGciOiJSUzI1NiJ9",
+    "invoice_url": "https://workflow.trinity-apparel.com/supplier/shipment_invoice.php?shipment_id=388757&token=eyJhbGciOiJSUzI1NiJ9",
+    "supplier": {
+      "id": 48,
+      "code": "GI",
+      "name": "Giovani",
+      "city": "Samphanthawong",
+      "state": "Bangkok",
+      "country": "Thailand"
+    },
+    "source": {
+      "id": 14431,
+      "description": "Warehouse Address",
+      "street1": "161 Vanich 1 Road (Sampheng)",
+      "street2": "Chakrawat",
+      "street3": null,
+      "city": "Samphanthawong",
+      "state": "Bangkok",
+      "zip": "10100",
+      "country": "Thailand",
+      "phone": "(66) 02 2229190"
+    },
+    "destination": {
+      "id": 2343,
+      "description": "PT. Trisco",
+      "street1": "Jl. Raya Kopo - Soreang",
+      "street2": "KM. 11.5 Katapang - Soreang",
+      "street3": null,
+      "city": "Bandung",
+      "state": "Jawa Barat",
+      "zip": "40971",
+      "country": "Indonesia",
+      "phone": "+62-22 589 7185"
+    },
+    "shipment_items": [],
+    "fabric_orders": [
+      {
+        "id": 400569,
+        "fabric_id": 84544,
+        "garment_id": 1152408,
+        "length": "2.375",
+        "address_id": 2343,
+        "extra_fabric": false,
+        "fulfillment_failure": false,
+        "shipment_id": 388757,
+        "reason": null,
+        "created_at": "2020-07-15T19:41:29.000Z",
+        "status": "accepted",
+        "trinity_fabric_number": "TT-4184544",
+        "supplier_fabric_number": "T547",
+        "description": "Blue Shepard Twill Check",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/TT-4184544"
+      },
+      {
+        "id": 400570,
+        "fabric_id": 84544,
+        "garment_id": 1152409,
+        "length": "2.375",
+        "address_id": 2343,
+        "extra_fabric": false,
+        "fulfillment_failure": false,
+        "shipment_id": 388757,
+        "reason": null,
+        "created_at": "2020-07-15T19:41:29.000Z",
+        "status": "accepted",
+        "trinity_fabric_number": "TT-4184544",
+        "supplier_fabric_number": "T547",
+        "description": "Blue Shepard Twill Check",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/TT-4184544"
+      },
+      {
+        "id": 400571,
+        "fabric_id": 84544,
+        "garment_id": 1152410,
+        "length": "2.375",
+        "address_id": 2343,
+        "extra_fabric": false,
+        "fulfillment_failure": false,
+        "shipment_id": 388757,
+        "reason": null,
+        "created_at": "2020-07-15T19:41:29.000Z",
+        "status": "accepted",
+        "trinity_fabric_number": "TT-4184544",
+        "supplier_fabric_number": "T547",
+        "description": "Blue Shepard Twill Check",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/TT-4184544"
+      },
+      {
+        "id": 400572,
+        "fabric_id": 84544,
+        "garment_id": 1152411,
+        "length": "2.375",
+        "address_id": 2343,
+        "extra_fabric": false,
+        "fulfillment_failure": false,
+        "shipment_id": 388757,
+        "reason": null,
+        "created_at": "2020-07-15T19:41:29.000Z",
+        "status": "accepted",
+        "trinity_fabric_number": "TT-4184544",
+        "supplier_fabric_number": "T547",
+        "description": "Blue Shepard Twill Check",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/TT-4184544"
+      }
+    ]
+  },
+  {
+    "id": 389426,
+    "description": "Fabric Orders 07/29/20 from RDL to PT. Trisco",
+    "status": "received",
+    "method": null,
+    "carrier": "DHL",
+    "tracking_number": "1943555036",
+    "create_date": "2020-07-29T03:05:04.000Z",
+    "ship_date": "2020-07-29T03:12:06.000Z",
+    "receive_date": "2020-08-04T06:21:21.000Z",
+    "login_id": 2,
+    "packing_list_url": "https://workflow.trinity-apparel.com/supplier/shipment_packing_list.php?shipment_id=389426&token=eyJhbGciOiJSUzI1NiJ9",
+    "invoice_url": "https://workflow.trinity-apparel.com/supplier/shipment_invoice.php?shipment_id=389426&token=eyJhbGciOiJSUzI1NiJ9",
+    "supplier": {
+      "id": 19,
+      "code": "RD",
+      "name": "RDL",
+      "city": "Tsim Sha Tsui",
+      "state": "Kowloon",
+      "country": "Hong Kong"
+    },
+    "source": {
+      "id": 14413,
+      "description": "Warehouse Address",
+      "street1": "4/F Windsor Mansion",
+      "street2": "29-31 Chatham Road",
+      "street3": null,
+      "city": "Tsim Sha Tsui",
+      "state": "Kowloon",
+      "zip": null,
+      "country": "Hong Kong",
+      "phone": "+852 2368 8060"
+    },
+    "destination": {
+      "id": 2343,
+      "description": "PT. Trisco",
+      "street1": "Jl. Raya Kopo - Soreang",
+      "street2": "KM. 11.5 Katapang - Soreang",
+      "street3": null,
+      "city": "Bandung",
+      "state": "Jawa Barat",
+      "zip": "40971",
+      "country": "Indonesia",
+      "phone": "+62-22 589 7185"
+    },
+    "shipment_items": [],
+    "fabric_orders": [
+      {
+        "id": 401508,
+        "fabric_id": 83661,
+        "garment_id": 1154658,
+        "length": "4.5",
+        "address_id": 2343,
+        "extra_fabric": false,
+        "fulfillment_failure": false,
+        "shipment_id": 389426,
+        "reason": null,
+        "created_at": "2020-07-28T07:42:53.000Z",
+        "status": "accepted",
+        "trinity_fabric_number": "E3-4183661",
+        "supplier_fabric_number": "28415-180",
+        "description": "Grey Purple Stripe",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/E3-4183661"
+      },
+      {
+        "id": 401531,
+        "fabric_id": 83679,
+        "garment_id": 1154867,
+        "length": "3.5",
+        "address_id": 2343,
+        "extra_fabric": false,
+        "fulfillment_failure": false,
+        "shipment_id": 389426,
+        "reason": null,
+        "created_at": "2020-07-28T11:59:46.000Z",
+        "status": "accepted",
+        "trinity_fabric_number": "E3-4183679",
+        "supplier_fabric_number": "25919-180",
+        "description": "Grey Red Windowpane",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/E3-4183679"
+      },
+      {
+        "id": 401534,
+        "fabric_id": 83666,
+        "garment_id": 1154675,
+        "length": "5.75",
+        "address_id": 2343,
+        "extra_fabric": false,
+        "fulfillment_failure": false,
+        "shipment_id": 389426,
+        "reason": null,
+        "created_at": "2020-07-28T12:05:09.000Z",
+        "status": "accepted",
+        "trinity_fabric_number": "E3-4183666",
+        "supplier_fabric_number": "28341-180",
+        "description": "Grey Blue Stripe",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/E3-4183666"
+      },
+      {
+        "id": 401678,
+        "fabric_id": 83638,
+        "garment_id": 1154954,
+        "length": "3.75",
+        "address_id": 2343,
+        "extra_fabric": false,
+        "fulfillment_failure": false,
+        "shipment_id": 389426,
+        "reason": null,
+        "created_at": "2020-07-28T17:02:10.000Z",
+        "status": "accepted",
+        "trinity_fabric_number": "E3-4183638",
+        "supplier_fabric_number": "28425-180",
+        "description": "Grey Blue Windowpane",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/E3-4183638"
+      },
+      {
+        "id": 401679,
+        "fabric_id": 83740,
+        "garment_id": 1154968,
+        "length": "1.625",
+        "address_id": 2343,
+        "extra_fabric": false,
+        "fulfillment_failure": false,
+        "shipment_id": 389426,
+        "reason": null,
+        "created_at": "2020-07-28T17:02:10.000Z",
+        "status": "accepted",
+        "trinity_fabric_number": "E3-4183740",
+        "supplier_fabric_number": "25928-180",
+        "description": "Navy Solid",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/E3-4183740"
+      },
+      {
+        "id": 401680,
+        "fabric_id": 83744,
+        "garment_id": 1154949,
+        "length": "4.75",
+        "address_id": 2343,
+        "extra_fabric": false,
+        "fulfillment_failure": false,
+        "shipment_id": 389426,
+        "reason": null,
+        "created_at": "2020-07-28T17:03:35.000Z",
+        "status": "accepted",
+        "trinity_fabric_number": "E3-4183744",
+        "supplier_fabric_number": "28381-180",
+        "description": "Burgundy Solid",
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/E3-4183744"
+      }
+    ]
+  }
+]
+```
+
+### Description
+
+Returns all fabric shipments (shipments which contain fabric orders) for a manufacturer.
+
+### Valid Statuses
+
+| Status   | Description                                            |
+| -------- | ------------------------------------------------------ |
+| pending  | Shipment has been created, but hasn't been shipped yet |
+| transit  | Shipment is currently in route to destination          |
+| received | Shipment has been received by factory                  |
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/fabric_shipments`
+
+### Query Parameters
+
+| Parameter | Default | Description                                   |
+| --------- | ------- | --------------------------------------------- |
+| status    | N/A     | Only see fabric shipments in a certain status |
+
+### Other
+
+- Permissions: Only manufacturers can access this route. They can only see shipments being sent to their factory.
+- Pagination: N/A
 
 ## Get All Fabric Orders
 
@@ -394,7 +702,7 @@ curl "https://api.trinity-apparel.com/v1/garments/:id/fabric_orders"
 
 Returns an array of fabric orders for a specific garment. Each fabric order includes details on the fabric, address, garment, and shipment attached to it.
 
-*Note*: Almost all fabric orders are generated at checkout. We rarely add them manually to the system.  Sometimes a fabric order will be cancelled (typically when the fabric is out of stock) and a new one will be made when the order is edited and a new fabric is chosen.
+_Note_: Almost all fabric orders are generated at checkout. We rarely add them manually to the system. Sometimes a fabric order will be cancelled (typically when the fabric is out of stock) and a new one will be made when the order is edited and a new fabric is chosen.
 
 ### HTTP Request
 
@@ -504,7 +812,7 @@ curl "https://api.trinity-apparel.com/v1/fabric_orders/:id"
 
 Returns details of a fabric order, including details on the fabric, address, garment, and shipment attached to it.
 
-*Note*: Almost all fabric orders are generated at checkout. We rarely add them manually to the system.  Sometimes a fabric order will be cancelled (typically when the fabric is out of stock) and a new one will be made when the order is edited and a new fabric is chosen.
+_Note_: Almost all fabric orders are generated at checkout. We rarely add them manually to the system. Sometimes a fabric order will be cancelled (typically when the fabric is out of stock) and a new one will be made when the order is edited and a new fabric is chosen.
 
 ### HTTP Request
 
@@ -604,7 +912,7 @@ Once a fabric has been received and has passed your inspection process, use this
 
 Fabric order must have a status of either `transit` or `recieve` to be accepted. This will create a Fabric Checkpoint, set the status of the fabric order to accepted, and also move the garment to the `Ready` order status (as long as all required fabrics have been received). If unsuccessful, it will return the error that was encountered. If successful, it will return the updated fabric order.
 
-If the pattern is solid, you will only need to pass the `cuttable_width`, `cuttable_length` and `fabric_type_code` params.  If the pattern is stripe or check, you will also need to include the `fabric_type_width`.  If the pattern is check, you will also need `fabric_type_length`.
+If the pattern is solid, you will only need to pass the `cuttable_width`, `cuttable_length` and `fabric_type_code` params. If the pattern is stripe or check, you will also need to include the `fabric_type_width`. If the pattern is check, you will also need `fabric_type_length`.
 
 ### Detail
 
@@ -690,7 +998,6 @@ Use this API call after you receive a fabric and the fabric fails your inspectio
 Fabric orders must have a status of either `transit` or `recieved` to be rejected. This will move the garment into the correct delay status (typically no delay) and set the status of the fabric order to `rejected`. It will also create a new fabric order as long as the fabric is in stock and the reason isn't due to a fabric short. If either the fabric was short or out of stock, a fabric order will have to be placed manually.
 
 If everything was successful, you will get back an updated copy of the current fabric order as well as the newly placed fabric order (same fabric but the length you specified). If there was an error, the error message will be returned. And if the new_fabric_order is null, that means a new order was unable to be placed automatically and will have to be done manually.
-
 
 ### Detail
 

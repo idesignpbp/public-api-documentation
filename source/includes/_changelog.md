@@ -2,6 +2,11 @@
 
 A history of changes to the Trinity Apparel API.
 
+## 2020-08-06
+
+- Manufacturers can now view all fabric shipments (shipments containing fabric orders) and filter by status (pending, transit, received)
+  - Route is `GET /fabric_shipments`
+
 ## 2020-07-23
 
 Added missing params for accepting a fabric order and added explantion on when they need to be included.
