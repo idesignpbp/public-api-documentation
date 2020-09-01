@@ -2,6 +2,10 @@
 
 A history of changes to the Trinity Apparel API.
 
+## 2020-09-01
+
+- On download_garments API call, the outgoing address now also provides the contact name.
+
 ## 2020-08-06
 
 - Manufacturers can now view all fabric shipments (shipments containing fabric orders) and filter by status (pending, transit, received)

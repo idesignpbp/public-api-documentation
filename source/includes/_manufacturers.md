@@ -344,6 +344,7 @@ curl "https://api.trinity-apparel.com/v1/download_garments"
         },
         "outgoing_address": {
             "id": 1,
+            "contact_name": "Greg Traweek",
             "description": "Trinity USA",
             "street1": "227 Marketridge Dr",
             "street2": null,
