@@ -494,6 +494,9 @@
             <a href="#changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#2020-09-09" class="toc-h2 toc-link" data-title="2020-09-09">2020-09-09</a>
+                  </li>
+                  <li>
                     <a href="#2020-09-01" class="toc-h2 toc-link" data-title="2020-09-01">2020-09-01</a>
                   </li>
                   <li>
@@ -9392,7 +9395,37 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <td>N/A</td>
 <td>Fuzzy search. If set, returns only customers with names that contain the search term.</td>
 </tr>
+<tr>
+<td>have_bought</td>
+<td>N/A</td>
+<td>Can only be <code>true</code> or <code>false</code> - Required for all filters except for q (see notes below).</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>N/A</td>
+<td>The start of the date range you want to filter.</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>N/A</td>
+<td>The end of the date range you want to filter.</td>
+</tr>
+<tr>
+<td>garment_type[]</td>
+<td>N/A</td>
+<td>Array syntax of garment types you want to filter on (see notes below).</td>
+</tr>
 </tbody></table>
+<h3 id='notes-on-filtering'>Notes On Filtering</h3>
+<p>You can filter customers based on a few limited parameters.  First, the standard <code>q</code> param will only return customers with names matching the search term.  This can be used independently of the other filters.  In order to do any further filtering, you will have to pass in the <code>have_bought</code>, <code>start_date</code> and <code>end_date</code> params.  You can also pass in the <code>garment_type</code> param using the array syntax.  For the garment types, you must pass them in using their relevant bitmask.  You can use the <a href="#garment-types">garment types list</a> to see what the correct bitmask is.</p>
+<h3 id='example-usage'>Example Usage</h3>
+<p>If you were looking for all customers who HAVE NOT ordered any garments in the last 6 months, you would use the following query:</p>
+
+<p><code>GET https://api.trinity-apparel.com/v1/customers/dashboard?have_bought=false&amp;start_date=2020-01-01&amp;end_date=2020-07-01</code></p>
+
+<p>If you were looking for all customers who HAVE ordered vests and pants in the last year, you would use the following query:</p>
+
+<p><code>GET https://api.trinity-apparel.com/v1/customers/dashboard?have_bought=true&amp;start_date=2019-07-01&amp;end_date=2020-07-01&amp;garment_type[]=2&amp;garment_type[]=4</code></p>
 <h3 id='other-2'>Other</h3>
 <ul>
 <li>Permissions: Only includes customers for the dealer who owns the API token</li>
@@ -12996,6 +13029,8 @@ We can also add filters and allow users to toggle localization (metric units, tr
 </ul>
 <h1 id='changelog'>Changelog</h1>
 <p>A history of changes to the Trinity Apparel API.</p>
+<h2 id='2020-09-09'>2020-09-09</h2>
+<p>Added additional filtering on <a href="#customer-dashboard">customer dashboard</a>. Can now filter on if customers have or have not ordered certain garment types within a date range.</p>
 <h2 id='2020-09-01'>2020-09-01</h2>
 <ul>
 <li>On download_garments API call, the outgoing address now also provides the contact name.</li>
