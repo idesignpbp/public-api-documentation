@@ -62,27 +62,27 @@ Standard Attributes
 
 Extended attributes
 
-| Attribute                                      | Description                                          |
-| ---------------------------------------------- | ---------------------------------------------------- |
-| first_name <br> <span>string</span>            | The customer's first name.                           |
-| last_name <br> <span>string</span>             | The customer's last name.                            |
-| created_at <br> <span>datetime</span>          | The date the customer was added to Workflow.         |
-| address1 <br> <span>string</span>              | The customer's first address line.                   |
-| address2 <br> <span>string</span>              | The customer's second address line.                  |
-| city <br> <span>string</span>                  | The city of the customer's address.                  |
-| state <br> <span>string</span>                 | The state of the customer's address.                 |
-| zip <br> <span>string</span>                   | The zip code of the customer's address.              |
-| country <br> <span>string</span>               | The country of the customer's address.               |
-| work_phone <br> <span>string</span>            | The customer's work phone number.                    |
-| fax <br> <span>string</span>                   | The customer's fax number.                           |
-| company <br> <span>string</span>               | The customer's company.                              |
-| gender <br> <span>string</span>                | The gender of the customer.                          |
-| receive_email_promos <br> <span>boolean</span> | If the customer has opted to receive email promos.   |
-| receive_mail_promos <br> <span>boolean</span>  | If the customer has opted to receive mail promos.    |
-| name_label <br> <span>string</span>            | The customer's preferred name label.                 |
-| laundry_marker <br> <span>string</span>        | The customer's preferred laundry marker.             |
-| monogram <br> <span>string</span>              | The customer's preferred monogram.                   |
-| notes <br> <span>string</span>                 | Notes about the customer.                            |
+| Attribute                                      | Description                                           |
+| ---------------------------------------------- | ----------------------------------------------------- |
+| first_name <br> <span>string</span>            | The customer's first name.                            |
+| last_name <br> <span>string</span>             | The customer's last name.                             |
+| created_at <br> <span>datetime</span>          | The date the customer was added to Workflow.          |
+| address1 <br> <span>string</span>              | The customer's first address line.                    |
+| address2 <br> <span>string</span>              | The customer's second address line.                   |
+| city <br> <span>string</span>                  | The city of the customer's address.                   |
+| state <br> <span>string</span>                 | The state of the customer's address.                  |
+| zip <br> <span>string</span>                   | The zip code of the customer's address.               |
+| country <br> <span>string</span>               | The country of the customer's address.                |
+| work_phone <br> <span>string</span>            | The customer's work phone number.                     |
+| fax <br> <span>string</span>                   | The customer's fax number.                            |
+| company <br> <span>string</span>               | The customer's company.                               |
+| gender <br> <span>string</span>                | The gender of the customer.                           |
+| receive_email_promos <br> <span>boolean</span> | If the customer has opted to receive email promos.    |
+| receive_mail_promos <br> <span>boolean</span>  | If the customer has opted to receive mail promos.     |
+| name_label <br> <span>string</span>            | The customer's preferred name label.                  |
+| laundry_marker <br> <span>string</span>        | The customer's preferred laundry marker.              |
+| monogram <br> <span>string</span>              | The customer's preferred monogram.                    |
+| notes <br> <span>string</span>                 | Notes about the customer.                             |
 | dealer_personal <br> <span>boolean</span>      | If this customer is a personal account of the dealer. |
 
 
@@ -99,14 +99,14 @@ Extended attributes
 ```
 Dashboard attributes
 
-| Attribute                                      | Description                                          |
-| ---------------------------------------------- | ---------------------------------------------------- |
-| id <br> <span>integer</span>                   | Unique identifier for the object.                    |
-| first_order <br> <span>datetime</span>         | Date of the first order. Null if no orders exist     |
-| last_order <br> <span>datetime</span>          | Date of the last order. Null if no orders exist      |
-| name <br> <span>string</span>                  | The customers first and last name combined.          |
-| total_orders <br> <span>integer</span>         | Lifetime count of dealer orders for this customer    |
-| total_garments <br> <span>integer</span>       | Lifetime count of garments ordered by this customer  |
+| Attribute                                | Description                                         |
+| ---------------------------------------- | --------------------------------------------------- |
+| id <br> <span>integer</span>             | Unique identifier for the object.                   |
+| first_order <br> <span>datetime</span>   | Date of the first order. Null if no orders exist    |
+| last_order <br> <span>datetime</span>    | Date of the last order. Null if no orders exist     |
+| name <br> <span>string</span>            | The customers first and last name combined.         |
+| total_orders <br> <span>integer</span>   | Lifetime count of dealer orders for this customer   |
+| total_garments <br> <span>integer</span> | Lifetime count of garments ordered by this customer |
 
 
 ## Get All Customers
@@ -223,7 +223,7 @@ Returns an array of your customers.
 
 | Parameter  | Default | Description                                                                                                 |
 | ---------- | ------- | ----------------------------------------------------------------------------------------------------------- |
-| q          | N/A     | Fuzzy search. If set, returns only customers with names that contain the search term. |
+| q          | N/A     | Fuzzy search. If set, returns only customers with names that contain the search term.                       |
 | first_name | N/A     | If set, will return results with exact matching first_name.                                                 |
 | last_name  | N/A     | If set, will return results with exact matching last_name.                                                  |
 | email      | N/A     | If set, will return results with exact matching email address.                                              |
@@ -301,9 +301,9 @@ Returns an array of your customers with metrics.  Used in the Trinity clients pa
 
 ### Query Parameters
 
-| Parameter  | Default | Description                                                                                                 |
-| ---------- | ------- | ----------------------------------------------------------------------------------------------------------- |
-| q | N/A     | Fuzzy search. If set, returns only customers with names that contain the search term.       |
+| Parameter | Default | Description                                                                           |
+| --------- | ------- | ------------------------------------------------------------------------------------- |
+| q         | N/A     | Fuzzy search. If set, returns only customers with names that contain the search term. |
 
 ### Other
 
@@ -372,9 +372,9 @@ The first row is a header. Each additional row contains comma delimited data for
 
 ### Query Parameters
 
-| Parameter  | Default | Description                                                                                                 |
-| ---------- | ------- | ----------------------------------------------------------------------------------------------------------- |
-| q | N/A     | Fuzzy search. If set, returns only customers with names that contain the search term.       |
+| Parameter | Default | Description                                                                           |
+| --------- | ------- | ------------------------------------------------------------------------------------- |
+| q         | N/A     | Fuzzy search. If set, returns only customers with names that contain the search term. |
 
 ### Other
 
