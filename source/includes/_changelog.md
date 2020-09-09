@@ -2,6 +2,10 @@
 
 A history of changes to the Trinity Apparel API.
 
+## 2020-09-09
+
+Added additional filtering on [customer dashboard](#customer-dashboard). Can now filter on if customers have or have not ordered certain garment types within a date range.
+
 ## 2020-09-01
 
 - On download_garments API call, the outgoing address now also provides the contact name.
