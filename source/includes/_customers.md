@@ -301,9 +301,27 @@ Returns an array of your customers with metrics.  Used in the Trinity clients pa
 
 ### Query Parameters
 
-| Parameter | Default | Description                                                                           |
-| --------- | ------- | ------------------------------------------------------------------------------------- |
-| q         | N/A     | Fuzzy search. If set, returns only customers with names that contain the search term. |
+| Parameter      | Default | Description                                                                              |
+| -------------- | ------- | ---------------------------------------------------------------------------------------- |
+| q              | N/A     | Fuzzy search. If set, returns only customers with names that contain the search term.    |
+| have_bought    | N/A     | Can only be `true` or `false` - Required for all filters except for q (see notes below). |
+| start_date     | N/A     | The start of the date range you want to filter.                                          |
+| end_date       | N/A     | The end of the date range you want to filter.                                            |
+| garment_type[] | N/A     | Array syntax of garment types you want to filter on (see notes below).                   |
+
+### Notes On Filtering
+
+You can filter customers based on a few limited parameters.  First, the standard `q` param will only return customers with names matching the search term.  This can be used independently of the other filters.  In order to do any further filtering, you will have to pass in the `have_bought`, `start_date` and `end_date` params.  You can also pass in the `garment_type` param using the array syntax.  For the garment types, you must pass them in using their relevant bitmask.  You can use the [garment types list](#garment-types) to see what the correct bitmask is.
+
+### Example Usage
+
+If you were looking for all customers who HAVE NOT ordered any garments in the last 6 months, you would use the following query:
+
+`GET https://api.trinity-apparel.com/v1/customers/dashboard?have_bought=false&start_date=2020-01-01&end_date=2020-07-01`
+
+If you were looking for all customers who HAVE ordered vests and pants in the last year, you would use the following query:
+
+`GET https://api.trinity-apparel.com/v1/customers/dashboard?have_bought=true&start_date=2019-07-01&end_date=2020-07-01&garment_type[]=2&garment_type[]=4`
 
 ### Other
 
