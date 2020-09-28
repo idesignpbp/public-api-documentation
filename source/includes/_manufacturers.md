@@ -846,11 +846,18 @@ curl "https://api.trinity-apparel.com/v1/garments/:id/properties"
         }
       }
     ]
-  }
+  },
+  "special_instructions": [
+    {
+        "garment_type": 8,
+        "instruction": "The cuff is a non fold french to be used with cufflinks.  3 buttonholes no buttons",
+        "translation": null
+    }
+  ]
 }
 ```
 
-Returns an array of `measurements`, an array of `options`, and a hash of `materials`. The materials hash includes `fabrics`, `buttons`, `threads`, `labels`, `suedes`, `felts`, `pocket_bags`, and `dealer_labels`, each of which contains an array of those type of materials.
+Returns an array of `measurements`, an array of `options`, an array of `special_instructions`, and a hash of `materials`. The materials hash includes `fabrics`, `buttons`, `threads`, `labels`, `suedes`, `felts`, `pocket_bags`, and `dealer_labels`, each of which contains an array of those type of materials.
 
 ### How it Works
 
