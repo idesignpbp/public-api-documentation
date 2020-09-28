@@ -494,6 +494,9 @@
             <a href="#changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#2020-09-28" class="toc-h2 toc-link" data-title="2020-09-28">2020-09-28</a>
+                  </li>
+                  <li>
                     <a href="#2020-09-09" class="toc-h2 toc-link" data-title="2020-09-09">2020-09-09</a>
                   </li>
                   <li>
@@ -10541,10 +10544,17 @@ You must replace <code>swaledale</code> with your personal JWT token.
         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"special_instructions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"instruction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The cuff is a non fold french to be used with cufflinks.  3 buttonholes no buttons"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"translation"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Returns an array of <code>measurements</code>, an array of <code>options</code>, and a hash of <code>materials</code>. The materials hash includes <code>fabrics</code>, <code>buttons</code>, <code>threads</code>, <code>labels</code>, <code>suedes</code>, <code>felts</code>, <code>pocket_bags</code>, and <code>dealer_labels</code>, each of which contains an array of those type of materials.</p>
+<p>Returns an array of <code>measurements</code>, an array of <code>options</code>, an array of <code>special_instructions</code>, and a hash of <code>materials</code>. The materials hash includes <code>fabrics</code>, <code>buttons</code>, <code>threads</code>, <code>labels</code>, <code>suedes</code>, <code>felts</code>, <code>pocket_bags</code>, and <code>dealer_labels</code>, each of which contains an array of those type of materials.</p>
 <h3 id='how-it-works'>How it Works</h3>
 <p>All measurements are flat objects that include the measurement name and value. We also include the description and last modified date, as well as the numeric garment type and an array of all garment types the measurement is valid used in this garment (E.g., height would be valid for each piece in a suit). When the measurement value is numeric, we convert it into the appropriate measurement units for the factory (typically SI) and list the units. Measurements are also adjusted to be finished. Synthetic measurements (measurements that the dealer did not enter) are calculated and inserted into this list.</p>
 
@@ -13029,12 +13039,12 @@ We can also add filters and allow users to toggle localization (metric units, tr
 </ul>
 <h1 id='changelog'>Changelog</h1>
 <p>A history of changes to the Trinity Apparel API.</p>
+<h2 id='2020-09-28'>2020-09-28</h2>
+<p>Added <code>special_instructions</code> array to <a href="#garment-properties">garment properties</a> API.</p>
 <h2 id='2020-09-09'>2020-09-09</h2>
 <p>Added additional filtering on <a href="#customer-dashboard">customer dashboard</a>. Can now filter on if customers have or have not ordered certain garment types within a date range.</p>
 <h2 id='2020-09-01'>2020-09-01</h2>
-<ul>
-<li>On download_garments API call, the outgoing address now also provides the contact name.</li>
-</ul>
+<p>On download_garments API call, the outgoing address now also provides the contact name.</p>
 <h2 id='2020-08-06'>2020-08-06</h2>
 <ul>
 <li>Manufacturers can now view all fabric shipments (shipments containing fabric orders) and filter by status (pending, transit, received)
