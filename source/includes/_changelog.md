@@ -2,6 +2,10 @@
 
 A history of changes to the Trinity Apparel API.
 
+## 2020-10-12
+
+Added `material_type` to [fabric](#fabric) API.
+
 ## 2020-09-28
 
 Added `special_instructions` array to [garment properties](#garment-properties) API.
