@@ -494,6 +494,9 @@
             <a href="#changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#2020-10-12" class="toc-h2 toc-link" data-title="2020-10-12">2020-10-12</a>
+                  </li>
+                  <li>
                     <a href="#2020-09-28" class="toc-h2 toc-link" data-title="2020-09-28">2020-09-28</a>
                   </li>
                   <li>
@@ -5844,7 +5847,8 @@ You must replace <code>swaledale</code> with your personal JWT token.
     </span><span class="s2">"availability"</span><span class="p">:</span><span class="w"> </span><span class="s2">"single-cut"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"favorite_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"fabric_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">199</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"trim_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="s2">"trim_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"material_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fabric"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Standard Attributes</p>
@@ -5930,6 +5934,10 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <tr>
 <td>trim_garment_type <br> <span>integer</span></td>
 <td>A bitmask describing what types of linings the fabric can be used for. See advanced queries.</td>
+</tr>
+<tr>
+<td>material_type <br> <span>string</span></td>
+<td>A description of the material type usage of the fabric (fabric, lining, trim, etc)</td>
 </tr>
 </tbody></table>
 <pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Extended</span><span class="w"> </span><span class="err">Object</span><span class="w">
@@ -13039,6 +13047,8 @@ We can also add filters and allow users to toggle localization (metric units, tr
 </ul>
 <h1 id='changelog'>Changelog</h1>
 <p>A history of changes to the Trinity Apparel API.</p>
+<h2 id='2020-10-12'>2020-10-12</h2>
+<p>Added <code>material_type</code> to <a href="#fabric">fabric</a> API.</p>
 <h2 id='2020-09-28'>2020-09-28</h2>
 <p>Added <code>special_instructions</code> array to <a href="#garment-properties">garment properties</a> API.</p>
 <h2 id='2020-09-09'>2020-09-09</h2>
