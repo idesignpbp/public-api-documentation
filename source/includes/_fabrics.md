@@ -27,7 +27,8 @@ The Trinity Fabrics API provides detailed information on fabrics and collections
     "availability": "single-cut",
     "favorite_id": null,
     "fabric_garment_type": 199,
-    "trim_garment_type": 0
+    "trim_garment_type": 0,
+    "material_type": "Fabric"
 }
 ```
 
@@ -54,6 +55,7 @@ Standard Attributes
 | favorite_id <br> <span>integer</span>           | If set, the fabric has been favorited by the client in fabrics explorer. ID can be used to unfavorite a fabric.                                                                                                              |
 | fabric_garment_type <br> <span>integer</span>   | A bitmask describing what types of garments the fabric can be used for. See advanced queries.                                                                                                                                |
 | trim_garment_type <br> <span>integer</span>     | A bitmask describing what types of linings the fabric can be used for. See advanced queries.                                                                                                                                 |
+|material_type <br> <span>string</span>| A description of the material type usage of the fabric (fabric, lining, trim, etc) |
 
 ```json
 # Extended Object
