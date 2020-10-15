@@ -2,6 +2,10 @@
 
 A history of changes to the Trinity Apparel API.
 
+## 2020-10-15
+
+Added `material_type` to [fabric order](#get-fabric-order) API.
+
 ## 2020-10-12
 
 Added `material_type` to [fabric](#fabric) API.
