@@ -199,7 +199,8 @@ curl -X GET "https://api.trinity-apparel.com/v1/shipments/:id"
             "trinity_fabric_number": "N6-4072898",
             "supplier_fabric_number": "JT 82099-82",
             "description": "White Solid Linen",
-            "image": "https://s7d4.scene7.com/is/image/trinityapparel/N6-4072898"
+            "image": "https://s7d4.scene7.com/is/image/trinityapparel/N6-4072898",
+            "material_type": "Fabric"
         }
     ]
 }
@@ -355,7 +356,8 @@ curl -X GET "https://api.trinity-apparel.com/v1/fabric_shipments"
         "trinity_fabric_number": "TT-4184544",
         "supplier_fabric_number": "T547",
         "description": "Blue Shepard Twill Check",
-        "image": "https://s7d4.scene7.com/is/image/trinityapparel/TT-4184544"
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/TT-4184544",
+        "material_type": "Fabric"
       },
       {
         "id": 400570,
@@ -372,7 +374,8 @@ curl -X GET "https://api.trinity-apparel.com/v1/fabric_shipments"
         "trinity_fabric_number": "TT-4184544",
         "supplier_fabric_number": "T547",
         "description": "Blue Shepard Twill Check",
-        "image": "https://s7d4.scene7.com/is/image/trinityapparel/TT-4184544"
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/TT-4184544",
+        "material_type": "Fabric"
       },
       {
         "id": 400571,
@@ -389,7 +392,8 @@ curl -X GET "https://api.trinity-apparel.com/v1/fabric_shipments"
         "trinity_fabric_number": "TT-4184544",
         "supplier_fabric_number": "T547",
         "description": "Blue Shepard Twill Check",
-        "image": "https://s7d4.scene7.com/is/image/trinityapparel/TT-4184544"
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/TT-4184544",
+        "material_type": "Fabric"
       },
       {
         "id": 400572,
@@ -406,7 +410,8 @@ curl -X GET "https://api.trinity-apparel.com/v1/fabric_shipments"
         "trinity_fabric_number": "TT-4184544",
         "supplier_fabric_number": "T547",
         "description": "Blue Shepard Twill Check",
-        "image": "https://s7d4.scene7.com/is/image/trinityapparel/TT-4184544"
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/TT-4184544",
+        "material_type": "Fabric"
       }
     ]
   },
@@ -472,7 +477,8 @@ curl -X GET "https://api.trinity-apparel.com/v1/fabric_shipments"
         "trinity_fabric_number": "E3-4183661",
         "supplier_fabric_number": "28415-180",
         "description": "Grey Purple Stripe",
-        "image": "https://s7d4.scene7.com/is/image/trinityapparel/E3-4183661"
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/E3-4183661",
+        "material_type": "Fabric"
       },
       {
         "id": 401531,
@@ -489,7 +495,8 @@ curl -X GET "https://api.trinity-apparel.com/v1/fabric_shipments"
         "trinity_fabric_number": "E3-4183679",
         "supplier_fabric_number": "25919-180",
         "description": "Grey Red Windowpane",
-        "image": "https://s7d4.scene7.com/is/image/trinityapparel/E3-4183679"
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/E3-4183679",
+        "material_type": "Fabric"
       },
       {
         "id": 401534,
@@ -506,7 +513,8 @@ curl -X GET "https://api.trinity-apparel.com/v1/fabric_shipments"
         "trinity_fabric_number": "E3-4183666",
         "supplier_fabric_number": "28341-180",
         "description": "Grey Blue Stripe",
-        "image": "https://s7d4.scene7.com/is/image/trinityapparel/E3-4183666"
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/E3-4183666",
+        "material_type": "Fabric"
       },
       {
         "id": 401678,
@@ -523,7 +531,8 @@ curl -X GET "https://api.trinity-apparel.com/v1/fabric_shipments"
         "trinity_fabric_number": "E3-4183638",
         "supplier_fabric_number": "28425-180",
         "description": "Grey Blue Windowpane",
-        "image": "https://s7d4.scene7.com/is/image/trinityapparel/E3-4183638"
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/E3-4183638",
+        "material_type": "Fabric"
       },
       {
         "id": 401679,
@@ -540,7 +549,8 @@ curl -X GET "https://api.trinity-apparel.com/v1/fabric_shipments"
         "trinity_fabric_number": "E3-4183740",
         "supplier_fabric_number": "25928-180",
         "description": "Navy Solid",
-        "image": "https://s7d4.scene7.com/is/image/trinityapparel/E3-4183740"
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/E3-4183740",
+        "material_type": "Fabric"
       },
       {
         "id": 401680,
@@ -557,7 +567,8 @@ curl -X GET "https://api.trinity-apparel.com/v1/fabric_shipments"
         "trinity_fabric_number": "E3-4183744",
         "supplier_fabric_number": "28381-180",
         "description": "Burgundy Solid",
-        "image": "https://s7d4.scene7.com/is/image/trinityapparel/E3-4183744"
+        "image": "https://s7d4.scene7.com/is/image/trinityapparel/E3-4183744",
+        "material_type": "Fabric"
       }
     ]
   }
@@ -618,6 +629,7 @@ curl "https://api.trinity-apparel.com/v1/garments/:id/fabric_orders"
         "supplier_fabric_number": "360072",
         "description": "Antique Golfers",
         "image": "https://s7d4.scene7.com/is/image/trinityapparel/L6-3129888",
+        "material_type": "Fabric",
         "fabric": {
             "id": 29888,
             "active": true,
@@ -638,7 +650,8 @@ curl "https://api.trinity-apparel.com/v1/garments/:id/fabric_orders"
             "favorite_id": null,
             "fabric_type": null,
             "fabric_garment_type": 0,
-            "trim_garment_type": 759
+            "trim_garment_type": 759,
+            "material_type": "Fabric"
         },
         "address": {
             "id": 1943,
@@ -684,6 +697,7 @@ curl "https://api.trinity-apparel.com/v1/garments/:id/fabric_orders"
         "supplier_fabric_number": "290015",
         "description": "Slate Puppytooth",
         "image": "https://s7d4.scene7.com/is/image/trinityapparel/Y4-3858067",
+        "material_type": "Fabric",
         "fabric": {
             ...
         },
@@ -766,7 +780,8 @@ curl "https://api.trinity-apparel.com/v1/fabric_orders/:id"
     "favorite_id": null,
     "fabric_type": null,
     "fabric_garment_type": 8,
-    "trim_garment_type": 0
+    "trim_garment_type": 0,
+    "material_type": "Fabric"
   },
   "address": {
     "id": 12310,
