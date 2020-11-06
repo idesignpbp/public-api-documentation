@@ -1539,9 +1539,9 @@ curl -X POST "https://api.trinity-apparel.com/v1/fabric_cuts"
 
 This call tracks the fabric cuts (CAD lengths) of fabrics. Cut lengths for all shell, lining, and a few specific options for each garment need to be entered into the Trinity system.
 
-### Rules
+<!-- ### Rules
 
-If cut lengths are provided for all fabrics, then that garment will automatically move to CUTTING status.
+If cut lengths are provided for all fabrics, then that garment will automatically move to CUTTING status. -->
 
 ### HTTP Request
 

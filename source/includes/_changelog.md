@@ -2,6 +2,10 @@
 
 A history of changes to the Trinity Apparel API.
 
+## 2020-11-06
+
+[Fabric Cut API](#create-fabric-cut) will no longer move a garment to cutting automatically.  Garment will now require being moved to cutting manually.
+
 ## 2020-10-15
 
 Added `material_type` to [fabric order](#get-fabric-order) API.
