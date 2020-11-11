@@ -2,6 +2,10 @@
 
 A history of changes to the Trinity Apparel API.
 
+## 2020-11-11
+
+Added the ability to [Accept](#accept-cmt-fabric) and [Reject](#reject-cmt-fabric) CMT fabrics.  This process is almost identical to accepting and rejecting single-length fabrics, but does have a few minor differences that require a different API call.
+
 ## 2020-11-06
 
 [Fabric Cut API](#create-fabric-cut) will no longer move a garment to cutting automatically.  Garment will now require being moved to cutting manually.

@@ -14,6 +14,8 @@ This includes:
 - [Accept Fabric Order](#accept-fabric-order) - Accept a fabric order if it doesn't have any flaws.
 - [Reject Fabric Order](#reject-fabric-order) - Reject a flawed fabric order.
 - [Fabric Order Errors](#fabric-order-errors) - Report errors with fabric received from fabric order.
+- [Accept CMT Fabric](#accept-cmt-fabric) - Accept a CMT fabric if it doesn't have any flaws.
+- [Reject CMT Fabric](#reject-cmt-fabric) - Reject a flawed CMT fabric.
 
 ## Create Shipment
 
@@ -1083,6 +1085,161 @@ This is to set errors found on a fabric. In order to record errors, the fabric o
 | position_y | N/A     | The Y position of the error on the fabric           |
 | length     | N/A     | The total length of the error spot on the fabric    |
 | width      | N/A     | The total width of the error spot on the fabric     |
+
+### Other
+
+- Permissions: Only manufacturers can access this route. They can only see garments made at their factory.
+- Pagination: No
+
+## Accept CMT Fabric
+
+```shell
+curl -X POST "https://api.trinity-apparel.com/v1/garment_fabrics/:id/accept"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "id": 302261,
+    "create_date": "2020-11-11T18:53:42.000Z",
+    "garment_fabric_id": 24932183,
+    "fabric_id": 1,
+    "cuttable_width": 120.0,
+    "cuttable_length": 140.0,
+    "fabric_type": "Solid, Paisley or Other",
+    "fabric_type_length": null,
+    "fabric_type_width": null,
+    "option_id": null
+}
+```
+
+### Description
+
+Once a CMT fabric has been received and has passed your inspection process, use this API call to mark it as `accepted` and to confirm the length and width of the fabric you received. We use this information to ensure that the CMT fabric was cut to the correct dimensions.
+
+This will create a Fabric Checkpoint and also move the garment to the `Ready` order status (as long as all required fabrics have been received). If unsuccessful, it will return the error that was encountered. If successful, it will return the Fabric Checkpoint.
+
+If the pattern is solid, you will only need to pass the `cuttable_width`, `cuttable_length` and `fabric_type_code` params. If the pattern is stripe or check, you will also need to include the `fabric_type_width`. If the pattern is check, you will also need `fabric_type_length`.
+
+### Detail
+
+The allowed fabric type codes are:
+
+| Code             | Description             |
+| ---------------- | ----------------------- |
+| check            | Check 1 - Symmetric     |
+| check_asymmetric | Check 2 - Asymmetric    |
+| solid            | Solid, Paisley or Other |
+| stripe           | Stripe                  |
+
+### HTTP Request
+
+`POST https://api.trinity-apparel.com/v1/garment_fabrics/:id/accept`
+
+### Query Parameters
+
+| Parameter          | Default | Description                                                                                   |
+| ------------------ | ------- | --------------------------------------------------------------------------------------------- |
+| id                 | N/A     | The specific fabric order you want to accept                                                  |
+| cuttable_length    | N/A     | The cuttable length of the fabric                                                             |
+| cuttable_width     | N/A     | The cuttable width of the fabric                                                              |
+| fabric_type_code   | N/A     | The code for the fabric pattern (see above)                                                   |
+| fabric_type_length | N/A     | The length of the fabric pattern (only needed for check and check_asymmetric patterns)        |
+| fabric_type_width  | N/A     | The width of the fabric pattern (only needed for stripe, check and check_asymmetric patterns) |
+
+### Other
+
+- Permissions: Only manufacturers can access this route. They can only see garments made at their factory.
+- Pagination: No
+
+## Reject CMT Fabric
+
+```shell
+curl -X POST "https://api.trinity-apparel.com/v1/garment_fabrics/:id/reject"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "id": 1176246,
+    "title": "IDUK-1176246",
+    "order_id": 542524,
+    "copied_garment_id": null,
+    "price": "184.0",
+    "option_cost": "0.0",
+    "garment_type": "CCP",
+    "created_at": "2020-11-05T04:29:32.000Z",
+    "updated_at": null,
+    "order_status_id": 21,
+    "delay_status_id": 4,
+    "fabric_url": "https://s7d4.scene7.com/is/image/trinityapparel/CMT-70001",
+    "order_status": {
+        "code": "READY",
+        "name": "Pending",
+        "description": "Ready"
+    },
+    "delay_status": {
+        "code": "OK",
+        "description": "Not Delayed"
+    },
+    "dealer_order": {
+        "id": 542524,
+        "title": "DO-542524",
+        "custom_order_number": "Adam Uniform",
+        "garment_count": 1,
+        "ship_type": "Ground",
+        "ship_cost": "8.05",
+        "subtotal": "184.0",
+        "dealer_discount": "0.0",
+        "total_discount": "55.2",
+        "tax": "27.37",
+        "grand_total": "164.22",
+        "deposit_percentage": 100,
+        "current_balance": "0.0",
+        "measurement_units": "uscust",
+        "payment_status": "paid",
+        "ordered_at": "2020-11-05T05:01:29.000Z",
+        "created_at": "2020-11-05T04:22:07.000Z",
+        "invoiced_at": null
+    }
+}
+```
+
+### Description
+
+Use this API call after you receive a CMT fabric and the fabric fails your inspection process. You'll mark the reason it was rejected and this will move the garment into the correct delay status (typically no delay) and notify the Trinity team that the CMT fabric was rejected so they can reach out to the dealer.
+
+If everything was successful, you will get the garment back with the updated order and delay status. If there was an error, the error message will be returned.
+
+### Detail
+
+The allowed reason codes are:
+
+| Code    | Description      |
+| ------- | ---------------- |
+| part    | Alteration Parts |
+| short   | Fabric Short     |
+| mistake | Factory Mistake  |
+| dirty   | Fabric Dirty     |
+| flawed  | Fabric Flawed    |
+| hole    | Fabric has Holes |
+| warped  | Fabric is Warped |
+| wrong   | Wrong Fabric     |
+
+### HTTP Request
+
+`POST https://api.trinity-apparel.com/v1/garment_fabrics/:id/reject`
+
+### Query Parameters
+
+| Parameter   | Default | Description                                                                                                                                           |
+| ----------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| id          | N/A     | The specific fabric order you want to reject                                                                                                          |
+| reason_code | N/A     | The reason you are rejecting the fabric                                                                                                               |
 
 ### Other
 
