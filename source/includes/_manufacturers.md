@@ -14,6 +14,7 @@ This includes:
 - [Get Fabric Cuts](#get-fabric-cuts) - Get a list of all fabrics ready to be cut by a manufacturer
 - [Update Fabric Cut](#update-fabric-cut) - Mark a specific fabric as cut
 - [Set Order Status](#set-order-status) - E.g., Move a garment from Ready to Production
+- [Update Inventory](#update-inventory) - Update the current stock of a fabric
 
 Deprecated:
 
@@ -1826,3 +1827,69 @@ Trinity enforces strict validation rules so that garments can only move to a few
 | 201           | Garment Order status was successfully changed                                |
 | 403           | Not Authorized - You're not a factory or the garment isn't from your factory |
 | 409           | Unable to move to a different status. Reason provided in JSON                |
+
+
+## Update Inventory
+
+```shell
+curl -X POST "https://api.trinity-apparel.com/v1/sku/update_inventory"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "id": 9678,
+    "stock_available": "15.0",
+    "stock_on_hand": "15.0",
+    "created_at": "2021-02-24T21:44:55.000Z",
+    "updated_at": "2021-02-24T21:44:55.000Z",
+    "sku": {
+        "id": 44543,
+        "sku": "FAB-0000003",
+        "supplier_number": "74363/3",
+        "collection": "Reda Luxury Jacketing Super 130's V18072",
+        "name": "Navy Graphite Plaid",
+        "description": null,
+        "created_at": "2018-04-16T11:59:31.000Z",
+        "updated_at": "2021-01-18T23:28:57.000Z"
+    }
+}
+```
+
+### Description
+
+This call updates the stock amount of a Sku.
+
+We use the stock amount of Trinity-owned fabrics to determine their availibity to order a garment made from this fabric.
+
+### Rules
+
+Both stock and supplier_number parameters are required and an error will be returned if either are missing.
+
+Also, a Sku must already exist with the provided supplier number.  If the Sku does not exist, an error will be returned and you will either have to provide the correct supplier number or contact Trinity staff so a Sku can be created.
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/sku/update_inventory`
+
+### Query Parameters
+
+| Parameter       | Default | Description                                                                |
+| --------------- | ------- | -------------------------------------------------------------------------- |
+| supplier_number | N/A     | The supplier number of the fabric you wish to update the inventory of      |
+| stock           | N/A     | The current total amount of stock you have of the fabric (must be numeric) |
+
+### Other
+
+- Permissions: Only manufacturers can access this route. They can only update inventory at their factory.
+- Pagination: N/A
+
+### Responses
+
+| Response Code | Description                                         |
+| ------------- | --------------------------------------------------- |
+| 202           | Inventory was successfully changed                  |
+| 403           | Not Authorized - You're not a factory               |
+| 409           | Unable to update inventory. Reason provided in JSON |
