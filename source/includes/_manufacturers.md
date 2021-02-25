@@ -1891,4 +1891,5 @@ Also, a Sku must already exist with the provided supplier number.  If the Sku do
 | Response Code | Description                                         |
 | ------------- | --------------------------------------------------- |
 | 202           | Inventory was successfully changed                  |
+| 403           | Not Authorized - You're not a factory               |
 | 409           | Unable to update inventory. Reason provided in JSON |
