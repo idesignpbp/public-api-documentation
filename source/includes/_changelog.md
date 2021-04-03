@@ -2,17 +2,23 @@
 
 A history of changes to the Trinity Apparel API.
 
+## 2021-04-02
+
+A lot of changes to [fabrics](#fabric-resources) API. Read through the resources and related calls carefully as the data structure has changed for fabrics. The most notable change is that in_stock, restock_date, last_stock_edit_date, and availability have been combined under a new attribute called factories as these statuses can be different depending on the factory being ordered from.
+
+Also, a new ability to see a collection of your favorite fabrics has been added to the [collection](#get-a-specific-collection) API. Simply pass `favorites` in place of `:id`.
+
 ## 2021-02-25
 
 Added new API for manufacturers to [update fabric inventory](#update-inventory).
 
 ## 2020-11-11
 
-Added the ability to [Accept](#accept-cmt-fabric) and [Reject](#reject-cmt-fabric) CMT fabrics.  This process is almost identical to accepting and rejecting single-length fabrics, but does have a few minor differences that require a different API call.
+Added the ability to [Accept](#accept-cmt-fabric) and [Reject](#reject-cmt-fabric) CMT fabrics. This process is almost identical to accepting and rejecting single-length fabrics, but does have a few minor differences that require a different API call.
 
 ## 2020-11-06
 
-[Fabric Cut API](#create-fabric-cut) will no longer move a garment to cutting automatically.  Garment will now require being moved to cutting manually.
+[Fabric Cut API](#create-fabric-cut) will no longer move a garment to cutting automatically. Garment will now require being moved to cutting manually.
 
 ## 2020-10-15
 
