@@ -503,6 +503,9 @@
             <a href="#changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#2021-04-02" class="toc-h2 toc-link" data-title="2021-04-02">2021-04-02</a>
+                  </li>
+                  <li>
                     <a href="#2021-02-25" class="toc-h2 toc-link" data-title="2021-02-25">2021-02-25</a>
                   </li>
                   <li>
@@ -5847,29 +5850,27 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <li>Pagination: N/A</li>
 </ul>
 <h1 id='fabrics-api'>Fabrics API</h1><h2 id='fabric-resources'>Fabric Resources</h2>
-<p>The Trinity Fabrics API provides detailed information on fabrics and collections.  Collections are groups of fabrics.  Here is a detailed list of attributes in those resources:</p>
+<p>The Trinity Fabrics API provides detailed information on fabrics and collections. Collections are groups of fabrics. Here is a detailed list of attributes in those resources:</p>
 <h3 id='fabric'>Fabric</h3><pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Standard</span><span class="w"> </span><span class="err">Object</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">Used</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">resource</span><span class="w"> </span><span class="err">collection</span><span class="w">
 </span><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">25600</span><span class="p">,</span><span class="w">
     </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fawn Solid"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8427"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"U7-3025600"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"collection_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1185</span><span class="p">,</span><span class="w">
     </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/U7-3025600"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=U7-3025600&amp;res=300"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"availability"</span><span class="p">:</span><span class="w"> </span><span class="s2">"single-cut"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"favorite_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"fabric_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">199</span><span class="p">,</span><span class="w">
     </span><span class="s2">"trim_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"material_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fabric"</span><span class="w">
+    </span><span class="s2">"material_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fabric"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"factories"</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Standard Attributes</p>
@@ -5886,15 +5887,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 </tr>
 <tr>
 <td>active <br> <span>boolean</span></td>
-<td>A fabric can be either active or inactive.  Inactive fabrics are discontinued an will not appear in search results.  <em>Note: Historical orders made with a discontinued order will still show information about that fabric.</em></td>
-</tr>
-<tr>
-<td>in_stock <br> <span>integer</span></td>
-<td>A lookup value for fabric status.  <code>0 = Out of Stock</code> / Sold Out and not reordered, <code>1 = In Stock</code>, <code>2 = Temp Out</code> / Temporarily Out of Stock / Fabric is being reordered.</td>
-</tr>
-<tr>
-<td>restock_date <br> <span>date</span></td>
-<td>The date a temporarily out of stock fabric will be restocked and available for orders.  Most of the time this field is empty.</td>
+<td>A fabric can be either active or inactive. Inactive fabrics are discontinued an will not appear in search results. <em>Note: Historical orders made with a discontinued order will still show information about that fabric.</em></td>
 </tr>
 <tr>
 <td>description <br> <span>string</span></td>
@@ -5917,10 +5910,6 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <td>The url for a swatch image of the fabric. This image contains serrated edges. Users can configure the zoom of the image by changing the <code>res=</code> parameter in the url to a different number.</td>
 </tr>
 <tr>
-<td>inventory_status <br> <span>string</span></td>
-<td>A human readable version of the in_stock attribute</td>
-</tr>
-<tr>
 <td>pattern_id <br> <span>integer</span></td>
 <td>The unique ID for the pattern of the fabric.</td>
 </tr>
@@ -5941,10 +5930,6 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <td>If true, the fabric image url will actually return an image of the fabric.</td>
 </tr>
 <tr>
-<td>availability <br> <span>string</span></td>
-<td>One of: &quot;At Once&quot;, meaning the fabric is ready (4-5 week delivery for clothing, 2-3 week delivery for shirts), or &quot;Single Cut&quot;, meaning the fabric is not yet at the factory (5-6 weeks for clothing, 3-5 weeks for shirts), &quot;Temp Out&quot;, meaning the fabrics have been reordered but will not be restocked for some time, or &quot;Sold Out&quot;, meaning the fabrics are neither stocked nor reordered.</td>
-</tr>
-<tr>
 <td>favorite_id <br> <span>integer</span></td>
 <td>If set, the fabric has been favorited by the client in fabrics explorer. ID can be used to unfavorite a fabric.</td>
 </tr>
@@ -5960,34 +5945,76 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <td>material_type <br> <span>string</span></td>
 <td>A description of the material type usage of the fabric (fabric, lining, trim, etc)</td>
 </tr>
+<tr>
+<td>factories <br> <span>object</span></td>
+<td>This includes the factory-specific information on a fabric. See below for more information.</td>
+</tr>
+</tbody></table>
+<pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Extended</span><span class="w"> </span><span class="err">Object</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"iD"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_edit_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-10-29T12:50:22.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"availability"</span><span class="p">:</span><span class="w"> </span><span class="s2">"single-cut"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"T2iD"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_edit_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-10-29T12:50:22.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"availability"</span><span class="p">:</span><span class="w"> </span><span class="s2">"single-cut"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='factories'>Factories</h3>
+<p>Standard Attributes</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>in_stock <br> <span>boolean</span></td>
+<td>Weather or not the fabric is available to order.</td>
+</tr>
+<tr>
+<td>restock_date <br> <span>datetime</span></td>
+<td>The date a temporarily out of stock fabric will be restocked and available for orders. Most of the time this field is empty.</td>
+</tr>
+<tr>
+<td>last_edit_date <br> <span>datetime</span></td>
+<td>The last time the fabric inventory level was changed.</td>
+</tr>
+<tr>
+<td>availability <br> <span>string</span></td>
+<td>One of: &quot;At Once&quot;, meaning the fabric is ready (4-5 week delivery for clothing, 2-3 week delivery for shirts), or &quot;Single Cut&quot;, meaning the fabric is not yet at the factory (5-6 weeks for clothing, 3-5 weeks for shirts).</td>
+</tr>
 </tbody></table>
 <pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Extended</span><span class="w"> </span><span class="err">Object</span><span class="w">
 </span><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">61189</span><span class="p">,</span><span class="w">
     </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Black solid"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"53145"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XG-3861189"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"collection_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1185</span><span class="p">,</span><span class="w">
     </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/XG-3861189"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=XG-3861189&amp;res=300"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
     </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"availability"</span><span class="p">:</span><span class="w"> </span><span class="s2">"single-cut"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"favorite_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fabric_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"fabric_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">231</span><span class="p">,</span><span class="w">
     </span><span class="s2">"trim_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"material_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fabric"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"factories"</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="p">,</span><span class="w">
     </span><span class="s2">"country_origin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"International"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"fabric_grouping"</span><span class="p">:</span><span class="w"> </span><span class="s2">"black"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"pattern"</span><span class="p">:</span><span class="w"> </span><span class="s2">"solid"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Garments"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"last_stock_edit_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"fabric_year"</span><span class="p">:</span><span class="w"> </span><span class="mi">2019</span><span class="p">,</span><span class="w">
     </span><span class="s2">"fabric_garment_types"</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="p">,</span><span class="w">
     </span><span class="s2">"trim_garment_types"</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="p">,</span><span class="w">
@@ -5995,7 +6022,6 @@ You must replace <code>swaledale</code> with your personal JWT token.
     </span><span class="s2">"lead_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3 - 10 days"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"alternate_images"</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="p">,</span><span class="w">
     </span><span class="s2">"related_trim"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"identical_fabrics"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
     </span><span class="s2">"collection"</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="p">,</span><span class="w">
     </span><span class="s2">"fabric_pattern"</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="p">,</span><span class="w">
     </span><span class="s2">"fabric_weave"</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="p">,</span><span class="w">
@@ -6025,10 +6051,6 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <td>The usage of the fabric (E.g., Shirt Trim, Clothing Trim, etc).</td>
 </tr>
 <tr>
-<td>last_stock_edit_date <br> <span>datetime</span></td>
-<td>The last time the fabric inventory level was changed.</td>
-</tr>
-<tr>
 <td>fabric_year <br> <span>year</span></td>
 <td>The year the fabric was released.</td>
 </tr>
@@ -6055,10 +6077,6 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <tr>
 <td>related_trim <br> <span>subresource</span></td>
 <td>A fabric subresource detailing the trim/lining related to the fabric.</td>
-</tr>
-<tr>
-<td>identical_fabrics <br> <span>subresource</span></td>
-<td>An array of fabrics identical to this one.</td>
 </tr>
 <tr>
 <td>collection <br> <span>subresource</span></td>
@@ -6204,7 +6222,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 </tr>
 <tr>
 <td>parent_pattern_id <br> <span>integer</span></td>
-<td>Points to a higher level grouping of patterns, such as checks.  For example, a child could be Club Check.</td>
+<td>Points to a higher level grouping of patterns, such as checks. For example, a child could be Club Check.</td>
 </tr>
 </tbody></table>
 <h3 id='weave'>Weave</h3><pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Standard</span><span class="w"> </span><span class="err">Object</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">Used</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">resource</span><span class="w"> </span><span class="err">collection</span><span class="w">
@@ -6414,206 +6432,206 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 FW Bellagio"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 FW Bellagio"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/07_FW_Bellagio?&amp;hei=100"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 FW Governors"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 FW Governors"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/07_FW_Governors?&amp;hei=100"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 FW Heritage Classic"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 FW Heritage Classic"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/07_FW_Heritage_Classic?&amp;hei=100"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 FW Heritage Fashion"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 FW Heritage Fashion"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/07_FW_Heritage_Fashion?&amp;hei=100"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 FW Kensington I"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 FW Kensington I"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/07_FW_Kensington_I?&amp;hei=100"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 FW Kensington II"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 FW Kensington II"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/07_FW_Kensington_II?&amp;hei=100"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 FW Lords"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 FW Lords"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/07_FW_Lords?&amp;hei=100"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 FW Trofeo"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 FW Trofeo"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/07_FW_Trofeo?&amp;hei=100"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 FW Zenith Cashmere"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 FW Zenith Cashmere"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/07_FW_Zenith_Cashmere?&amp;hei=100"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 SS Cambridge"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 SS Cambridge"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/07_SS_Cambridge?&amp;hei=100"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 SS Governors"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 SS Governors"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/07_SS_Governors?&amp;hei=100"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 SS Heritage Classic"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 SS Heritage Classic"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/07_SS_Heritage_Classic?&amp;hei=100"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 SS Heritage Fashion"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 SS Heritage Fashion"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/07_SS_Heritage_Fashion?&amp;hei=100"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 SS Lords"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 SS Lords"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/07_SS_Lords?&amp;hei=100"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 SS Queensborough"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 SS Queensborough"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/07_SS_Queensborough?&amp;hei=100"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 SS Thomas"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 SS Thomas"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/07_SS_Thomas?&amp;hei=100"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 SS Yorkshire"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 SS Yorkshire"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/07_SS_Yorkshire?&amp;hei=100"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 SS Zenith"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 SS Zenith"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/07_SS_Zenith?&amp;hei=100"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08 SS Barberis"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08 SS Barberis"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/08_SS_Barberis?&amp;hei=100"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">21</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08 SS Florence Cottons"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08 SS Florence Cottons"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/08_SS_Florence_Cottons?&amp;hei=100"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08 SS Florence Gabardines"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08 SS Florence Gabardines"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/08_SS_Florence_Gabardines?&amp;hei=100"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08 SS Heritage I"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08 SS Heritage I"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/08_SS_Heritage_I?&amp;hei=100"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08 SS Heritage II"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08 SS Heritage II"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/08_SS_Heritage_II?&amp;hei=100"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08 SS Jamison Fancies"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08 SS Jamison Fancies"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/08_SS_Jamison_Fancies?&amp;hei=100"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">26</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08 SS Jamison Flannels"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08 SS Jamison Flannels"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/08_SS_Jamison_Flannels?&amp;hei=100"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 FW Bellagio"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 FW Bellagio"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/07_FW_Bellagio?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 FW Governors"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 FW Governors"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/07_FW_Governors?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 FW Heritage Classic"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 FW Heritage Classic"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/07_FW_Heritage_Classic?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 FW Heritage Fashion"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 FW Heritage Fashion"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/07_FW_Heritage_Fashion?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 FW Kensington I"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 FW Kensington I"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/07_FW_Kensington_I?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 FW Kensington II"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 FW Kensington II"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/07_FW_Kensington_II?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 FW Lords"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 FW Lords"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/07_FW_Lords?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 FW Trofeo"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 FW Trofeo"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/07_FW_Trofeo?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 FW Zenith Cashmere"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 FW Zenith Cashmere"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/07_FW_Zenith_Cashmere?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 SS Cambridge"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 SS Cambridge"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/07_SS_Cambridge?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 SS Governors"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 SS Governors"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/07_SS_Governors?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 SS Heritage Classic"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 SS Heritage Classic"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/07_SS_Heritage_Classic?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 SS Heritage Fashion"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 SS Heritage Fashion"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/07_SS_Heritage_Fashion?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 SS Lords"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 SS Lords"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/07_SS_Lords?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 SS Queensborough"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 SS Queensborough"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/07_SS_Queensborough?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 SS Thomas"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 SS Thomas"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/07_SS_Thomas?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 SS Yorkshire"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 SS Yorkshire"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/07_SS_Yorkshire?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 SS Zenith"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07 SS Zenith"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/07_SS_Zenith?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08 SS Barberis"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08 SS Barberis"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/08_SS_Barberis?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">21</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08 SS Florence Cottons"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08 SS Florence Cottons"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/08_SS_Florence_Cottons?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08 SS Florence Gabardines"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08 SS Florence Gabardines"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/08_SS_Florence_Gabardines?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08 SS Heritage I"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08 SS Heritage I"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/08_SS_Heritage_I?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08 SS Heritage II"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08 SS Heritage II"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/08_SS_Heritage_II?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08 SS Jamison Fancies"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08 SS Jamison Fancies"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/08_SS_Jamison_Fancies?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">26</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08 SS Jamison Flannels"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08 SS Jamison Flannels"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/08_SS_Jamison_Flannels?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>Returns an array of fabric collections.</p>
@@ -6730,6 +6748,8 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <td>The specific collection id you want to see</td>
 </tr>
 </tbody></table>
+<h3 id='favorites'>Favorites</h3>
+<p>You can send <code>favorites</code> instead of <code>:id</code> (<code>GET https://api.trinity-apparel.com/v1/collections/favorites</code>) and you will instead get a collection of your favorited fabrics.</p>
 <h3 id='other-2'>Other</h3>
 <ul>
 <li>Permissions: All</li>
@@ -6745,46 +6765,42 @@ You must replace <code>swaledale</code> with your personal JWT token.
     </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">25600</span><span class="p">,</span><span class="w">
         </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fawn Solid"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8427"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"U7-3025600"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"collection_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1185</span><span class="p">,</span><span class="w">
         </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/U7-3025600"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=U7-3025600&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
         </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"availability"</span><span class="p">:</span><span class="w"> </span><span class="s2">"single-cut"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"favorite_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"fabric_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="s2">"fabric_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">199</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trim_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+        </span><span class="s2">"trim_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"material_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fabric"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"factories"</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">26880</span><span class="p">,</span><span class="w">
         </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Taupe Paisley"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CH-1898-27"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L2-3026880"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"collection_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1185</span><span class="p">,</span><span class="w">
         </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/L2-3026880"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=L2-3026880&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">36</span><span class="p">,</span><span class="w">
         </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"availability"</span><span class="p">:</span><span class="w"> </span><span class="s2">"at once"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"favorite_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"fabric_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="s2">"fabric_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">247</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trim_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">759</span><span class="w">
+        </span><span class="s2">"trim_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">759</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"material_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fabric"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"factories"</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="err">.</span><span class="w">
     </span><span class="err">.</span><span class="w">
@@ -6792,24 +6808,22 @@ You must replace <code>swaledale</code> with your personal JWT token.
     </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">39936</span><span class="p">,</span><span class="w">
         </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pink Woven Herringbone"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ST 64486-85"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S3-3339936"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"collection_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1185</span><span class="p">,</span><span class="w">
         </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/S3-3339936"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=S3-3339936&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
         </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
         </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"availability"</span><span class="p">:</span><span class="w"> </span><span class="s2">"single-cut"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"favorite_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"fabric_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="s2">"fabric_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trim_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+        </span><span class="s2">"trim_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"material_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fabric"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"factories"</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -6849,12 +6863,12 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <tr>
 <td>trinity_fabric_number</td>
 <td>N/A</td>
-<td>Show fabrics that match a specific Trinity fabric number.  <em>See below for example querying for multiple fabrics.</em></td>
+<td>Show fabrics that match a specific Trinity fabric number. <em>See below for example querying for multiple fabrics.</em></td>
 </tr>
 <tr>
 <td>supplier_fabric_number</td>
 <td>N/A</td>
-<td>Show fabrics that match a specific Supplier fabric number.  <em>See below for example querying for multiple fabrics.</em></td>
+<td>Show fabrics that match a specific Supplier fabric number. <em>See below for example querying for multiple fabrics.</em></td>
 </tr>
 <tr>
 <td>fabric_price_code_id</td>
@@ -6877,11 +6891,6 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <td>Show fabrics that match a specific price tier (Must be between 1-4).</td>
 </tr>
 <tr>
-<td>usage</td>
-<td>1</td>
-<td>An integer between 1 and 7. fabric usage can be clothing, shirting, lining, shirt trim, or a combination of these values</td>
-</tr>
-<tr>
 <td>garment_type</td>
 <td>N/A</td>
 <td>An integer between 1 and 1023. garment_type is a bitmask which allows us to turn on and off different garment types, such as pant and shirt easily</td>
@@ -6892,14 +6901,9 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <td>An integer between 1 and 1023. garment_type is a bitmask which allows us to turn on and off different trim garment types, such as shirt trim or jacket lining easily</td>
 </tr>
 <tr>
-<td>active</td>
-<td>true</td>
-<td>If set to false, the result will also include inactive fabrics.</td>
-</tr>
-<tr>
 <td>show_archived</td>
 <td>false</td>
-<td>By default archived fabrics (not active, not in stock or temp out) are not returned.  Set this to true in order to show all fabrics.</td>
+<td>By default archived fabrics (not active, not in stock or temp out) are not returned. Set this to true in order to show all fabrics.</td>
 </tr>
 <tr>
 <td>reverse_sort</td>
@@ -6910,11 +6914,6 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <td>extended</td>
 <td>false</td>
 <td>If set to true, the API call returns extended objects which include a complete set of attributes and subresources.</td>
-</tr>
-<tr>
-<td>in_stock</td>
-<td>N/A</td>
-<td>If set, filters by fabric availability; 0, 1, and 2 meaning Sold Out, In Stock, and Temp Out respectively.</td>
 </tr>
 </tbody></table>
 <h3 id='other-3'>Other</h3>
@@ -6937,79 +6936,81 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">40985</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lavender Dobby"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"P39315/02"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S2-3540985"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/S2-3540985"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=S2-3540985&amp;res=300"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"availability"</span><span class="p">:</span><span class="w"> </span><span class="s2">"at once"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"favorite_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fabric_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fabric_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"trim_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"country_origin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"International"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fabric_grouping"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shirts"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"pattern"</span><span class="p">:</span><span class="w"> </span><span class="s2">"solid"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Garments"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"last_stock_edit_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-19T18:36:51.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fabric_year"</span><span class="p">:</span><span class="w"> </span><span class="mi">2017</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fabric_garment_types"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="s2">"CSHT"</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"trim_garment_types"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-    </span><span class="s2">"weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">125</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"lead_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Stocked"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"alternate_images"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shirt"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CSHT"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shirt Laydown"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/CSHT-AS-FC4AMF-4x4?&amp;obj=CSHT/Fabric&amp;src=S2-3540985&amp;res=300&amp;obj=CSHT/Buttons&amp;color=235,230,214&amp;obj=CSHT/Thread&amp;color=244,241,244&amp;obj=CSHT/Fabric/Neckband_In&amp;src=S2-3540985&amp;res=300&amp;obj=CSHT/Fabric/Collar&amp;src=S2-3540985&amp;res=300&amp;obj=CSHT/Fabric/Yoke_In&amp;src=S2-3540985&amp;res=300&amp;obj=CSHT/Fabric/Cuff_Out&amp;src=S2-3540985&amp;res=300&amp;obj=CSHT/Fabric/Fronts/Placket&amp;src=S2-3540985&amp;res=300"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"related_trim"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"identical_fabrics"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-    </span><span class="s2">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1520</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Soktas Bespoke V17082"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Soktas Bespoke"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"V17082"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Soktas_Bespoke_V17082?&amp;hei=100"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"fabric_pattern"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fabric_weave"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dobby"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"price_code"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S2"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Soktas Bespoke"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"supplier"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">57</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SK"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Soktas"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aydin"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Turkey"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"composition"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100% Cotton"</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">40985</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lavender Dobby"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"P39315/02"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S2-3540985"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"collection_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1520</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/S2-3540985"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=S2-3540985&amp;res=300"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"favorite_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"fabric_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"trim_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"material_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fabric"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"factories"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"iD"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_edit_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-12-15T14:08:08.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"availability"</span><span class="p">:</span><span class="w"> </span><span class="s2">"at once"</span><span class="w">
     </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"country_origin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"International"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"fabric_grouping"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shirts"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"pattern"</span><span class="p">:</span><span class="w"> </span><span class="s2">"solid"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Garments"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"last_stock_edit_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-12-15T14:08:08.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"fabric_year"</span><span class="p">:</span><span class="w"> </span><span class="mi">2017</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"fabric_garment_types"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"CSHT"</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"trim_garment_types"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">125</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"lead_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Stocked"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"alternate_images"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shirt"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CSHT"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shirt Laydown"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/CSHT-AS-FC4AMF-4x4?&amp;obj=CSHT/Fabric&amp;src=S2-3540985&amp;res=300&amp;obj=CSHT/Buttons&amp;color=235,230,214&amp;obj=CSHT/Thread&amp;color=244,241,244&amp;obj=CSHT/Fabric/Neckband_In&amp;src=S2-3540985&amp;res=300&amp;obj=CSHT/Fabric/Collar&amp;src=S2-3540985&amp;res=300&amp;obj=CSHT/Fabric/Yoke_In&amp;src=S2-3540985&amp;res=300&amp;obj=CSHT/Fabric/Cuff_Out&amp;src=S2-3540985&amp;res=300&amp;obj=CSHT/Fabric/Fronts/Placket&amp;src=S2-3540985&amp;res=300"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"related_trim"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1520</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Soktas Bespoke V17082"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Soktas Bespoke"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"datecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"V17082"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Soktas_Bespoke_V17082?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"digital_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"fabric_pattern"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"fabric_weave"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dobby"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"price_code"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Soktas Bespoke"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"supplier"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">57</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SK"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Soktas"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Söke"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aydin"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Turkey"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"composition"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100% Cotton"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Returns details on a specific fabric.</p>
@@ -7034,43 +7035,43 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <li>Permissions: All</li>
 <li>Pagination: N/A</li>
 </ul>
-<h2 id='advanced-fabric-queries'>Advanced Fabric Queries</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/fabrics?in_stock=2&amp;collection_id=1812"</span>
+<h2 id='advanced-fabric-queries'>Advanced Fabric Queries</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/fabrics?collection_id=1812"</span>
   -H <span class="s2">"Authorization Bearer: swaledale"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns Temp Out fabrics from collection 1812</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/fabrics?in_stock=1&amp;price_tier=4"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/fabrics?price_tier=4"</span>
   -H <span class="s2">"Authorization Bearer: swaledale"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns all expensive in stock fabrics</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/fabrics?garment_type=5&amp;usage=1"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/fabrics?garment_type=5"</span>
   -H <span class="s2">"Authorization Bearer: swaledale"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns Suiting, i.e. Coat (1) + Pant (4) = 5, usage Garment (1)</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/fabrics?trim_garment_type=1&amp;usage=4"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/fabrics?trim_garment_type=1"</span>
   -H <span class="s2">"Authorization Bearer: swaledale"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns Lining, i.e. Jackets (1), usage Clothing Trim (4)</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/fabrics?garment_type=8&amp;usage=1"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/fabrics?garment_type=8"</span>
   -H <span class="s2">"Authorization Bearer: swaledale"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns Shirting, i.e. Shirts (8), usage Garment (1)</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/fabrics?trim_garment_type=8&amp;usage=2"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/fabrics?trim_garment_type=8"</span>
   -H <span class="s2">"Authorization Bearer: swaledale"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns Shirt trims, i.e. Shirts (8), usage Shirt Trims (2)</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/fabrics?garment_type=32&amp;usage=1"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/fabrics?garment_type=32"</span>
   -H <span class="s2">"Authorization Bearer: swaledale"</span>
 </code></pre>
 <blockquote>
@@ -7104,14 +7105,6 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <tr>
 <td>trim_garment_type</td>
 <td>A bitmask to search for fabrics that are used as trim in particular garment types</td>
-</tr>
-<tr>
-<td>usage</td>
-<td>A bitmask to search fabrics by usage, e.g. garment, shirt trim, or clothing trim</td>
-</tr>
-<tr>
-<td>in_stock</td>
-<td>Either 0, sold out, 1, in stock, or 2, temp out</td>
 </tr>
 <tr>
 <td>price_tier</td>
@@ -7194,32 +7187,6 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <tr>
 <td>GARMENT_ALLCLOTHING</td>
 <td>GARMENT_ALLSUIT OR GARMENT_TOPCOAT OR GARMENT_PANT2</td>
-</tr>
-</tbody></table>
-
-<p>(OR here is Bitwise OR)</p>
-<h3 id='fabric-usage-bitmask'>Fabric Usage Bitmask</h3>
-<table><thead>
-<tr>
-<th>Usage</th>
-<th>Bitmask</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>USAGE_GARMENT</td>
-<td>1</td>
-</tr>
-<tr>
-<td>USAGE_SHIRT_TRIM</td>
-<td>2</td>
-</tr>
-<tr>
-<td>USAGE_CLOTHING_TRIM</td>
-<td>4</td>
-</tr>
-<tr>
-<td>USAGE_ALL</td>
-<td>USAGE_GARMENT OR USAGE_SHIRT_TRIM OR USAGE_CLOTHING_TRIM</td>
 </tr>
 </tbody></table>
 
@@ -7311,226 +7278,87 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">39000</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">61814</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lt Blue Houndstooth Check Twill"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FM19000-13"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z8-3961814"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"collection_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1951</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z8-3961814"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z8-3961814&amp;res=300"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">41</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"favorite_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fabric_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"trim_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"material_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fabric"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"factories"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"iD"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
         </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Linen Blue Dot"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55699-16"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z8-3339000"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z8-3339000"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z8-3339000&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"availability"</span><span class="p">:</span><span class="w"> </span><span class="s2">"single-cut"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"favorite_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"fabric_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"fabric_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trim_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">38992</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lt Blue Solid"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FL51168-13"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z8-3338992"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z8-3338992"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z8-3338992&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"availability"</span><span class="p">:</span><span class="w"> </span><span class="s2">"single-cut"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"favorite_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"fabric_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"fabric_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trim_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">38993</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lt Blue Gingham"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FL60629-13"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z8-3338993"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z8-3338993"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z8-3338993&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"availability"</span><span class="p">:</span><span class="w"> </span><span class="s2">"single-cut"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"favorite_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"fabric_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"fabric_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trim_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">38994</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Med Blue Gingham"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FL60629-15"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z8-3338994"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z8-3338994"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z8-3338994&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"availability"</span><span class="p">:</span><span class="w"> </span><span class="s2">"single-cut"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"favorite_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"fabric_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"fabric_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trim_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">38979</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lt Blue Hairline Stripe"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FL54667-13"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z8-3338979"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z8-3338979"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z8-3338979&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"availability"</span><span class="p">:</span><span class="w"> </span><span class="s2">"single-cut"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"favorite_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"fabric_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"fabric_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trim_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">38984</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teal Hairline Stripe"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FL54667-11"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z8-3338984"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z8-3338984"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z8-3338984&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"availability"</span><span class="p">:</span><span class="w"> </span><span class="s2">"single-cut"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"favorite_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"fabric_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"fabric_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trim_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">38985</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lt Blue Mini Check"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FL63933-13"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z8-3338985"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z8-3338985"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z8-3338985&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"availability"</span><span class="p">:</span><span class="w"> </span><span class="s2">"single-cut"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"favorite_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"fabric_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"fabric_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trim_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">38991</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"White Solid"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FL51168-1"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z8-3338991"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z8-3338991"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z8-3338991&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"availability"</span><span class="p">:</span><span class="w"> </span><span class="s2">"single-cut"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"favorite_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"fabric_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"fabric_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trim_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">38980</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Purple Hairline Stripe"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FL54667-15"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z8-3338980"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z8-3338980"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z8-3338980&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"availability"</span><span class="p">:</span><span class="w"> </span><span class="s2">"single-cut"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"favorite_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"fabric_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"fabric_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trim_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">38981</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pink Hairline Stripe"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FL54667-31"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z8-3338981"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z8-3338981"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z8-3338981&amp;res=300"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"inventory_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Stock"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"availability"</span><span class="p">:</span><span class="w"> </span><span class="s2">"single-cut"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"favorite_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"fabric_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"fabric_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trim_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+        </span><span class="s2">"last_edit_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"availability"</span><span class="p">:</span><span class="w"> </span><span class="s2">"single-cut"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">61815</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lavendar Houndstooth Check Twill"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FM19000-81"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z8-3961815"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"collection_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1951</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z8-3961815"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z8-3961815&amp;res=300"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">41</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"favorite_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fabric_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"trim_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"material_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fabric"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"factories"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"iD"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_edit_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"availability"</span><span class="p">:</span><span class="w"> </span><span class="s2">"single-cut"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">61816</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blue Houndstooth Check Twill"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"supplier_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FM19000-11"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z8-3961816"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"collection_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1951</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/is/image/trinityapparel/Z8-3961816"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"swatch_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&amp;src=Z8-3961816&amp;res=300"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pattern_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">41</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"weave_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price_tier"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"has_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"favorite_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fabric_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"trim_garment_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"material_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fabric"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"factories"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"iD"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_edit_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"availability"</span><span class="p">:</span><span class="w"> </span><span class="s2">"single-cut"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>Returns a list of up to 10 related fabrics.</p>
@@ -13382,12 +13210,16 @@ If cut lengths are provided for all fabrics, then that garment will automaticall
 </ul>
 <h1 id='changelog'>Changelog</h1>
 <p>A history of changes to the Trinity Apparel API.</p>
+<h2 id='2021-04-02'>2021-04-02</h2>
+<p>A lot of changes to <a href="#fabric-resources">fabrics</a> API. Read through the resources and related calls carefully as the data structure has changed for fabrics. The most notable change is that in_stock, restock_date, last_stock_edit_date, and availability have been combined under a new attribute called factories as these statuses can be different depending on the factory being ordered from.</p>
+
+<p>Also, a new ability to see a collection of your favorite fabrics has been added to the <a href="#get-a-specific-collection">collection</a> API. Simply pass <code>favorites</code> in place of <code>:id</code>.</p>
 <h2 id='2021-02-25'>2021-02-25</h2>
 <p>Added new API for manufacturers to <a href="#update-inventory">update fabric inventory</a>.</p>
 <h2 id='2020-11-11'>2020-11-11</h2>
-<p>Added the ability to <a href="#accept-cmt-fabric">Accept</a> and <a href="#reject-cmt-fabric">Reject</a> CMT fabrics.  This process is almost identical to accepting and rejecting single-length fabrics, but does have a few minor differences that require a different API call.</p>
+<p>Added the ability to <a href="#accept-cmt-fabric">Accept</a> and <a href="#reject-cmt-fabric">Reject</a> CMT fabrics. This process is almost identical to accepting and rejecting single-length fabrics, but does have a few minor differences that require a different API call.</p>
 <h2 id='2020-11-06'>2020-11-06</h2>
-<p><a href="#create-fabric-cut">Fabric Cut API</a> will no longer move a garment to cutting automatically.  Garment will now require being moved to cutting manually.</p>
+<p><a href="#create-fabric-cut">Fabric Cut API</a> will no longer move a garment to cutting automatically. Garment will now require being moved to cutting manually.</p>
 <h2 id='2020-10-15'>2020-10-15</h2>
 <p>Added <code>material_type</code> to <a href="#get-fabric-order">fabric order</a> API.</p>
 <h2 id='2020-10-12'>2020-10-12</h2>
