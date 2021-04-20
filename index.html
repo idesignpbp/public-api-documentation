@@ -5956,13 +5956,13 @@ You must replace <code>swaledale</code> with your personal JWT token.
         </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
         </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="s2">"last_edit_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-10-29T12:50:22.000Z"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"availability"</span><span class="p">:</span><span class="w"> </span><span class="s2">"single-cut"</span><span class="w">
+        </span><span class="s2">"readiness"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ship from vendor"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"T2iD"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
         </span><span class="s2">"restock_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="s2">"last_edit_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-10-29T12:50:22.000Z"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"availability"</span><span class="p">:</span><span class="w"> </span><span class="s2">"single-cut"</span><span class="w">
+        </span><span class="s2">"readiness"</span><span class="p">:</span><span class="w"> </span><span class="s2">"at factory"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='factories'>Factories</h3>
@@ -5976,7 +5976,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 </thead><tbody>
 <tr>
 <td>in_stock <br> <span>boolean</span></td>
-<td>Weather or not the fabric is available to order.</td>
+<td>Weather or not the fabric is available to order. If false, that means the fabric is temporarily out.</td>
 </tr>
 <tr>
 <td>restock_date <br> <span>datetime</span></td>
@@ -5987,8 +5987,8 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <td>The last time the fabric inventory level was changed.</td>
 </tr>
 <tr>
-<td>availability <br> <span>string</span></td>
-<td>One of: &quot;At Once&quot;, meaning the fabric is ready (4-5 week delivery for clothing, 2-3 week delivery for shirts), or &quot;Single Cut&quot;, meaning the fabric is not yet at the factory (5-6 weeks for clothing, 3-5 weeks for shirts).</td>
+<td>readiness <br> <span>string</span></td>
+<td>One of: &quot;At Factory&quot;, meaning the fabric is ready (4-5 week delivery for clothing, 2-3 week delivery for shirts), or &quot;Ship From Vendor&quot;, meaning the fabric is not yet at the factory (5-6 weeks for clothing, 3-5 weeks for shirts).</td>
 </tr>
 </tbody></table>
 <pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Extended</span><span class="w"> </span><span class="err">Object</span><span class="w">
@@ -13211,7 +13211,7 @@ If cut lengths are provided for all fabrics, then that garment will automaticall
 <h1 id='changelog'>Changelog</h1>
 <p>A history of changes to the Trinity Apparel API.</p>
 <h2 id='2021-04-02'>2021-04-02</h2>
-<p>A lot of changes to <a href="#fabric-resources">fabrics</a> API. Read through the resources and related calls carefully as the data structure has changed for fabrics. The most notable change is that in_stock, restock_date, last_stock_edit_date, and availability have been combined under a new attribute called factories as these statuses can be different depending on the factory being ordered from.</p>
+<p>A lot of changes to <a href="#fabric-resources">fabrics</a> API. Read through the resources and related calls carefully as the data structure has changed for fabrics. The most notable change is that in_stock, restock_date, last_stock_edit_date, and readiness have been combined under a new attribute called factories as these statuses can be different depending on the factory being ordered from.</p>
 
 <p>Also, a new ability to see a collection of your favorite fabrics has been added to the <a href="#get-a-specific-collection">collection</a> API. Simply pass <code>favorites</code> in place of <code>:id</code>.</p>
 <h2 id='2021-02-25'>2021-02-25</h2>
