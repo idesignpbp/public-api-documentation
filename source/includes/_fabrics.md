@@ -59,13 +59,13 @@ Standard Attributes
         "in_stock": true,
         "restock_date": null,
         "last_edit_date": "2020-10-29T12:50:22.000Z",
-        "availability": "single-cut"
+        "readiness": "ship from vendor"
     },
     "T2iD": {
         "in_stock": true,
         "restock_date": null,
         "last_edit_date": "2020-10-29T12:50:22.000Z",
-        "availability": "single-cut"
+        "readiness": "at factory"
     }
 }
 ```
@@ -74,12 +74,12 @@ Standard Attributes
 
 Standard Attributes
 
-| Attribute                                 | Description                                                                                                                                                                                                                  |
-| ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| in_stock <br> <span>boolean</span>        | Weather or not the fabric is available to order.                                                                                                                                                                             |
-| restock_date <br> <span>datetime</span>   | The date a temporarily out of stock fabric will be restocked and available for orders. Most of the time this field is empty.                                                                                                 |
-| last_edit_date <br> <span>datetime</span> | The last time the fabric inventory level was changed.                                                                                                                                                                        |
-| availability <br> <span>string</span>     | One of: "At Once", meaning the fabric is ready (4-5 week delivery for clothing, 2-3 week delivery for shirts), or "Single Cut", meaning the fabric is not yet at the factory (5-6 weeks for clothing, 3-5 weeks for shirts). |
+| Attribute                                 | Description                                                                                                                                                                                                                           |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| in_stock <br> <span>boolean</span>        | Weather or not the fabric is available to order. If false, that means the fabric is temporarily out.                                                                                                                                  |
+| restock_date <br> <span>datetime</span>   | The date a temporarily out of stock fabric will be restocked and available for orders. Most of the time this field is empty.                                                                                                          |
+| last_edit_date <br> <span>datetime</span> | The last time the fabric inventory level was changed.                                                                                                                                                                                 |
+| readiness <br> <span>string</span>        | One of: "At Factory", meaning the fabric is ready (4-5 week delivery for clothing, 2-3 week delivery for shirts), or "Ship From Vendor", meaning the fabric is not yet at the factory (5-6 weeks for clothing, 3-5 weeks for shirts). |
 
 ```json
 # Extended Object

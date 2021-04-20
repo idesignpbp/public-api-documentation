@@ -4,7 +4,7 @@ A history of changes to the Trinity Apparel API.
 
 ## 2021-04-02
 
-A lot of changes to [fabrics](#fabric-resources) API. Read through the resources and related calls carefully as the data structure has changed for fabrics. The most notable change is that in_stock, restock_date, last_stock_edit_date, and availability have been combined under a new attribute called factories as these statuses can be different depending on the factory being ordered from.
+A lot of changes to [fabrics](#fabric-resources) API. Read through the resources and related calls carefully as the data structure has changed for fabrics. The most notable change is that in_stock, restock_date, last_stock_edit_date, and readiness have been combined under a new attribute called factories as these statuses can be different depending on the factory being ordered from.
 
 Also, a new ability to see a collection of your favorite fabrics has been added to the [collection](#get-a-specific-collection) API. Simply pass `favorites` in place of `:id`.
 
