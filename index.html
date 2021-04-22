@@ -454,6 +454,9 @@
                     <a href="#set-order-status" class="toc-h2 toc-link" data-title="Set Order Status">Set Order Status</a>
                   </li>
                   <li>
+                    <a href="#set-delay-status" class="toc-h2 toc-link" data-title="Set Delay Status">Set Delay Status</a>
+                  </li>
+                  <li>
                     <a href="#update-inventory" class="toc-h2 toc-link" data-title="Update Inventory">Update Inventory</a>
                   </li>
               </ul>
@@ -502,6 +505,9 @@
           <li>
             <a href="#changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
+                  <li>
+                    <a href="#2021-04-22" class="toc-h2 toc-link" data-title="2021-04-22">2021-04-22</a>
+                  </li>
                   <li>
                     <a href="#2021-04-02" class="toc-h2 toc-link" data-title="2021-04-02">2021-04-02</a>
                   </li>
@@ -9436,6 +9442,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <li><a href="#get-fabric-cuts">Get Fabric Cuts</a> - Get a list of all fabrics ready to be cut by a manufacturer</li>
 <li><a href="#update-fabric-cut">Update Fabric Cut</a> - Mark a specific fabric as cut</li>
 <li><a href="#set-order-status">Set Order Status</a> - E.g., Move a garment from Ready to Production</li>
+<li><a href="#set-delay-status">Set Delay Status</a> - E.g., Change the delay status on a garment</li>
 <li><a href="#update-inventory">Update Inventory</a> - Update the current stock of a fabric</li>
 </ul>
 
@@ -11737,6 +11744,55 @@ If cut lengths are provided for all fabrics, then that garment will automaticall
 <td>Unable to move to a different status. Reason provided in JSON</td>
 </tr>
 </tbody></table>
+<h2 id='set-delay-status'>Set Delay Status</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://api.trinity-apparel.com/v1/garments/:id/delay_statuses/:delay_status"</span>
+  -H <span class="s2">"Authorization Bearer: swaledale"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns a <code>201 Created</code> and no JSON output when it is successful.</p>
+</blockquote>
+<h3 id='description-5'>Description</h3>
+<p>This call updates the delay status of a garment and puts an entry in garment history to note when the change was made.</p>
+<h3 id='http-request-10'>HTTP Request</h3>
+<p><code>GET https://api.trinity-apparel.com/v1/garments/:id/delay_statuses/:delay_status</code></p>
+<h3 id='query-parameters-10'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>delay_status</td>
+<td>N/A</td>
+<td>Can be an id number or a code. <a href="#delay-statuses">Click here</a> for more info</td>
+</tr>
+</tbody></table>
+<h3 id='other-10'>Other</h3>
+<ul>
+<li>Permissions: Only manufacturers can access this route. They can only see garments made at their factory.</li>
+<li>Pagination: N/A</li>
+</ul>
+<h3 id='responses-5'>Responses</h3>
+<table><thead>
+<tr>
+<th>Response Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>201</td>
+<td>Garment Order status was successfully changed</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Not Authorized - You&#39;re not a factory or the garment isn&#39;t from your factory</td>
+</tr>
+<tr>
+<td>409</td>
+<td>Unable to move to a different status. Reason provided in JSON</td>
+</tr>
+</tbody></table>
 <h2 id='update-inventory'>Update Inventory</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://api.trinity-apparel.com/v1/sku/update_inventory"</span>
   -H <span class="s2">"Authorization Bearer: swaledale"</span>
 </code></pre>
@@ -11744,33 +11800,33 @@ If cut lengths are provided for all fabrics, then that garment will automaticall
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9678</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"stock_available"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15.0"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"stock_on_hand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15.0"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-24T21:44:55.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-24T21:44:55.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44543</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FAB-0000003"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"supplier_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"74363/3"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"collection"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Reda Luxury Jacketing Super 130's V18072"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Navy Graphite Plaid"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-16T11:59:31.000Z"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-01-18T23:28:57.000Z"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9678</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"stock_available"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"stock_on_hand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-24T21:44:55.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-24T21:44:55.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44543</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FAB-0000003"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"supplier_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"74363/3"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"collection"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Reda Luxury Jacketing Super 130's V18072"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Navy Graphite Plaid"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-16T11:59:31.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-01-18T23:28:57.000Z"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='description-5'>Description</h3>
+</span></code></pre><h3 id='description-6'>Description</h3>
 <p>This call updates the stock amount of a Sku.</p>
 
 <p>We use the stock amount of Trinity-owned fabrics to determine their availibity to order a garment made from this fabric.</p>
 <h3 id='rules-4'>Rules</h3>
 <p>Both stock and supplier_number parameters are required and an error will be returned if either are missing.</p>
 
-<p>Also, a Sku must already exist with the provided supplier number.  If the Sku does not exist, an error will be returned and you will either have to provide the correct supplier number or contact Trinity staff so a Sku can be created.</p>
-<h3 id='http-request-10'>HTTP Request</h3>
+<p>Also, a Sku must already exist with the provided supplier number. If the Sku does not exist, an error will be returned and you will either have to provide the correct supplier number or contact Trinity staff so a Sku can be created.</p>
+<h3 id='http-request-11'>HTTP Request</h3>
 <p><code>GET https://api.trinity-apparel.com/v1/sku/update_inventory</code></p>
-<h3 id='query-parameters-10'>Query Parameters</h3>
+<h3 id='query-parameters-11'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -11789,12 +11845,12 @@ If cut lengths are provided for all fabrics, then that garment will automaticall
 <td>The current total amount of stock you have of the fabric (must be numeric)</td>
 </tr>
 </tbody></table>
-<h3 id='other-10'>Other</h3>
+<h3 id='other-11'>Other</h3>
 <ul>
 <li>Permissions: Only manufacturers can access this route. They can only update inventory at their factory.</li>
 <li>Pagination: N/A</li>
 </ul>
-<h3 id='responses-5'>Responses</h3>
+<h3 id='responses-6'>Responses</h3>
 <table><thead>
 <tr>
 <th>Response Code</th>
@@ -13210,6 +13266,8 @@ If cut lengths are provided for all fabrics, then that garment will automaticall
 </ul>
 <h1 id='changelog'>Changelog</h1>
 <p>A history of changes to the Trinity Apparel API.</p>
+<h2 id='2021-04-22'>2021-04-22</h2>
+<p>New API created to change the <a href="#set-delay-status">delay status</a> on a garment.</p>
 <h2 id='2021-04-02'>2021-04-02</h2>
 <p>A lot of changes to <a href="#fabric-resources">fabrics</a> API. Read through the resources and related calls carefully as the data structure has changed for fabrics. The most notable change is that in_stock, restock_date, last_stock_edit_date, and readiness have been combined under a new attribute called factories as these statuses can be different depending on the factory being ordered from.</p>
 
