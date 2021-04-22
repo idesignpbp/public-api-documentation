@@ -14,6 +14,7 @@ This includes:
 - [Get Fabric Cuts](#get-fabric-cuts) - Get a list of all fabrics ready to be cut by a manufacturer
 - [Update Fabric Cut](#update-fabric-cut) - Mark a specific fabric as cut
 - [Set Order Status](#set-order-status) - E.g., Move a garment from Ready to Production
+- [Set Delay Status](#set-delay-status) - E.g., Change the delay status on a garment
 - [Update Inventory](#update-inventory) - Update the current stock of a fabric
 
 Deprecated:
@@ -131,13 +132,13 @@ Standard Attributes
 Standard Attributes
 
 | Attribute                                    | Description                                                                                                  |
-| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | --- |
 | id <br> <span>string</span>                  | Unique identifier for the object                                                                             |
 | title <br> <span>string</span>               | Our SKU field for orders                                                                                     |
 | custom_order_number <br> <span>string</span> | Dealers can set this field to whatever they want. It is typically the dealer's SKU or a summary of the order |
 | garment_count <br> <span>integer</span>      | How many garments are in the order. multi-piece garments (e.g., Suit) are counted as 1.                      |
 | ship_type <br> <span>string</span>           | How is the garment shipped to the final destination                                                          |
-| measurement_units <br> <span>string</span>   | Units can be `uscust` for US customary units (in) or `si` for metric units (cm)                              |  |
+| measurement_units <br> <span>string</span>   | Units can be `uscust` for US customary units (in) or `si` for metric units (cm)                              |     |
 | ordered_at <br> <span>datetime</span>        | Time that the dealer completed the checkout process and officially placed the order                          |
 | created_at <br> <span>datetime</span>        | Time when the dealer first began adding garments to the order                                                |
 | invoiced_at <br> <span>datetime</span>       | Time of the first invoice                                                                                    |
@@ -1828,6 +1829,41 @@ Trinity enforces strict validation rules so that garments can only move to a few
 | 403           | Not Authorized - You're not a factory or the garment isn't from your factory |
 | 409           | Unable to move to a different status. Reason provided in JSON                |
 
+## Set Delay Status
+
+```shell
+curl -X POST "https://api.trinity-apparel.com/v1/garments/:id/delay_statuses/:delay_status"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns a `201 Created` and no JSON output when it is successful.
+
+### Description
+
+This call updates the delay status of a garment and puts an entry in garment history to note when the change was made.
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/garments/:id/delay_statuses/:delay_status`
+
+### Query Parameters
+
+| Parameter    | Default | Description                                                                |
+| ------------ | ------- | -------------------------------------------------------------------------- |
+| delay_status | N/A     | Can be an id number or a code. [Click here](#delay-statuses) for more info |
+
+### Other
+
+- Permissions: Only manufacturers can access this route. They can only see garments made at their factory.
+- Pagination: N/A
+
+### Responses
+
+| Response Code | Description                                                                  |
+| ------------- | ---------------------------------------------------------------------------- |
+| 201           | Garment Order status was successfully changed                                |
+| 403           | Not Authorized - You're not a factory or the garment isn't from your factory |
+| 409           | Unable to move to a different status. Reason provided in JSON                |
 
 ## Update Inventory
 
@@ -1840,21 +1876,21 @@ curl -X POST "https://api.trinity-apparel.com/v1/sku/update_inventory"
 
 ```json
 {
-    "id": 9678,
-    "stock_available": "15.0",
-    "stock_on_hand": "15.0",
-    "created_at": "2021-02-24T21:44:55.000Z",
-    "updated_at": "2021-02-24T21:44:55.000Z",
-    "sku": {
-        "id": 44543,
-        "sku": "FAB-0000003",
-        "supplier_number": "74363/3",
-        "collection": "Reda Luxury Jacketing Super 130's V18072",
-        "name": "Navy Graphite Plaid",
-        "description": null,
-        "created_at": "2018-04-16T11:59:31.000Z",
-        "updated_at": "2021-01-18T23:28:57.000Z"
-    }
+  "id": 9678,
+  "stock_available": "15.0",
+  "stock_on_hand": "15.0",
+  "created_at": "2021-02-24T21:44:55.000Z",
+  "updated_at": "2021-02-24T21:44:55.000Z",
+  "sku": {
+    "id": 44543,
+    "sku": "FAB-0000003",
+    "supplier_number": "74363/3",
+    "collection": "Reda Luxury Jacketing Super 130's V18072",
+    "name": "Navy Graphite Plaid",
+    "description": null,
+    "created_at": "2018-04-16T11:59:31.000Z",
+    "updated_at": "2021-01-18T23:28:57.000Z"
+  }
 }
 ```
 
@@ -1868,7 +1904,7 @@ We use the stock amount of Trinity-owned fabrics to determine their availibity t
 
 Both stock and supplier_number parameters are required and an error will be returned if either are missing.
 
-Also, a Sku must already exist with the provided supplier number.  If the Sku does not exist, an error will be returned and you will either have to provide the correct supplier number or contact Trinity staff so a Sku can be created.
+Also, a Sku must already exist with the provided supplier number. If the Sku does not exist, an error will be returned and you will either have to provide the correct supplier number or contact Trinity staff so a Sku can be created.
 
 ### HTTP Request
 
