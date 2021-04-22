@@ -2,6 +2,10 @@
 
 A history of changes to the Trinity Apparel API.
 
+## 2021-04-22
+
+New API created to change the [delay status](#set-delay-status) on a garment.
+
 ## 2021-04-02
 
 A lot of changes to [fabrics](#fabric-resources) API. Read through the resources and related calls carefully as the data structure has changed for fabrics. The most notable change is that in_stock, restock_date, last_stock_edit_date, and readiness have been combined under a new attribute called factories as these statuses can be different depending on the factory being ordered from.
