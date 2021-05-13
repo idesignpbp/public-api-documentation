@@ -635,14 +635,11 @@ curl "https://api.trinity-apparel.com/v1/garments/:id/fabric_orders"
         "fabric": {
             "id": 29888,
             "active": true,
-            "in_stock": 1,
-            "restock_date": null,
             "description": "Antique Golfers",
             "supplier_fabric_number": "360072",
             "trinity_fabric_number": "L6-3129888",
             "url": "https://s7d4.scene7.com/is/image/trinityapparel/L6-3129888",
             "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=L6-3129888&res=300",
-            "inventory_status": "In Stock",
             "pattern_id": null,
             "weave_id": null,
             "price_tier": 4,
@@ -765,14 +762,11 @@ curl "https://api.trinity-apparel.com/v1/fabric_orders/:id"
   "fabric": {
     "id": 72898,
     "active": true,
-    "in_stock": 1,
-    "restock_date": null,
     "description": "White Solid Linen",
     "supplier_fabric_number": "JT 82099-82",
     "trinity_fabric_number": "N6-4072898",
     "url": "https://s7d4.scene7.com/is/image/trinityapparel/N6-4072898",
     "swatch_url": "https://s7d4.scene7.com/ir/render/trinityapparelrender/SwatchWorkflo?obj=Swatch/Fabric&src=N6-4072898&res=300",
-    "inventory_status": "In Stock",
     "pattern_id": 1,
     "weave_id": null,
     "price_tier": 2,
@@ -1102,16 +1096,16 @@ curl -X POST "https://api.trinity-apparel.com/v1/garment_fabrics/:id/accept"
 
 ```json
 {
-    "id": 302261,
-    "create_date": "2020-11-11T18:53:42.000Z",
-    "garment_fabric_id": 24932183,
-    "fabric_id": 1,
-    "cuttable_width": 120.0,
-    "cuttable_length": 140.0,
-    "fabric_type": "Solid, Paisley or Other",
-    "fabric_type_length": null,
-    "fabric_type_width": null,
-    "option_id": null
+  "id": 302261,
+  "create_date": "2020-11-11T18:53:42.000Z",
+  "garment_fabric_id": 24932183,
+  "fabric_id": 1,
+  "cuttable_width": 120.0,
+  "cuttable_length": 140.0,
+  "fabric_type": "Solid, Paisley or Other",
+  "fabric_type_length": null,
+  "fabric_type_width": null,
+  "option_id": null
 }
 ```
 
@@ -1165,47 +1159,47 @@ curl -X POST "https://api.trinity-apparel.com/v1/garment_fabrics/:id/reject"
 
 ```json
 {
-    "id": 1176246,
-    "title": "IDUK-1176246",
-    "order_id": 542524,
-    "copied_garment_id": null,
-    "price": "184.0",
-    "option_cost": "0.0",
-    "garment_type": "CCP",
-    "created_at": "2020-11-05T04:29:32.000Z",
-    "updated_at": null,
-    "order_status_id": 21,
-    "delay_status_id": 4,
-    "fabric_url": "https://s7d4.scene7.com/is/image/trinityapparel/CMT-70001",
-    "order_status": {
-        "code": "READY",
-        "name": "Pending",
-        "description": "Ready"
-    },
-    "delay_status": {
-        "code": "OK",
-        "description": "Not Delayed"
-    },
-    "dealer_order": {
-        "id": 542524,
-        "title": "DO-542524",
-        "custom_order_number": "Adam Uniform",
-        "garment_count": 1,
-        "ship_type": "Ground",
-        "ship_cost": "8.05",
-        "subtotal": "184.0",
-        "dealer_discount": "0.0",
-        "total_discount": "55.2",
-        "tax": "27.37",
-        "grand_total": "164.22",
-        "deposit_percentage": 100,
-        "current_balance": "0.0",
-        "measurement_units": "uscust",
-        "payment_status": "paid",
-        "ordered_at": "2020-11-05T05:01:29.000Z",
-        "created_at": "2020-11-05T04:22:07.000Z",
-        "invoiced_at": null
-    }
+  "id": 1176246,
+  "title": "IDUK-1176246",
+  "order_id": 542524,
+  "copied_garment_id": null,
+  "price": "184.0",
+  "option_cost": "0.0",
+  "garment_type": "CCP",
+  "created_at": "2020-11-05T04:29:32.000Z",
+  "updated_at": null,
+  "order_status_id": 21,
+  "delay_status_id": 4,
+  "fabric_url": "https://s7d4.scene7.com/is/image/trinityapparel/CMT-70001",
+  "order_status": {
+    "code": "READY",
+    "name": "Pending",
+    "description": "Ready"
+  },
+  "delay_status": {
+    "code": "OK",
+    "description": "Not Delayed"
+  },
+  "dealer_order": {
+    "id": 542524,
+    "title": "DO-542524",
+    "custom_order_number": "Adam Uniform",
+    "garment_count": 1,
+    "ship_type": "Ground",
+    "ship_cost": "8.05",
+    "subtotal": "184.0",
+    "dealer_discount": "0.0",
+    "total_discount": "55.2",
+    "tax": "27.37",
+    "grand_total": "164.22",
+    "deposit_percentage": 100,
+    "current_balance": "0.0",
+    "measurement_units": "uscust",
+    "payment_status": "paid",
+    "ordered_at": "2020-11-05T05:01:29.000Z",
+    "created_at": "2020-11-05T04:22:07.000Z",
+    "invoiced_at": null
+  }
 }
 ```
 
@@ -1236,10 +1230,10 @@ The allowed reason codes are:
 
 ### Query Parameters
 
-| Parameter   | Default | Description                                                                                                                                           |
-| ----------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| id          | N/A     | The specific fabric order you want to reject                                                                                                          |
-| reason_code | N/A     | The reason you are rejecting the fabric                                                                                                               |
+| Parameter   | Default | Description                                  |
+| ----------- | ------- | -------------------------------------------- |
+| id          | N/A     | The specific fabric order you want to reject |
+| reason_code | N/A     | The reason you are rejecting the fabric      |
 
 ### Other
 
