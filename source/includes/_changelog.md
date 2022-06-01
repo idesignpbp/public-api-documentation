@@ -2,6 +2,10 @@
 
 A history of changes to the Trinity Apparel API.
 
+## 2022-06-01
+
+New API to create/update [fabric matches](#update-fabric-match) for a fabric.
+
 ## 2021-04-22
 
 New API created to change the [delay status](#set-delay-status) on a garment.
