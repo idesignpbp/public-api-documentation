@@ -1620,14 +1620,15 @@ For the other materials, use the relevant API call to fetch valid IDs: [Buttons]
 
 ### Query Parameters
 
-| Parameter        | Default | Description                                                                                  |
-| ---------------- | ------- | -------------------------------------------------------------------------------------------- |
-| id               | N/A     | The specific garment you want to add a match for the fabric and get an updated properties on |
-| lining_fabric_id | N/A     | The ID of the lining fabric you want to match                                                |
-| button_id        | N/A     | The ID of the button you want to match                                                       |
-| felt_id          | N/A     | The ID of the felt you want to match                                                         |
-| thread_id        | N/A     | The ID of the thread you want to match                                                       |
-| suede_id         | N/A     | The ID of the suede you want to match                                                        |
+| Parameter           | Default | Description                                                                                  |
+| ------------------- | ------- | -------------------------------------------------------------------------------------------- |
+| id                  | N/A     | The specific garment you want to add a match for the fabric and get an updated properties on |
+| lining_fabric_id    | N/A     | The ID of the lining fabric you want to match                                                |
+| button_id           | N/A     | The ID of the button you want to match                                                       |
+| outerwear_button_id | N/A     | The ID of the outerwear button you want to match                                             |
+| felt_id             | N/A     | The ID of the felt you want to match                                                         |
+| thread_id           | N/A     | The ID of the thread you want to match                                                       |
+| suede_id            | N/A     | The ID of the suede you want to match                                                        |
 
 ### Other
 
