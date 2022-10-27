@@ -1792,6 +1792,374 @@ Returns details on a specific thread.
 - Permissions: All
 - Pagination: N/A
 
+## Get All Trouser Trims
+
+```shell
+curl "https://api.trinity-apparel.com/v1/material_trouser_trims"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 1,
+    "value": "white_blue_micro_floral",
+    "description": "White Blue Micro Floral",
+    "image": "https://trinity-apparel.s3.amazonaws.com/option_images/materials/trouser_trims/white_blue_micro_floral.jpg",
+    "display_order": 5,
+    "active": true,
+    "created_at": "2022-02-21T12:12:10.000Z",
+    "updated_at": "2022-02-21T12:12:10.000Z"
+  },
+  {
+    "id": 2,
+    "value": "blue_red_micro_design",
+    "description": "Blue Red Micro Design",
+    "image": "https://trinity-apparel.s3.amazonaws.com/option_images/materials/trouser_trims/blue_red_micro_design.jpg",
+    "display_order": 6,
+    "active": true,
+    "created_at": "2022-02-21T12:12:10.000Z",
+    "updated_at": "2022-02-21T12:12:10.000Z"
+  },
+  {
+    "id": 3,
+    "value": "white_navy_micro_geometric",
+    "description": "White Navy Micro Geometric",
+    "image": "https://trinity-apparel.s3.amazonaws.com/option_images/materials/trouser_trims/white_navy_micro_geometric.jpg",
+    "display_order": 7,
+    "active": true,
+    "created_at": "2022-02-21T12:12:10.000Z",
+    "updated_at": "2022-02-21T12:12:10.000Z"
+  },
+  {
+    "id": 4,
+    "value": "white_lt_blue_micro_floral",
+    "description": "White Light Blue Micro Floral",
+    "image": "https://trinity-apparel.s3.amazonaws.com/option_images/materials/trouser_trims/white_lt_blue_micro_floral.jpg",
+    "display_order": 8,
+    "active": true,
+    "created_at": "2022-02-21T12:12:10.000Z",
+    "updated_at": "2022-02-21T12:12:10.000Z"
+  },
+  {
+    "id": 5,
+    "value": "blue_navy_micro_geometric",
+    "description": "Blue Navy Micro Geometric",
+    "image": "https://trinity-apparel.s3.amazonaws.com/option_images/materials/trouser_trims/blue_navy_micro_geometric.jpg",
+    "display_order": 9,
+    "active": true,
+    "created_at": "2022-02-21T12:12:10.000Z",
+    "updated_at": "2022-02-21T12:12:10.000Z"
+  },
+  {
+    "id": 6,
+    "value": "midnight_white_micro_floral",
+    "description": "Midnight White Micro Floral",
+    "image": "https://trinity-apparel.s3.amazonaws.com/option_images/materials/trouser_trims/midnight_white_micro_floral.jpg",
+    "display_order": 10,
+    "active": true,
+    "created_at": "2022-02-21T12:12:10.000Z",
+    "updated_at": "2022-02-21T12:12:10.000Z"
+  },
+  {
+    "id": 7,
+    "value": "blue_tan_geometric",
+    "description": "Blue Tan Geometric",
+    "image": "https://trinity-apparel.s3.amazonaws.com/option_images/materials/trouser_trims/blue_tan_geometric.jpg",
+    "display_order": 11,
+    "active": true,
+    "created_at": "2022-02-21T12:12:10.000Z",
+    "updated_at": "2022-02-21T12:12:10.000Z"
+  },
+  {
+    "id": 8,
+    "value": "blue_navy_melange_geometric",
+    "description": "Blue Navy Melange Geometric",
+    "image": "https://trinity-apparel.s3.amazonaws.com/option_images/materials/trouser_trims/blue_navy_melange_geometric.jpg",
+    "display_order": 12,
+    "active": true,
+    "created_at": "2022-02-21T12:12:10.000Z",
+    "updated_at": "2022-02-21T12:12:10.000Z"
+  },
+  {
+    "id": 9,
+    "value": "grey_navy_melange_geometric",
+    "description": "Grey Navy Melange Geometric",
+    "image": "https://trinity-apparel.s3.amazonaws.com/option_images/materials/trouser_trims/grey_navy_melange_geometric.jpg",
+    "display_order": 13,
+    "active": true,
+    "created_at": "2022-02-21T12:12:10.000Z",
+    "updated_at": "2022-02-21T12:12:10.000Z"
+  },
+  {
+    "id": 10,
+    "value": "navy_grey_melange_geometric",
+    "description": "Blue Grey Melange Geometric",
+    "image": "https://trinity-apparel.s3.amazonaws.com/option_images/materials/trouser_trims/navy_grey_melange_geometric.jpg",
+    "display_order": 14,
+    "active": true,
+    "created_at": "2022-02-21T12:12:10.000Z",
+    "updated_at": "2022-02-21T12:12:10.000Z"
+  },
+  {
+    "id": 11,
+    "value": "black",
+    "description": "Black",
+    "image": "https://trinity-apparel.s3.amazonaws.com/option_images/pants/waistband_color/black.jpg",
+    "display_order": 3,
+    "active": true,
+    "created_at": "2022-02-24T16:23:20.000Z",
+    "updated_at": "2022-02-24T16:23:20.000Z"
+  },
+  {
+    "id": 12,
+    "value": "ivory",
+    "description": "Ivory",
+    "image": "https://trinity-apparel.s3.amazonaws.com/option_images/pants/waistband_color/ivory.jpg",
+    "display_order": 4,
+    "active": true,
+    "created_at": "2022-02-24T16:23:20.000Z",
+    "updated_at": "2022-02-24T16:23:20.000Z"
+  }
+]
+```
+
+Returns an array of active trouser trims.
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/material_trouser_trims`
+
+### Query Parameters
+
+| Parameter       | Default | Description                                                             |
+| --------------- | ------- | ----------------------------------------------------------------------- |
+| show_archived   | false   | If set to true, the result will also include inactive trouser trims.    |
+| description     | N/A     | If set, will return any trouser trims with exact matching descriptions. |
+| q               | N/A     | If set, return all fuzzy matched descriptions.                          |
+| option_value_id | N/A     | If set, returns all valid trouser trims for that option value.          |
+
+### Other
+
+- Permissions: All
+- Pagination: Yes
+
+### Querying by multiple trouser trim descriptions
+
+In order to query for multiple threads, you will pass in multiple params with the format like below:
+
+`GET https://api.trinity-apparel.com/v1/material_trouser_trims?description[]=Black&description[]=Ivory&description[]=Blue Tan Geometric`
+
+## Get a Specific Trouser Trim
+
+```shell
+curl "https://api.trinity-apparel.com/v1/material_trouser_trims/7"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 7,
+  "value": "blue_tan_geometric",
+  "description": "Blue Tan Geometric",
+  "image": "https://trinity-apparel.s3.amazonaws.com/option_images/materials/trouser_trims/blue_tan_geometric.jpg",
+  "display_order": 11,
+  "active": true,
+  "created_at": "2022-02-21T12:12:10.000Z",
+  "updated_at": "2022-02-21T12:12:10.000Z"
+}
+```
+
+Returns details on a specific trouser trim.
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/material_trouser_trims/:id`
+
+### Query Parameters
+
+| Parameter | Default | Description                                  |
+| --------- | ------- | -------------------------------------------- |
+| id        | N/A     | The specific trouser trim id you want to see |
+
+### Other
+
+- Permissions: All
+- Pagination: N/A
+
+## Get All Zippers
+
+```shell
+curl "https://api.trinity-apparel.com/v1/zippers"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 1,
+    "value": "black",
+    "description": "Black",
+    "image": "https://trinity-apparel.s3.amazonaws.com/option_images/zippers/black.jpg",
+    "display_order": 3,
+    "active": true,
+    "created_at": "2021-10-27T15:18:40.000Z",
+    "updated_at": "2021-10-27T15:18:40.000Z"
+  },
+  {
+    "id": 2,
+    "value": "medium_grey",
+    "description": "Medium Grey",
+    "image": "https://trinity-apparel.s3.amazonaws.com/option_images/zippers/dark_gray.jpg",
+    "display_order": 4,
+    "active": true,
+    "created_at": "2021-10-27T15:18:40.000Z",
+    "updated_at": "2021-10-27T15:18:40.000Z"
+  },
+  {
+    "id": 3,
+    "value": "pewter",
+    "description": "Pewter",
+    "image": "https://trinity-apparel.s3.amazonaws.com/option_images/zippers/light_gray.jpg",
+    "display_order": 5,
+    "active": true,
+    "created_at": "2021-10-27T15:18:40.000Z",
+    "updated_at": "2021-10-27T15:18:40.000Z"
+  },
+  {
+    "id": 4,
+    "value": "navy",
+    "description": "Navy",
+    "image": "https://trinity-apparel.s3.amazonaws.com/option_images/zippers/dark_blue.jpg",
+    "display_order": 6,
+    "active": true,
+    "created_at": "2021-10-27T15:18:40.000Z",
+    "updated_at": "2021-10-27T15:18:40.000Z"
+  },
+  {
+    "id": 5,
+    "value": "medium_blue",
+    "description": "Medium Blue",
+    "image": "https://trinity-apparel.s3.amazonaws.com/option_images/zippers/light_blue.jpg",
+    "display_order": 7,
+    "active": true,
+    "created_at": "2021-10-27T15:18:40.000Z",
+    "updated_at": "2021-10-27T15:18:40.000Z"
+  },
+  {
+    "id": 6,
+    "value": "tan",
+    "description": "Tan",
+    "image": "https://trinity-apparel.s3.amazonaws.com/option_images/zippers/light_brown.jpg",
+    "display_order": 8,
+    "active": true,
+    "created_at": "2021-10-27T15:18:40.000Z",
+    "updated_at": "2021-10-27T15:18:40.000Z"
+  },
+  {
+    "id": 7,
+    "value": "brown",
+    "description": "Brown",
+    "image": "https://trinity-apparel.s3.amazonaws.com/option_images/zippers/dark_brown.jpg",
+    "display_order": 9,
+    "active": true,
+    "created_at": "2021-10-27T15:18:40.000Z",
+    "updated_at": "2021-10-27T15:18:40.000Z"
+  },
+  {
+    "id": 8,
+    "value": "olive",
+    "description": "Olive",
+    "image": "https://trinity-apparel.s3.amazonaws.com/option_images/zippers/dark_green.jpg",
+    "display_order": 10,
+    "active": true,
+    "created_at": "2021-10-27T15:18:40.000Z",
+    "updated_at": "2021-10-27T15:18:40.000Z"
+  },
+  {
+    "id": 9,
+    "value": "burgundy",
+    "description": "Burgundy",
+    "image": "https://trinity-apparel.s3.amazonaws.com/option_images/zippers/maroon.jpg",
+    "display_order": 11,
+    "active": true,
+    "created_at": "2021-10-27T15:18:40.000Z",
+    "updated_at": "2021-10-27T15:18:40.000Z"
+  }
+]
+```
+
+Returns an array of active zippers.
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/zippers`
+
+### Query Parameters
+
+| Parameter       | Default | Description                                                       |
+| --------------- | ------- | ----------------------------------------------------------------- |
+| show_archived   | false   | If set to true, the result will also include inactive zippers.    |
+| description     | N/A     | If set, will return any zippers with exact matching descriptions. |
+| q               | N/A     | If set, return all fuzzy matched descriptions.                    |
+| option_value_id | N/A     | If set, returns all valid zippers for that option value.          |
+
+### Other
+
+- Permissions: All
+- Pagination: Yes
+
+### Querying by multiple zipper descriptions
+
+In order to query for multiple threads, you will pass in multiple params with the format like below:
+
+`GET https://api.trinity-apparel.com/v1/zippers?description[]=Olive&description[]=Black&description[]=Medium Grey`
+
+## Get a Specific Zipper
+
+```shell
+curl "https://api.trinity-apparel.com/v1/zippers/3"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 3,
+  "value": "pewter",
+  "description": "Pewter",
+  "image": "https://trinity-apparel.s3.amazonaws.com/option_images/zippers/light_gray.jpg",
+  "display_order": 5,
+  "active": true,
+  "created_at": "2021-10-27T15:18:40.000Z",
+  "updated_at": "2021-10-27T15:18:40.000Z"
+}
+```
+
+Returns details on a specific zipper.
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/zippers/:id`
+
+### Query Parameters
+
+| Parameter | Default | Description                            |
+| --------- | ------- | -------------------------------------- |
+| id        | N/A     | The specific zipper id you want to see |
+
+### Other
+
+- Permissions: All
+- Pagination: N/A
+
 ## Update Fabric Match
 
 ```shell
