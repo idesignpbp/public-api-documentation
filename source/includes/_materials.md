@@ -404,7 +404,9 @@ curl "https://api.trinity-apparel.com/v1/felts"
   {
     "value": "KYFLD-90642-1_ivory",
     "description": "6-01 Ivory",
-    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-01_Ivory?&hei=100",
+    "code": "6-01",
+    "title": "Ivory",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-01_Ivory?&hei=200",
     "rgb": "239,232,225",
     "display_order": 1,
     "active": true
@@ -412,7 +414,9 @@ curl "https://api.trinity-apparel.com/v1/felts"
   {
     "value": "KYFLD-90642-11_red",
     "description": "6-19 Red",
-    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-19_Red?&hei=100",
+    "code": "6-19",
+    "title": "Red",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-19_Red?&hei=200",
     "rgb": "159,17,31",
     "display_order": 19,
     "active": true
@@ -420,7 +424,9 @@ curl "https://api.trinity-apparel.com/v1/felts"
   {
     "value": "KYFLD-90642-13_emerald_green",
     "description": "6-44 Emerald Green",
-    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-44_Emerald?&hei=100",
+    "code": "6-44",
+    "title": "Emerald Green",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-44_Emerald?&hei=200",
     "rgb": "79,73,41",
     "display_order": 44,
     "active": true
@@ -428,7 +434,9 @@ curl "https://api.trinity-apparel.com/v1/felts"
   {
     "value": "KYFLD-90985-6_purple",
     "description": "6-15 Purple",
-    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-15_Purple?&hei=100",
+    "code": "6-15",
+    "title": "Purple",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-15_Purple?&hei=200",
     "rgb": "60,40,53",
     "display_order": 15,
     "active": true
@@ -436,7 +444,9 @@ curl "https://api.trinity-apparel.com/v1/felts"
   {
     "value": "FLD-0614_navy",
     "description": "6-07 Navy",
-    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-07_Navy?&hei=100",
+    "code": "6-07",
+    "title": "Navy",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-07_Navy?&hei=200",
     "rgb": "39,39,49",
     "display_order": 7,
     "active": true
@@ -444,7 +454,9 @@ curl "https://api.trinity-apparel.com/v1/felts"
   {
     "value": "KYFLD-90985-8_maroon",
     "description": "6-17 Maroon",
-    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-17_Maroon?&hei=100",
+    "code": "6-17",
+    "title": "Maroon",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-17_Maroon?&hei=200",
     "rgb": "80,28,31",
     "display_order": 17,
     "active": true
@@ -452,7 +464,9 @@ curl "https://api.trinity-apparel.com/v1/felts"
   {
     "value": "KYFLD-90985-11_royal_blue",
     "description": "6-09 Royal Blue",
-    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-09_Royal_Blue?&hei=100",
+    "code": "6-09",
+    "title": "Royal Blue",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-09_Royal_Blue?&hei=200",
     "rgb": "39,92,174",
     "display_order": 9,
     "active": true
@@ -460,7 +474,9 @@ curl "https://api.trinity-apparel.com/v1/felts"
   {
     "value": "KYFLD-90985-16_forest_green",
     "description": "6-46 Forest Green",
-    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-46_Forest_Green?&hei=100",
+    "code": "6-46",
+    "title": "Forest Green",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-46_Forest_Green?&hei=200",
     "rgb": "62,79,59",
     "display_order": 46,
     "active": true
@@ -468,7 +484,9 @@ curl "https://api.trinity-apparel.com/v1/felts"
   {
     "value": "FLD-0634_black",
     "description": "6-05 Black",
-    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-05_Black?&hei=100",
+    "code": "6-05",
+    "title": "Black",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-05_Black?&hei=200",
     "rgb": "30,30,30",
     "display_order": 5,
     "active": true
@@ -476,7 +494,9 @@ curl "https://api.trinity-apparel.com/v1/felts"
   {
     "value": "FLD-0626_charcoal",
     "description": "6-04 Charcoal",
-    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-04_Charcoal?&hei=100",
+    "code": "6-04",
+    "title": "Charcoal",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-04_Charcoal?&hei=200",
     "rgb": "56,52,52",
     "display_order": 4,
     "active": true
@@ -484,7 +504,9 @@ curl "https://api.trinity-apparel.com/v1/felts"
   {
     "value": "FLD-0640_midnight_blue",
     "description": "6-06 Midnight Blue",
-    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-06_Midnight_Blue?&hei=100",
+    "code": "6-06",
+    "title": "Midnight Blue",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-06_Midnight_Blue?&hei=200",
     "rgb": "36,43,64",
     "display_order": 6,
     "active": true
@@ -492,7 +514,9 @@ curl "https://api.trinity-apparel.com/v1/felts"
   {
     "value": "FLD-0625_moss_green",
     "description": "6-43 Moss Green",
-    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-43_Moss?&hei=100",
+    "code": "6-43",
+    "title": "Moss Green",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-43_Moss?&hei=200",
     "rgb": "97,83,72",
     "display_order": 43,
     "active": true
@@ -500,7 +524,9 @@ curl "https://api.trinity-apparel.com/v1/felts"
   {
     "value": "FLD-0695_vicuna",
     "description": "6-26 Vicuna",
-    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-26_Vicuna?&hei=100",
+    "code": "6-26",
+    "title": "Vicuna",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-26_Vicuna?&hei=200",
     "rgb": "188,127,76",
     "display_order": 26,
     "active": true
@@ -508,7 +534,9 @@ curl "https://api.trinity-apparel.com/v1/felts"
   {
     "value": "FLD-0620_dark_brown",
     "description": "6-28 Dark Brown",
-    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-28_Dark_Brown?&hei=100",
+    "code": "6-28",
+    "title": "Dark Brown",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-28_Dark_Brown?&hei=200",
     "rgb": "81,56,45",
     "display_order": 28,
     "active": true
@@ -516,7 +544,9 @@ curl "https://api.trinity-apparel.com/v1/felts"
   {
     "value": "FLD-0630_light_gray",
     "description": "6-03 Light Gray",
-    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-03_Light_Gray?&hei=100",
+    "code": "6-03",
+    "title": "Light Gray",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-03_Light_Gray?&hei=200",
     "rgb": "141,136,133",
     "display_order": 3,
     "active": true
@@ -524,7 +554,9 @@ curl "https://api.trinity-apparel.com/v1/felts"
   {
     "value": "FLD-F900-38_teal_blue",
     "description": "6-39 Teal Blue",
-    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-39_Teal_Blue?&hei=100",
+    "code": "6-39",
+    "title": "Teal Blue",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-39_Teal_Blue?&hei=200",
     "rgb": "87,160,149",
     "display_order": 39,
     "active": true
@@ -532,7 +564,9 @@ curl "https://api.trinity-apparel.com/v1/felts"
   {
     "value": "FLD-F900-46_lavender",
     "description": "6-14 Lavender",
-    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-14_Lavender?&hei=100",
+    "code": "6-14",
+    "title": "Lavender",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-14_Lavender?&hei=200",
     "rgb": "148,106,143",
     "display_order": 14,
     "active": true
@@ -540,7 +574,9 @@ curl "https://api.trinity-apparel.com/v1/felts"
   {
     "value": "FLD-F900-F8_pink",
     "description": "6-21 Pink",
-    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-21_Pink?&hei=100",
+    "code": "6-21",
+    "title": "Pink",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-21_Pink?&hei=200",
     "rgb": "254,148,163",
     "display_order": 21,
     "active": true
@@ -548,7 +584,9 @@ curl "https://api.trinity-apparel.com/v1/felts"
   {
     "value": "FLD-F900-27_olive",
     "description": "6-45 Olive",
-    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-45_Olive?&hei=100",
+    "code": "6-45",
+    "title": "Olive",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-45_Olive?&hei=200",
     "rgb": "67,68,49",
     "display_order": 45,
     "active": true
@@ -556,7 +594,9 @@ curl "https://api.trinity-apparel.com/v1/felts"
   {
     "value": "FLD-F900-26_ecru",
     "description": "6-23 Ecru",
-    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-23_Ecru?&hei=100",
+    "code": "6-23",
+    "title": "Ecru",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-23_Ecru?&hei=200",
     "rgb": "216,202,185",
     "display_order": 23,
     "active": true
@@ -564,7 +604,9 @@ curl "https://api.trinity-apparel.com/v1/felts"
   {
     "value": "FLD-F900-17_celery",
     "description": "6-41 Celery",
-    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-41_Celery?&hei=100",
+    "code": "6-41",
+    "title": "Celery",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-41_Celery?&hei=200",
     "rgb": "155,139,110",
     "display_order": 41,
     "active": true
@@ -572,7 +614,9 @@ curl "https://api.trinity-apparel.com/v1/felts"
   {
     "value": "FLD-F900-20_sage",
     "description": "6-42 Sage",
-    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-42_Sage?&hei=100",
+    "code": "6-42",
+    "title": "Sage",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-42_Sage?&hei=200",
     "rgb": "132,108,77",
     "display_order": 42,
     "active": true
@@ -580,7 +624,9 @@ curl "https://api.trinity-apparel.com/v1/felts"
   {
     "value": "NB101_camel",
     "description": "6-25 Camel",
-    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-25_Camel?&hei=100",
+    "code": "6-25",
+    "title": "Camel",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-25_Camel?&hei=200",
     "rgb": "163,124,87",
     "display_order": 25,
     "active": true
@@ -588,7 +634,9 @@ curl "https://api.trinity-apparel.com/v1/felts"
   {
     "value": "NB112_cranberry",
     "description": "6-18 Cranberry",
-    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-18_Cranberry?&hei=100",
+    "code": "6-18",
+    "title": "Cranberry",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-18_Cranberry?&hei=200",
     "rgb": "97,30,36",
     "display_order": 18,
     "active": true
@@ -596,7 +644,9 @@ curl "https://api.trinity-apparel.com/v1/felts"
   {
     "value": "NB010_french_blue",
     "description": "6-08 French Blue",
-    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-08_French_Blue?&hei=100",
+    "code": "6-08",
+    "title": "French Blue",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-08_French_Blue?&hei=200",
     "rgb": "23,83,130",
     "display_order": 8,
     "active": true
@@ -643,7 +693,9 @@ curl "https://api.trinity-apparel.com/v1/felts/KYFLD-90985-6_purple"
 {
   "value": "KYFLD-90985-6_purple",
   "description": "6-15 Purple",
-  "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-15_Purple?&hei=100",
+  "code": "6-15",
+  "title": "Purple",
+  "image": "http://s7d4.scene7.com/is/image/trinityapparel/6-15_Purple?&hei=200",
   "rgb": "60,40,53",
   "display_order": 15,
   "active": true
