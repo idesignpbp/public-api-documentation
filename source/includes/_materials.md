@@ -2,9 +2,9 @@
 
 ## Material Resources
 
-The current materials are Buttons, Felts, Labels, Piping, Suedes, Threads, Trouser Trim, and Zippers. Each material has its own endpoint, but they all work in a nearly identical way and provide the same routes and parameters. The only exception is Threads, which also returns and can be filtered on a code.
+The current materials are Buttons, Felts, Labels, Piping, Suedes, Threads, Trouser Trim, and Zippers. Each material has its own endpoint, but they all work in a nearly identical way and provide the same routes and parameters. There are a few exceptions as shown below.
 
-### Buttons, Felts, Labels, Piping, Suedes, Threads, Trouser Trim, Zippers
+### Buttons, Felts, Suedes
 
 ```json
 # Standard Object - Used in a resource collection
@@ -33,6 +33,56 @@ Standard Attributes
 | display_order <br> <span>integer</span> | The order that the material is displayed in Workflow.                    |
 | active <br> <span>boolean</span>        | Inactive materials are removed from search results by default.           |
 
+### Labels
+
+```json
+# Standard Object - Used in a resource collection
+{
+  "value": "ivory_label",
+  "description": "Ivory Label",
+  "image": "http://s7d4.scene7.com/is/image/trinityapparel/ivory_label?wid=300",
+  "rgb": null,
+  "display_order": 0,
+  "active": true
+}
+```
+
+Standard Attributes
+
+| Attribute                               | Description                                                 |
+| --------------------------------------- | ----------------------------------------------------------- |
+| value <br> <span>string</span>          | Unique identifier for the label.                            |
+| description <br> <span>string</span>    | Human readable description of the label.                    |
+| image <br> <span>string</span>          | The url for an image of the label.                          |
+| rgb <br> <span>string</span>            | The RGB code for the primary color of the label.            |
+| display_order <br> <span>integer</span> | The order that the label is displayed in Workflow.          |
+| active <br> <span>boolean</span>        | Inactive labels are removed from search results by default. |
+
+### Pipings
+
+```json
+# Standard Object - Used in a resource collection
+{
+  "id": 44328,
+  "trinity_fabric_number": "TR-3644328",
+  "lining_fabric_number": "L1-3026873",
+  "description": "Cherry Solid",
+  "image": "http://s7d4.scene7.com/is/image/trinityapparel/TR-3644328?hei=200",
+  "active": true
+}
+```
+
+Standard Attributes
+
+| Attribute                                      | Description                                                  |
+| ---------------------------------------------- | ------------------------------------------------------------ |
+| id <br> <span>number</span>                    | Unique identifier for the piping.                            |
+| trinity_fabric_number <br> <span>string</span> | The fabric number for the piping.                            |
+| lining_fabric_number <br> <span>string</span>  | The lining fabric number for the piping.                     |
+| description <br> <span>string</span>           | Human readable description of the piping.                    |
+| image <br> <span>string</span>                 | The url for an image of the piping.                          |
+| active <br> <span>boolean</span>               | Inactive pipings are removed from search results by default. |
+
 ### Threads
 
 ```json
@@ -59,6 +109,35 @@ Standard Attributes
 | rgb <br> <span>string</span>            | The RGB code for the primary color of the thread.            |
 | display_order <br> <span>integer</span> | The order that the thread is displayed in Workflow.          |
 | active <br> <span>boolean</span>        | Inactive threads are removed from search results by default. |
+
+### Trouser Trims, Zippers
+
+```json
+# Standard Object - Used in a resource collection
+{
+  "id": 1,
+  "value": "white_blue_micro_floral",
+  "description": "White Blue Micro Floral",
+  "image": "https://trinity-apparel.s3.amazonaws.com/option_images/materials/trouser_triwhite_blue_micro_floral.jpg",
+  "display_order": 5,
+  "active": true,
+  "created_at": "2022-02-21T12:12:10.000Z",
+  "updated_at": "2022-02-21T12:12:10.000Z"
+}
+```
+
+Standard Attributes
+
+| Attribute                               | Description                                                    |
+| --------------------------------------- | -------------------------------------------------------------- |
+| id <br> <span>number</span>             | Numeric unique identifier for the material.                    |
+| value <br> <span>string</span>          | Named unique identifier for the material.                      |
+| description <br> <span>string</span>    | Human readable description of the material.                    |
+| image <br> <span>string</span>          | The url for an image of the material.                          |
+| display_order <br> <span>integer</span> | The order that the material is displayed in Workflow.          |
+| active <br> <span>boolean</span>        | Inactive materials are removed from search results by default. |
+| created_at <br> <span>date</span>       | Date that the material was created.                            |
+| updated_at <br> <span>date</span>       | Date that the material was last updated.                       |
 
 ## Get All Buttons
 
@@ -910,6 +989,282 @@ Returns details on a specific label.
 | Parameter | Default | Description                              |
 | --------- | ------- | ---------------------------------------- |
 | value     | N/A     | The specific label value you want to see |
+
+### Other
+
+- Permissions: All
+- Pagination: N/A
+
+## Get All Pipings
+
+```shell
+curl "https://api.trinity-apparel.com/v1/material_pipings"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 44299,
+    "trinity_fabric_number": "TR-3644299",
+    "lining_fabric_number": "L1-3026876",
+    "description": "Silver Solid",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/TR-3644299?hei=200",
+    "active": true
+  },
+  {
+    "id": 44300,
+    "trinity_fabric_number": "TR-3644300",
+    "lining_fabric_number": "L1-3540390",
+    "description": "Silver Blue Solid",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/TR-3644300?hei=200",
+    "active": true
+  },
+  {
+    "id": 44301,
+    "trinity_fabric_number": "TR-3644301",
+    "lining_fabric_number": "LL-2617299",
+    "description": "Gray Solid",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/TR-3644301?hei=200",
+    "active": true
+  },
+  {
+    "id": 44303,
+    "trinity_fabric_number": "TR-3644303",
+    "lining_fabric_number": "LL-2617297",
+    "description": "Black Solid",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/TR-3644303?hei=200",
+    "active": true
+  },
+  {
+    "id": 44305,
+    "trinity_fabric_number": "TR-3644305",
+    "lining_fabric_number": "LL-2617303",
+    "description": "Periwinkle Solid",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/TR-3644305?hei=200",
+    "active": true
+  },
+  {
+    "id": 44306,
+    "trinity_fabric_number": "TR-3644306",
+    "lining_fabric_number": "L1-3026869",
+    "description": "Royal Blue Solid",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/TR-3644306?hei=200",
+    "active": true
+  },
+  {
+    "id": 44308,
+    "trinity_fabric_number": "TR-3644308",
+    "lining_fabric_number": "LL-2617301",
+    "description": "Dark Navy Solid",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/TR-3644308?hei=200",
+    "active": true
+  },
+  {
+    "id": 44310,
+    "trinity_fabric_number": "TR-3644310",
+    "lining_fabric_number": "LL-2617309",
+    "description": "Camel Solid",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/TR-3644310?hei=200",
+    "active": true
+  },
+  {
+    "id": 44311,
+    "trinity_fabric_number": "TR-3644311",
+    "lining_fabric_number": "LL-2617310",
+    "description": "Taupe Solid",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/TR-3644311?hei=200",
+    "active": true
+  },
+  {
+    "id": 44312,
+    "trinity_fabric_number": "TR-3644312",
+    "lining_fabric_number": "LL-2617311",
+    "description": "Dark Taupe Solid",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/TR-3644312?hei=200",
+    "active": true
+  },
+  {
+    "id": 44313,
+    "trinity_fabric_number": "TR-3644313",
+    "lining_fabric_number": "LL-2617308",
+    "description": "Toffee Solid",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/TR-3644313?hei=200",
+    "active": true
+  },
+  {
+    "id": 44314,
+    "trinity_fabric_number": "TR-3644314",
+    "lining_fabric_number": "L1-3026865",
+    "description": "Brown Solid",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/TR-3644314?hei=200",
+    "active": true
+  },
+  {
+    "id": 44315,
+    "trinity_fabric_number": "TR-3644315",
+    "lining_fabric_number": "L1-3026877",
+    "description": "White Solid",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/TR-3644315?hei=200",
+    "active": true
+  },
+  {
+    "id": 44317,
+    "trinity_fabric_number": "TR-3644317",
+    "lining_fabric_number": "L1-3540407",
+    "description": "Celery Solid",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/TR-3644317?hei=200",
+    "active": true
+  },
+  {
+    "id": 44318,
+    "trinity_fabric_number": "TR-3644318",
+    "lining_fabric_number": "L1-3540408",
+    "description": "Olive Solid",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/TR-3644318?hei=200",
+    "active": true
+  },
+  {
+    "id": 44319,
+    "trinity_fabric_number": "TR-3644319",
+    "lining_fabric_number": "L1-3026862",
+    "description": "Evergreen Solid",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/TR-3644319?hei=200",
+    "active": true
+  },
+  {
+    "id": 44320,
+    "trinity_fabric_number": "TR-3644320",
+    "lining_fabric_number": "L1-3026868",
+    "description": "Canary Solid",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/TR-3644320?hei=200",
+    "active": true
+  },
+  {
+    "id": 44321,
+    "trinity_fabric_number": "TR-3644321",
+    "lining_fabric_number": "L1-3026867",
+    "description": "Mustard Solid",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/TR-3644321?hei=200",
+    "active": true
+  },
+  {
+    "id": 44322,
+    "trinity_fabric_number": "TR-3644322",
+    "lining_fabric_number": "L1-3026866",
+    "description": "Copper Solid",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/TR-3644322?hei=200",
+    "active": true
+  },
+  {
+    "id": 44323,
+    "trinity_fabric_number": "TR-3644323",
+    "lining_fabric_number": "L1-3026872",
+    "description": "Lavender Solid",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/TR-3644323?hei=200",
+    "active": true
+  },
+  {
+    "id": 44324,
+    "trinity_fabric_number": "TR-3644324",
+    "lining_fabric_number": "L1-3026871",
+    "description": "Magenta Solid",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/TR-3644324?hei=200",
+    "active": true
+  },
+  {
+    "id": 44325,
+    "trinity_fabric_number": "TR-3644325",
+    "lining_fabric_number": "L1-3540415",
+    "description": "Purple Solid",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/TR-3644325?hei=200",
+    "active": true
+  },
+  {
+    "id": 44326,
+    "trinity_fabric_number": "TR-3644326",
+    "lining_fabric_number": "L1-3026875",
+    "description": "Light Pink Solid",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/TR-3644326?hei=200",
+    "active": true
+  },
+  {
+    "id": 44327,
+    "trinity_fabric_number": "TR-3644327",
+    "lining_fabric_number": "L1-3026874",
+    "description": "Berry Solid",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/TR-3644327?hei=200",
+    "active": true
+  },
+  {
+    "id": 44328,
+    "trinity_fabric_number": "TR-3644328",
+    "lining_fabric_number": "L1-3026873",
+    "description": "Cherry Solid",
+    "image": "http://s7d4.scene7.com/is/image/trinityapparel/TR-3644328?hei=200",
+    "active": true
+  }
+]
+```
+
+Returns an array of active pipings.
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/material_pipings`
+
+### Query Parameters
+
+| Parameter     | Default | Description                                                      |
+| ------------- | ------- | ---------------------------------------------------------------- |
+| show_archived | false   | If set to true, the result will also include inactive labels.    |
+| description   | N/A     | If set, will return any labels with exact matching descriptions. |
+| q             | N/A     | If set, return all fuzzy matched descriptions.                   |
+
+### Other
+
+- Permissions: All
+- Pagination: Yes
+
+### Querying by multiple piping descriptions
+
+In order to query for multiple pipings, you will pass in multiple params with the format like below:
+
+`GET https://api.trinity-apparel.com/v1/material_pipings?description[]=Silver Solid&description[]=Silver Blue Solid&description[]=Gray Solid`
+
+## Get a Specific Piping
+
+```shell
+curl "https://api.trinity-apparel.com/v1/materials_piping/44303"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 44303,
+  "trinity_fabric_number": "TR-3644303",
+  "lining_fabric_number": "LL-2617297",
+  "description": "Black Solid",
+  "image": "http://s7d4.scene7.com/is/image/trinityapparel/TR-3644303?hei=200",
+  "active": true
+}
+```
+
+Returns details on a specific label.
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/material_pipings/:id`
+
+### Query Parameters
+
+| Parameter | Default | Description                            |
+| --------- | ------- | -------------------------------------- |
+| id        | N/A     | The specific piping id you want to see |
 
 ### Other
 
