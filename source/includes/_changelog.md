@@ -2,6 +2,15 @@
 
 A history of changes to the Trinity Apparel API.
 
+## 2022-10-27
+
+Several updates to Materials API:
+
+- Updated [resources](#material-resources).
+- Added APIs to [get all pipings](#get-all-pipings) and [get a specific piping](#get-a-specific-piping).
+- Added APIs to [get all trouser trims](#get-all-trouser-trims) and [get a specific trouser trim](#get-a-specific-trouser-trim).
+- Added APIs to [get all zippers](#get-all-zippers) and [get a specific zipper](#get-a-specific-zipper).
+
 ## 2022-06-01
 
 New API to create/update [fabric matches](#update-fabric-match) for a fabric.
