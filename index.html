@@ -381,6 +381,12 @@
                     <a href="#get-a-specific-label" class="toc-h2 toc-link" data-title="Get a Specific Label">Get a Specific Label</a>
                   </li>
                   <li>
+                    <a href="#get-all-pipings" class="toc-h2 toc-link" data-title="Get All Pipings">Get All Pipings</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-specific-piping" class="toc-h2 toc-link" data-title="Get a Specific Piping">Get a Specific Piping</a>
+                  </li>
+                  <li>
                     <a href="#get-all-suedes" class="toc-h2 toc-link" data-title="Get All Suedes">Get All Suedes</a>
                   </li>
                   <li>
@@ -391,6 +397,18 @@
                   </li>
                   <li>
                     <a href="#get-a-specific-thread" class="toc-h2 toc-link" data-title="Get a Specific Thread">Get a Specific Thread</a>
+                  </li>
+                  <li>
+                    <a href="#get-all-trouser-trims" class="toc-h2 toc-link" data-title="Get All Trouser Trims">Get All Trouser Trims</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-specific-trouser-trim" class="toc-h2 toc-link" data-title="Get a Specific Trouser Trim">Get a Specific Trouser Trim</a>
+                  </li>
+                  <li>
+                    <a href="#get-all-zippers" class="toc-h2 toc-link" data-title="Get All Zippers">Get All Zippers</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-specific-zipper" class="toc-h2 toc-link" data-title="Get a Specific Zipper">Get a Specific Zipper</a>
                   </li>
                   <li>
                     <a href="#update-fabric-match" class="toc-h2 toc-link" data-title="Update Fabric Match">Update Fabric Match</a>
@@ -508,6 +526,9 @@
           <li>
             <a href="#changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
+                  <li>
+                    <a href="#2022-10-27" class="toc-h2 toc-link" data-title="2022-10-27">2022-10-27</a>
+                  </li>
                   <li>
                     <a href="#2022-06-01" class="toc-h2 toc-link" data-title="2022-06-01">2022-06-01</a>
                   </li>
@@ -7408,15 +7429,17 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <li>Date Added</li>
 </ul>
 <h1 id='materials-api'>Materials API</h1><h2 id='material-resources'>Material Resources</h2>
-<p>The current materials are Buttons, Felts, Labels, Suedes, and Threads. Each material has its own endpoint, but they all work in a nearly identical way and provide the same routes and parameters. The only exception is Threads, which also returns and can be filtered on a code.</p>
-<h3 id='buttons-felts-labels-suedes'>Buttons, Felts, Labels, Suedes</h3><pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Standard</span><span class="w"> </span><span class="err">Object</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">Used</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">resource</span><span class="w"> </span><span class="err">collection</span><span class="w">
+<p>The current materials are Buttons, Felts, Labels, Piping, Suedes, Threads, Trouser Trim, and Zippers. Each material has its own endpoint, but they all work in a nearly identical way and provide the same routes and parameters. There are a few exceptions as shown below.</p>
+<h3 id='buttons-felts-suedes'>Buttons, Felts, Suedes</h3><pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Standard</span><span class="w"> </span><span class="err">Object</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">Used</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">resource</span><span class="w"> </span><span class="err">collection</span><span class="w">
 </span><span class="p">{</span><span class="w">
   </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KYKW023_Tan"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2-10 Tan Marbled Premium"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/2-10_Tan_Marbled_Premium?wid=100"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2-10"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tan Marbled"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/2-10_Tan_Marbled_Premium?hei=200"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"107,96,72"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">31</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Standard Attributes</p>
@@ -7436,6 +7459,14 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <td>Human readable description of the material.</td>
 </tr>
 <tr>
+<td>code <br> <span>string</span></td>
+<td>Used internally to determine which button can be used on which garments.</td>
+</tr>
+<tr>
+<td>title <br> <span>string</span></td>
+<td>The description with the code removed.</td>
+</tr>
+<tr>
 <td>image <br> <span>string</span></td>
 <td>The url for an image of the material.</td>
 </tr>
@@ -7450,6 +7481,92 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <tr>
 <td>active <br> <span>boolean</span></td>
 <td>Inactive materials are removed from search results by default.</td>
+</tr>
+</tbody></table>
+<h3 id='labels'>Labels</h3><pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Standard</span><span class="w"> </span><span class="err">Object</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">Used</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">resource</span><span class="w"> </span><span class="err">collection</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ivory_label"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ivory Label"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/ivory_label?wid=300"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Standard Attributes</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>value <br> <span>string</span></td>
+<td>Unique identifier for the label.</td>
+</tr>
+<tr>
+<td>description <br> <span>string</span></td>
+<td>Human readable description of the label.</td>
+</tr>
+<tr>
+<td>image <br> <span>string</span></td>
+<td>The url for an image of the label.</td>
+</tr>
+<tr>
+<td>rgb <br> <span>string</span></td>
+<td>The RGB code for the primary color of the label.</td>
+</tr>
+<tr>
+<td>display_order <br> <span>integer</span></td>
+<td>The order that the label is displayed in Workflow.</td>
+</tr>
+<tr>
+<td>active <br> <span>boolean</span></td>
+<td>Inactive labels are removed from search results by default.</td>
+</tr>
+</tbody></table>
+<h3 id='pipings'>Pipings</h3><pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Standard</span><span class="w"> </span><span class="err">Object</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">Used</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">resource</span><span class="w"> </span><span class="err">collection</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44328</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TR-3644328"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"lining_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L1-3026873"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cherry Solid"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/TR-3644328?hei=200"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Standard Attributes</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id <br> <span>number</span></td>
+<td>Unique identifier for the piping.</td>
+</tr>
+<tr>
+<td>trinity_fabric_number <br> <span>string</span></td>
+<td>The fabric number for the piping.</td>
+</tr>
+<tr>
+<td>lining_fabric_number <br> <span>string</span></td>
+<td>The lining fabric number for the piping.</td>
+</tr>
+<tr>
+<td>description <br> <span>string</span></td>
+<td>Human readable description of the piping.</td>
+</tr>
+<tr>
+<td>image <br> <span>string</span></td>
+<td>The url for an image of the piping.</td>
+</tr>
+<tr>
+<td>active <br> <span>boolean</span></td>
+<td>Inactive pipings are removed from search results by default.</td>
 </tr>
 </tbody></table>
 <h3 id='threads'>Threads</h3><pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Standard</span><span class="w"> </span><span class="err">Object</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">Used</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">resource</span><span class="w"> </span><span class="err">collection</span><span class="w">
@@ -7500,6 +7617,59 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <td>Inactive threads are removed from search results by default.</td>
 </tr>
 </tbody></table>
+<h3 id='trouser-trims-zippers'>Trouser Trims, Zippers</h3><pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Standard</span><span class="w"> </span><span class="err">Object</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">Used</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">resource</span><span class="w"> </span><span class="err">collection</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"white_blue_micro_floral"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"White Blue Micro Floral"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://trinity-apparel.s3.amazonaws.com/option_images/materials/trouser_triwhite_blue_micro_floral.jpg"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-21T12:12:10.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-21T12:12:10.000Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Standard Attributes</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id <br> <span>number</span></td>
+<td>Numeric unique identifier for the material.</td>
+</tr>
+<tr>
+<td>value <br> <span>string</span></td>
+<td>Named unique identifier for the material.</td>
+</tr>
+<tr>
+<td>description <br> <span>string</span></td>
+<td>Human readable description of the material.</td>
+</tr>
+<tr>
+<td>image <br> <span>string</span></td>
+<td>The url for an image of the material.</td>
+</tr>
+<tr>
+<td>display_order <br> <span>integer</span></td>
+<td>The order that the material is displayed in Workflow.</td>
+</tr>
+<tr>
+<td>active <br> <span>boolean</span></td>
+<td>Inactive materials are removed from search results by default.</td>
+</tr>
+<tr>
+<td>created_at <br> <span>date</span></td>
+<td>Date that the material was created.</td>
+</tr>
+<tr>
+<td>updated_at <br> <span>date</span></td>
+<td>Date that the material was last updated.</td>
+</tr>
+</tbody></table>
 <h2 id='get-all-buttons'>Get All Buttons</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/buttons"</span>
   -H <span class="s2">"Authorization Bearer: swaledale"</span>
 </code></pre>
@@ -7510,202 +7680,252 @@ You must replace <code>swaledale</code> with your personal JWT token.
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KYKW023_Tan"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2-10 Tan Marbled Premium"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/2-10_Tan_Marbled_Premium?wid=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2-10"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tan Marbled"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/2-10_Tan_Marbled_Premium?hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"107,96,72"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">31</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KYKW024_Cinnamon"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2-11 Cinnamon Marbled Premium"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/2-11_Cinnamon_Marbled_Premium?wid=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2-11"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cinnamon Marbled"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/2-11_Cinnamon_Marbled_Premium?hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"115,76,62"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KYKW025_Taupe"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2-12 Taupe Marbled Premium"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/2-12_Taupe_Marbled_Premium?wid=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2-12"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Taupe Marbled"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/2-12_Taupe_Marbled_Premium?hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"99,93,69"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">33</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KYKW026_Grey"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2-02 Grey Marbled Premium"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/2-02_Grey_Marbled_Premium?wid=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2-02"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Grey Marbled"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/2-02_Grey_Marbled_Premium?hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"79,79,76"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KYKW027_Dark_Brown"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2-13 Dark Brown Marbled Premium"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/2-13_Dark_Brown_Marbled_Premium?wid=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2-13"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dark Brown Marbled"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/2-13_Dark_Brown_Marbled_Premium?hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"46,36,23"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KYKW028_Charcoal"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2-03 Charcoal Marbled Premium"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/2-03_Charcoal_Marbled_Premium?wid=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2-03"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Charcoal Marbled"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/2-03_Charcoal_Marbled_Premium?hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50,50,50"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">36</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KYKW022_Black"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2-04 Black Marbled Premium"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/2-04_Black_Marbled_Premium?wid=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2-04"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Black Marbled"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/2-04_Black_Marbled_Premium?hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"43,43,43"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KW017_Shield"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2-23 Shield Premium"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/2-23_Shield_Premium?wid=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2-23"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shield"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/2-23_Shield_Premium?hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"43,43,43"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">28</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KW018_Skull"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2-24 Skull Premium"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/2-24_Skull_Premium?wid=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2-24"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Skull"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/2-24_Skull_Premium?hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"157,157,157"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">29</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KB002_White_MOP"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1-31 White Mother of Pearl"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/1-31_White_Mother_of_Pearl?wid=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1-31"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"White Mother of Pearl"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/1-31_White_Mother_of_Pearl?hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"233,235,226"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KB001_Smoke_MOP"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1-32 Smoke Mother of Pearl"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/1-32_Smoke_Mother_of_Pearl?wid=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1-32"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smoke Mother of Pearl"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/1-32_Smoke_Mother_of_Pearl?hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"46,58,73"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KG034_Dark_Olive"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1-26 Dark Olive"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1-26"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dark Olive"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/1-26_Dark_Olive?hei=200"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"49,49,27"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KG036_Navy"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1-08 Navy"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/1-08_Navy?wid=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1-08"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Navy"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/1-08_Navy?hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"37,37,49"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KG038_Dark_Taupe"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1-25 Dark Taupe"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/1-25_Dark_Taupe?wid=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1-25"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dark Taupe"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/1-25_Dark_Taupe?hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"69,45,42"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KG051_Ivory"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1-18 Ivory"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/1-18_Ivory?wid=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1-18"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ivory"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/1-18_Ivory?hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"254,235,179"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KG052_Coffee"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1-22 Coffee"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/1-22_Coffee?wid=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1-22"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Coffee"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/1-22_Coffee?hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"107,81,45"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KG039_Charcoal_Grey"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1-05 Charcoal Gray"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/1-05_Charcoal_Gray?wid=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1-05"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Charcoal Gray"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/1-05_Charcoal_Gray?hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"77,75,75"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KG041_Sand"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1-19 Sand"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/1-19_Sand?wid=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1-19"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sand"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/1-19_Sand?hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"185,160,120"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KG056_Caramel"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1-20 Caramel"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/1-20_Caramel?wid=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1-20"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Caramel"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/1-20_Caramel?hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"133,109,72"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KG062_Tan"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1-21 Tan"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/1-21_Tan?wid=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1-21"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tan"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/1-21_Tan?hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"130,86,31"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KG064_Medium_Brown"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1-23 Medium Brown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/1-23_Medium_Brown?wid=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1-23"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Medium Brown"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/1-23_Medium_Brown?hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"85,60,36"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KG069_Dark_Brown"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1-24 Dark Brown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/1-24_Dark_Brown?wid=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1-24"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dark Brown"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/1-24_Dark_Brown?hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50,34,18"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KG019_Black"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1-06 Black"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/1-06_Black?wid=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1-06"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Black"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/1-06_Black?hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"43,43,43"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KNJ011_Dark_Brown"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1-30 Dark Brown Horn"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/1-30_Dark_Brown_Horn?wid=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1-30"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dark Brown Horn"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/1-30_Dark_Brown_Horn?hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33,35,32"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KNJ012_Medium_Brown"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1-28 Medium Brown Horn"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/1-28_Medium_Brown_Horn?wid=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1-28"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Medium Brown Horn"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/1-28_Medium_Brown_Horn?hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"72,52,31"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KNJ014_Rust_Brown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1-29 Rust Brown Horn"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/1-29_Rust_Brown_Horn?wid=100"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"93,44,35"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -7740,6 +7960,11 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <td>N/A</td>
 <td>If set, returns all valid buttons for that option value.</td>
 </tr>
+<tr>
+<td>garment_type</td>
+<td>N/A</td>
+<td>If set, returns all valid buttons for those <a href="#garment-types">garment_type bitmask</a></td>
+</tr>
 </tbody></table>
 <h3 id='other'>Other</h3>
 <ul>
@@ -7759,10 +7984,12 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KYKW022_Black"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2-04 Black Marbled Premium"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/2-04_Black_Marbled_Premium?wid=100"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2-04"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Black Marbled"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/2-04_Black_Marbled_Premium?hei=200"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"43,43,43"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Returns details on a specific button.</p>
@@ -7797,7 +8024,9 @@ You must replace <code>swaledale</code> with your personal JWT token.
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KYFLD-90642-1_ivory"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-01 Ivory"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-01_Ivory?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-01"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ivory"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-01_Ivory?&amp;hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"239,232,225"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
@@ -7805,7 +8034,9 @@ You must replace <code>swaledale</code> with your personal JWT token.
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KYFLD-90642-11_red"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-19 Red"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-19_Red?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-19"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Red"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-19_Red?&amp;hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"159,17,31"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w">
     </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
@@ -7813,7 +8044,9 @@ You must replace <code>swaledale</code> with your personal JWT token.
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KYFLD-90642-13_emerald_green"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-44 Emerald Green"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-44_Emerald?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-44"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emerald Green"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-44_Emerald?&amp;hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"79,73,41"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">44</span><span class="p">,</span><span class="w">
     </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
@@ -7821,7 +8054,9 @@ You must replace <code>swaledale</code> with your personal JWT token.
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KYFLD-90985-6_purple"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-15 Purple"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-15_Purple?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-15"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Purple"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-15_Purple?&amp;hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"60,40,53"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
     </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
@@ -7829,7 +8064,9 @@ You must replace <code>swaledale</code> with your personal JWT token.
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FLD-0614_navy"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-07 Navy"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-07_Navy?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-07"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Navy"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-07_Navy?&amp;hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"39,39,49"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
     </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
@@ -7837,7 +8074,9 @@ You must replace <code>swaledale</code> with your personal JWT token.
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KYFLD-90985-8_maroon"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-17 Maroon"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-17_Maroon?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-17"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Maroon"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-17_Maroon?&amp;hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"80,28,31"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
     </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
@@ -7845,7 +8084,9 @@ You must replace <code>swaledale</code> with your personal JWT token.
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KYFLD-90985-11_royal_blue"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-09 Royal Blue"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-09_Royal_Blue?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-09"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Royal Blue"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-09_Royal_Blue?&amp;hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"39,92,174"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
     </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
@@ -7853,7 +8094,9 @@ You must replace <code>swaledale</code> with your personal JWT token.
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KYFLD-90985-16_forest_green"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-46 Forest Green"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-46_Forest_Green?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-46"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Forest Green"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-46_Forest_Green?&amp;hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"62,79,59"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">46</span><span class="p">,</span><span class="w">
     </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
@@ -7861,7 +8104,9 @@ You must replace <code>swaledale</code> with your personal JWT token.
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FLD-0634_black"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-05 Black"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-05_Black?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-05"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Black"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-05_Black?&amp;hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30,30,30"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
     </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
@@ -7869,7 +8114,9 @@ You must replace <code>swaledale</code> with your personal JWT token.
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FLD-0626_charcoal"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-04 Charcoal"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-04_Charcoal?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-04"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Charcoal"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-04_Charcoal?&amp;hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"56,52,52"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
     </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
@@ -7877,7 +8124,9 @@ You must replace <code>swaledale</code> with your personal JWT token.
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FLD-0640_midnight_blue"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-06 Midnight Blue"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-06_Midnight_Blue?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-06"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Midnight Blue"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-06_Midnight_Blue?&amp;hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"36,43,64"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
     </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
@@ -7885,7 +8134,9 @@ You must replace <code>swaledale</code> with your personal JWT token.
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FLD-0625_moss_green"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-43 Moss Green"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-43_Moss?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-43"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Moss Green"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-43_Moss?&amp;hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"97,83,72"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">43</span><span class="p">,</span><span class="w">
     </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
@@ -7893,7 +8144,9 @@ You must replace <code>swaledale</code> with your personal JWT token.
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FLD-0695_vicuna"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-26 Vicuna"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-26_Vicuna?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-26"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vicuna"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-26_Vicuna?&amp;hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"188,127,76"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">26</span><span class="p">,</span><span class="w">
     </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
@@ -7901,7 +8154,9 @@ You must replace <code>swaledale</code> with your personal JWT token.
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FLD-0620_dark_brown"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-28 Dark Brown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-28_Dark_Brown?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-28"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dark Brown"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-28_Dark_Brown?&amp;hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"81,56,45"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">28</span><span class="p">,</span><span class="w">
     </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
@@ -7909,7 +8164,9 @@ You must replace <code>swaledale</code> with your personal JWT token.
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FLD-0630_light_gray"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-03 Light Gray"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-03_Light_Gray?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-03"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Light Gray"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-03_Light_Gray?&amp;hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"141,136,133"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
@@ -7917,7 +8174,9 @@ You must replace <code>swaledale</code> with your personal JWT token.
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FLD-F900-38_teal_blue"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-39 Teal Blue"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-39_Teal_Blue?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-39"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teal Blue"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-39_Teal_Blue?&amp;hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"87,160,149"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">39</span><span class="p">,</span><span class="w">
     </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
@@ -7925,7 +8184,9 @@ You must replace <code>swaledale</code> with your personal JWT token.
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FLD-F900-46_lavender"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-14 Lavender"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-14_Lavender?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-14"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lavender"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-14_Lavender?&amp;hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"148,106,143"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
     </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
@@ -7933,7 +8194,9 @@ You must replace <code>swaledale</code> with your personal JWT token.
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FLD-F900-F8_pink"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-21 Pink"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-21_Pink?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-21"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pink"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-21_Pink?&amp;hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"254,148,163"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">21</span><span class="p">,</span><span class="w">
     </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
@@ -7941,7 +8204,9 @@ You must replace <code>swaledale</code> with your personal JWT token.
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FLD-F900-27_olive"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-45 Olive"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-45_Olive?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-45"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Olive"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-45_Olive?&amp;hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"67,68,49"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span><span class="w">
     </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
@@ -7949,7 +8214,9 @@ You must replace <code>swaledale</code> with your personal JWT token.
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FLD-F900-26_ecru"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-23 Ecru"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-23_Ecru?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-23"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ecru"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-23_Ecru?&amp;hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"216,202,185"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
     </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
@@ -7957,7 +8224,9 @@ You must replace <code>swaledale</code> with your personal JWT token.
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FLD-F900-17_celery"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-41 Celery"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-41_Celery?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-41"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Celery"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-41_Celery?&amp;hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"155,139,110"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">41</span><span class="p">,</span><span class="w">
     </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
@@ -7965,7 +8234,9 @@ You must replace <code>swaledale</code> with your personal JWT token.
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FLD-F900-20_sage"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-42 Sage"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-42_Sage?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-42"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sage"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-42_Sage?&amp;hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"132,108,77"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w">
     </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
@@ -7973,7 +8244,9 @@ You must replace <code>swaledale</code> with your personal JWT token.
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NB101_camel"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-25 Camel"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-25_Camel?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-25"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Camel"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-25_Camel?&amp;hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"163,124,87"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
     </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
@@ -7981,7 +8254,9 @@ You must replace <code>swaledale</code> with your personal JWT token.
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NB112_cranberry"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-18 Cranberry"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-18_Cranberry?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-18"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cranberry"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-18_Cranberry?&amp;hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"97,30,36"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w">
     </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
@@ -7989,7 +8264,9 @@ You must replace <code>swaledale</code> with your personal JWT token.
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NB010_french_blue"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-08 French Blue"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-08_French_Blue?&amp;hei=100"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-08"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"French Blue"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-08_French_Blue?&amp;hei=200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23,83,130"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
     </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
@@ -8046,7 +8323,9 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KYFLD-90985-6_purple"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-15 Purple"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-15_Purple?&amp;hei=100"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6-15"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Purple"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/6-15_Purple?&amp;hei=200"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"rgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"60,40,53"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
   </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
@@ -8281,6 +8560,288 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <li>Permissions: All</li>
 <li>Pagination: N/A</li>
 </ul>
+<h2 id='get-all-pipings'>Get All Pipings</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/material_pipings"</span>
+  -H <span class="s2">"Authorization Bearer: swaledale"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44299</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TR-3644299"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lining_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L1-3026876"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Silver Solid"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/TR-3644299?hei=200"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44300</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TR-3644300"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lining_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L1-3540390"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Silver Blue Solid"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/TR-3644300?hei=200"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44301</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TR-3644301"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lining_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LL-2617299"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Gray Solid"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/TR-3644301?hei=200"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44303</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TR-3644303"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lining_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LL-2617297"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Black Solid"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/TR-3644303?hei=200"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44305</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TR-3644305"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lining_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LL-2617303"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Periwinkle Solid"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/TR-3644305?hei=200"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44306</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TR-3644306"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lining_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L1-3026869"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Royal Blue Solid"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/TR-3644306?hei=200"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44308</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TR-3644308"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lining_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LL-2617301"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dark Navy Solid"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/TR-3644308?hei=200"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44310</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TR-3644310"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lining_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LL-2617309"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Camel Solid"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/TR-3644310?hei=200"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44311</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TR-3644311"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lining_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LL-2617310"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Taupe Solid"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/TR-3644311?hei=200"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44312</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TR-3644312"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lining_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LL-2617311"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dark Taupe Solid"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/TR-3644312?hei=200"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44313</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TR-3644313"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lining_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LL-2617308"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Toffee Solid"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/TR-3644313?hei=200"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44314</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TR-3644314"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lining_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L1-3026865"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Brown Solid"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/TR-3644314?hei=200"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44315</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TR-3644315"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lining_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L1-3026877"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"White Solid"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/TR-3644315?hei=200"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44317</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TR-3644317"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lining_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L1-3540407"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Celery Solid"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/TR-3644317?hei=200"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44318</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TR-3644318"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lining_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L1-3540408"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Olive Solid"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/TR-3644318?hei=200"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44319</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TR-3644319"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lining_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L1-3026862"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Evergreen Solid"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/TR-3644319?hei=200"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44320</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TR-3644320"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lining_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L1-3026868"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Canary Solid"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/TR-3644320?hei=200"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44321</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TR-3644321"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lining_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L1-3026867"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mustard Solid"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/TR-3644321?hei=200"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44322</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TR-3644322"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lining_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L1-3026866"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Copper Solid"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/TR-3644322?hei=200"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44323</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TR-3644323"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lining_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L1-3026872"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lavender Solid"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/TR-3644323?hei=200"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44324</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TR-3644324"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lining_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L1-3026871"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Magenta Solid"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/TR-3644324?hei=200"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44325</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TR-3644325"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lining_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L1-3540415"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Purple Solid"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/TR-3644325?hei=200"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44326</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TR-3644326"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lining_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L1-3026875"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Light Pink Solid"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/TR-3644326?hei=200"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44327</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TR-3644327"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lining_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L1-3026874"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Berry Solid"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/TR-3644327?hei=200"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44328</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TR-3644328"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lining_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L1-3026873"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cherry Solid"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/TR-3644328?hei=200"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>Returns an array of active pipings.</p>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>GET https://api.trinity-apparel.com/v1/material_pipings</code></p>
+<h3 id='query-parameters-7'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>show_archived</td>
+<td>false</td>
+<td>If set to true, the result will also include inactive labels.</td>
+</tr>
+<tr>
+<td>description</td>
+<td>N/A</td>
+<td>If set, will return any labels with exact matching descriptions.</td>
+</tr>
+<tr>
+<td>q</td>
+<td>N/A</td>
+<td>If set, return all fuzzy matched descriptions.</td>
+</tr>
+</tbody></table>
+<h3 id='other-7'>Other</h3>
+<ul>
+<li>Permissions: All</li>
+<li>Pagination: Yes</li>
+</ul>
+<h3 id='querying-by-multiple-piping-descriptions'>Querying by multiple piping descriptions</h3>
+<p>In order to query for multiple pipings, you will pass in multiple params with the format like below:</p>
+
+<p><code>GET https://api.trinity-apparel.com/v1/material_pipings?description[]=Silver Solid&amp;description[]=Silver Blue Solid&amp;description[]=Gray Solid</code></p>
+<h2 id='get-a-specific-piping'>Get a Specific Piping</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/materials_piping/44303"</span>
+  -H <span class="s2">"Authorization Bearer: swaledale"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44303</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"trinity_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TR-3644303"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"lining_fabric_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LL-2617297"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Black Solid"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s7d4.scene7.com/is/image/trinityapparel/TR-3644303?hei=200"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Returns details on a specific label.</p>
+<h3 id='http-request-8'>HTTP Request</h3>
+<p><code>GET https://api.trinity-apparel.com/v1/material_pipings/:id</code></p>
+<h3 id='query-parameters-8'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>N/A</td>
+<td>The specific piping id you want to see</td>
+</tr>
+</tbody></table>
+<h3 id='other-8'>Other</h3>
+<ul>
+<li>Permissions: All</li>
+<li>Pagination: N/A</li>
+</ul>
 <h2 id='get-all-suedes'>Get All Suedes</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/suedes"</span>
   -H <span class="s2">"Authorization Bearer: swaledale"</span>
 </code></pre>
@@ -8427,9 +8988,9 @@ You must replace <code>swaledale</code> with your personal JWT token.
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>Returns an array of active suedes.</p>
-<h3 id='http-request-7'>HTTP Request</h3>
+<h3 id='http-request-9'>HTTP Request</h3>
 <p><code>GET https://api.trinity-apparel.com/v1/suedes</code></p>
-<h3 id='query-parameters-7'>Query Parameters</h3>
+<h3 id='query-parameters-9'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8458,7 +9019,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <td>If set, returns all valid suedes for that option value.</td>
 </tr>
 </tbody></table>
-<h3 id='other-7'>Other</h3>
+<h3 id='other-9'>Other</h3>
 <ul>
 <li>Permissions: All</li>
 <li>Pagination: Yes</li>
@@ -8483,9 +9044,9 @@ You must replace <code>swaledale</code> with your personal JWT token.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Returns details on a specific suede.</p>
-<h3 id='http-request-8'>HTTP Request</h3>
+<h3 id='http-request-10'>HTTP Request</h3>
 <p><code>GET https://api.trinity-apparel.com/v1/suedes/:value</code></p>
-<h3 id='query-parameters-8'>Query Parameters</h3>
+<h3 id='query-parameters-10'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8499,7 +9060,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <td>The specific suede value you want to see</td>
 </tr>
 </tbody></table>
-<h3 id='other-8'>Other</h3>
+<h3 id='other-10'>Other</h3>
 <ul>
 <li>Permissions: All</li>
 <li>Pagination: N/A</li>
@@ -8739,9 +9300,9 @@ You must replace <code>swaledale</code> with your personal JWT token.
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>Returns an array of active threads.</p>
-<h3 id='http-request-9'>HTTP Request</h3>
+<h3 id='http-request-11'>HTTP Request</h3>
 <p><code>GET https://api.trinity-apparel.com/v1/material_threads</code></p>
-<h3 id='query-parameters-9'>Query Parameters</h3>
+<h3 id='query-parameters-11'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8775,7 +9336,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <td>If set, returns all valid threads for that option value.</td>
 </tr>
 </tbody></table>
-<h3 id='other-9'>Other</h3>
+<h3 id='other-11'>Other</h3>
 <ul>
 <li>Permissions: All</li>
 <li>Pagination: Yes</li>
@@ -8805,9 +9366,9 @@ You must replace <code>swaledale</code> with your personal JWT token.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Returns details on a specific thread.</p>
-<h3 id='http-request-10'>HTTP Request</h3>
+<h3 id='http-request-12'>HTTP Request</h3>
 <p><code>GET https://api.trinity-apparel.com/v1/material_threads/:value</code></p>
-<h3 id='query-parameters-10'>Query Parameters</h3>
+<h3 id='query-parameters-12'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8821,7 +9382,395 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <td>The specific thread value you want to see</td>
 </tr>
 </tbody></table>
-<h3 id='other-10'>Other</h3>
+<h3 id='other-12'>Other</h3>
+<ul>
+<li>Permissions: All</li>
+<li>Pagination: N/A</li>
+</ul>
+<h2 id='get-all-trouser-trims'>Get All Trouser Trims</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/material_trouser_trims"</span>
+  -H <span class="s2">"Authorization Bearer: swaledale"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"white_blue_micro_floral"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"White Blue Micro Floral"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://trinity-apparel.s3.amazonaws.com/option_images/materials/trouser_trims/white_blue_micro_floral.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-21T12:12:10.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-21T12:12:10.000Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blue_red_micro_design"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blue Red Micro Design"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://trinity-apparel.s3.amazonaws.com/option_images/materials/trouser_trims/blue_red_micro_design.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-21T12:12:10.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-21T12:12:10.000Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"white_navy_micro_geometric"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"White Navy Micro Geometric"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://trinity-apparel.s3.amazonaws.com/option_images/materials/trouser_trims/white_navy_micro_geometric.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-21T12:12:10.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-21T12:12:10.000Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"white_lt_blue_micro_floral"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"White Light Blue Micro Floral"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://trinity-apparel.s3.amazonaws.com/option_images/materials/trouser_trims/white_lt_blue_micro_floral.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-21T12:12:10.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-21T12:12:10.000Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blue_navy_micro_geometric"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blue Navy Micro Geometric"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://trinity-apparel.s3.amazonaws.com/option_images/materials/trouser_trims/blue_navy_micro_geometric.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-21T12:12:10.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-21T12:12:10.000Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"midnight_white_micro_floral"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Midnight White Micro Floral"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://trinity-apparel.s3.amazonaws.com/option_images/materials/trouser_trims/midnight_white_micro_floral.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-21T12:12:10.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-21T12:12:10.000Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blue_tan_geometric"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blue Tan Geometric"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://trinity-apparel.s3.amazonaws.com/option_images/materials/trouser_trims/blue_tan_geometric.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-21T12:12:10.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-21T12:12:10.000Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blue_navy_melange_geometric"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blue Navy Melange Geometric"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://trinity-apparel.s3.amazonaws.com/option_images/materials/trouser_trims/blue_navy_melange_geometric.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-21T12:12:10.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-21T12:12:10.000Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"grey_navy_melange_geometric"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Grey Navy Melange Geometric"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://trinity-apparel.s3.amazonaws.com/option_images/materials/trouser_trims/grey_navy_melange_geometric.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-21T12:12:10.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-21T12:12:10.000Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"navy_grey_melange_geometric"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blue Grey Melange Geometric"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://trinity-apparel.s3.amazonaws.com/option_images/materials/trouser_trims/navy_grey_melange_geometric.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-21T12:12:10.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-21T12:12:10.000Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"black"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Black"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://trinity-apparel.s3.amazonaws.com/option_images/pants/waistband_color/black.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-24T16:23:20.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-24T16:23:20.000Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ivory"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ivory"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://trinity-apparel.s3.amazonaws.com/option_images/pants/waistband_color/ivory.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-24T16:23:20.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-24T16:23:20.000Z"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>Returns an array of active trouser trims.</p>
+<h3 id='http-request-13'>HTTP Request</h3>
+<p><code>GET https://api.trinity-apparel.com/v1/material_trouser_trims</code></p>
+<h3 id='query-parameters-13'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>show_archived</td>
+<td>false</td>
+<td>If set to true, the result will also include inactive trouser trims.</td>
+</tr>
+<tr>
+<td>description</td>
+<td>N/A</td>
+<td>If set, will return any trouser trims with exact matching descriptions.</td>
+</tr>
+<tr>
+<td>q</td>
+<td>N/A</td>
+<td>If set, return all fuzzy matched descriptions.</td>
+</tr>
+<tr>
+<td>option_value_id</td>
+<td>N/A</td>
+<td>If set, returns all valid trouser trims for that option value.</td>
+</tr>
+</tbody></table>
+<h3 id='other-13'>Other</h3>
+<ul>
+<li>Permissions: All</li>
+<li>Pagination: Yes</li>
+</ul>
+<h3 id='querying-by-multiple-trouser-trim-descriptions'>Querying by multiple trouser trim descriptions</h3>
+<p>In order to query for multiple threads, you will pass in multiple params with the format like below:</p>
+
+<p><code>GET https://api.trinity-apparel.com/v1/material_trouser_trims?description[]=Black&amp;description[]=Ivory&amp;description[]=Blue Tan Geometric</code></p>
+<h2 id='get-a-specific-trouser-trim'>Get a Specific Trouser Trim</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/material_trouser_trims/7"</span>
+  -H <span class="s2">"Authorization Bearer: swaledale"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blue_tan_geometric"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blue Tan Geometric"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://trinity-apparel.s3.amazonaws.com/option_images/materials/trouser_trims/blue_tan_geometric.jpg"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-21T12:12:10.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-21T12:12:10.000Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Returns details on a specific trouser trim.</p>
+<h3 id='http-request-14'>HTTP Request</h3>
+<p><code>GET https://api.trinity-apparel.com/v1/material_trouser_trims/:id</code></p>
+<h3 id='query-parameters-14'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>N/A</td>
+<td>The specific trouser trim id you want to see</td>
+</tr>
+</tbody></table>
+<h3 id='other-14'>Other</h3>
+<ul>
+<li>Permissions: All</li>
+<li>Pagination: N/A</li>
+</ul>
+<h2 id='get-all-zippers'>Get All Zippers</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/zippers"</span>
+  -H <span class="s2">"Authorization Bearer: swaledale"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"black"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Black"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://trinity-apparel.s3.amazonaws.com/option_images/zippers/black.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-10-27T15:18:40.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-10-27T15:18:40.000Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"medium_grey"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Medium Grey"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://trinity-apparel.s3.amazonaws.com/option_images/zippers/dark_gray.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-10-27T15:18:40.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-10-27T15:18:40.000Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pewter"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pewter"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://trinity-apparel.s3.amazonaws.com/option_images/zippers/light_gray.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-10-27T15:18:40.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-10-27T15:18:40.000Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"navy"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Navy"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://trinity-apparel.s3.amazonaws.com/option_images/zippers/dark_blue.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-10-27T15:18:40.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-10-27T15:18:40.000Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"medium_blue"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Medium Blue"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://trinity-apparel.s3.amazonaws.com/option_images/zippers/light_blue.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-10-27T15:18:40.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-10-27T15:18:40.000Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tan"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tan"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://trinity-apparel.s3.amazonaws.com/option_images/zippers/light_brown.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-10-27T15:18:40.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-10-27T15:18:40.000Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"brown"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Brown"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://trinity-apparel.s3.amazonaws.com/option_images/zippers/dark_brown.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-10-27T15:18:40.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-10-27T15:18:40.000Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"olive"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Olive"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://trinity-apparel.s3.amazonaws.com/option_images/zippers/dark_green.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-10-27T15:18:40.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-10-27T15:18:40.000Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"burgundy"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Burgundy"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://trinity-apparel.s3.amazonaws.com/option_images/zippers/maroon.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-10-27T15:18:40.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-10-27T15:18:40.000Z"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>Returns an array of active zippers.</p>
+<h3 id='http-request-15'>HTTP Request</h3>
+<p><code>GET https://api.trinity-apparel.com/v1/zippers</code></p>
+<h3 id='query-parameters-15'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>show_archived</td>
+<td>false</td>
+<td>If set to true, the result will also include inactive zippers.</td>
+</tr>
+<tr>
+<td>description</td>
+<td>N/A</td>
+<td>If set, will return any zippers with exact matching descriptions.</td>
+</tr>
+<tr>
+<td>q</td>
+<td>N/A</td>
+<td>If set, return all fuzzy matched descriptions.</td>
+</tr>
+<tr>
+<td>option_value_id</td>
+<td>N/A</td>
+<td>If set, returns all valid zippers for that option value.</td>
+</tr>
+</tbody></table>
+<h3 id='other-15'>Other</h3>
+<ul>
+<li>Permissions: All</li>
+<li>Pagination: Yes</li>
+</ul>
+<h3 id='querying-by-multiple-zipper-descriptions'>Querying by multiple zipper descriptions</h3>
+<p>In order to query for multiple threads, you will pass in multiple params with the format like below:</p>
+
+<p><code>GET https://api.trinity-apparel.com/v1/zippers?description[]=Olive&amp;description[]=Black&amp;description[]=Medium Grey</code></p>
+<h2 id='get-a-specific-zipper'>Get a Specific Zipper</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.trinity-apparel.com/v1/zippers/3"</span>
+  -H <span class="s2">"Authorization Bearer: swaledale"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pewter"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pewter"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://trinity-apparel.s3.amazonaws.com/option_images/zippers/light_gray.jpg"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"display_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-10-27T15:18:40.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-10-27T15:18:40.000Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Returns details on a specific zipper.</p>
+<h3 id='http-request-16'>HTTP Request</h3>
+<p><code>GET https://api.trinity-apparel.com/v1/zippers/:id</code></p>
+<h3 id='query-parameters-16'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>N/A</td>
+<td>The specific zipper id you want to see</td>
+</tr>
+</tbody></table>
+<h3 id='other-16'>Other</h3>
 <ul>
 <li>Permissions: All</li>
 <li>Pagination: N/A</li>
@@ -9102,9 +10051,9 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <p><code>GET https://api.trinity-apparel.com/v1/fabrics?is_active=1&amp;named_filter=lining&amp;collection_id=1356&amp;pattern_id=1&amp;per_page=32</code></p>
 
 <p>For the other materials, use the relevant API call to fetch valid IDs: <a href="#get-all-buttons">Buttons</a>, <a href="#get-all-felts">Felts</a>, <a href="#get-all-threads">Threads</a>, <a href="#get-all-suedes">Suedes</a>.</p>
-<h3 id='http-request-11'>HTTP Request</h3>
+<h3 id='http-request-17'>HTTP Request</h3>
 <p><code>POST https://api.trinity-apparel.com/v1/garments/:id/fabric_match</code></p>
-<h3 id='query-parameters-11'>Query Parameters</h3>
+<h3 id='query-parameters-17'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -9148,7 +10097,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 <td>The ID of the suede you want to match</td>
 </tr>
 </tbody></table>
-<h3 id='other-11'>Other</h3>
+<h3 id='other-17'>Other</h3>
 <ul>
 <li>Permissions: Only manufacturers can access this route.</li>
 <li>Pagination: N/A</li>
@@ -13592,6 +14541,15 @@ If cut lengths are provided for all fabrics, then that garment will automaticall
 </ul>
 <h1 id='changelog'>Changelog</h1>
 <p>A history of changes to the Trinity Apparel API.</p>
+<h2 id='2022-10-27'>2022-10-27</h2>
+<p>Several updates to Materials API:</p>
+
+<ul>
+<li>Updated <a href="#material-resources">resources</a>.</li>
+<li>Added APIs to <a href="#get-all-pipings">get all pipings</a> and <a href="#get-a-specific-piping">get a specific piping</a>.</li>
+<li>Added APIs to <a href="#get-all-trouser-trims">get all trouser trims</a> and <a href="#get-a-specific-trouser-trim">get a specific trouser trim</a>.</li>
+<li>Added APIs to <a href="#get-all-zippers">get all zippers</a> and <a href="#get-a-specific-zipper">get a specific zipper</a>.</li>
+</ul>
 <h2 id='2022-06-01'>2022-06-01</h2>
 <p>New API to create/update <a href="#update-fabric-match">fabric matches</a> for a fabric.</p>
 <h2 id='2021-04-22'>2021-04-22</h2>
