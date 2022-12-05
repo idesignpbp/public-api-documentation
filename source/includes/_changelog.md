@@ -2,6 +2,10 @@
 
 A history of changes to the Trinity Apparel API.
 
+## 2022-12-05
+
+- Updated [set delay status](#set-delay-status) API to allow for optional notes param.
+
 ## 2022-10-27
 
 Several updates to Materials API:

@@ -1843,6 +1843,7 @@ This call updates the delay status of a garment and puts an entry in garment his
 | Parameter    | Default | Description                                                                |
 | ------------ | ------- | -------------------------------------------------------------------------- |
 | delay_status | N/A     | Can be an id number or a code. [Click here](#delay-statuses) for more info |
+| notes        | N/A     | Optional param to provide a reason for for updating the delay status       |
 
 ### Other
 
