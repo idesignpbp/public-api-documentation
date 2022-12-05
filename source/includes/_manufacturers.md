@@ -740,14 +740,31 @@ curl "https://api.trinity-apparel.com/v1/garments/:id/properties"
         ],
         "quantity": {
           "32L": {
-            "csc": 3
+            "csc": {
+              "quantity": 4,
+              "options": []
+            }
           },
           "24L": {
-            "csc": 16,
-            "cv": 8,
-            "ct": 3
+            "csc": {
+              "quantity": 9,
+              "options": [
+                "Sleeve Vent - No Buttonholes, Kissing Sleeve Button Spacing"
+              ]
+            },
+            "cv": {
+              "quantity": 4,
+              "options": []
+            },
+            "ct": {
+              "quantity": 2,
+              "options": [
+                "7.6cm Round Extension - Hook & Bar, Buttonhole"
+              ]
+            }
           }
-        }
+        },
+        "automatched": true
       }
     ],
     "threads": [
@@ -861,7 +878,7 @@ All options include the option and option value. The option includes the id, nam
 
 In addition to options, we also provide a list of all materials needed to make the garment. Materials include fabrics, buttons, threads, labels, suedes, felts, pocket bags, and dealer labels. We include information specific to that material type (Trinity fabric number, thread code, etc), id, name, description, and image, which is a web link that you can use to display the material. Fabrics have a usage field, which can be shell (main fabric), lining, trim, or other. We also include a list of all options that use this material.
 
-We also include the quantity of each particular button under the `quantity` field. The quantity includes a number for small and large buttons. If the quantity is null, then we were unable to calculate the button count for that particular button.
+For each button type, we also provide a `quantity` object. This object contains a key/value pair for each button size which is itself a key/value pair for each garment type which is an object that contains a quantity and options field. `quantity` is a numeric field that shows the number of buttons needed for that garment and `options` is an array of options where those buttons are used. If the quantity is null, then we were unable to calculate the button count for that particular button.
 
 ### HTTP Request
 
@@ -997,30 +1014,47 @@ Length and width of the pattern (stripe, plaid, etc) when a fabric is received. 
     ...
   ],
   "quantity": {
-    "24L": {
-      "csc": 9,
-      "ct": 0
-    },
     "32L": {
-      "csc": 3,
-      "ct": 0
+      "csc": {
+        "quantity": 4,
+        "options": []
+      }
+    },
+    "24L": {
+      "csc": {
+        "quantity": 9,
+        "options": [
+          "Sleeve Vent - No Buttonholes, Kissing Sleeve Button Spacing"
+        ]
+      },
+      "cv": {
+        "quantity": 4,
+        "options": []
+      },
+      "ct": {
+        "quantity": 2,
+        "options": [
+          "7.6cm Round Extension - Hook & Bar, Buttonhole"
+        ]
+      }
     }
-  }
+  },
+  "automatched": true
 }
 ```
 
 Array of unique buttons used in the garment
 
-| Attribute                              | Description                                    |
-| -------------------------------------- | ---------------------------------------------- |
-| id <br> <span>integer</span>           | Unique identifier for the button.              |
-| name <br> <span>string</span>          | Supplier Number                                |
-| description <br> <span>string</span>   | Description of button used in ordering system. |
-| image <br> <span>string</span>         | Full url to an image of the button.            |
-| options <br> <span>subresource</span>  | List of options that the button is used in.    |
-| quantity <br> <span>subresource</span> | An array of button counts for the garment      |
+| Attribute                              | Description                                            |
+| -------------------------------------- | ------------------------------------------------------ |
+| id <br> <span>integer</span>           | Unique identifier for the button.                      |
+| name <br> <span>string</span>          | Supplier Number                                        |
+| description <br> <span>string</span>   | Description of button used in ordering system.         |
+| image <br> <span>string</span>         | Full url to an image of the button.                    |
+| options <br> <span>subresource</span>  | List of options that the button is used in.            |
+| quantity <br> <span>subresource</span> | An object of button counts and options for the garment |
 
-We separate each button size by using the Ligne scale. Inside each button size, we list the button count needed by garment type (E.g., csc for jacket).
+We separate each button size by using the Ligne scale. Inside each button size, we list the button count needed by garment type (E.g., csc for jacket) as well as an array of option descriptions that the buttons are used for.
 
 ### Materials Threads
 
