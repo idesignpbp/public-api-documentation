@@ -527,6 +527,9 @@
             <a href="#changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#2022-12-05" class="toc-h2 toc-link" data-title="2022-12-05">2022-12-05</a>
+                  </li>
+                  <li>
                     <a href="#2022-10-27" class="toc-h2 toc-link" data-title="2022-10-27">2022-10-27</a>
                   </li>
                   <li>
@@ -11592,14 +11595,31 @@ You must replace <code>swaledale</code> with your personal JWT token.
         </span><span class="p">],</span><span class="w">
         </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="s2">"32L"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"csc"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+            </span><span class="s2">"csc"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
           </span><span class="p">},</span><span class="w">
           </span><span class="s2">"24L"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"csc"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"cv"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ct"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+            </span><span class="s2">"csc"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"Sleeve Vent - No Buttonholes, Kissing Sleeve Button Spacing"</span><span class="w">
+              </span><span class="p">]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"cv"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"ct"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"7.6cm Round Extension - Hook &amp; Bar, Buttonhole"</span><span class="w">
+              </span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
           </span><span class="p">}</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"automatched"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
     </span><span class="s2">"threads"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -11710,7 +11730,7 @@ You must replace <code>swaledale</code> with your personal JWT token.
 
 <p>In addition to options, we also provide a list of all materials needed to make the garment. Materials include fabrics, buttons, threads, labels, suedes, felts, pocket bags, and dealer labels. We include information specific to that material type (Trinity fabric number, thread code, etc), id, name, description, and image, which is a web link that you can use to display the material. Fabrics have a usage field, which can be shell (main fabric), lining, trim, or other. We also include a list of all options that use this material.</p>
 
-<p>We also include the quantity of each particular button under the <code>quantity</code> field. The quantity includes a number for small and large buttons. If the quantity is null, then we were unable to calculate the button count for that particular button.</p>
+<p>For each button type, we also provide a <code>quantity</code> object. This object contains a key/value pair for each button size which is itself a key/value pair for each garment type which is an object that contains a quantity and options field. <code>quantity</code> is a numeric field that shows the number of buttons needed for that garment and <code>options</code> is an array of options where those buttons are used. If the quantity is null, then we were unable to calculate the button count for that particular button.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET https://api.trinity-apparel.com/v1/garments/:id/properties</code></p>
 <h3 id='query-parameters-2'>Query Parameters</h3>
@@ -11908,15 +11928,32 @@ We can also add filters and allow users to toggle localization (metric units, tr
     </span><span class="err">...</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"24L"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"csc"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ct"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-    </span><span class="p">},</span><span class="w">
     </span><span class="s2">"32L"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"csc"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ct"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+      </span><span class="s2">"csc"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"24L"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"csc"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"Sleeve Vent - No Buttonholes, Kissing Sleeve Button Spacing"</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"cv"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"ct"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"7.6cm Round Extension - Hook &amp; Bar, Buttonhole"</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"automatched"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Array of unique buttons used in the garment</p>
@@ -11949,11 +11986,11 @@ We can also add filters and allow users to toggle localization (metric units, tr
 </tr>
 <tr>
 <td>quantity <br> <span>subresource</span></td>
-<td>An array of button counts for the garment</td>
+<td>An object of button counts and options for the garment</td>
 </tr>
 </tbody></table>
 
-<p>We separate each button size by using the Ligne scale. Inside each button size, we list the button count needed by garment type (E.g., csc for jacket).</p>
+<p>We separate each button size by using the Ligne scale. Inside each button size, we list the button count needed by garment type (E.g., csc for jacket) as well as an array of option descriptions that the buttons are used for.</p>
 <h3 id='materials-threads'>Materials Threads</h3><pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Material</span><span class="w"> </span><span class="err">Thread</span><span class="w"> </span><span class="err">object</span><span class="w">
 </span><span class="p">{</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -13049,6 +13086,11 @@ If cut lengths are provided for all fabrics, then that garment will automaticall
 <td>delay_status</td>
 <td>N/A</td>
 <td>Can be an id number or a code. <a href="#delay-statuses">Click here</a> for more info</td>
+</tr>
+<tr>
+<td>notes</td>
+<td>N/A</td>
+<td>Optional param to provide a reason for for updating the delay status</td>
 </tr>
 </tbody></table>
 <h3 id='other-10'>Other</h3>
@@ -14541,6 +14583,11 @@ If cut lengths are provided for all fabrics, then that garment will automaticall
 </ul>
 <h1 id='changelog'>Changelog</h1>
 <p>A history of changes to the Trinity Apparel API.</p>
+<h2 id='2022-12-05'>2022-12-05</h2>
+<ul>
+<li>Updated <a href="#set-delay-status">set delay status</a> API to allow for optional notes param.</li>
+<li>Updated <a href="#garment-properties-materials">buttons</a> garment properties API to also provide an array of options that use the buttons. This is a breaking change as the shape of the <code>quantity</code> field for buttons has changed (please see example linked).</li>
+</ul>
 <h2 id='2022-10-27'>2022-10-27</h2>
 <p>Several updates to Materials API:</p>
 
