@@ -2,6 +2,11 @@
 
 A history of changes to the Trinity Apparel API.
 
+## 2022-12-05
+
+- Updated [set delay status](#set-delay-status) API to allow for optional notes param.
+- Updated [buttons](#garment-properties-materials) garment properties API to also provide an array of options that use the buttons. This is a breaking change as the shape of the `quantity` field for buttons has changed (please see example linked).
+
 ## 2022-10-27
 
 Several updates to Materials API:
