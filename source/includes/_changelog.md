@@ -2,6 +2,11 @@
 
 A history of changes to the Trinity Apparel API.
 
+## 2023-11-16
+- Updated [get shipment detail](#get-shipment-detail) to include the shipment type (bulk or direct).
+- Added API to [get garment ship destination](#get-garment-ship-destination) which includes the shipping class and rack code.
+- Added API to [complete shipment](#complete-shipment) that completes a created shipment and adjusts the shipment and garment statuses accordingly.
+
 ## 2022-12-05
 
 - Updated [set delay status](#set-delay-status) API to allow for optional notes param.
