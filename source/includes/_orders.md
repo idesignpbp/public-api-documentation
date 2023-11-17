@@ -2516,6 +2516,47 @@ Returns details on a specific garment.
 - Permissions: All
 - Pagination: N/A
 
+## Get Garment Ship Destination
+```shell
+curl -X POST "https://api.trinity-apparel.com/v1/garments/:id/destination"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "rack_code": "1058-001",
+    "shipping_class": "bulk"
+  }
+]
+```
+
+Returns the rack code and shipping class for a specified garment.
+
+### HTTP Request
+
+`GET https://api.trinity-apparel.com/v1/garments/:id/destination`
+
+### Query Parameters
+
+| Parameter | Default | Description                                              |
+| --------- | ------- | -------------------------------------------------------- |
+| id        | N/A     | The specific garment id for which you want to see the destination information. |
+
+### Shipping Classes
+- Bulk - This is the default shipping class. Garments with this shipping class will be bulk shipped to a distribution center.
+- Direct - Garments with this shipping class will be shipped directly to the customer along with other garments with the same rack code.
+
+### Rack Code
+A rack code is a unique identifier for a customer's address. The first four digits of the code are the customer's unique identifier and the last three digits are the unique identifier for each of that customer's addresses. Garments entering the finished goods warehouse with the direct ship shipping class are recommended to be sorted by rack code. This is uncessary for garments with the bulk shipping class.
+
+### Other
+
+- Permissions: Manufacturers
+- Pagination: N/A
+
 ## Get All Garment Options
 
 ```shell
