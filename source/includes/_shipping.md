@@ -81,7 +81,7 @@ It also creates a tracking box and tracking box items, which our distribution ce
 
 ### Rules
 
-All items in a shipment must be going to the same destination. If any garment is going to another location the whole shipment fails to be created.
+All items in a shipment must be going to the same destination. If any garment is going to another location the whole shipment fails to be created. Although the first check should cover this case, all garments in a shipment should be of the same shipping class.
 
 Same rules apply to manufacturers. If any item is from a different manufacturer, the shipment will fail to be created.
 
@@ -109,6 +109,110 @@ Same rules apply to manufacturers. If any item is from a different manufacturer,
 | 403           | Not Authorized - You're not a factory or the garment isn't from your factory |
 | 409           | Unable to move to a different status. Reason provided in JSON                |
 
+## Complete Shipment
+
+```shell
+curl -X POST "https://api.trinity-apparel.com/v1/shipments/:id/complete"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns a `201 Created` and returns a JSON structured like this:
+
+```json
+{
+    "id": 507121,
+    "description": "US Suits - November 17 #2 from T2iD MTM",
+    "status": "transit",
+    "method": "Worldwide Express",
+    "carrier": "UPS",
+    "tracking_number": "1Z9F23146639469257",
+    "receive_date": null,
+    "create_date": "2023-11-17T21:36:56.000Z",
+    "ship_date": "2023-11-17T21:37:38.000Z",
+    "shipment_type": "garment order",
+    "login_id": 1862,
+    "supplier": null,
+    "source": {
+        "id": 2343,
+        "contact_name": "Verawati Roma Uli",
+        "description": "PT. Trisco",
+        "street1": "Jl. Raya Kopo - Soreang",
+        "street2": "KM. 11.5 Katapang - Soreang",
+        "street3": null,
+        "city": "Bandung",
+        "state": "Jawa Barat",
+        "zip": "40971",
+        "country": "Indonesia",
+        "phone": "+62-22 589 7185"
+    },
+    "destination": {
+        "id": 1,
+        "contact_name": "Trinity Apparel Group, LLC",
+        "description": "Trinity USA",
+        "street1": "227 Marketridge Dr",
+        "street2": null,
+        "street3": null,
+        "city": "Ridgeland",
+        "state": "MS",
+        "zip": "39157",
+        "country": "USA",
+        "phone": "601-713-2628"
+    },
+    "shipment_items": [
+        {
+            "id": 2747629,
+            "item_id": 1520852,
+            "created_at": "2023-11-17T21:36:56.000Z"
+        },
+        {
+            "id": 2747630,
+            "item_id": 1520868,
+            "created_at": "2023-11-17T21:36:56.000Z"
+        }
+    ],
+    "fabric_orders": []
+}
+```
+
+### Description
+
+This call finalizes a shipment and moves the status of the shipment to 'transit'. If the tracking number for the shipment was not known at the time the shipment was created, it can be updated with the optional tracking number parameter. This call will also move all garments contained in the shipment to the status of 'International Transit'. 
+
+### Rules
+
+A shipment ID must be provided and the status of that shipment must be Pending. If the shipment is not pending, the shipment will fail to be completed.
+
+As shipment can only be completed by the manufacturer who created the shipment.
+
+Again, we check to ensure all garments contained in the shipment are of the same shipping class, either Direct or Garment Order. If any garment is of a different shipping class, the shipment will fail to be completed.
+
+
+
+### HTTP Request
+
+`POST https://api.trinity-apparel.com/v1/shipments/:id/complete`
+
+### Query Parameters
+
+| Parameter       | Default | Description                                                                         |
+| --------------- | ------- | ----------------------------------------------------------------------------------- |
+| shipment_id    | N/A     | The id of the shipment you are wishing to complete |
+| tracking_number | null    | Optional. The tracking number for the shipping carrier (E.g., FedEx, DHL, etc)      |
+
+### Other
+
+- Permissions: Only manufacturers can access this route. They can only complete shipments originating from their location.
+- Bulk and Garment Order are used interchangeably as a shipment class.
+- Pagination: N/A
+
+### Responses
+
+| Response Code | Description                                                                  |
+| ------------- | ---------------------------------------------------------------------------- |
+| 201           | Shipment successfully completed                                |
+| 403           | Not Authorized - You're not a factory or the garment isn't from your factory |
+| 409           | Unable to move to a different status. Reason provided in JSON                |
+
 ## Get Shipment Detail
 
 ```shell
@@ -128,6 +232,7 @@ curl -X GET "https://api.trinity-apparel.com/v1/shipments/:id"
     "tracking_number": "485590026995",
     "create_date": "2019-05-22T06:58:58.000Z",
     "ship_date": "2019-05-22T02:52:14.000Z",
+    "shipment_type": "bulk",
     "receive_date": "2019-05-29T08:12:59.000Z",
     "login_id": 1026,
     "supplier": {
@@ -217,6 +322,9 @@ Returns detail on a shipment, which includes the tracking number and destination
 #### Fabric Order
 
 Fabric Order shipments occur when fabrics shipped from a supplier to a factory. Fabric Orders and Supplier are only returned for fabric order shipments. There will not be any shipment items in a fabric order, since shipment items are a listing of garments in the shipment and this is only for raw materials.
+
+#### Shipment Type
+Shipments are either direct ship or bulk. Direct ship means the shipment is going directly to a customer. Bulk means the shipment is going to a distribution center.
 
 #### Garment Order
 
