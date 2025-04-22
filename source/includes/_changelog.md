@@ -2,7 +2,12 @@
 
 A history of changes to the Trinity Apparel API.
 
+## 2025-04-22
+
+- Added API to [create stocked fabric cuts](#create-stocked-fabric-cut) to log usage of stocked fabrics on garments.
+
 ## 2023-11-16
+
 - Updated [get shipment detail](#get-shipment-detail) to include the shipment type (bulk or direct).
 - Added API to [get garment ship destination](#get-garment-ship-destination) which includes the shipping class and rack code.
 - Added API to [complete shipment](#complete-shipment) that completes a created shipment and adjusts the shipment and garment statuses accordingly.

@@ -1529,6 +1529,57 @@ Pattern Measurement rules:
 | 403           | Not Authorized - You're not a factory                |
 | 409           | Unable to update the fabric. Reason provided in JSON |
 
+## Create Stocked Fabric Cut
+
+```shell
+curl -X POST "https://api.trinity-apparel.com/v1/manufacturer_fabric_cuts"
+  -H "Authorization Bearer: swaledale"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 6,
+  "fabric_id": 1,
+  "garment_id": 123,
+  "length": "2.45",
+  "is_recut": false,
+  "updated_at": "2025-04-21T20:53:20.000Z",
+  "created_at": "2025-04-21T20:53:20.000Z"
+}
+```
+
+### Description
+
+This call tracks the length (in meters) of fabric that is cut from a bolt of stocked fabric in order to be used on a garment.
+
+### HTTP Request
+
+`POST https://api.trinity-apparel.com/v1/manufacturer_fabric_cuts`
+
+### Query Parameters
+
+| Parameter  | Default | Description                                                                                                             |
+| ---------- | ------- | ----------------------------------------------------------------------------------------------------------------------- |
+| garment_id | N/A     | Garment ID                                                                                                              |
+| fabric_id  | N/A     | Fabric ID. Integer not String                                                                                           |
+| meters     | N/A     | Fabric length in meters                                                                                                 |
+| is_recut   | false   | Boolean. Denotes if this is a recut of the fabric due to an issue with the previous cut (flawed fabric, too short, etc) |
+
+### Other
+
+- Permissions: Only manufacturers can access this route.
+- Pagination: N/A
+
+### Responses
+
+| Response Code | Description                                                     |
+| ------------- | --------------------------------------------------------------- |
+| 201           | Stocked fabric cut entry was created                            |
+| 403           | Error: Not Authorized - You're not a factory                    |
+| 409           | Error: Unable to create a fabric cut. Error message is provided |
+
 ## Create Fabric Cut
 
 ```shell
