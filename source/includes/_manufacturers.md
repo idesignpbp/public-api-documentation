@@ -1541,7 +1541,7 @@ curl -X POST "https://api.trinity-apparel.com/v1/manufacturer_fabric_cuts"
 ```json
 {
   "id": 6,
-  "fabric_id": 1,
+  "sku_id": 1,
   "garment_id": 123,
   "length": "2.45",
   "is_recut": false,
@@ -1560,12 +1560,12 @@ This call tracks the length (in meters) of fabric that is cut from a bolt of sto
 
 ### Query Parameters
 
-| Parameter  | Default | Description                                                                                                             |
-| ---------- | ------- | ----------------------------------------------------------------------------------------------------------------------- |
-| garment_id | N/A     | Garment ID                                                                                                              |
-| fabric_id  | N/A     | Fabric ID. Integer not String                                                                                           |
-| meters     | N/A     | Fabric length in meters                                                                                                 |
-| is_recut   | false   | Boolean. Denotes if this is a recut of the fabric due to an issue with the previous cut (flawed fabric, too short, etc) |
+| Parameter       | Default | Description                                                                                                             |
+| --------------- | ------- | ----------------------------------------------------------------------------------------------------------------------- |
+| garment_id      | N/A     | Garment ID                                                                                                              |
+| supplier_number | N/A     | Supplier number of cut fabric                                                                                           |
+| meters          | N/A     | Fabric length in meters                                                                                                 |
+| is_recut        | false   | Boolean. Denotes if this is a recut of the fabric due to an issue with the previous cut (flawed fabric, too short, etc) |
 
 ### Other
 
